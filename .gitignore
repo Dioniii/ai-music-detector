@@ -3,3 +3,4 @@ __pycache__/
 .pytest_cache/
 .uv-cache/
 *.egg-info/
+data/source_metadata/

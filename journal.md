@@ -40,3 +40,29 @@ If the default uv cache is inaccessible, use `uv --no-cache sync --locked`.
 ### Learning review and next experiment
 
 Explain why `(8000, 2)` at 8000 Hz lasts one second, and why channel 1 is selected with `samples[:, 0]`. Try changing the synthetic tone to 500 Hz and updating its expected peak. Next, inspect a short local WAV after the user selects it; further implementation requires discussion and explicit approval.
+
+## Increment 2: Echoes/FMA metadata audit - 2026-09-19
+
+- Approved scope: source metadata only, a small audit module and tests, and a report;
+  maximum transfer 400 MiB. No audio downloads or training.
+- Implemented `dataset_audit.py` using Python's standard library, retaining source
+  CSVs and SHA-256 receipts locally under ignored `data/source_metadata/`.
+- HTTP range reads retrieved only ZIP indexes and selected CSVs: 21,000,502
+  response-body bytes (20.03 MiB). No new dependencies were needed.
+- Found 119 unambiguous FMA-small references linked to 1,389 Echoes TTA rows.
+  After setting aside three NoDerivatives references and conflicting paths, the
+  provisional pool is 116 references and 1,342 TTA rows. This is not a verified
+  or balanced training set.
+- Found 16 ambiguous reference names, repeated MusicGen paths, a 296-versus-300
+  reference-count discrepancy, and per-track license terms needing review.
+- Initial missing-module failure was observed before implementation. Two further
+  regression tests failed before adding real-data anomaly diagnostics. Full suite:
+  26 passed, one pre-existing short-audio warning.
+- Full evidence, source links, exact counts, limitations and reproduction commands:
+  [data/audit.md](data/audit.md).
+- Learning check: Why must a duplicate title/artist pair stay ambiguous? Why are
+  1,342 generated rows not equivalent to 1,342 independent human references?
+- Exercise: add a second matching FMA record to the exact-match test fixture and
+  predict the resulting status before running it.
+- Next experiment to discuss after review: resolve source IDs/license links for
+  a small pilot and define reference/artist grouping before proposing audio downloads.
