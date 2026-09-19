@@ -66,3 +66,56 @@ Explain why `(8000, 2)` at 8000 Hz lasts one second, and why channel 1 is select
   predict the resulting status before running it.
 - Next experiment to discuss after review: resolve source IDs/license links for
   a small pilot and define reference/artist grouping before proposing audio downloads.
+
+## Increment 3: pilot review manifest - 2026-09-19
+
+- Added the approved metadata review to `dataset_audit.py` and wrote
+  [data/pilot_review.csv](data/pilot_review.csv): 116 candidate reference rows,
+  source/license URLs, original dates, artist/reference grouping keys and linked
+  Echoes paths. No packages, audio, training or publication.
+- Original FMA metadata retrieval consumed 7.91 MiB against an enforced 15 MiB
+  incremental ceiling. Total archive metadata traffic is now 27.93 MiB.
+- 109 candidates have complete metadata; seven retain a review flag for a legacy
+  public-domain URL. All 116 remain unverified for human authorship. The 109 rows
+  link 1,239 TTA paths; all 116 together link 1,342 unique paths from 46 artists.
+- Most recording dates are absent (111 of 116); catalog dates are retained in
+  their own field and are never substituted for recording dates.
+- Initial tests failed for the missing function. Regression tests caught an
+  inaccurate legacy-license diagnosis and a missed explicit version conflict.
+  Final full suite: 39 passed, one existing audio warning. Artifact counts and
+  unique paths were independently checked after generation.
+- The seven historical public-domain URLs are recognized as an older CC tool;
+  they are flagged for review, not silently rewritten as CC0. The report links
+  the official explanation and records the raw metadata hash.
+- Learning check: Why are metadata completeness and verified authorship separate?
+  Why would splitting by recording alone still permit artist overlap?
+- Exercise: remove `license_url` from the complete raw-record fixture by setting
+  it to an empty string, predict the status/reason, then run the pilot-review test.
+- Remaining: manual provenance review and decisions about pilot size and grouped
+  splits. Further implementation and audio downloads await a new approved step.
+
+## Increment 4: six-file audio sanity check - 2026-09-19
+
+- Downloaded three FMA-small excerpts and three linked Echoes text-generated files
+  (ACE-Step, Suno, Udio) using selective ZIP reads, exact member-size checks, ZIP
+  CRC validation, and SHA-256 receipts. Audio and plots remain local and git-ignored.
+- Added `pilot_audio.py`, behavioral tests, the six-file manifest, measured JSON
+  results, and [data/audio_pilot_report.md](data/audio_pilot_report.md).
+- Pilot traffic was 10.27 MiB under a 32 MiB cap, including archive-index reads.
+  Existing SoundFile decoded all six MP3s. No new dependencies or training.
+- All files match expected durations within 0.25 seconds, have finite samples,
+  and are not entirely zero. All six rendered plots were visually inspected.
+- Learned why preprocessing matters: these human files are 44.1 kHz/~30 s;
+  generated files are 48 kHz/~84-169 s. Those properties could become shortcuts.
+- Straw Fields has mean amplitude -0.522756 and a visibly shifted waveform.
+  Its cause is unresolved; preserve it and flag it for review rather than silently
+  repairing it. No files were normalized, resampled, trimmed, or replaced.
+- Initial missing-module failure and a failing offset-measurement test were
+  observed before implementation. Final full suite: 46 passed, one existing warning.
+- Listening and content identity checks remain pending; source labels remain
+  expectations. Six records cannot support detector accuracy claims.
+- Learning check: why would a 44.1-vs-48-kHz rule be misleading? For a stereo
+  array shaped `(1323119, 2)`, which dimension determines duration?
+- Exercise: use `audio_inspection.py` to open Digital Lightning's human plot, then
+  its Udio counterpart; compare time axes and listen to a short section of each.
+- Pause for review before proposing preprocessing or additional downloads.

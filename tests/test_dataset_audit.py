@@ -7,6 +7,76 @@ import zipfile
 import pytest
 
 from dataset_audit import RangeReader, TransferBudget, audit, read_fma, summarize
+from dataset_audit import build_pilot_review
+
+
+def raw_track(**changes):
+    row = {"track_id": "1", "track_title": "Song", "artist_name": "Artist",
+           "artist_id": "7", "track_url": "https://freemusicarchive.org/music/Artist/Song",
+           "license_url": "https://creativecommons.org/licenses/by/4.0/",
+           "license_title": "Attribution 4.0 International",
+           "track_date_created": "2016-01-02 12:00:00", "track_date_recorded": ""}
+    return {**row, **changes}
+
+
+def test_pilot_groups_counterparts_and_retains_evidence_without_claiming_authorship():
+    matches = audit([generated(), generated(generator="second")], [track()])
+    rows = build_pilot_review(matches, [raw_track()])
+    assert len(rows) == 1
+    assert rows[0]["track_id"] == "1"
+    assert rows[0]["artist_id"] == "7"
+    assert rows[0]["metadata_status"] == "metadata_complete"
+    assert rows[0]["provenance_status"] == "unverified"
+    assert rows[0]["license_url"] == raw_track()["license_url"]
+    assert rows[0]["track_date_created"] == raw_track()["track_date_created"]
+    assert rows[0]["tta_count"] == 2
+    assert "TTA/second/song.mp3" in rows[0]["echoes_paths_json"]
+
+
+@pytest.mark.parametrize("changes,reason", [
+    ({"license_url": ""}, "missing_license_url"),
+    ({"track_url": ""}, "missing_source_url"),
+    ({"artist_id": "9"}, "artist_id_conflict"),
+    ({"track_title": "Different song"}, "reference_name_conflict"),
+    ({"license_url": "https://creativecommons.org/licenses/by-nc/4.0/"}, "license_conflict"),
+    ({"track_date_created": "", "track_date_recorded": ""}, "missing_dates"),
+    ({"license_url": "https://creativecommons.org.example.org/licenses/by/4.0/"}, "unrecognized_license_url"),
+    ({"license_url": "https://creativecommons.org/licenses/by/3.0/"}, "license_version_conflict"),
+])
+def test_pilot_marks_missing_or_conflicting_evidence(changes, reason):
+    rows = build_pilot_review(audit([generated()], [track()]), [raw_track(**changes)])
+    assert rows[0]["metadata_status"] == "needs_review"
+    assert reason in rows[0]["review_reasons"]
+
+
+def test_legacy_public_domain_link_is_not_mislabeled_as_conflicting():
+    item = track()
+    item["license"] = "Public Domain"
+    raw = raw_track(license_title="Public Domain",
+                    license_url="http://creativecommons.org/licenses/publicdomain/")
+    row = build_pilot_review(audit([generated()], [item]), [raw])[0]
+    assert row["metadata_status"] == "needs_review"
+    assert row["review_reasons"] == "legacy_public_domain_url"
+
+
+@pytest.mark.parametrize("raw_rows,reason", [([], "missing_raw_record"),
+                                                     ([raw_track(), raw_track()], "duplicate_raw_id")])
+def test_pilot_keeps_candidate_when_raw_record_is_missing_or_ambiguous(raw_rows, reason):
+    rows = build_pilot_review(audit([generated()], [track()]), raw_rows)
+    assert len(rows) == 1
+    assert rows[0]["metadata_status"] == "needs_review"
+    assert reason in rows[0]["review_reasons"]
+
+
+def test_pilot_excludes_ambiguous_ata_nd_and_repeated_paths():
+    nd_track = track("2", title="Restricted")
+    nd_track["license"] = "Attribution-NoDerivatives 4.0 International"
+    echoes = [generated(), generated(), generated(kind="ATA"),
+              generated("Restricted - Artist", generator="nd"),
+              generated("Ambiguous - Artist", generator="ambiguous")]
+    matches = audit(echoes, [track(), nd_track, track("3", title="Ambiguous"),
+                            track("4", title="Ambiguous")])
+    assert build_pilot_review(matches, [raw_track()]) == []
 
 
 def track(track_id="1", title="Song", artist="Artist", subset="small"):

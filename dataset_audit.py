@@ -4,6 +4,7 @@ Commands:
   python dataset_audit.py list echoes
   python dataset_audit.py fetch echoes path/inside/archive.csv
   python dataset_audit.py report echoes.csv tracks.csv
+  python dataset_audit.py pilot reference_matches.csv raw_tracks.csv
 
 Source metadata and transfer receipts stay in data/source_metadata. Only exact
 title/artist matches and conservative normalized matches are linked; no fuzzy
@@ -20,6 +21,7 @@ from pathlib import Path
 import re
 import unicodedata
 from urllib.request import Request, urlopen
+from urllib.parse import urlparse
 import zipfile
 
 
@@ -208,6 +210,111 @@ def summarize(rows: list[dict[str, str]]) -> dict:
     }
 
 
+def build_pilot_review(
+    matches: list[dict[str, str]], raw_tracks: list[dict[str, str]],
+) -> list[dict[str, str | int]]:
+    """One review row per candidate track, with unique TTA paths and source evidence.
+
+    metadata_complete means required evidence fields are present and consistent,
+    not that URLs were visited, license rights verified, or human authorship proven.
+    Raw dates are retained verbatim; a catalog date is not a recording date.
+    """
+    path_counts = Counter(row["path_in_dataset"] for row in matches)
+    groups = defaultdict(list)
+    for row in matches:
+        if (row["type"] == "TTA" and row["fma_small"] == "yes"
+                and row["match_status"] in {"exact", "normalized"}
+                and "derivative" not in row["fma_license"].casefold()
+                and path_counts[row["path_in_dataset"]] == 1):
+            groups[row["fma_track_ids"]].append(row)
+    raw_by_id = defaultdict(list)
+    for row in raw_tracks:
+        if row["track_id"] in groups:
+            raw_by_id[row["track_id"]].append(row)
+
+    result = []
+    for track_id, counterparts in sorted(groups.items(), key=lambda item: int(item[0])):
+        first = counterparts[0]
+        raw_options = raw_by_id[track_id]
+        reasons = []
+        raw = raw_options[0] if len(raw_options) == 1 else {}
+        if not raw_options:
+            reasons.append("missing_raw_record")
+        elif len(raw_options) > 1:
+            reasons.append("duplicate_raw_id")
+        if raw:
+            if normalize(f"{raw.get('track_title', '')} - {raw.get('artist_name', '')}") != normalize(first["original_audio"]):
+                reasons.append("reference_name_conflict")
+            if raw.get("artist_id", "") != first["fma_artist_id"]:
+                reasons.append("artist_id_conflict")
+            if normalize(raw.get("license_title", "")) != normalize(first["fma_license"]):
+                reasons.append("license_title_conflict")
+        source_url = raw.get("track_url", "").strip()
+        license_url = raw.get("license_url", "").strip()
+        if not source_url:
+            reasons.append("missing_source_url")
+        else:
+            source_parts = urlparse(source_url)
+            if (source_parts.scheme not in {"http", "https"}
+                    or source_parts.hostname not in {"freemusicarchive.org", "www.freemusicarchive.org"}):
+                reasons.append("unrecognized_source_url")
+        if not license_url:
+            reasons.append("missing_license_url")
+        else:
+            license_parts = urlparse(license_url)
+            if license_parts.scheme not in {"http", "https"} or license_parts.hostname not in {"creativecommons.org", "www.creativecommons.org"}:
+                reasons.append("unrecognized_license_url")
+            else:
+                # Compare license families, allowing a generic title such as
+                # 'Attribution' to be made more specific by its versioned URL.
+                title = first["fma_license"].casefold()
+                path = license_parts.path.rstrip("/")
+                by_match = re.fullmatch(r"/licenses/by/(\d+\.\d+)(?:/[a-z]{2})?", path)
+                is_by = bool(by_match)
+                is_zero = path == "/publicdomain/zero/1.0"
+                is_mark = path == "/publicdomain/mark/1.0"
+                compact_title = re.sub(r"[\s-]", "", title)
+                consistent = (
+                    (is_by and "attribution" in title
+                     and "noncommercial" not in compact_title and "sharealike" not in compact_title)
+                    or (is_zero and ("cc0" in title or "public domain" in title))
+                    or (is_mark and "public domain" in title)
+                )
+                if path in {"/licenses/publicdomain", "/publicdomain/certification/1.0/us"}:
+                    reasons.append("legacy_public_domain_url")
+                    if "public domain" not in title:
+                        reasons.append("license_conflict")
+                elif not consistent:
+                    reasons.append("license_conflict")
+                title_version = re.search(r"\b\d+\.\d+\b", title)
+                if by_match and title_version and title_version[0] != by_match[1]:
+                    reasons.append("license_version_conflict")
+        if not raw.get("track_date_created", "").strip() and not raw.get("track_date_recorded", "").strip():
+            reasons.append("missing_dates")
+        if not first["fma_artist_id"].strip():
+            reasons.append("missing_artist_id")
+        result.append({
+            "track_id": track_id, "reference": first["original_audio"],
+            "artist_id": first["fma_artist_id"], "reference_group_id": f"fma:{track_id}",
+            "artist_group_id": f"fma_artist:{first['fma_artist_id']}",
+            "match_status": first["match_status"],
+            "source_url": source_url, "license_title": first["fma_license"],
+            "license_url": license_url, "raw_license_title": raw.get("license_title", ""),
+            "raw_track_title": raw.get("track_title", ""),
+            "raw_artist_name": raw.get("artist_name", ""), "raw_artist_id": raw.get("artist_id", ""),
+            "track_date_created": raw.get("track_date_created", ""),
+            "track_date_recorded": raw.get("track_date_recorded", ""),
+            "tta_count": len(counterparts),
+            "echoes_paths_json": json.dumps(sorted(row["path_in_dataset"] for row in counterparts), ensure_ascii=False),
+            "generators_json": json.dumps(sorted({row["generator"] for row in counterparts})),
+            "genres_json": json.dumps(sorted({row["genre"] for row in counterparts})),
+            "echoes_revision": ECHOES_REVISION,
+            "metadata_status": "needs_review" if reasons else "metadata_complete",
+            "review_reasons": ";".join(reasons), "provenance_status": "unverified",
+        })
+    return result
+
+
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     commands = parser.add_subparsers(dest="command", required=True)
@@ -219,6 +326,10 @@ def main() -> None:
     report = commands.add_parser("report")
     report.add_argument("echoes_csv", type=Path)
     report.add_argument("fma_csv", type=Path)
+    pilot = commands.add_parser("pilot")
+    pilot.add_argument("matches_csv", type=Path)
+    pilot.add_argument("raw_tracks_csv", type=Path)
+    pilot.add_argument("--output", type=Path, default=Path("data/pilot_review.csv"))
     args = parser.parse_args()
     METADATA_DIR.mkdir(parents=True, exist_ok=True)
     if args.command in {"list", "fetch"}:
@@ -248,6 +359,28 @@ def main() -> None:
                 target.with_suffix(target.suffix + ".receipt.json").write_text(json.dumps(receipt, indent=2), encoding="utf-8")
                 print(json.dumps(receipt, indent=2))
         print(f"Cumulative metadata transfer: {budget.used} / {budget.limit} bytes")
+    elif args.command == "pilot":
+        if args.output.exists():
+            raise ValueError(f"Refusing to overwrite review file: {args.output}")
+        with args.matches_csv.open(encoding="utf-8-sig", newline="") as handle:
+            matches = list(csv.DictReader(handle))
+        with args.raw_tracks_csv.open(encoding="utf-8-sig", newline="") as handle:
+            reader = csv.DictReader(handle)
+            if "track_id" not in (reader.fieldnames or []):
+                raise ValueError("Raw FMA metadata is missing track_id")
+            rows = build_pilot_review(matches, list(reader))
+        if not rows:
+            raise ValueError("No pilot candidates remain after exclusions")
+        args.output.parent.mkdir(parents=True, exist_ok=True)
+        with args.output.open("x", encoding="utf-8", newline="") as handle:
+            writer = csv.DictWriter(handle, fieldnames=list(rows[0]))
+            writer.writeheader()
+            writer.writerows(rows)
+        print(json.dumps({"candidate_tracks": len(rows),
+                          "tta_rows": sum(row["tta_count"] for row in rows),
+                          "metadata_status": dict(Counter(row["metadata_status"] for row in rows)),
+                          "review_reasons": dict(Counter(reason for row in rows for reason in row["review_reasons"].split(";") if reason)),
+                          "output": str(args.output)}, indent=2))
     else:
         with args.echoes_csv.open(encoding="utf-8-sig", newline="") as handle:
             echoes = list(csv.DictReader(handle))

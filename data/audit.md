@@ -175,3 +175,94 @@ transfer ledger to bypass its cumulative cap. Source metadata remains out of git
 
 AI assistance: Codex wrote the audit, tests and report under the approved scope.
 Further implementation or audio downloads require a new approved increment.
+
+## Increment 3: pilot metadata review
+
+Approved on 2026-09-19: retrieve original FMA track metadata, review the provisional
+pool, and create [pilot_review.csv](pilot_review.csv). No audio downloads or training.
+
+The additional ZIP member `fma_metadata/raw_tracks.csv` was retrieved from the same
+official FMA metadata archive. Its extracted SHA-256 is
+`b025dc407ed663c10a0e3fd03b7b98154674bab043dff3ed8883f255010f7147`.
+The local source file and receipt are `data/source_metadata/fma_raw_tracks.csv`
+and its `.receipt.json` companion. Extraction verified the ZIP CRC.
+
+This increment transferred **8,289,414 response-body bytes (7.91 MiB)**, with a hard
+additional ceiling of 15 MiB enforced using the previous ledger total of 21,000,502
+bytes. Combined metadata transfers are **29,289,916 bytes (27.93 MiB)**, within the
+400 MiB overall ceiling. A Creative Commons explanatory webpage was also read
+through the web tool; its traffic is not included in this archive-transfer ledger.
+
+### Results
+
+| Review measurement | Count |
+|---|---:|
+| Candidate human reference rows | 116 |
+| Distinct artist IDs | 46 |
+| Associated TTA paths, all unique | 1,342 |
+| Metadata complete | 109 |
+| Needs review | 7 |
+| TTA paths associated with metadata-complete rows | 1,239 |
+| Missing source or license URL | 0 |
+| Missing catalog-entry date | 0 |
+| Missing recording date | 111 |
+| Independently verified human-authorship records | 0 |
+
+All 116 candidates have one raw FMA record with consistent names and artist IDs.
+The seven review flags are `legacy_public_domain_url`, for tracks 21995 through
+22001 by Katapulto. Their URL is `http://creativecommons.org/licenses/publicdomain/`.
+The [official Creative Commons page](https://creativecommons.org/publicdomain/certification/1.0/us/)
+identifies this as the older US copyright dedication/certification tool, retired in
+2010. These URLs are not treated as proof of contradictory licenses or replaced
+with CC0 automatically. Per-record review remains pending.
+
+License URLs recorded across the 116 candidates: CC BY 3.0 US (14), CC BY 3.0
+(25), CC BY 4.0 (56), Public Domain Mark 1.0 (13), CC0 1.0 (1), and the legacy
+public-domain URL (7). These are historical metadata values, not a legal rights audit.
+
+### How to read the CSV
+
+- `metadata_status=metadata_complete`: required evidence is present and the
+  implemented name, artist, license-family and explicit BY-version checks pass.
+  It does not mean all source webpages were visited or the date values verified.
+- `metadata_status=needs_review`: see semicolon-separated `review_reasons`.
+  Missing or duplicate raw IDs also produce a review row instead of dropping a candidate.
+- `provenance_status=unverified`: retained for every candidate. This is a review
+  manifest, not a finalized list of confirmed human recordings.
+- `source_url`, `license_url`, and raw license/name/artist fields retain evidence
+  from the original metadata. No user audio or source files were uploaded.
+- `track_date_created` is the FMA catalog-entry date; `track_date_recorded` is the
+  separately supplied recording date. Original strings are preserved. A missing
+  recording date is not replaced with the catalog date. If both are absent, the
+  record needs review.
+- `reference_group_id` and `artist_group_id` preserve stable grouping keys for
+  later splits. They do not themselves assign any train/validation/test split.
+- `echoes_paths_json`, `generators_json`, and `genres_json` are JSON lists inside
+  CSV cells, allowing commas and other punctuation without ambiguous delimiters.
+  `tta_count` counts paths, not unique generators or independently verified recordings.
+- Ambiguous references, ATA rows, NoDerivatives references and repeated generated
+  paths remain excluded by the existing provisional selection rules.
+
+Concrete trace: `Acoustic Unleashed - Remain` matches track 141875 / artist 22429.
+The original FMA record supplies its track page and a CC BY 4.0 URL. It records
+catalog entry `8/20/2016 02:20:56 PM` and recording date `5/29/2002`.
+The CSV links 16 unique TTA paths across 12 generator labels. Its status is
+`metadata_complete`, while authorship remains `unverified`.
+
+### Reproduce and verification
+
+No network is used when generating the review from the existing local CSVs:
+
+```powershell
+.\.venv\Scripts\python.exe dataset_audit.py pilot data/source_metadata/reference_matches.csv data/source_metadata/fma_raw_tracks.csv --output data/source_metadata/pilot_review_rerun.csv
+```
+
+The command refuses to overwrite an existing review CSV, preserving any manual
+annotations. Use a fresh output filename when comparing a new run.
+
+Tests failed on the missing review function before implementation. Further
+regression tests exposed legacy-URL misclassification and explicit license-version
+conflicts before those behaviors were corrected. Final full suite: **39 passed**,
+with the same pre-existing short-audio plotting warning. A final artifact check
+confirmed 116 rows, 1,342 unique paths, complete source/license URL fields, and
+`unverified` provenance on every row.
