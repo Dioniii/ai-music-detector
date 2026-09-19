@@ -1,0 +1,17 @@
+[project]
+name = "ai-music-detector"
+version = "0.1.0"
+description = "Learning to inspect audio before building a music classifier"
+requires-python = ">=3.12,<3.13"
+dependencies = [
+    "numpy>=2,<3",
+    "soundfile>=0.13,<0.14",
+    "matplotlib>=3.10,<4",
+]
+
+[dependency-groups]
+dev = ["pytest>=8,<10"]
+
+[tool.pytest.ini_options]
+pythonpath = ["."]
+testpaths = ["tests"]
