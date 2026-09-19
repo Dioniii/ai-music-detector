@@ -119,3 +119,68 @@ Explain why `(8000, 2)` at 8000 Hz lasts one second, and why channel 1 is select
 - Exercise: use `audio_inspection.py` to open Digital Lightning's human plot, then
   its Udio counterpart; compare time axes and listen to a short section of each.
 - Pause for review before proposing preprocessing or additional downloads.
+
+## Increment 5: consistent ten-second clips - 2026-09-19
+
+- Added `preprocessing.py`: `preprocess_audio(audio, start_seconds=...)` accepts
+  the existing decoded `Audio` object and returns a new one-dimensional float32
+  array of exactly 240,000 samples (10 seconds, mono, 24,000 Hz).
+- Channels are averaged, then the full recording is resampled, then the requested
+  clip is extracted. The start is required and rounds down to the 24 kHz sample
+  grid, by less than 1/24000 second. Requested intervals beyond the original
+  duration are rejected before resampling; no short recording is padded to pass.
+- SciPy 1.18.1 was installed (35.0 MiB reported package download) and recorded in
+  `uv.lock`. No existing package changed. The package declaration is in
+  `pyproject.toml`; no dataset/model downloads or training occurred.
+- [SciPy's resample_poly documentation](https://docs.scipy.org/doc/scipy/reference/generated/scipy.signal.resample_poly.html)
+  describes the low-pass filtered resampling used here. Parameters are explicit:
+  Kaiser window with beta 5.0, constant zero boundary extension. The ratio for
+  44,100 to 24,000 Hz is 80/147; for 48,000 to 24,000 Hz it is 1/2. Filtering
+  reduces high-frequency aliasing rather than merely dropping samples or relabeling
+  the sample rate. Content above the target Nyquist frequency of 12 kHz is lost;
+  24 kHz is an initial baseline choice, not a promise about a future encoder.
+- Tests were written first and failed for the missing module. All 28 new tests
+  pass, including an 18 kHz input that would alias without filtering, a 1 kHz tone
+  whose frequency/amplitude are preserved, mono/stereo handling, exact/fractional
+  starts, short clips, invalid input, and unchanged arrays. Full suite: **74 passed**,
+  with the existing one-segment plotting warning.
+- Ran all six local pilot recordings with explicit `start_seconds=0.0` as a smoke
+  check, not a proposed training clip-selection policy. Every output was finite,
+  shape `(240000,)`, dtype `float32`, 24,000 Hz, and 10 seconds. SHA-256 checks
+  confirmed both original files and input arrays were unchanged.
+- Measured configuration, versions, source/output hashes and per-file statistics
+  are saved in [data/preprocessing_pilot_results.json](data/preprocessing_pilot_results.json).
+  Derived clips were held in memory, not written as new audio files.
+- Concrete trace: Digital Lightning loads as `(1323119, 2)` at 44,100 Hz.
+  Averaging axis 1 produces `(1323119,)`; resampling changes the sampling grid
+  to 24,000 Hz while preserving playback speed. Starting at zero and taking
+  240,000 samples yields ten seconds, with mean amplitude about 0.00000244.
+- Limits: opposing stereo channels can cancel; clipping from the beginning may
+  select silence/intros; resampling has boundary effects and does not erase codec
+  history. This whole-recording implementation uses memory proportional to the
+  recording's length. Dataset splitting remains separate and must precede future
+  clip generation for training/evaluation.
+- No volume normalization, peak clipping, or DC-offset removal was added. Straw
+  Fields' first ten seconds retain mean amplitude about -0.546410. Its source
+  review remains pending; formatting success does not make it a clean training
+  example. We have not listened to or assessed the perceptual quality of the outputs.
+
+### Try the function
+
+Start the project Python interpreter with `.\.venv\Scripts\python.exe`, then:
+
+```python
+from audio_inspection import load_audio
+from preprocessing import preprocess_audio, TARGET_SAMPLE_RATE
+
+audio = load_audio("data/audio_pilot/human_112315.mp3")
+clip = preprocess_audio(audio, start_seconds=0.0)
+print(clip.shape, clip.dtype, len(clip) / TARGET_SAMPLE_RATE)
+# Actual pilot contract: (240000,) float32 10.0
+```
+
+- Understanding checks: why does `mean(axis=1)` remove channels rather than time?
+  Why would changing a sample-rate number without resampling change playback speed?
+- Exercise: change `start_seconds` to 5.0. Predict the output shape and duration,
+  then run it. Try 25.0 on this 30-second file and explain the error.
+- Pause for review. No subsequent increment or training is authorized by this step.
