@@ -8,6 +8,7 @@ dependencies = [
     "soundfile>=0.13,<0.14",
     "matplotlib>=3.10,<4",
     "scipy>=1.16,<2",
+    "librosa>=0.11,<0.12",
 ]
 
 [dependency-groups]

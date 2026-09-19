@@ -184,3 +184,107 @@ print(clip.shape, clip.dtype, len(clip) / TARGET_SAMPLE_RATE)
 - Exercise: change `start_seconds` to 5.0. Predict the output shape and duration,
   then run it. Try 25.0 on this 30-second file and explain the error.
 - Pause for review. No subsequent increment or training is authorized by this step.
+
+## Increment 6: five audio features, ten summaries - 2026-09-19
+
+- Added `features.py` with `extract_features(clip)` and an explicit `FEATURE_NAMES`
+  order. Input is a preprocessed `(240000,)` floating array at 24 kHz; output is
+  a `(10,)` float64 vector. Wrong shapes, integer PCM, NaN and infinity are rejected.
+  Arrays do not contain sample-rate metadata, so callers must use preprocessing.
+- Installed librosa 0.11.0 and locked its dependencies. The required dependencies
+  include scikit-learn, numba and llvmlite; no classifier was used or trained.
+  No models or audio were downloaded. Existing source files and input clips were
+  hash-checked before/after extraction and remained unchanged.
+- Measured the same first ten seconds of all six pilot recordings, explicitly
+  using `start_seconds=0.0`. Saved [data/pilot_features.csv](data/pilot_features.csv)
+  and [data/pilot_features_config.json](data/pilot_features_config.json). The latter
+  records versions, settings, feature order and source/output hashes.
+- The resulting numeric matrix is `(6, 10)`. Identity, label expectation, reference
+  group, generator, start time, source hash and review note are metadata columns,
+  not additional model inputs. Use FEATURE_NAMES to select the ten measurements.
+
+### Definitions and data flow
+
+Each clip is analyzed using left-aligned, non-padded 1024-sample frames and a
+512-sample hop: a 42.667 ms window every 21.333 ms. There are 467 complete frames;
+the last 384 samples (16 ms) do not form another full frame and are omitted.
+
+| Feature | Measurement | Unit |
+|---|---|---|
+| RMS | Root mean square of sample amplitudes in each frame | Relative amplitude |
+| Zero-crossing rate | Fraction of sign changes per frame; exact zero is treated as positive | Dimensionless |
+| Spectral centroid | Magnitude-weighted center of the spectrum | Hz |
+| Spectral bandwidth | Magnitude-weighted spread about the centroid, p=2 | Hz |
+| Spectral flatness | Geometric/arithmetic mean ratio of power bins, using a numerical floor | Dimensionless |
+
+RMS and zero crossings use the unwindowed frame. Spectral features use a Hann
+window and a shared magnitude spectrogram shaped `(513, 467)`: 513 frequency bins
+and 467 frames. The five frame-feature arrays stack to `(5, 467)`. Taking each
+row's mean and population standard deviation (`ddof=0`) produces `(5, 2)`, then
+flattening yields `(10,)` in FEATURE_NAMES order. Standard deviation describes
+variation over time, not uncertainty about authorship or classifier confidence.
+
+Feature order is RMS mean/std, ZCR mean/std, centroid mean/std, bandwidth mean/std,
+then flatness mean/std. RMS is not perceptual loudness. Centroid and bandwidth
+use magnitude weights; flatness uses power with floor `1e-10`.
+The [librosa 0.11 feature documentation/source](https://librosa.org/doc/0.11.0/_modules/librosa/feature/spectral.html)
+documents these calculations.
+
+Silence gives zero RMS, ZCR, centroid and bandwidth but flatness **1**, because all
+power bins are floored equally. That convention must not be described as noise
+evidence. Very low-energy frames can also be affected by this floor.
+
+### Actual pilot measurements (selected columns)
+
+| Sample | Mean RMS | RMS std | Mean centroid (Hz) |
+|---|---:|---:|---:|
+| human_45101 | 0.604507 | 0.100834 | 1542.015 |
+| human_127294 | 0.432164 | 0.039296 | 2664.063 |
+| human_112315 | 0.275001 | 0.060915 | 2376.946 |
+| ai_45101 | 0.048570 | 0.013985 | 599.422 |
+| ai_127294 | 0.039010 | 0.011941 | 977.396 |
+| ai_112315 | 0.101173 | 0.062838 | 3366.064 |
+
+Example: Digital Lightning goes through the existing preprocessing into 240,000
+samples. Its 467 frame RMS values summarize to mean 0.275001 and std 0.060915;
+those become positions 0 and 1 in the feature vector. Its centroid mean is about
+2376.946 Hz, position 4. These are measured properties, not forensic findings.
+
+All three human-labeled clips happen to have higher mean RMS than the three AI
+clips. This six-record sample does not establish a useful classification rule:
+mastering, source preparation, clip position and the known offset are confounds.
+Straw Fields retains an explicit review note; its offset contributes energy and
+affects zero crossings/spectral measurements. No recording was repaired, relabeled,
+or excluded silently. Listening and provenance review remain pending.
+
+### Verification and learning review
+
+- New tests first failed because `features.py` did not exist. Twelve feature tests
+  then passed: output contract/order, unchanged input, silence, known tone energy,
+  frequency/zero crossings, noise versus tone, varying energy, constant offset,
+  invalid shape/type and non-finite inputs.
+- Full suite: **86 passed**, with the existing one-segment audio plotting warning.
+  All six actual pilot vectors contain ten finite values. No accuracy was measured.
+- Mean/std discard temporal order and many musical details; their usefulness must
+  be evaluated later. No scaler was fitted, and no training/test split was created.
+
+To inspect a vector in the project Python interpreter:
+
+```python
+from audio_inspection import load_audio
+from preprocessing import preprocess_audio
+from features import extract_features, FEATURE_NAMES
+
+audio = load_audio("data/audio_pilot/human_112315.mp3")
+clip = preprocess_audio(audio, start_seconds=0.0)
+vector = extract_features(clip)
+print(dict(zip(FEATURE_NAMES, vector)))
+```
+
+- Understanding checks: why do five features become ten numbers? Why is higher
+  RMS in these three human examples insufficient to claim an AI-detection rule?
+- Exercise: extract features from `clip * 0.5`. Predict which measurements will
+  change most, then compare. RMS mean/std should approximately halve; normalized
+  spectral measurements should remain similar except where the flatness floor
+  matters. Do not modify the original audio files.
+- Pause for review; dataset expansion, splitting and training require a new step.
