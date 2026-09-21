@@ -288,3 +288,53 @@ print(dict(zip(FEATURE_NAMES, vector)))
   spectral measurements should remain similar except where the flatness floor
   matters. Do not modify the original audio files.
 - Pause for review; dataset expansion, splitting and training require a new step.
+
+
+## Increment 7: evaluation protocol - 2026-09-21
+
+- Created [EVALUATION_PROTOCOL.md](EVALUATION_PROTOCOL.md), version 0.1, under
+  the approved documentation-only scope. No records were relabeled or split.
+- Separated metadata completeness from eligibility: provenance, listening and
+  quality questions remain unresolved and must be reviewed before modeling.
+- Defined transitive reference/artist/duplicate groups and reserved the six
+  inspected pilot tracks and their connected groups for development. Split
+  proportions remain pending an inventory of eligible groups.
+- Defined separate seen-generator and unseen-generator evaluation conditions,
+  training-only fitting, validation-based threshold selection, track-level
+  metrics and explicit handling of inconclusive predictions.
+- Recorded pending decisions, experiment freeze records and future behavioral
+  checks. No code, dependencies, audio downloads or training were added.
+- Verified protocol local links and basic Markdown structure. The previous
+  86-test result is historical; tests were not rerun for this documentation step.
+- Learning exercise: sketch linked songs and artists, then explain why a held-out
+  generator output linked to a training reference cannot be a clean final test.
+
+
+## Dataset eligibility inventory - 2026-09-21
+
+- Reviewed existing manifests and recorded [eligibility/group counts](data/eligibility_inventory.md).
+- Metadata-complete candidates: 109 human references, 45 artist-ID groups and 1,239 associated TTA paths. Outside the three pilot artists: 96 references, 42 groups and 1,088 paths. Groups remain provisional pending duplicate/alias review.
+- Confirmed that the pilot development restriction covers 13 reference tracks and 151 generated paths through shared artists.
+- Deferred microphone validation as requested; direct-file modeling remains the first target.
+- All 116 provenance flags remain unverified. A proposed dataset-label research scope needs an explicit decision before admission; no labels or splits were changed.
+- Checked manifest ID/path integrity and count consistency. No production code, packages, downloads or training; unit tests were not rerun.
+
+
+## Research-label standard approved - 2026-09-21
+
+- The user approved historical FMA human reference labels and Echoes TTA generated labels for an exploratory baseline after discussing authorship uncertainty.
+- Updated evaluation protocol to version 0.2 and the inventory decision section. Independent authorship certification is no longer an admission requirement; unverified provenance flags remain an accurate evidence record, not an automatic exclusion.
+- No numerical certainty is assigned to dataset labels. Model scores are separately subject to evaluation and calibration; they do not certify authorship.
+- Per-record source, usage, audio quality/content and duplicate checks remain required. Direct-file modeling comes first; microphone testing stays deferred.
+- Documentation-only change; no manifest relabeling, production code, downloads, split assignment or training. Checked local links and whitespace; unit tests were not rerun.
+
+
+## Candidate manifest implementation - 2026-09-21
+
+- Built a local-only candidate manifest builder and 17 behavioral tests under the approved scope. Tests first failed because the module did not exist.
+- Generated 1,458 candidate rows: 116 human reference labels and 1,342 generated labels across 46 provisional artist groups. The pilot restriction propagates to 164 rows (13 human, 151 generated).
+- Preserved source evidence, license separation, unresolved reference flags and the existing Straw Fields offset finding. All rows remain needs_review and unassigned; no authorship verification flags changed.
+- Indexed compressed member payloads total 3,161,129,585 bytes, about 2.94 GiB; this is not a download budget and includes existing pilot members.
+- Full suite: 103 passed, with the existing short-audio spectrogram warning. Independent artifact checks confirmed counts, path joins, restrictions and flags.
+- See [candidate manifest report](data/candidate_manifest_report.md) for the concrete Digital Lightning trace, reproduction commands, source hashes and learning exercise.
+- No dependencies, audio downloads, training, commits or split assignments. Pause for review before the next increment.
