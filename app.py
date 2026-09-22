@@ -1,4 +1,4 @@
-"""Streamlit portfolio showcase for the saved audio-feature baseline.
+"""Streamlit portfolio showcase for EfficientAT and our trained classifier.
 
 Run with: python -m streamlit run app.py
 """
@@ -18,63 +18,51 @@ from showcase import (
     distribution_figure, local_examples, read_csv,
 )
 
-HERO = '<div class="hero"><h1>Listen. Measure. Inspect.</h1><p>Explore how our trained AI music detector reads a recording—and see the measurements behind its decision.</p><span class="small-note">Handcrafted features + logistic regression · exploratory baseline</span></div>'
+HERO = '<div class="hero"><h1>Listen. Measure. Inspect.</h1><p>Explore how a pretrained audio encoder and our trained classifier assess a recording.</p><span class="small-note">EfficientAT mn10_as + logistic regression | 960 learned audio features</span></div>'
 
-RESULTS_INTRO = '## A real baseline, including its mistakes\nFour artist groups form this **exploratory holdout**: four human references and 12 generated recordings. The batch was inspected during development; it is not an untouched final test.'
+RESULTS_INTRO = """## How the encoder model performed
+We trained our classifier on **700 recordings**, used **150 for validation**, and evaluated it on another **150: 75 human and 75 AI recordings**. The EfficientAT encoder stayed frozen throughout.
 
-SCORES_INTRO = '### Where the scores fall\nEach dot is one recording. The dashed line is the fixed 0.5 threshold. A human dot on the right is a false positive; an AI dot on the left is a missed detection.'
-
-LIMITATIONS = '**What this does not establish:** unseen-generator performance, microphone robustness or certified authorship. Source bandwidth, encoding, offsets and the small dataset may affect predictions. Human false positives are the main measured weakness.'
-
-HOW_IT_WORKS = """## From sound to a score
-**1 · Standardize the input.** Decode the recording, average its channels, resample to 24 kHz, and select up to five 20-second sections across the recording using reproducible stratified random sampling. Files shorter than 20 seconds use all available audio. Sections may overlap.
-
-**2 · Measure the sound.** RMS amplitude, zero crossings, spectral center, bandwidth and flatness. A mean and standard deviation for each give ten features per section. Average those vectors into one recording-level vector.
-
-**3 · Apply what was learned.** The saved scaler uses training means and scales. Logistic regression combines ten weighted features with an intercept; a sigmoid maps that sum to an AI score.
-
-**4 · Make the baseline decision.** Scores at or above 0.5 produce “Likely AI-generated.” Lower scores produce “Likely human-made.” The score is not calibrated and there is no inconclusive rule yet.
-
-### The experiment behind this demo
-80 recordings across 20 provisional artist groups: **48 training, 16 validation, 16 holdout**. Related reference/artist recordings remain together. Only training data fits the scaler and classifier. The random-sampling model was selected by validation balanced accuracy from three volume-treatment variants; this demo uses raw features. The same sampling seed and policy apply during training and prediction. Historical FMA recordings supply human-reference labels; Echoes TTA supplies generated labels from ACE-Step, AudioLDM and MusicGen.
-
-### Reading the visuals
-The waveform outlines all sampled sections. The spectrogram shows the first sampled section; every listed section contributes to the prediction. The classifier receives the ten numeric summaries, rather than a spectrogram image. The feature chart shows each standardized feature multiplied by its learned weight; its bars plus the intercept equal the logit before the sigmoid.
-
-**Built with** NumPy, SciPy, librosa, scikit-learn and Streamlit. Dataset provenance, settings and limitations are recorded in the repository. No Hugging Face encoder is used in this version.
+Related reference artists stay in one split. The evaluation recordings were also used in earlier experiments, so these results are a reused benchmark, not a new blind test.
 """
 
-CONTRIBUTION_GUIDE = 'Teal bars push toward human; amber bars push toward AI. These are exact weighted contributions in **logit units**, including the intercept. They show model influence—not causal evidence of AI generation.'
+SCORES_INTRO = '### Where the scores fall\nEach dot is one recording. The line at 0.5 is the decision threshold. Human recordings to its right are false positives; AI recordings to its left are missed detections. These scores are not confidence percentages.'
 
-INPUT_GUIDANCE = '**10 seconds to 5 minutes.** Up to five randomly placed 20-second sections are analyzed; shorter files use the available audio. Uploads are processed on the server running this app; microphone evaluation is deferred.'
+LIMITATIONS = '**Where this model is limited:** it still makes mistakes. Dataset source, encoding and genre may influence predictions. Evaluation covers Rock and Electronic, with no Pop. Microphone recordings, room noise and unfamiliar generators have not been validated. Dataset labels are not proof of authorship.'
 
-# Keep the historical baseline usable while describing the active model honestly.
-from baseline import load_model
-ENCODER_ENABLED = load_model(MODEL_PATH)['variant'] == 'efficientat'
-if ENCODER_ENABLED:
-    HERO = HERO.replace('Handcrafted features + logistic regression', 'EfficientAT embeddings + logistic regression')
-    RESULTS_INTRO = '## A real baseline, including its mistakes\nThis evaluation contains **75 human and 75 generated recordings**, grouped by reference artist. These recordings were also evaluated in earlier experiments; this is a reused benchmark, not a new blind test.'
-    LIMITATIONS = '**What this does not establish:** unfamiliar-generator performance, microphone robustness or certified authorship. Dataset source, encoding and genre can affect predictions. The evaluation contains Rock and Electronic, with no Pop.'
-    CONTRIBUTION_GUIDE = 'The ten strongest embedding contributions are shown; the other 950 are summed into one bar. Teal pushes toward human and amber toward AI. These dimensions have no simple physical labels: the chart shows classifier arithmetic in logit units, not what the encoder heard or proof of authorship.'
-    HOW_IT_WORKS = """## From sound to a score
-**1. Prepare the audio.** Decode, average channels, resample to 32 kHz and select up to five reproducibly random 20-second sections. Shorter recordings use available audio. Sections may overlap.
+HOW_IT_WORKS = """## From a recording to an AI score
+### 1. Choose sections across the recording
+We convert the audio to mono at **32 kHz**, then select up to **five 20-second sections** from different parts of the recording. The random seed stays fixed, so analyzing the same file again selects the same sections. Sections may overlap; files shorter than 20 seconds use all available audio.
 
-**2. Encode each section.** Frozen EfficientAT mn10_as converts a mel spectrogram into 960 learned features. Average the section vectors into one recording-level vector. The pretrained encoder is not an AI-music detector.
+### 2. Let EfficientAT describe the sound
+**EfficientAT mn10_as is a pretrained audio encoder.** It turns each section's mel spectrogram into a list of **960 numbers**, called an embedding. Think of it as a learned description of the sound. We average the section embeddings into one description of the recording.
 
-**3. Apply our trained classifier.** A scaler and logistic-regression classifier, trained on our labeled recordings, turn the embedding into an AI score. The encoder weights stay unchanged.
+These numbers are not named measurements such as loudness, nor do individual numbers reliably mean guitar or vocals. The information is spread across the embedding. The encoder itself does not decide whether music is human or AI-generated.
 
-**4. Make a decision.** Scores at or above 0.5 produce Likely AI-generated; lower scores produce Likely human-made. This is not a calibrated probability and there is no inconclusive rule yet.
+### 3. Apply the classifier we trained
+We trained **our own logistic-regression classifier** on embeddings from labeled human and AI recordings. A scaler first puts the embedding values on the scales learned from training data. The classifier combines 960 weighted values and an intercept; a sigmoid turns that total into an AI score between 0 and 1.
 
-### The experiment behind this demo
-1,000 recordings: **700 training, 150 validation and 150 evaluation**. Historical FMA supplies human-reference labels and Echoes TTA supplies AI labels from 12 generators. Related reference artists stay together. Only training recordings fit the scaler and classifier. Validation guides model selection; the evaluation benchmark has already been inspected in earlier experiments.
+The encoder weights stay unchanged: only our scaler and classifier learn from the project's training recordings.
 
-### Reading the visuals
-The waveform outlines all sampled sections. The spectrogram shows the first section. Contributions show the strongest learned dimensions, the sum of the remaining dimensions and the intercept. Their sum is the logit before the sigmoid. Unlike loudness or frequency measurements, embedding dimensions do not have simple names or direct physical interpretations.
+### 4. Read the result
+A score **at or above 0.5** produces **Likely AI-generated**; a lower score produces **Likely human-made**. A score of 0.9 does not establish a 90% chance of AI authorship. These scores have not been calibrated, and the model does not yet offer an inconclusive result.
 
-**Built with** NumPy, SciPy, PyTorch, scikit-learn and Streamlit. EfficientAT runs locally on the app server; there is no paid inference API.
+### What we trained on
+**1,000 recordings: 500 human references and 500 generated recordings.** Human labels come from historical FMA recordings; AI labels come from Echoes TTA, covering 12 generators. The split is **700 training, 150 validation and 150 evaluation**, with equal class counts in each. Only the training split fits the scaler and classifier. Validation guides model selection; evaluation has been reused across experiments.
+
+### What the visuals explain
+**Waveform:** where the sampled sections are located. **Spectrogram:** the frequencies in the first sampled section, shown for inspection. The encoder computes its own mel spectrogram internally; this displayed plot is not the image fed into the model.
+
+**Contribution chart:** how the classifier used the averaged embedding. We show the ten dimensions with the largest absolute contributions, combine the other 950 into one bar, and include the intercept. Teal pushes toward human; amber pushes toward AI. All bars sum to the classifier's raw total, called a logit, before the sigmoid.
+
+A label such as **Embedding 623** is a coordinate in a learned representation, not a named musical property. This chart explains the classifier's arithmetic; it does not reveal exactly what the encoder heard or prove that an audible detail was generated by AI.
+
+**Built with** NumPy, SciPy, PyTorch, scikit-learn and Streamlit. The encoder and classifier run on the app server without a paid inference API.
 """
 
+CONTRIBUTION_GUIDE = "These bars show how our classifier used the encoder's 960-number description. The ten strongest dimensions are shown separately; the other 950 are summed into one bar. Teal pushes toward human and amber toward AI. Dimension numbers are not named audio properties. The bars and intercept sum to the raw score (logit) before it becomes an AI score."
 
+INPUT_GUIDANCE = '**10 seconds to 5 minutes, up to 50 MB.** EfficientAT encodes up to five random 20-second sections; our trained classifier scores their average embedding. Uploads are processed on the app server.'
 
 
 @st.cache_data(show_spinner=False)
@@ -196,7 +184,7 @@ def render_analysis():
                     st.session_state['playback_format'] = {'.mp3': 'audio/mpeg', '.flac': 'audio/flac', '.ogg': 'audio/ogg'}.get(Path(name).suffix.lower(), 'audio/wav')
             else:
                 st.session_state['analysis_result'] = analyze(None)
-        result = st.session_state.get('analysis_result', (EMPTY.replace('ten audio features', '960 learned audio features') if ENCODER_ENABLED else EMPTY, '', None, None, None, []))
+        result = st.session_state.get('analysis_result', (EMPTY, '', None, None, None, []))
         if result[2] is not None:
             st.divider()
             st.markdown('Listen to the original')
@@ -207,34 +195,35 @@ def render_analysis():
         if result[3] is not None:
             responsive_plot(result[3], 'Inside the audio')
     st.divider()
-    with st.expander('Why did the model lean this way?', expanded=True):
+    with st.expander('How the classifier used the embedding', expanded=True):
         st.markdown(CONTRIBUTION_GUIDE)
         if result[4] is not None:
-            responsive_plot(result[4], 'Feature contributions')
-        with st.expander('See the strongest embedding contributions' if ENCODER_ENABLED else 'See the ten feature values'):
-            numeric_table(['Feature', 'Measured value', 'Training-standardized value', 'Logit contribution'], result[5])
+            responsive_plot(result[4], 'Embedding contributions to the classifier')
+        with st.expander('Inspect the ten strongest embedding dimensions'):
+            numeric_table(['Embedding dimension', 'Average embedding value', 'Standardized value', 'Contribution (logit)'], result[5])
 
 
 def render_results():
-    metrics, predictions, confusion, distribution = evaluation_artifacts(hashlib.sha256((DEFAULT_OUTPUT / "metrics.json").read_bytes()).hexdigest())
+    metrics, predictions, confusion, distribution = evaluation_artifacts(hashlib.sha256((DEFAULT_OUTPUT / "metrics.json").read_bytes() + (ROOT / "showcase.py").read_bytes()).hexdigest())
     h = metrics['holdout']
     cm = h['confusion_matrix_true_rows_predicted_columns_human_ai']
     st.markdown(RESULTS_INTRO)
-    st.html(f'<div class="stat-grid"><div class="stat"><strong>{cm[1][1]} / {h["ai_tracks"]}</strong><span>AI recordings detected · recall {h["ai_recall"]:.1%}</span></div><div class="stat"><strong>{cm[0][1]} / {h["human_tracks"]}</strong><span>Human recordings falsely flagged · {h["human_false_positive_rate"]:.0%}</span></div><div class="stat"><strong>{h["ai_precision"]:.1%}</strong><span>AI precision on this small holdout</span></div></div>')
+    st.markdown(f'**Validation accuracy: {metrics["validation"]["accuracy"]:.1%} | Evaluation accuracy: {h["accuracy"]:.1%}.** Accuracy is the fraction of recordings classified correctly; AI precision below is the fraction of AI predictions that were correct.')
+    st.html(f'<div class="stat-grid"><div class="stat"><strong>{cm[1][1]} / {h["ai_tracks"]}</strong><span>AI recordings detected · recall {h["ai_recall"]:.1%}</span></div><div class="stat"><strong>{cm[0][1]} / {h["human_tracks"]}</strong><span>Human recordings falsely flagged · {h["human_false_positive_rate"]:.0%}</span></div><div class="stat"><strong>{h["ai_precision"]:.1%}</strong><span>AI precision on the evaluation set</span></div></div>')
     responsive_plot(confusion, 'Correct predictions and errors')
     st.markdown(SCORES_INTRO)
     responsive_plot(distribution, 'Score distributions by dataset label')
     errors = [[r['reference'], r['generator'] or 'Human reference', r['true_label'], r['predicted_label'], float(r['ai_score'])]
               for r in predictions if r['split'] == 'holdout' and r['true_label'] != r['predicted_label']]
-    st.markdown('The actual holdout mistakes')
-    numeric_table(['Holdout recording', 'Source label', 'Dataset label', 'Prediction', 'AI score'], errors)
+    st.markdown('Recordings the encoder classifier got wrong')
+    numeric_table(['Evaluation recording', 'Source label', 'Dataset label', 'Prediction', 'AI score'], errors)
     st.markdown(LIMITATIONS)
 
 
 def main():
     st.set_page_config(page_title='AI Music Detector · Audio Lab', layout='wide', initial_sidebar_state='collapsed')
     st.html(stylesheet((ROOT / 'assets/streamlit.css').stat().st_mtime_ns))
-    model_version=hashlib.sha256(MODEL_PATH.read_bytes()).hexdigest()
+    model_version=hashlib.sha256(MODEL_PATH.read_bytes() + Path(__file__).read_bytes() + (ROOT / 'showcase.py').read_bytes()).hexdigest()
     if st.session_state.get('analysis_model_version') != model_version:
         clear_result()
         st.session_state['analysis_model_version']=model_version

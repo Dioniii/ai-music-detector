@@ -555,3 +555,16 @@ parity, deterministic extraction, saved-classifier parity and Streamlit
 example/upload flows passed. Local extraction was 3.16 seconds cold, 0.67 warm,
 574 MiB peak on Dea; hosted capacity remains unverified. No public deployment,
 commit or push was performed. The earlier classifiers remain available.
+
+
+## Encoder frontend explanation cleanup
+
+Removed the duplicate legacy ten-feature text and conditional copy overrides
+from app.py. The hero, how-it-works explanation, results, chart labels and
+embedding table now consistently describe frozen EfficientAT plus our trained
+classifier. Explained 960-dimensional embeddings, 32 kHz sampling, training-only
+scaling, score interpretation and the limits of dimension contributions. Current
+validation/evaluation accuracy is read from saved metrics. Visible chart labels
+use Evaluation rather than Holdout. Presentation changes invalidate cached
+results and evaluation charts. Streamlit checks passed for all tabs and a full
+example analysis. Model weights and prediction logic were not changed.
