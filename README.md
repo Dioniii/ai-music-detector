@@ -1,87 +1,110 @@
 # AI music detector
 
-An exploratory Python project that classifies direct audio files using ten audio
-features and a trained logistic-regression baseline. Historical FMA recordings
-provide human reference labels; Echoes TTA provides generated labels. Labels are
-research assumptions, not certified authorship.
+A beginner portfolio project that extracts ten audio measurements and applies a
+trained logistic-regression model. Streamlit shows the prediction, sampled audio
+sections, and the contribution of each feature.
 
-## Open the Streamlit demo
+**This is an exploratory model, not proof of authorship.** It still makes substantial
+human false positives. Its AI score is not a calibrated confidence percentage.
 
-Install the environment with `uv sync --locked`, then run:
+## Run the app
+
+Use Python 3.12. Install the environment once with `uv sync --locked`, then run:
 
 ```powershell
 .\.venv\Scripts\python.exe -m streamlit run app.py
 ```
 
-Open **http://localhost:8501**. Upload a WAV, MP3, FLAC or OGG recording (10 seconds
-to 5 minutes, up to 50 MB), or select a local example immediately below the uploader
-and press **Analyze recording**. The three tabs retain the dark IBM Plex Mono
-interface, sharp borders, teal/amber results, and clear primary action.
+Open **http://localhost:8501**. Choose an audio file or a local example and press
+**Analyze recording**. Accepted uploads are WAV, MP3, FLAC and OGG, from 10 seconds
+to 5 minutes and up to 50 MB.
 
-The demo includes original-audio playback, waveform and spectrogram, raw score,
-exact feature contributions, and the saved model's confusion matrices and errors.
-Changing the recording clears the previous result. Short or invalid files produce
-a readable message.
+## The six Python files to understand
 
-Audio processing runs wherever the app is hosted: locally during development,
-on the server after cloud deployment. Each upload is decoded through an isolated
-temporary file that is deleted after analysis. Audio and results are held in the
-browser's server session, never the shared application cache. No paid inference
-API, encoder download, or external model service is involved. Streamlit usage
-telemetry is disabled. Existing recordings are offered only when their local
-files exist; dataset audio is not bundled or downloaded at startup.
+Read them in this order:
 
-To use another port, append `--server.port 8502`. To restrict access to this
-computer, append `--server.address 127.0.0.1`.
+| File | Responsibility |
+|---|---|
+| `audio_inspection.py` | Load a recording and provide the spectrogram calculation. |
+| `preprocessing.py` | Convert to mono at 24 kHz and choose the audio sections. |
+| `features.py` | Measure each section and average its ten feature values. |
+| `baseline.py` | Train the classifier, load its weights, and predict. |
+| `showcase.py` | Turn predictions and evaluation results into charts and display data. |
+| `app.py` | Build the Streamlit interface and handle uploads. |
 
-See [the Streamlit migration debrief](STREAMLIT_DEBRIEF.md) for implementation
-and verification, and [cloud deployment instructions](DEPLOYMENT.md) for the
-free Community Cloud setup. The [Gradio debrief](GRADIO_DEBRIEF.md) remains a
-historical record of the previous interface.
+The prediction path is:
 
-## Run a prediction
+`recording -> preprocessing -> ten features -> saved model -> score and explanation`
 
-With Python 3.12 and uv, install the locked environment using `uv sync --locked`.
-Then, from the repository root:
+Sampling uses up to five 20-second sections, one random start in each range of
+legal positions. Seed 42 makes the selection repeatable. Shorter recordings use
+the available audio; sections may overlap. The first section need not start at
+zero. The same selection method is used in training and prediction.
 
-```powershell
-.\.venv\Scripts\python.exe baseline.py predict "path\to\music.wav"
-```
+Features summarize RMS amplitude, zero crossings, spectral center, bandwidth and
+flatness. Each contributes a mean and a standard deviation. We average the section
+vectors, standardize with the saved training statistics, and apply ten learned
+weights plus an intercept. A sigmoid converts that sum into an AI score; the
+fixed decision threshold is 0.5.
 
-The backend analyzes the first ten seconds and returns a binary label and raw AI
-score. Scores are not calibrated confidence percentages. Microphone testing and
-inconclusive decisions are not implemented yet.
-
-## First measured baseline
-
-The exploratory holdout contains four artist groups: four human and 12 generated
-recordings. The model detected 11 AI examples and falsely flagged two human ones:
-84.6% AI precision, 91.7% AI recall, and 50% human false-positive rate. This small,
-previously inspected batch is not an untouched final test. The false positives
-make the current model unsuitable for confident authorship claims.
-
-See the [experiment report](data/baseline_v1/REPORT.md) for settings, confusion
-matrices, limitations and errors. [Predictions](data/baseline_v1/predictions.csv)
-and [model parameters](data/baseline_v1/model.json) are saved for reproducibility.
-
-## How it works
-
-`audio_inspection.py` loads audio; `preprocessing.py` converts it to a ten-second,
-24 kHz mono clip; `features.py` produces ten measurements; `baseline.py` fits
-training-only scaling and logistic regression, evaluates group-separated data,
-and predicts from local files. Original audio remains local and gitignored.
-
-To reproduce training when the batch feature artifacts are present:
+## Predict without the interface
 
 ```powershell
-.\.venv\Scripts\python.exe baseline.py train --output data/baseline_v1_rerun
+.\.venv\Scripts\python.exe baseline.py predict "path\to\recording.mp3"
 ```
 
-The saved paired diagnostic CSV supplies only its unchanged-preprocessing
-`baseline` rows. The comparison/centered rows are not used. No additional download
-is performed by training. One local batch recording is needed for its feature
-round-trip check; source audio is not redistributed with this repository.
+This uses the same model as Streamlit. Its weights and evaluation files live in
+`data/baseline_random/demo/`. No paid API or external model service is involved.
 
-[Engineering journal](journal.md) records progress and decisions. Dataset sourcing
-and attribution are documented in the [audit](data/audit.md), [batch report](data/batch_audio_report.md)
-and manifests. Built with NumPy, SciPy, librosa, scikit-learn and Codex assistance.
+## Train the current model again
+
+Training requires the existing 80 local dataset recordings. It does not download
+anything. Use a new output folder so the current model is not overwritten:
+
+```powershell
+.\.venv\Scripts\python.exe baseline.py train --output data/model_rerun
+```
+
+The 20 artist groups stay in the original 12/4/4 split: 48 training recordings,
+16 validation and 16 holdout. Only training recordings fit the scaler and model.
+The command saves weights, predictions, metrics and sampled sections. To try the
+new output from the command line, pass `--model data/model_rerun/model.json`.
+Training does not automatically switch the demo to that output.
+
+## What the results mean
+
+The current model detects 10 of 12 AI recordings in the exploratory holdout and
+falsely flags 2 of 4 human recordings. These are small, previously inspected
+splits, not a fresh final test. Microphone robustness, unfamiliar generators and
+an inconclusive outcome have not been established.
+
+Historical FMA recordings supply human-reference labels and Echoes TTA supplies
+AI labels. These are research assumptions rather than verified authorship.
+
+## Supporting folders
+
+- `assets/`: dark monospace styling and bundled fonts.
+- `data/`: model files, manifests and experiment results. The original audio folders
+  are gitignored; local examples appear only when their files exist.
+- `tools/`: optional scripts used earlier to source and inspect the dataset.
+  They are not needed to run the app. Run them from the repository root as modules,
+  for example `python -m tools.dataset_audit --help`.
+- `tests/`: existing checks for audio processing and dataset tools.
+- `.streamlit/`: theme and upload configuration.
+
+Uploads are processed on the machine hosting the app. Temporary files are deleted
+after analysis; playback bytes and results stay in that browser's server session.
+Uploaded audio is not put in a shared cache. Streamlit usage telemetry is disabled.
+
+## Project history and hosting
+
+[Deployment instructions](DEPLOYMENT.md) describe the free Community Cloud setup.
+The project has not been publicly deployed by this cleanup.
+
+The [journal](journal.md), [first baseline report](data/baseline_v1/REPORT.md),
+[volume experiment](data/baseline_v2/REPORT.md), and
+[random-sampling report](data/baseline_random/REPORT.md) preserve the findings for
+an article. Their old file names and commands describe historical versions. The
+current commands and six-file structure are documented above; duplicate experiment
+implementations were removed after consolidation. Historical model files are
+reference artifacts, not additional supported runtime modes.

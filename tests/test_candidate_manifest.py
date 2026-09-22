@@ -5,8 +5,8 @@ import json
 
 import pytest
 
-from candidate_manifest import build_candidates, write_manifest
-from dataset_audit import ECHOES_REVISION
+from tools.candidate_manifest import build_candidates, write_manifest
+from tools.dataset_audit import ECHOES_REVISION
 
 
 @pytest.fixture

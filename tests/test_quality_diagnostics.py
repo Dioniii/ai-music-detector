@@ -1,7 +1,7 @@
 ﻿import numpy as np
 import pytest
 from audio_inspection import Audio
-from quality_diagnostics import remove_channel_means, full_scale_stats, compare_features
+from tools.quality_diagnostics import remove_channel_means, full_scale_stats, compare_features
 from features import FEATURE_NAMES
 
 

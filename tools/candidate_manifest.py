@@ -12,7 +12,7 @@ import json
 from pathlib import Path, PurePosixPath
 import unicodedata
 
-from dataset_audit import ECHOES_REVISION, SOURCES
+from tools.dataset_audit import ECHOES_REVISION, SOURCES
 
 FMA_AUDIO_URL = 'https://os.unil.cloud.switch.ch/fma/fma_small.zip'
 ECHOES_PAGE = f'https://huggingface.co/datasets/Octavian97/Echoes/tree/{ECHOES_REVISION}'

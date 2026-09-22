@@ -17,7 +17,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 from audio_inspection import load_audio, plot_audio
-from dataset_audit import RangeReader, SOURCES, TransferBudget
+from tools.dataset_audit import RangeReader, SOURCES, TransferBudget
 
 
 AUDIO_DIR = Path("data/audio_pilot")

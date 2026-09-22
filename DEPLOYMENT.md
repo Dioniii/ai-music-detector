@@ -20,13 +20,13 @@ change; this project does not promise permanent hosting availability.
 
 ## Files the deployment uses
 
-- `app.py`, `showcase.py`, `showcase_content.py`: interface, analysis and copy.
-- `audio_inspection.py`, `preprocessing.py`, `features.py`, `baseline.py`: existing
-  processing and model functions; preserve their contents and the saved model.
-- `data/baseline_v1/model.json`, `metrics.json`, `predictions.csv`: learned weights
-  and the displayed evaluation results. No training run is performed on startup.
-- `assets/streamlit.css` and `assets/fonts/` including the font license.
+- The six main Python files listed in README.md.
+- `data/baseline_random/demo/model.json`, `metrics.json`, `predictions.csv`.
+- `assets/streamlit.css` and `assets/fonts/`, including the font license.
 - `.streamlit/config.toml`, `.python-version`, `pyproject.toml`, `uv.lock`.
+
+Training and dataset-download scripts are not run during deployment. The optional
+`tools/` scripts and original audio files are not required for inference.
 
 Community Cloud recognizes `uv.lock` and installs the locked Python environment.
 Do not add a competing requirements file. The lock includes the audio dependencies
@@ -43,7 +43,7 @@ choice, with its source attribution and permissions reviewed first.
 
 Uploads are limited to 50 MB, 10 seconds to 5 minutes, and 60 million decoded
 sample values. The original preprocessing still decodes/resamples the full file
-before selecting the first ten seconds. Concurrent analyses are serialized to
+before selecting up to five reproducibly random 20-second sections. Concurrent analyses are serialized to
 bound simultaneous decoding and protect Matplotlib. Per-session results are not
 shared between visitors. Uploaded temporary files are removed immediately after
 analysis; the playback bytes remain in that session while the result is shown.

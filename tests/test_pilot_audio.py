@@ -8,7 +8,7 @@ import numpy as np
 import pytest
 import soundfile as sf
 
-from pilot_audio import download_member, inspect_file
+from tools.pilot_audio import download_member, inspect_file
 
 
 def archive_with(name, content):

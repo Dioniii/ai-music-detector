@@ -4,6 +4,7 @@ Run with: python -m streamlit run app.py
 """
 import base64
 import html
+import hashlib
 import io
 import json
 from pathlib import Path
@@ -13,13 +14,40 @@ from threading import RLock
 import streamlit as st
 
 from showcase import (
-    ROOT, DEFAULT_OUTPUT, FONT_DIR, EMPTY, analyze, confusion_figure,
+    ROOT, DEFAULT_OUTPUT, FONT_DIR, MODEL_PATH, EMPTY, analyze, confusion_figure,
     distribution_figure, local_examples, read_csv,
 )
-from showcase_content import (
-    HERO, RESULTS_INTRO, SCORES_INTRO, LIMITATIONS, HOW_IT_WORKS,
-    CONTRIBUTION_GUIDE, INPUT_GUIDANCE,
-)
+
+HERO = '<div class="hero"><h1>Listen. Measure. Inspect.</h1><p>Explore how our trained AI music detector reads a recording—and see the measurements behind its decision.</p><span class="small-note">Handcrafted features + logistic regression · exploratory baseline</span></div>'
+
+RESULTS_INTRO = '## A real baseline, including its mistakes\nFour artist groups form this **exploratory holdout**: four human references and 12 generated recordings. The batch was inspected during development; it is not an untouched final test.'
+
+SCORES_INTRO = '### Where the scores fall\nEach dot is one recording. The dashed line is the fixed 0.5 threshold. A human dot on the right is a false positive; an AI dot on the left is a missed detection.'
+
+LIMITATIONS = '**What this does not establish:** unseen-generator performance, microphone robustness or certified authorship. Source bandwidth, encoding, offsets and the small dataset may affect predictions. Human false positives are the main measured weakness.'
+
+HOW_IT_WORKS = """## From sound to a score
+**1 · Standardize the input.** Decode the recording, average its channels, resample to 24 kHz, and select up to five 20-second sections across the recording using reproducible stratified random sampling. Files shorter than 20 seconds use all available audio. Sections may overlap.
+
+**2 · Measure the sound.** RMS amplitude, zero crossings, spectral center, bandwidth and flatness. A mean and standard deviation for each give ten features per section. Average those vectors into one recording-level vector.
+
+**3 · Apply what was learned.** The saved scaler uses training means and scales. Logistic regression combines ten weighted features with an intercept; a sigmoid maps that sum to an AI score.
+
+**4 · Make the baseline decision.** Scores at or above 0.5 produce “Likely AI-generated.” Lower scores produce “Likely human-made.” The score is not calibrated and there is no inconclusive rule yet.
+
+### The experiment behind this demo
+80 recordings across 20 provisional artist groups: **48 training, 16 validation, 16 holdout**. Related reference/artist recordings remain together. Only training data fits the scaler and classifier. The random-sampling model was selected by validation balanced accuracy from three volume-treatment variants; this demo uses raw features. The same sampling seed and policy apply during training and prediction. Historical FMA recordings supply human-reference labels; Echoes TTA supplies generated labels from ACE-Step, AudioLDM and MusicGen.
+
+### Reading the visuals
+The waveform outlines all sampled sections. The spectrogram shows the first sampled section; every listed section contributes to the prediction. The classifier receives the ten numeric summaries, rather than a spectrogram image. The feature chart shows each standardized feature multiplied by its learned weight; its bars plus the intercept equal the logit before the sigmoid.
+
+**Built with** NumPy, SciPy, librosa, scikit-learn and Streamlit. Dataset provenance, settings and limitations are recorded in the repository. No Hugging Face encoder is used in this version.
+"""
+
+CONTRIBUTION_GUIDE = 'Teal bars push toward human; amber bars push toward AI. These are exact weighted contributions in **logit units**, including the intercept. They show model influence—not causal evidence of AI generation.'
+
+INPUT_GUIDANCE = '**10 seconds to 5 minutes.** Up to five randomly placed 20-second sections are analyzed; shorter files use the available audio. Uploads are processed on the server running this app; microphone evaluation is deferred.'
+
 
 
 @st.cache_data(show_spinner=False)
@@ -105,7 +133,7 @@ def numeric_table(headers, rows):
 
 
 @st.cache_data(show_spinner=False)
-def evaluation_artifacts():
+def evaluation_artifacts(model_version):
     metrics = json.loads((DEFAULT_OUTPUT / 'metrics.json').read_text(encoding='utf-8'))['metrics']
     predictions = read_csv(DEFAULT_OUTPUT / 'predictions.csv')
     with analysis_lock():
@@ -161,7 +189,7 @@ def render_analysis():
 
 
 def render_results():
-    metrics, predictions, confusion, distribution = evaluation_artifacts()
+    metrics, predictions, confusion, distribution = evaluation_artifacts(hashlib.sha256((DEFAULT_OUTPUT / "metrics.json").read_bytes()).hexdigest())
     h = metrics['holdout']
     cm = h['confusion_matrix_true_rows_predicted_columns_human_ai']
     st.markdown(RESULTS_INTRO)
@@ -179,6 +207,10 @@ def render_results():
 def main():
     st.set_page_config(page_title='AI Music Detector · Audio Lab', layout='wide', initial_sidebar_state='collapsed')
     st.html(stylesheet((ROOT / 'assets/streamlit.css').stat().st_mtime_ns))
+    model_version=hashlib.sha256(MODEL_PATH.read_bytes()).hexdigest()
+    if st.session_state.get('analysis_model_version') != model_version:
+        clear_result()
+        st.session_state['analysis_model_version']=model_version
     st.html(HERO)
     analysis_tab, results_tab, how_tab = st.tabs(['Analyze audio', 'Model results', 'How it works'])
     with analysis_tab:

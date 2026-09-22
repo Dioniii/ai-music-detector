@@ -1,0 +1,64 @@
+{
+  "schema_version": 3,
+  "variant": "multi_no_rms",
+  "feature_names": [
+    "zero_crossing_rate_mean",
+    "zero_crossing_rate_std",
+    "spectral_centroid_hz_mean",
+    "spectral_centroid_hz_std",
+    "spectral_bandwidth_hz_mean",
+    "spectral_bandwidth_hz_std",
+    "spectral_flatness_mean",
+    "spectral_flatness_std"
+  ],
+  "threshold": 0.5,
+  "calibrated": false,
+  "section_policy": {
+    "sampling": "stratified_random",
+    "seed": 42,
+    "rng": "PCG64",
+    "max_sections": 5,
+    "max_section_seconds": 20,
+    "min_recording_seconds": 10,
+    "aggregation": "mean of section feature vectors"
+  },
+  "scaler_mean": [
+    0.09720533322065307,
+    0.051838008478027525,
+    2024.3783581128898,
+    718.4528474744625,
+    2068.1811253437504,
+    439.17068484163207,
+    0.033693628656665545,
+    0.03287784558954402
+  ],
+  "scaler_scale": [
+    0.0855364330687946,
+    0.05063526413559569,
+    1170.36072774543,
+    520.6016252003873,
+    670.5065259241586,
+    235.66198878820174,
+    0.05540216392399592,
+    0.04517596453107347
+  ],
+  "coefficients": [
+    0.6643976774911948,
+    0.9695680361077206,
+    0.03408847737278317,
+    0.958018793147317,
+    -1.184794186090107,
+    -0.867113147231172,
+    -0.16551905197731168,
+    -0.3750086388993614
+  ],
+  "intercept": 0.517910300298521,
+  "contract_sha256": {
+    "audio_inspection.py": "cf4cc3483e98ede7954943efcfaa863a59a9d6e12c2bf5692184799550abacc9",
+    "preprocessing.py": "5c183ff12942887d9b80174a80b5953ba7229c5adab17aff64cc1c53f04c4325",
+    "features.py": "065618508e38fbedf34f85d15e7ac85e1f2a82c0a3c8e34db1f1bc6bde9f635d",
+    "features_v2.py": "a49916af3d55747fe1e41311f35a9aae0391b7fec3ab292ff543b80b21e33cd9",
+    "features_random.py": "c6aa608c54685a3679ffb9792a50555d4364ec5c9025ca7a0214380363ccd537",
+    "baseline_random.py": "036e4527e1efd2a12bdcddc45b2eb45461c143cb055feaa073505eb63659d00a"
+  }
+}

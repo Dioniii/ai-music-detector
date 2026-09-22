@@ -9,7 +9,7 @@ from pathlib import Path
 import numpy as np
 
 from audio_inspection import Audio, load_audio
-from batch_audio import read_csv, verify_existing
+from tools.batch_audio import read_csv, verify_existing
 from features import FEATURE_NAMES, extract_features
 from preprocessing import preprocess_audio
 

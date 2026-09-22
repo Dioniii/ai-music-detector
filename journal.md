@@ -403,3 +403,53 @@ the cached stylesheet. Browser checks at 320 and 390 px found no page-width over
 the Analyze button is fully visible within an 844 px viewport at both widths.
 On a 390 px screen, evaluation charts retain 760 px content within a 358 px scroll
 region. Model code and predictions are unchanged. No deployment performed.
+
+
+## Longer-audio / volume experiment
+
+Implemented features_v2.py and baseline_v2.py: up to five 20-second sections,
+mean feature aggregation, and three volume-treatment variants. Trained on the
+unchanged 48/16/16 recording splits. Validation selected multi_raw; it did not
+improve the old holdout. RMS normalization reduced old-holdout human false
+positives from 2/4 to 1/4 but also reduced AI detection from 11/12 to 10/12,
+and did not improve validation. All variants still classify Dea as AI. Volume
+normalization and removing RMS stabilize scores under a 0.1 gain change, which
+is distinct from correcting authorship classification. No deployed model or
+threshold changed. Full results: data/baseline_v2/REPORT.md.
+
+
+## Random-section sampling integrated
+
+Added features_random.py and baseline_random.py without modifying the earlier
+model contracts. Fixed-seed PCG64 selects one position from each legal-start
+range; training and prediction use the same rule. Trained all three feature
+variants; validation selected multi_raw. Connected that model to Streamlit through
+showcase_random.py, updated timestamps/coverage plots/copy, and regenerated
+evaluation artifacts and example labels. Cached evaluations now include the
+artifact digest; switching model versions clears prior session output. Dea
+remains AI at 0.797715. The new old-holdout result is 2/4 human false positives
+and 10/12 AI detections. No accuracy improvement is claimed.
+See data/baseline_random/REPORT.md for method, checks and commands.
+
+
+## Simplified beginner workflow
+
+Consolidated the 17 root Python files into six: audio_inspection, preprocessing,
+features, baseline, showcase, and app. Removed the six redundant variant/copy
+modules and moved five optional dataset-preparation scripts into tools/.
+The current trainer fits only the chosen raw-feature random-section model;
+unused experiment branches no longer run during inference.
+
+The saved experiment results remain historical records. Runtime checks now
+validate the model feature order and sampling policy rather than requiring
+retraining whenever a source-file comment changes. Original source hashes in
+the current model are labeled training provenance; learned parameters are
+unchanged. The existing tests were updated for the tools import paths.
+README.md now explains the six-file flow and one train/predict command.
+Future work should extend these files unless a separate module has a clear need.
+
+Verification: all 121 existing tests pass. A temporary training run reproduced
+the saved scaler and coefficients within 1e-10; its temporary output was removed.
+Dea retained its score and exact sampled timestamps, and Streamlit example
+analysis returned both charts and ten feature rows. The data-tool module entry
+point and consolidated baseline command also launch successfully.

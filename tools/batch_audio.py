@@ -10,9 +10,9 @@ import zipfile
 import numpy as np
 
 from audio_inspection import load_audio
-from candidate_manifest import FMA_AUDIO_URL, write_manifest
-from dataset_audit import RangeReader, SOURCES, TransferBudget
-from pilot_audio import download_member
+from tools.candidate_manifest import FMA_AUDIO_URL, write_manifest
+from tools.dataset_audit import RangeReader, SOURCES, TransferBudget
+from tools.pilot_audio import download_member
 
 LIMIT = 200 * 1024**2
 PAYLOAD_LIMIT = 180 * 1024**2  # Reserve room for ZIP indexes and request overlap.

@@ -1,0 +1,72 @@
+{
+  "schema_version": 3,
+  "variant": "multi_rms_normalized",
+  "feature_names": [
+    "rms_mean",
+    "rms_std",
+    "zero_crossing_rate_mean",
+    "zero_crossing_rate_std",
+    "spectral_centroid_hz_mean",
+    "spectral_centroid_hz_std",
+    "spectral_bandwidth_hz_mean",
+    "spectral_bandwidth_hz_std",
+    "spectral_flatness_mean",
+    "spectral_flatness_std"
+  ],
+  "threshold": 0.5,
+  "calibrated": false,
+  "section_policy": {
+    "sampling": "stratified_random",
+    "seed": 42,
+    "rng": "PCG64",
+    "max_sections": 5,
+    "max_section_seconds": 20,
+    "min_recording_seconds": 10,
+    "aggregation": "mean of section feature vectors"
+  },
+  "scaler_mean": [
+    0.09308439104371106,
+    0.0336814871188588,
+    0.09720533322065307,
+    0.051838008478027525,
+    2024.378358231949,
+    718.4528474742577,
+    2068.1811266639706,
+    439.1706838119309,
+    0.03369056473084194,
+    0.03287265127591302
+  ],
+  "scaler_scale": [
+    0.0043972922113033365,
+    0.011911329861533962,
+    0.0855364330687946,
+    0.05063526413559569,
+    1170.360727515884,
+    520.6016252887248,
+    670.5065233843504,
+    235.66198906859404,
+    0.055404019047417534,
+    0.045179686822531574
+  ],
+  "coefficients": [
+    -0.3309182610870369,
+    0.8611154990304849,
+    0.5413422474278976,
+    0.9732628586274641,
+    0.06286336344042617,
+    0.7353680220522069,
+    -1.141043974287374,
+    -1.1163558136735523,
+    -0.23146793242405903,
+    -0.20315658539088477
+  ],
+  "intercept": 0.7787279240138485,
+  "contract_sha256": {
+    "audio_inspection.py": "cf4cc3483e98ede7954943efcfaa863a59a9d6e12c2bf5692184799550abacc9",
+    "preprocessing.py": "5c183ff12942887d9b80174a80b5953ba7229c5adab17aff64cc1c53f04c4325",
+    "features.py": "065618508e38fbedf34f85d15e7ac85e1f2a82c0a3c8e34db1f1bc6bde9f635d",
+    "features_v2.py": "a49916af3d55747fe1e41311f35a9aae0391b7fec3ab292ff543b80b21e33cd9",
+    "features_random.py": "c6aa608c54685a3679ffb9792a50555d4364ec5c9025ca7a0214380363ccd537",
+    "baseline_random.py": "036e4527e1efd2a12bdcddc45b2eb45461c143cb055feaa073505eb63659d00a"
+  }
+}

@@ -6,8 +6,8 @@ import numpy as np
 import pytest
 import soundfile as sf
 
-from batch_audio import select_batch, verify_existing, inspect_audio, duplicate_groups, download
-from candidate_manifest import FMA_AUDIO_URL
+from tools.batch_audio import select_batch, verify_existing, inspect_audio, duplicate_groups, download
+from tools.candidate_manifest import FMA_AUDIO_URL
 
 
 def candidates():
@@ -90,7 +90,7 @@ def test_download_rejects_untrusted_archive_before_network(tmp_path):
 
 
 def test_receipted_batch_resume_uses_no_network(tmp_path, monkeypatch):
-    import batch_audio
+    from tools import batch_audio
     monkeypatch.setattr(batch_audio, 'BATCH', tmp_path)
     path=tmp_path/'audio.mp3';path.write_bytes(b'abc')
     row={'candidate_id':'human:1','archive':'fma_small','archive_url':FMA_AUDIO_URL,

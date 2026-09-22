@@ -1,0 +1,99 @@
+{
+  "experiment": "baseline_random",
+  "variant": "multi_raw",
+  "metrics": {
+    "train": {
+      "tracks": 48,
+      "confusion_matrix": [
+        [
+          11,
+          1
+        ],
+        [
+          6,
+          30
+        ]
+      ],
+      "human_false_positive_rate": 0.08333333333333333,
+      "ai_recall": 0.8333333333333334,
+      "balanced_accuracy": 0.875,
+      "accuracy": 0.8541666666666666,
+      "groups": 12,
+      "human_tracks": 12,
+      "ai_tracks": 36,
+      "ai_precision": 0.967741935483871,
+      "confusion_matrix_true_rows_predicted_columns_human_ai": [
+        [
+          11,
+          1
+        ],
+        [
+          6,
+          30
+        ]
+      ]
+    },
+    "validation": {
+      "tracks": 16,
+      "confusion_matrix": [
+        [
+          2,
+          2
+        ],
+        [
+          1,
+          11
+        ]
+      ],
+      "human_false_positive_rate": 0.5,
+      "ai_recall": 0.9166666666666666,
+      "balanced_accuracy": 0.7083333333333333,
+      "accuracy": 0.8125,
+      "groups": 4,
+      "human_tracks": 4,
+      "ai_tracks": 12,
+      "ai_precision": 0.8461538461538461,
+      "confusion_matrix_true_rows_predicted_columns_human_ai": [
+        [
+          2,
+          2
+        ],
+        [
+          1,
+          11
+        ]
+      ]
+    },
+    "holdout": {
+      "tracks": 16,
+      "confusion_matrix": [
+        [
+          2,
+          2
+        ],
+        [
+          2,
+          10
+        ]
+      ],
+      "human_false_positive_rate": 0.5,
+      "ai_recall": 0.8333333333333334,
+      "balanced_accuracy": 0.6666666666666667,
+      "accuracy": 0.75,
+      "groups": 4,
+      "human_tracks": 4,
+      "ai_tracks": 12,
+      "ai_precision": 0.8333333333333334,
+      "confusion_matrix_true_rows_predicted_columns_human_ai": [
+        [
+          2,
+          2
+        ],
+        [
+          2,
+          10
+        ]
+      ]
+    }
+  }
+}

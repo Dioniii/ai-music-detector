@@ -1,0 +1,132 @@
+{
+  "file": "TDS - Dea (Official Video HD).mp3",
+  "file_sha256": "2b2ee673262d94c0f4ef849849d2470e1b52c96cd464f73c3a184199fb274bd3",
+  "model_sha256": "0347077906900841fa5f88b97c2d08fcebdc87311973e2400d881d16757ac988",
+  "label_source": "Human-made according to user; not independently verified",
+  "duration_seconds": 230.94566893424036,
+  "sample_rate": 44100,
+  "channels": 2,
+  "analyzed_seconds": [
+    0,
+    10
+  ],
+  "prediction": "likely_ai_generated",
+  "ai_score": 0.9414767274439689,
+  "threshold": 0.5,
+  "calibrated": false,
+  "scope": "exploratory direct-file baseline; first 10 seconds; no inconclusive rule yet",
+  "intercept": 0.707765547826003,
+  "logit": 2.7780251325994842,
+  "features": [
+    {
+      "feature": "rms_mean",
+      "value": 0.0519536032045479,
+      "standardized": -0.8750350648248156,
+      "logit_contribution": 1.0654690726117892,
+      "training_min": 0.01514935569899732,
+      "training_max": 0.508414238696934,
+      "human_training_median": 0.20695276601048154,
+      "ai_training_median": 0.09013604146252771,
+      "outside_training_range": false
+    },
+    {
+      "feature": "rms_std",
+      "value": 0.038367829314732975,
+      "standardized": -0.40579905499349095,
+      "logit_contribution": -0.26546397426105106,
+      "training_min": 0.006721595260631116,
+      "training_max": 0.18299254648465937,
+      "human_training_median": 0.04733893928710457,
+      "ai_training_median": 0.03402109637327842,
+      "outside_training_range": false
+    },
+    {
+      "feature": "zero_crossing_rate_mean",
+      "value": 0.07976654510171306,
+      "standardized": -0.22617793173260828,
+      "logit_contribution": -0.12812567141411535,
+      "training_min": 0.010116936563169164,
+      "training_max": 0.44203150093683086,
+      "human_training_median": 0.06480966441381156,
+      "ai_training_median": 0.0676651164346895,
+      "outside_training_range": false
+    },
+    {
+      "feature": "zero_crossing_rate_std",
+      "value": 0.08225531165090387,
+      "standardized": 0.508127862728822,
+      "logit_contribution": 0.503766238117347,
+      "training_min": 0.008398428533948895,
+      "training_max": 0.225391028634044,
+      "human_training_median": 0.031442701628269946,
+      "ai_training_median": 0.0418606810230337,
+      "outside_training_range": false
+    },
+    {
+      "feature": "spectral_centroid_hz_mean",
+      "value": 1721.2871112652733,
+      "standardized": -0.2377288020828074,
+      "logit_contribution": -0.037874271083287156,
+      "training_min": 313.7997159567394,
+      "training_max": 5536.671628899096,
+      "human_training_median": 1824.1309956158257,
+      "ai_training_median": 1621.2499550234074,
+      "outside_training_range": false
+    },
+    {
+      "feature": "spectral_centroid_hz_std",
+      "value": 1268.0213639845451,
+      "standardized": 0.849616152960521,
+      "logit_contribution": 0.6229776292665807,
+      "training_min": 88.33036962264791,
+      "training_max": 2780.3199576144666,
+      "human_training_median": 614.872635408703,
+      "ai_training_median": 548.8586808490621,
+      "outside_training_range": false
+    },
+    {
+      "feature": "spectral_bandwidth_hz_mean",
+      "value": 1741.4822262869839,
+      "standardized": -0.3177917620464713,
+      "logit_contribution": 0.39243188530093953,
+      "training_min": 855.5365065127752,
+      "training_max": 3262.0318027756553,
+      "human_training_median": 2476.021738486537,
+      "ai_training_median": 1681.1752588717322,
+      "outside_training_range": false
+    },
+    {
+      "feature": "spectral_bandwidth_hz_std",
+      "value": 760.8855802954084,
+      "standardized": 1.0555343755178859,
+      "logit_contribution": -0.42610244500536354,
+      "training_min": 62.063621912393124,
+      "training_max": 1640.9582172611324,
+      "human_training_median": 359.0925333715754,
+      "ai_training_median": 406.54537309780005,
+      "outside_training_range": false
+    },
+    {
+      "feature": "spectral_flatness_mean",
+      "value": 0.017849784609741976,
+      "standardized": -0.2819430716119469,
+      "logit_contribution": 0.08875076165282697,
+      "training_min": 1.4946173589186132e-05,
+      "training_max": 0.22007483936253797,
+      "human_training_median": 0.010445861995889524,
+      "ai_training_median": 0.004232573105090936,
+      "outside_training_range": false
+    },
+    {
+      "feature": "spectral_flatness_std",
+      "value": 0.09544153147788552,
+      "standardized": 1.3667049792879087,
+      "logit_contribution": 0.2544303595878146,
+      "training_min": 3.7007440929410374e-05,
+      "training_max": 0.14968636370896857,
+      "human_training_median": 0.020028987374780087,
+      "ai_training_median": 0.017390566226511122,
+      "outside_training_range": false
+    }
+  ]
+}

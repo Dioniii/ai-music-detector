@@ -1,0 +1,236 @@
+{
+  "file": "TDS - Dea (Official Video HD).mp3",
+  "purpose": "Inspected diagnostic song, not fresh evaluation; no model tuning on this file",
+  "predictions": [
+    {
+      "file": "TDS - Dea (Official Video HD).mp3",
+      "variant": "multi_raw",
+      "ai_score": 0.894517329649686,
+      "prediction": "likely_ai_generated",
+      "calibrated": false,
+      "threshold": 0.5,
+      "sections": [
+        {
+          "start_seconds": 0.0,
+          "end_seconds": 20.0,
+          "rms": 0.1521470774147364
+        },
+        {
+          "start_seconds": 52.73641666666666,
+          "end_seconds": 72.73641666666667,
+          "rms": 0.29062457398864366
+        },
+        {
+          "start_seconds": 105.47283333333333,
+          "end_seconds": 125.47283333333333,
+          "rms": 0.2640558445362605
+        },
+        {
+          "start_seconds": 158.20925,
+          "end_seconds": 178.20925,
+          "rms": 0.26696238100178465
+        },
+        {
+          "start_seconds": 210.94570833333333,
+          "end_seconds": 230.94570833333333,
+          "rms": 0.18577974305340808
+        }
+      ],
+      "feature_names": [
+        "rms_mean",
+        "rms_std",
+        "zero_crossing_rate_mean",
+        "zero_crossing_rate_std",
+        "spectral_centroid_hz_mean",
+        "spectral_centroid_hz_std",
+        "spectral_bandwidth_hz_mean",
+        "spectral_bandwidth_hz_std",
+        "spectral_flatness_mean",
+        "spectral_flatness_std"
+      ],
+      "features": [
+        0.18807597579805338,
+        0.13241679268248846,
+        0.12291207598824787,
+        0.09333358985034812,
+        2585.0068483566542,
+        1212.3675819079856,
+        2513.355670980111,
+        623.5785215617768,
+        0.046349632695546955,
+        0.0717048023529803
+      ],
+      "contributions": [
+        -0.12109029743635959,
+        1.1092905115119622,
+        0.1247516082370529,
+        0.9083784209528415,
+        -0.05054199745169791,
+        0.9835953203714056,
+        -0.6951430445461413,
+        -0.6926688401196612,
+        -0.06513118452684738,
+        0.031352868677046376
+      ],
+      "intercept": 0.6049442333105095
+    },
+    {
+      "file": "TDS - Dea (Official Video HD).mp3",
+      "variant": "multi_no_rms",
+      "ai_score": 0.7062346173765367,
+      "prediction": "likely_ai_generated",
+      "calibrated": false,
+      "threshold": 0.5,
+      "sections": [
+        {
+          "start_seconds": 0.0,
+          "end_seconds": 20.0,
+          "rms": 0.1521470774147364
+        },
+        {
+          "start_seconds": 52.73641666666666,
+          "end_seconds": 72.73641666666667,
+          "rms": 0.29062457398864366
+        },
+        {
+          "start_seconds": 105.47283333333333,
+          "end_seconds": 125.47283333333333,
+          "rms": 0.2640558445362605
+        },
+        {
+          "start_seconds": 158.20925,
+          "end_seconds": 178.20925,
+          "rms": 0.26696238100178465
+        },
+        {
+          "start_seconds": 210.94570833333333,
+          "end_seconds": 230.94570833333333,
+          "rms": 0.18577974305340808
+        }
+      ],
+      "feature_names": [
+        "zero_crossing_rate_mean",
+        "zero_crossing_rate_std",
+        "spectral_centroid_hz_mean",
+        "spectral_centroid_hz_std",
+        "spectral_bandwidth_hz_mean",
+        "spectral_bandwidth_hz_std",
+        "spectral_flatness_mean",
+        "spectral_flatness_std"
+      ],
+      "features": [
+        0.12291207598824787,
+        0.09333358985034812,
+        2585.0068483566542,
+        1212.3675819079856,
+        2513.355670980111,
+        623.5785215617768,
+        0.046349632695546955,
+        0.0717048023529803
+      ],
+      "contributions": [
+        0.16894261661043805,
+        0.8492304329352318,
+        -0.029903583421029313,
+        1.0129750626994338,
+        -0.8304626480507071,
+        -0.703316451784862,
+        -0.06012840627418657,
+        -0.09461291310878074
+      ],
+      "intercept": 0.5644419614470757
+    },
+    {
+      "file": "TDS - Dea (Official Video HD).mp3",
+      "variant": "multi_rms_normalized",
+      "ai_score": 0.9873167231470005,
+      "prediction": "likely_ai_generated",
+      "calibrated": false,
+      "threshold": 0.5,
+      "sections": [
+        {
+          "start_seconds": 0.0,
+          "end_seconds": 20.0,
+          "rms": 0.1521470774147364
+        },
+        {
+          "start_seconds": 52.73641666666666,
+          "end_seconds": 72.73641666666667,
+          "rms": 0.29062457398864366
+        },
+        {
+          "start_seconds": 105.47283333333333,
+          "end_seconds": 125.47283333333333,
+          "rms": 0.2640558445362605
+        },
+        {
+          "start_seconds": 158.20925,
+          "end_seconds": 178.20925,
+          "rms": 0.26696238100178465
+        },
+        {
+          "start_seconds": 210.94570833333333,
+          "end_seconds": 230.94570833333333,
+          "rms": 0.18577974305340808
+        }
+      ],
+      "feature_names": [
+        "rms_mean",
+        "rms_std",
+        "zero_crossing_rate_mean",
+        "zero_crossing_rate_std",
+        "spectral_centroid_hz_mean",
+        "spectral_centroid_hz_std",
+        "spectral_bandwidth_hz_mean",
+        "spectral_bandwidth_hz_std",
+        "spectral_flatness_mean",
+        "spectral_flatness_std"
+      ],
+      "features": [
+        0.07928934697517426,
+        0.059456580572307474,
+        0.12291207598824787,
+        0.09333358985034812,
+        2585.0068484618632,
+        1212.3675815114955,
+        2513.3556716181374,
+        623.578519850141,
+        0.04635023575157737,
+        0.07170506829706717
+      ],
+      "contributions": [
+        1.8680109313223507,
+        1.6027735509391587,
+        0.13277395477570775,
+        0.8387165112575766,
+        -0.012701885979670702,
+        0.743004034188699,
+        -0.8522171834486852,
+        -0.8789200351668398,
+        -0.051990598340004225,
+        0.060185133157354395
+      ],
+      "intercept": 0.9050721275159324
+    }
+  ],
+  "gain_check": [
+    {
+      "gain": 1.0,
+      "scores": {
+        "multi_raw": 0.894517329649686,
+        "multi_no_rms": 0.7062346173765366,
+        "multi_rms_normalized": 0.9873167231470005,
+        "v1_first10": 0.9414767274439689
+      }
+    },
+    {
+      "gain": 0.1,
+      "scores": {
+        "multi_raw": 0.871296869250188,
+        "multi_no_rms": 0.7062345445938029,
+        "multi_rms_normalized": 0.9873188168650284,
+        "v1_first10": 0.9383144853899822
+      }
+    }
+  ]
+}

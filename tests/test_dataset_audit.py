@@ -6,8 +6,8 @@ import zipfile
 
 import pytest
 
-from dataset_audit import RangeReader, TransferBudget, audit, read_fma, summarize
-from dataset_audit import build_pilot_review
+from tools.dataset_audit import RangeReader, TransferBudget, audit, read_fma, summarize
+from tools.dataset_audit import build_pilot_review
 
 
 def raw_track(**changes):
@@ -206,7 +206,7 @@ def test_server_ignoring_range_is_rejected_without_reading_body(tmp_path, monkey
         def read(self, *args):
             pytest.fail("Must not read a full archive response")
 
-    monkeypatch.setattr("dataset_audit.urlopen", lambda *args, **kwargs: Response())
+    monkeypatch.setattr("tools.dataset_audit.urlopen", lambda *args, **kwargs: Response())
     with pytest.raises(ValueError, match="range"):
         TransferBudget(tmp_path / "transfers.json").fetch("https://example.invalid/a.zip", 0, 5)
 
@@ -216,7 +216,7 @@ def test_transfer_ledger_persists_actual_bytes(tmp_path, monkeypatch):
         status = 206
         headers = {"Content-Range": "bytes 0-2/100"}
 
-    monkeypatch.setattr("dataset_audit.urlopen", lambda *args, **kwargs: Response(b"abc"))
+    monkeypatch.setattr("tools.dataset_audit.urlopen", lambda *args, **kwargs: Response(b"abc"))
     ledger = tmp_path / "transfers.json"
     budget = TransferBudget(ledger, limit=10)
     assert budget.fetch("https://example.invalid/a.zip", 0, 2) == (b"abc", 100)

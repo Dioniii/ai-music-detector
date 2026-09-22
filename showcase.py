@@ -12,9 +12,9 @@ import numpy as np
 import soundfile as sf
 
 from audio_inspection import Audio, load_audio, spectrogram
-from baseline import ROOT, DEFAULT_OUTPUT, CONTRACT_FILES, digest, read_csv, score_features
-from features import FEATURE_NAMES, extract_features
-from preprocessing import preprocess_audio, TARGET_SAMPLE_RATE
+from baseline import ROOT, DEFAULT_OUTPUT, read_csv, score_features, load_model
+from features import recording_features
+from preprocessing import prepare_recording, TARGET_SAMPLE_RATE
 
 MODEL_PATH=DEFAULT_OUTPUT/'model.json'
 GREEN='#5a8a80'
@@ -34,7 +34,7 @@ PRETTY=['RMS mean','RMS variation','Zero crossings mean','Zero crossings variati
         'Spectral center mean','Spectral center variation','Bandwidth mean','Bandwidth variation',
         'Flatness mean','Flatness variation']
 
-EMPTY='<div class="result-card"><div class="eyebrow">Ready when you are</div><h2>What does the model hear?</h2><p>Choose an audio file or a local example, then select Analyze recording.</p><p class="small-note">First 10 seconds · ten audio features · one trained classifier</p></div>'
+EMPTY='<div class="result-card"><div class="eyebrow">Ready when you are</div><h2>What does the model hear?</h2><p>Choose an audio file or a local example, then select Analyze recording.</p><p class="small-note">Up to five random 20-second sections · ten audio features · one trained classifier</p></div>'
 
 
 def style_axis(axis):
@@ -46,19 +46,25 @@ def style_axis(axis):
     axis.xaxis.grid(color=BORDER,alpha=1,linewidth=.5)
 
 
-def signal_figure(clip):
-    figure=Figure(figsize=(9,5.1),layout='constrained',facecolor=BACKGROUND)
-    waveform,spectrum=figure.subplots(2,1)
-    waveform.plot(np.arange(clip.size)/TARGET_SAMPLE_RATE,clip,color=GREEN,linewidth=.5)
-    waveform.set(title='Waveform · the exact clip used by the model',xlabel='Time (seconds)',ylabel='Amplitude',xlim=(0,10))
+def selection_figure(audio, sections):
+    """Full-track coverage and the first sampled section, not just the intro."""
+    mono,_ = prepare_recording(audio)
+    fig=Figure(figsize=(9,5.1),layout='constrained',facecolor=BACKGROUND)
+    waveform,spectrum=fig.subplots(2,1)
+    step=max(1,len(mono)//12000)
+    waveform.plot(np.arange(0,len(mono),step)/TARGET_SAMPLE_RATE,mono[::step],color=GREEN,linewidth=.5)
+    for section in sections:
+        waveform.axvspan(section['start_seconds'],section['end_seconds'],facecolor='none',edgecolor=CORAL,linewidth=1)
+    waveform.set(title='Recording overview | outlined sections were analyzed',xlabel='Time (seconds)',ylabel='Amplitude',xlim=(0,audio.duration_seconds))
+    section=sections[0];start=round(section['start_seconds']*TARGET_SAMPLE_RATE);end=round(section['end_seconds']*TARGET_SAMPLE_RATE)
+    clip=mono[start:end].astype(np.float32)
     power,freq,times=spectrogram(Audio(clip[:,None],TARGET_SAMPLE_RATE))
-    db=10*np.log10(np.maximum(power,1e-12))
-    bounds=np.linspace(float(db.min()),float(db.max()) if db.max()>db.min() else float(db.min())+1,5)
-    im=spectrum.pcolormesh(times,freq/1000,db,shading='auto',cmap=STEPPED,norm=BoundaryNorm(bounds,STEPPED.N))
-    spectrum.set(title='Spectrogram · how frequency energy changes',xlabel='Time (seconds)',ylabel='Frequency (kHz)',xlim=(0,10))
-    figure.colorbar(im,ax=spectrum,label='Power density (dB re 1 amplitude²/Hz)')
+    db=10*np.log10(np.maximum(power,1e-12));bounds=np.linspace(float(db.min()),float(db.max()) if db.max()>db.min() else float(db.min())+1,5)
+    im=spectrum.pcolormesh(times+section['start_seconds'],freq/1000,db,shading='auto',cmap=STEPPED,norm=BoundaryNorm(bounds,STEPPED.N))
+    spectrum.set(title='Spectrogram | first sampled section',xlabel='Time in recording (seconds)',ylabel='Frequency (kHz)')
+    fig.colorbar(im,ax=spectrum,label='Power density (dB re 1 amplitude squared/Hz)')
     for axis in (waveform,spectrum):style_axis(axis)
-    return figure
+    return fig
 
 
 def contribution_figure(contributions,intercept):
@@ -73,10 +79,6 @@ def contribution_figure(contributions,intercept):
     return fig
 
 
-def reset_results():
-    return EMPTY,'',None,None,None,[]
-
-
 def analyze(path, display_name=None):
     """Return real model measurements; errors clear previous results instead of leaving stale plots."""
     if not path:
@@ -89,24 +91,22 @@ def analyze(path, display_name=None):
             raise ValueError('For this demo, please choose a recording no longer than 5 minutes.')
         if info.frames*info.channels>60_000_000:
             raise ValueError('This recording is too large to decode in the demo. Please upload a shorter excerpt.')
-        model=json.loads(MODEL_PATH.read_text(encoding='utf-8'))
-        if any(digest(ROOT/name)!=model['contract_sha256'][name] for name in CONTRACT_FILES):
-            raise ValueError('The audio pipeline has changed since training. Rebuild the baseline before using this model.')
+        model=load_model(MODEL_PATH)
         audio=load_audio(path)
-        clip=preprocess_audio(audio,start_seconds=model['start_seconds'])
-        vector=extract_features(clip)
+        vector,sections=recording_features(audio)
         standardized=(vector-np.asarray(model['scaler_mean']))/np.asarray(model['scaler_scale'])
         contributions=standardized*np.asarray(model['coefficients'])
         score=float(score_features(model,vector))
         prediction='Likely AI-generated' if score>=model['threshold'] else 'Likely human-made'
-        result=f'''<div class="result-card" data-result="{'ai' if score>=model['threshold'] else 'human'}"><div class="eyebrow">Baseline prediction</div><h2>{prediction}</h2>
+        result=f'''<div class="result-card" data-result="{'ai' if score>=model['threshold'] else 'human'}"><div class="eyebrow">Random-section baseline</div><h2>{prediction}</h2>
         <p>AI score <strong class="score-value">{score:.3f}</strong> · decision threshold {model['threshold']:.2f}</p>
         <div class="score-track"><span class="score-pin" style="left:calc({score*100:.3f}% - 2px)"></span></div>
         <div class="score-labels"><span>0 · human direction</span><span>0.5</span><span>AI direction · 1</span></div>
         <p class="small-note">This is a model score, not a confidence percentage or proof of authorship. This baseline has no inconclusive outcome yet.</p></div>'''
-        details=f'**{html.escape(display_name or Path(path).name)}** · {audio.duration_seconds:.2f} s · {audio.sample_rate:,} Hz · {audio.channels} channel(s)\n\nAnalyzed: first 10 seconds → 24 kHz mono → 10 features.'
+        ranges=', '.join(f"{s['start_seconds']:.1f}-{s['end_seconds']:.1f} s" for s in sections)
+        details=f"**{html.escape(display_name or Path(path).name)}** | {audio.duration_seconds:.2f} s | {audio.sample_rate:,} Hz | {audio.channels} channel(s)\n\nAnalyzed sections: {ranges}.\n\nReproducible random sampling; section features are averaged before classification."
         table=[[PRETTY[i],float(vector[i]),float(standardized[i]),float(contributions[i])] for i in range(10)]
-        return result,details,str(path),signal_figure(clip),contribution_figure(contributions,model['intercept']),table
+        return result,details,str(path),selection_figure(audio,sections),contribution_figure(contributions,model['intercept']),table
     except (ValueError,OSError,RuntimeError) as error:
         return f'<div class="result-card"><h2>Could not analyze this recording</h2><p>{html.escape(str(error))}</p></div>','',None,None,None,[]
 
