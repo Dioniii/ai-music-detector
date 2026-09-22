@@ -13,7 +13,7 @@ import soundfile as sf
 
 from audio_inspection import Audio, load_audio, spectrogram
 from baseline import ROOT, DEFAULT_OUTPUT, read_csv, score_features, load_model
-from features import recording_features
+from features import recording_features, encoder_features
 from preprocessing import prepare_recording, TARGET_SAMPLE_RATE
 
 MODEL_PATH=DEFAULT_OUTPUT/'model.json'
@@ -46,19 +46,19 @@ def style_axis(axis):
     axis.xaxis.grid(color=BORDER,alpha=1,linewidth=.5)
 
 
-def selection_figure(audio, sections):
+def selection_figure(audio, sections, sample_rate=TARGET_SAMPLE_RATE):
     """Full-track coverage and the first sampled section, not just the intro."""
-    mono,_ = prepare_recording(audio)
+    mono,_ = prepare_recording(audio, sample_rate=sample_rate)
     fig=Figure(figsize=(9,5.1),layout='constrained',facecolor=BACKGROUND)
     waveform,spectrum=fig.subplots(2,1)
     step=max(1,len(mono)//12000)
-    waveform.plot(np.arange(0,len(mono),step)/TARGET_SAMPLE_RATE,mono[::step],color=GREEN,linewidth=.5)
+    waveform.plot(np.arange(0,len(mono),step)/sample_rate,mono[::step],color=GREEN,linewidth=.5)
     for section in sections:
         waveform.axvspan(section['start_seconds'],section['end_seconds'],facecolor='none',edgecolor=CORAL,linewidth=1)
     waveform.set(title='Recording overview | outlined sections were analyzed',xlabel='Time (seconds)',ylabel='Amplitude',xlim=(0,audio.duration_seconds))
-    section=sections[0];start=round(section['start_seconds']*TARGET_SAMPLE_RATE);end=round(section['end_seconds']*TARGET_SAMPLE_RATE)
+    section=sections[0];start=round(section['start_seconds']*sample_rate);end=round(section['end_seconds']*sample_rate)
     clip=mono[start:end].astype(np.float32)
-    power,freq,times=spectrogram(Audio(clip[:,None],TARGET_SAMPLE_RATE))
+    power,freq,times=spectrogram(Audio(clip[:,None],sample_rate))
     db=10*np.log10(np.maximum(power,1e-12));bounds=np.linspace(float(db.min()),float(db.max()) if db.max()>db.min() else float(db.min())+1,5)
     im=spectrum.pcolormesh(times+section['start_seconds'],freq/1000,db,shading='auto',cmap=STEPPED,norm=BoundaryNorm(bounds,STEPPED.N))
     spectrum.set(title='Spectrogram | first sampled section',xlabel='Time in recording (seconds)',ylabel='Frequency (kHz)')
@@ -67,9 +67,15 @@ def selection_figure(audio, sections):
     return fig
 
 
-def contribution_figure(contributions,intercept):
-    values=np.append(contributions,intercept)
-    labels=PRETTY+['Model intercept']
+def contribution_figure(contributions,intercept, names=None):
+    if names is None:
+        values=np.append(contributions,intercept)
+        labels=PRETTY+['Model intercept']
+    else:
+        strongest=np.argsort(np.abs(contributions))[-10:]
+        remainder=float(np.sum(contributions)-np.sum(contributions[strongest]))
+        values=np.append(contributions[strongest], [remainder, intercept])
+        labels=[names[i] for i in strongest]+['Other 950 dimensions (sum)', 'Model intercept']
     order=np.argsort(values)
     fig=Figure(figsize=(9,4.8),layout='constrained',facecolor=BACKGROUND);axis=fig.subplots()
     axis.barh(np.asarray(labels)[order],values[order],color=[CORAL if v>=0 else GREEN for v in values[order]],height=.30)
@@ -93,20 +99,23 @@ def analyze(path, display_name=None):
             raise ValueError('This recording is too large to decode in the demo. Please upload a shorter excerpt.')
         model=load_model(MODEL_PATH)
         audio=load_audio(path)
-        vector,sections=recording_features(audio)
+        encoded=model['variant']=='efficientat'
+        vector,sections=(encoder_features(audio) if encoded else recording_features(audio))
         standardized=(vector-np.asarray(model['scaler_mean']))/np.asarray(model['scaler_scale'])
         contributions=standardized*np.asarray(model['coefficients'])
         score=float(score_features(model,vector))
         prediction='Likely AI-generated' if score>=model['threshold'] else 'Likely human-made'
-        result=f'''<div class="result-card" data-result="{'ai' if score>=model['threshold'] else 'human'}"><div class="eyebrow">Random-section baseline</div><h2>{prediction}</h2>
+        result=f'''<div class="result-card" data-result="{'ai' if score>=model['threshold'] else 'human'}"><div class="eyebrow">{'EfficientAT + trained classifier' if encoded else 'Random-section baseline'}</div><h2>{prediction}</h2>
         <p>AI score <strong class="score-value">{score:.3f}</strong> · decision threshold {model['threshold']:.2f}</p>
         <div class="score-track"><span class="score-pin" style="left:calc({score*100:.3f}% - 2px)"></span></div>
         <div class="score-labels"><span>0 · human direction</span><span>0.5</span><span>AI direction · 1</span></div>
         <p class="small-note">This is a model score, not a confidence percentage or proof of authorship. This baseline has no inconclusive outcome yet.</p></div>'''
         ranges=', '.join(f"{s['start_seconds']:.1f}-{s['end_seconds']:.1f} s" for s in sections)
         details=f"**{html.escape(display_name or Path(path).name)}** | {audio.duration_seconds:.2f} s | {audio.sample_rate:,} Hz | {audio.channels} channel(s)\n\nAnalyzed sections: {ranges}.\n\nReproducible random sampling; section features are averaged before classification."
-        table=[[PRETTY[i],float(vector[i]),float(standardized[i]),float(contributions[i])] for i in range(10)]
-        return result,details,str(path),selection_figure(audio,sections),contribution_figure(contributions,model['intercept']),table
+        names=model['feature_names'] if encoded else PRETTY
+        indices=np.argsort(np.abs(contributions))[-10:][::-1] if encoded else range(10)
+        table=[[names[i],float(vector[i]),float(standardized[i]),float(contributions[i])] for i in indices]
+        return result,details,str(path),selection_figure(audio,sections,32000 if encoded else TARGET_SAMPLE_RATE),contribution_figure(contributions,model['intercept'],names if encoded else None),table
     except (ValueError,OSError,RuntimeError) as error:
         return f'<div class="result-card"><h2>Could not analyze this recording</h2><p>{html.escape(str(error))}</p></div>','',None,None,None,[]
 
@@ -138,7 +147,7 @@ def distribution_figure(predictions):
 
 
 def local_examples():
-    manifest=ROOT/'data/batch_manifest.csv'
+    manifest=ROOT/load_model(MODEL_PATH).get('training_manifest', 'data/batch_manifest.csv')
     if not manifest.exists():return [],[]
     mapping={r['candidate_id']:r for r in read_csv(manifest)}
     predictions=read_csv(DEFAULT_OUTPUT/'predictions.csv')

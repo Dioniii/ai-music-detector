@@ -48,6 +48,33 @@ CONTRIBUTION_GUIDE = 'Teal bars push toward human; amber bars push toward AI. Th
 
 INPUT_GUIDANCE = '**10 seconds to 5 minutes.** Up to five randomly placed 20-second sections are analyzed; shorter files use the available audio. Uploads are processed on the server running this app; microphone evaluation is deferred.'
 
+# Keep the historical baseline usable while describing the active model honestly.
+from baseline import load_model
+ENCODER_ENABLED = load_model(MODEL_PATH)['variant'] == 'efficientat'
+if ENCODER_ENABLED:
+    HERO = HERO.replace('Handcrafted features + logistic regression', 'EfficientAT embeddings + logistic regression')
+    RESULTS_INTRO = '## A real baseline, including its mistakes\nThis evaluation contains **75 human and 75 generated recordings**, grouped by reference artist. These recordings were also evaluated in earlier experiments; this is a reused benchmark, not a new blind test.'
+    LIMITATIONS = '**What this does not establish:** unfamiliar-generator performance, microphone robustness or certified authorship. Dataset source, encoding and genre can affect predictions. The evaluation contains Rock and Electronic, with no Pop.'
+    CONTRIBUTION_GUIDE = 'The ten strongest embedding contributions are shown; the other 950 are summed into one bar. Teal pushes toward human and amber toward AI. These dimensions have no simple physical labels: the chart shows classifier arithmetic in logit units, not what the encoder heard or proof of authorship.'
+    HOW_IT_WORKS = """## From sound to a score
+**1. Prepare the audio.** Decode, average channels, resample to 32 kHz and select up to five reproducibly random 20-second sections. Shorter recordings use available audio. Sections may overlap.
+
+**2. Encode each section.** Frozen EfficientAT mn10_as converts a mel spectrogram into 960 learned features. Average the section vectors into one recording-level vector. The pretrained encoder is not an AI-music detector.
+
+**3. Apply our trained classifier.** A scaler and logistic-regression classifier, trained on our labeled recordings, turn the embedding into an AI score. The encoder weights stay unchanged.
+
+**4. Make a decision.** Scores at or above 0.5 produce Likely AI-generated; lower scores produce Likely human-made. This is not a calibrated probability and there is no inconclusive rule yet.
+
+### The experiment behind this demo
+1,000 recordings: **700 training, 150 validation and 150 evaluation**. Historical FMA supplies human-reference labels and Echoes TTA supplies AI labels from 12 generators. Related reference artists stay together. Only training recordings fit the scaler and classifier. Validation guides model selection; the evaluation benchmark has already been inspected in earlier experiments.
+
+### Reading the visuals
+The waveform outlines all sampled sections. The spectrogram shows the first section. Contributions show the strongest learned dimensions, the sum of the remaining dimensions and the intercept. Their sum is the logit before the sigmoid. Unlike loudness or frequency measurements, embedding dimensions do not have simple names or direct physical interpretations.
+
+**Built with** NumPy, SciPy, PyTorch, scikit-learn and Streamlit. EfficientAT runs locally on the app server; there is no paid inference API.
+"""
+
+
 
 
 @st.cache_data(show_spinner=False)
@@ -169,7 +196,7 @@ def render_analysis():
                     st.session_state['playback_format'] = {'.mp3': 'audio/mpeg', '.flac': 'audio/flac', '.ogg': 'audio/ogg'}.get(Path(name).suffix.lower(), 'audio/wav')
             else:
                 st.session_state['analysis_result'] = analyze(None)
-        result = st.session_state.get('analysis_result', (EMPTY, '', None, None, None, []))
+        result = st.session_state.get('analysis_result', (EMPTY.replace('ten audio features', '960 learned audio features') if ENCODER_ENABLED else EMPTY, '', None, None, None, []))
         if result[2] is not None:
             st.divider()
             st.markdown('Listen to the original')
@@ -184,7 +211,7 @@ def render_analysis():
         st.markdown(CONTRIBUTION_GUIDE)
         if result[4] is not None:
             responsive_plot(result[4], 'Feature contributions')
-        with st.expander('See the ten feature values'):
+        with st.expander('See the strongest embedding contributions' if ENCODER_ENABLED else 'See the ten feature values'):
             numeric_table(['Feature', 'Measured value', 'Training-standardized value', 'Logit contribution'], result[5])
 
 

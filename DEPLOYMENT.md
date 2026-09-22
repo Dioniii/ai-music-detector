@@ -21,7 +21,8 @@ change; this project does not promise permanent hosting availability.
 ## Files the deployment uses
 
 - The six main Python files listed in README.md.
-- `data/baseline_random/demo/model.json`, `metrics.json`, `predictions.csv`.
+- `data/baseline_encoder/model.json`, `metrics.json`, `predictions.csv`.
+- `data/encoder/efficientat_mn10.pt`, `provenance.json`, and `LICENSE.txt`.
 - `assets/streamlit.css` and `assets/fonts/`, including the font license.
 - `.streamlit/config.toml`, `.python-version`, `pyproject.toml`, `uv.lock`.
 
@@ -55,3 +56,19 @@ Official references (checked 2026-09-22):
 - https://docs.streamlit.io/deploy/streamlit-community-cloud
 - https://docs.streamlit.io/deploy/streamlit-community-cloud/deploy-your-app/deploy
 - https://docs.streamlit.io/deploy/streamlit-community-cloud/deploy-your-app/app-dependencies
+
+
+## EfficientAT runtime
+
+The default classifier now uses the frozen EfficientAT encoder. `uv sync --locked`
+installs pinned CPU-only PyTorch; export-only torchvision/torchaudio are in the
+optional encoder-build dependency group and are not needed by the app. The
+11.6 MiB encoder artifact is local, so inference does not download weights or
+call a paid service. Training embeddings and downloaded source stay gitignored.
+
+The encoder is loaded once per process, uses two PyTorch threads, and processes
+sections sequentially. App analysis remains serialized. The local extraction
+benchmark was about 574 MiB peak working set; this excludes the full UI and is
+not a guarantee of hosted memory use. The app is verified locally; actual
+Community Cloud deployment and resource capacity remain unverified. Keep the
+free-only policy above.

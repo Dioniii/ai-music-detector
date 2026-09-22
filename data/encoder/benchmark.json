@@ -1,0 +1,10 @@
+{
+  "audio_seconds": 230.94566893424036,
+  "sections": 5,
+  "dimensions": 960,
+  "first_run_seconds": 3.161377600000037,
+  "warm_run_seconds": 0.6719722999999931,
+  "peak_working_set_mib": 574.015625,
+  "platform": "Windows local CPU; not a hosted benchmark",
+  "repeat_identical": true
+}

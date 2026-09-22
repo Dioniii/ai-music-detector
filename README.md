@@ -1,11 +1,12 @@
 # AI music detector
 
-A beginner portfolio project that extracts ten audio measurements and applies a
-trained logistic-regression model. Streamlit shows the prediction, sampled audio
-sections, and the contribution of each feature.
+A beginner portfolio project that uses a frozen EfficientAT audio encoder and
+our own trained logistic-regression classifier. Streamlit shows the prediction,
+sampled audio sections and the strongest learned-dimension contributions.
 
-**This is an exploratory model, not proof of authorship.** It still makes substantial
-human false positives. Its AI score is not a calibrated confidence percentage.
+**This is an exploratory model, not proof of authorship.** Its AI score is not
+a calibrated confidence percentage. The earlier ten-feature baseline is retained
+for comparison.
 
 ## Run the app
 
@@ -27,25 +28,24 @@ Read them in this order:
 |---|---|
 | `audio_inspection.py` | Load a recording and provide the spectrogram calculation. |
 | `preprocessing.py` | Convert to mono at 24 kHz and choose the audio sections. |
-| `features.py` | Measure each section and average its ten feature values. |
+| `features.py` | Extract and average EfficientAT embeddings, or historical handcrafted features. |
 | `baseline.py` | Train the classifier, load its weights, and predict. |
 | `showcase.py` | Turn predictions and evaluation results into charts and display data. |
 | `app.py` | Build the Streamlit interface and handle uploads. |
 
 The prediction path is:
 
-`recording -> preprocessing -> ten features -> saved model -> score and explanation`
+`recording -> 32 kHz sections -> frozen encoder -> 960 features -> trained classifier -> score`
 
 Sampling uses up to five 20-second sections, one random start in each range of
 legal positions. Seed 42 makes the selection repeatable. Shorter recordings use
 the available audio; sections may overlap. The first section need not start at
 zero. The same selection method is used in training and prediction.
 
-Features summarize RMS amplitude, zero crossings, spectral center, bandwidth and
-flatness. Each contributes a mean and a standard deviation. We average the section
-vectors, standardize with the saved training statistics, and apply ten learned
-weights plus an intercept. A sigmoid converts that sum into an AI score; the
-fixed decision threshold is 0.5.
+EfficientAT converts each section into 960 learned features. We average those
+vectors, standardize with training-only statistics and apply our own learned
+classifier weights. The decision threshold stays at 0.5. Embedding dimensions do
+not have simple physical meanings; the chart shows their arithmetic contribution.
 
 ## Predict without the interface
 
@@ -54,7 +54,7 @@ fixed decision threshold is 0.5.
 ```
 
 This uses the same model as Streamlit. Its weights and evaluation files live in
-`data/baseline_random/demo/`. No paid API or external model service is involved.
+`data/baseline_encoder/`; the frozen encoder is in `data/encoder/`. No paid API or external model service is involved.
 
 ## Train on the 1,000-recording dataset
 
@@ -64,7 +64,7 @@ To download only the selected recordings (about 1.6 GiB), then train:
 
 ```powershell
 .\.venv\Scripts\python.exe -m tools.batch_audio download-expanded
-.\.venv\Scripts\python.exe baseline.py train --output data/model_rerun
+.\.venv\Scripts\python.exe baseline.py train --encoder --output data/model_rerun
 ```
 
 Downloads resume using verified local receipts. Training itself does not download
@@ -79,31 +79,26 @@ predictions, metrics, sampled sections and a comparison with the demo model.
 To try another output from the command line, pass
 `--model data/model_rerun/model.json`. Training does not automatically switch
 the demo to that output. Historical 80-recording training is still available
-with `--manifest data/batch_manifest.csv`.
+by omitting `--encoder` and using `--manifest data/batch_manifest.csv`.
 
-## The 1,000-recording experiment
+## Current encoder results
 
-The larger dataset is downloaded and the new model is saved in
-`data/baseline_1000/`. On the same new 150-recording holdout, human false positives
-fell from **25/75 to 21/75**, while AI detections fell from **42/75 to 41/75**.
-Validation accuracy declined from **68.0% to 63.3%**, so the demo still uses the
-previous model. Dea now falls on the human side with the new model, but that
-single known example does not justify replacing the demo model.
+Validation accuracy is **88.7%**, compared with 68.0% for the previous demo on
+the same validation recordings. On the reused 150-recording evaluation set,
+accuracy is **86.7%**, AI detection is **66/75**, and human false positives are
+**11/75**. This is a reused benchmark, not a new blind test. Dea falls on the
+human side, but that known example was not used for model selection.
 
-Try the experimental model with
-`python baseline.py predict "path/to/recording.mp3" --model data/baseline_1000/model.json`.
-The [experiment report](data/baseline_1000/REPORT.md) explains the data, method,
-comparison, limitations and commands in detail.
+[Encoder experiment and implementation report](data/baseline_encoder/REPORT.md)
+explains the method, results and checks. [Encoder packaging](data/encoder/README.md)
+records the source, license, export procedure and local CPU benchmark.
+The [handcrafted 1,000-recording experiment](data/baseline_1000/REPORT.md) remains
+as a historical comparison. Try the old demo with
+`--model data/baseline_random/demo/model.json`.
 
-## What the current demo results mean
-
-The current model detects 10 of 12 AI recordings in the exploratory holdout and
-falsely flags 2 of 4 human recordings. These are small, previously inspected
-splits, not a fresh final test. Microphone robustness, unfamiliar generators and
-an inconclusive outcome have not been established.
-
-Historical FMA recordings supply human-reference labels and Echoes TTA supplies
-AI labels. These are research assumptions rather than verified authorship.
+Microphone robustness and unfamiliar-generator performance remain untested.
+Historical FMA supplies human-reference labels and Echoes TTA supplies generated
+labels; these are dataset assumptions rather than verified authorship.
 
 ## Supporting folders
 

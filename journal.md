@@ -531,3 +531,27 @@ its scaler mean and scale matched only the 700 training feature vectors. The
 manifest hash matched, all three splits contained both classes and all 12
 generators, and the previous demo model hash remained unchanged. The repository
 still has six root Python modules. The new model JSON is 1,698 bytes.
+
+
+## EfficientAT integrated - 2026-09-23
+
+Added the frozen mn10_as encoder within features.py and extended the existing
+trainer with --encoder. No new Python modules. Official source and checkpoint
+hashes, attribution and a standalone 11.6 MiB export are recorded in data/encoder.
+Audio is resampled directly to 32 kHz; the same seed and random-section policy
+remain. The model averages 960-dimensional embeddings and trains our own scaler
+and logistic regression on the same 700 training recordings. Embeddings are
+cached locally for reuse.
+
+Validation improved from the previous demo's 68.0% to 88.7%, so the encoder
+classifier is now the default. Reused evaluation accuracy is 86.7%, with 11/75
+human false positives and 66/75 AI detections. Dea is human-side at 0.015666;
+it was not used for training or selection. No threshold search was performed.
+The full method and limitations are in data/baseline_encoder/REPORT.md.
+
+Streamlit retains the three tabs and styling, with correct encoder-specific
+copy and contribution labels. All 121 existing tests pass. Encoder export
+parity, deterministic extraction, saved-classifier parity and Streamlit
+example/upload flows passed. Local extraction was 3.16 seconds cold, 0.67 warm,
+574 MiB peak on Dea; hosted capacity remains unverified. No public deployment,
+commit or push was performed. The earlier classifiers remain available.

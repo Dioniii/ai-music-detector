@@ -88,28 +88,28 @@ def section_starts(sample_count, size, count):
     return np.array([rng.integers(int(lo),int(hi)) for lo,hi in zip(edges[:-1],edges[1:])])
 
 
-def prepare_recording(audio: Audio):
-    """Return 24 kHz mono audio and up to five random 20-second sections."""
+def prepare_recording(audio: Audio, sample_rate=TARGET_SAMPLE_RATE):
+    """Return target-rate mono audio and up to five random 20-second sections."""
     if audio.duration_seconds < 10:
         raise ValueError('Please choose at least 10 seconds of audio')
     if audio.channels not in (1, 2):
         raise ValueError('Expected mono or stereo audio')
     mono = audio.samples.mean(axis=1, dtype=np.float64)
-    if audio.sample_rate != TARGET_SAMPLE_RATE:
-        divisor = gcd(audio.sample_rate, TARGET_SAMPLE_RATE)
+    if audio.sample_rate != sample_rate:
+        divisor = gcd(audio.sample_rate, sample_rate)
         mono = resample_poly(
-            mono, TARGET_SAMPLE_RATE // divisor, audio.sample_rate // divisor,
+            mono, sample_rate // divisor, audio.sample_rate // divisor,
             window=('kaiser', 5.0), padtype='constant', cval=0.0,
         )
-    size = min(20 * TARGET_SAMPLE_RATE, len(mono))
-    count = min(5, max(1, ceil(len(mono) / (20 * TARGET_SAMPLE_RATE))))
+    size = min(20 * sample_rate, len(mono))
+    count = min(5, max(1, ceil(len(mono) / (20 * sample_rate))))
     starts = section_starts(len(mono), size, count)
     sections = []
     for start in starts:
         clip = mono[start:start + size].astype(np.float32)
         sections.append({
-            'start_seconds': float(start / TARGET_SAMPLE_RATE),
-            'end_seconds': float((start + size) / TARGET_SAMPLE_RATE),
+            'start_seconds': float(start / sample_rate),
+            'end_seconds': float((start + size) / sample_rate),
             'rms': float(np.sqrt(np.mean(clip.astype(np.float64) ** 2))),
         })
     return mono, sections

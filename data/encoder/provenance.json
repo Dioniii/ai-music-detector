@@ -1,0 +1,13 @@
+{
+  "model": "EfficientAT mn10_as",
+  "source_revision": "a425fdce92572e602a1d5634799bd9f1f2efa806",
+  "checkpoint_url": "https://github.com/fschmid56/EfficientAT/releases/download/v0.0.1/mn10_as_mAP_471.pt",
+  "checkpoint_sha256": "0bd7dc2443af498c289a2e739f02ebb515d6aa3fd3ab9db539c86123ae368a4e",
+  "export_sha256": "fc0a3bac74341bfcbf1194499842f0bba28991091d6b188d142c05e1855accd0",
+  "sample_rate": 32000,
+  "embedding_dimensions": 960,
+  "preprocessing": "Official evaluation mel frontend; no augmentation",
+  "pooling": "Mean over final convolution frequency/time dimensions, then mean over sections",
+  "torch_version": "2.14.0+cpu",
+  "export_parity": "Passed at 10 and 20 seconds"
+}

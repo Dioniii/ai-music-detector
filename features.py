@@ -3,6 +3,9 @@
 Features describe audio properties. They do not establish AI generation.
 """
 
+from pathlib import Path
+from functools import lru_cache
+
 import librosa
 import numpy as np
 from numpy.typing import NDArray
@@ -80,3 +83,126 @@ def recording_features(audio):
         end = round(section['end_seconds'] * TARGET_SAMPLE_RATE)
         vectors.append(extract_features(mono[start:end].astype(np.float32)))
     return np.mean(vectors, axis=0), sections
+
+
+# EfficientAT is frozen: only the small classifier in baseline.py is trained.
+ENCODER_DIR = Path(__file__).resolve().parent / 'data/encoder'
+ENCODER_PATH = ENCODER_DIR / 'efficientat_mn10.pt'
+ENCODER_NAMES = tuple(f'embedding_{i:03d}' for i in range(960))
+ENCODER_REVISION = 'a425fdce92572e602a1d5634799bd9f1f2efa806'
+
+
+def export_encoder():
+    """Build a portable encoder from pinned official source; run only during setup."""
+    import hashlib
+    import io
+    import json
+    import sys
+    import urllib.request
+    import zipfile
+    from pathlib import Path
+    import torch
+
+    if ENCODER_PATH.exists():
+        raise FileExistsError('Encoder already exported; refusing to overwrite it')
+    source_dir = ENCODER_DIR.parent / 'encoder_source'
+    root = source_dir / f'EfficientAT-{ENCODER_REVISION}'
+    if not root.exists():
+        url = f'https://codeload.github.com/fschmid56/EfficientAT/zip/{ENCODER_REVISION}'
+        with urllib.request.urlopen(url, timeout=60) as response:
+            archive = zipfile.ZipFile(io.BytesIO(response.read()))
+        for member in archive.infolist():
+            if not (source_dir / member.filename).resolve().is_relative_to(source_dir.resolve()):
+                raise ValueError('Unexpected source archive path')
+        archive.extractall(source_dir)
+    sys.path.insert(0, str(root))
+    import contextlib
+    with contextlib.chdir(root):
+        from models.mn.model import get_model
+        from models.preprocess import AugmentMelSTFT
+    checkpoint = source_dir / 'mn10_as.pt'
+    url = 'https://github.com/fschmid56/EfficientAT/releases/download/v0.0.1/mn10_as_mAP_471.pt'
+    if not checkpoint.exists():
+        torch.hub.download_url_to_file(url, str(checkpoint))
+    torch.set_num_threads(2)
+    # Suppress the upstream constructor's lengthy architecture printout.
+    import contextlib
+    with contextlib.redirect_stdout(io.StringIO()):
+        model = get_model(pretrained_name=None).eval()
+        mel = AugmentMelSTFT().eval()
+    model.load_state_dict(torch.load(checkpoint, map_location='cpu', weights_only=True))
+
+    class Embedding(torch.nn.Module):
+        def __init__(self):
+            super().__init__()
+            self.mel = mel
+            self.features = model.features
+
+        def forward(self, waveform):
+            x = self.features(self.mel(waveform).unsqueeze(1))
+            return x.mean(dim=(2, 3))
+
+    encoder = Embedding().eval()
+    with torch.inference_mode():
+        example = torch.zeros(1, 320000)
+        traced = torch.jit.trace(encoder, example, check_trace=False)
+        traced = torch.jit.freeze(traced)
+        # Different input lengths must retain the official encoder's behavior.
+        torch.manual_seed(42)
+        for seconds in (10, 20):
+            waveform = torch.randn(1, seconds * 32000) * .05
+            expected = model(mel(waveform).unsqueeze(1))[1]
+            torch.testing.assert_close(traced(waveform), expected, rtol=1e-4, atol=1e-5)
+    ENCODER_DIR.mkdir(parents=True, exist_ok=True)
+    traced.save(str(ENCODER_PATH))
+    (ENCODER_DIR / 'LICENSE.txt').write_text((root / 'LICENSE').read_text(), encoding='utf-8')
+    provenance = {
+        'model': 'EfficientAT mn10_as', 'source_revision': ENCODER_REVISION,
+        'checkpoint_url': url, 'checkpoint_sha256': hashlib.sha256(checkpoint.read_bytes()).hexdigest(),
+        'export_sha256': hashlib.sha256(ENCODER_PATH.read_bytes()).hexdigest(),
+        'sample_rate': 32000, 'embedding_dimensions': 960,
+        'preprocessing': 'Official evaluation mel frontend; no augmentation',
+        'pooling': 'Mean over final convolution frequency/time dimensions, then mean over sections',
+        'torch_version': torch.__version__, 'export_parity': 'Passed at 10 and 20 seconds',
+    }
+    (ENCODER_DIR / 'provenance.json').write_text(json.dumps(provenance, indent=2)+'\n', encoding='utf-8')
+    print(f'Exported {ENCODER_PATH} ({ENCODER_PATH.stat().st_size/1024**2:.1f} MiB)')
+
+
+@lru_cache(maxsize=1)
+def load_encoder():
+    """Share one frozen CPU encoder across predictions; no network requests."""
+    import hashlib
+    import json
+    import torch
+    provenance = json.loads((ENCODER_DIR / 'provenance.json').read_text())
+    if hashlib.sha256(ENCODER_PATH.read_bytes()).hexdigest() != provenance['export_sha256']:
+        raise ValueError('Encoder artifact does not match its recorded checksum')
+    torch.set_num_threads(2)
+    return torch.jit.load(str(ENCODER_PATH), map_location='cpu').eval()
+
+
+def encoder_features(audio):
+    """Average 960 learned features from the same random-section policy at 32 kHz."""
+    import torch
+    encoder = load_encoder()
+    mono, sections = prepare_recording(audio, sample_rate=32000)
+    vectors = []
+    with torch.inference_mode():
+        for section in sections:
+            start = round(section['start_seconds'] * 32000)
+            end = round(section['end_seconds'] * 32000)
+            waveform = torch.from_numpy(mono[start:end].astype(np.float32)).unsqueeze(0)
+            vectors.append(encoder(waveform).squeeze(0).numpy().copy())
+    vector = np.mean(vectors, axis=0, dtype=np.float64)
+    if vector.shape != (960,) or not np.isfinite(vector).all():
+        raise ValueError('Encoder did not return 960 finite features')
+    return vector, sections
+
+
+if __name__ == '__main__':
+    import argparse
+    parser = argparse.ArgumentParser(description='Export the frozen EfficientAT encoder once.')
+    parser.add_argument('command', choices=['export-encoder'])
+    parser.parse_args()
+    export_encoder()
