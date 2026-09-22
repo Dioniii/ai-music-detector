@@ -381,3 +381,14 @@ print(dict(zip(FEATURE_NAMES, vector)))
 - A headless browser screenshot exposed a dark-mode heading contrast issue, which was fixed. Visually checked the contribution chart. Built-in browser access was unavailable due to the sandbox helper; browser interaction was not automated.
 - Kept original audio preprocessing and model unchanged. No new diagnostic stage, model training, public deployment or encoder download. The app runs on localhost with sharing and analytics disabled.
 - Updated README and [Gradio debrief](GRADIO_DEBRIEF.md). Temporary uploaded audio and server logs/screenshots are gitignored. Hugging Face encoders remain deferred.
+
+
+## 2026-09-22 - Streamlit migration
+
+Replaced Gradio with Streamlit for a zero-budget Community Cloud deployment path.
+Preserved the three tabs, dark monospace design, example placement, model and
+processing functions. Extracted shared analysis/figures into showcase.py and
+authored copy into showcase_content.py. Added per-session results, isolated upload
+temporary files, focused UI checks, theme configuration, and deployment notes.
+All three example scores match the unchanged CLI. No retraining, source-audio
+upload, commit, or public deployment was performed. See STREAMLIT_DEBRIEF.md.

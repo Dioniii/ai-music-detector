@@ -9,3 +9,6 @@ data/pilot_plots/
 data/audio_batch/
 .gradio_cache/
 .gradio_server/
+
+.streamlit/secrets.toml
+.streamlit_server/

@@ -5,26 +5,39 @@ features and a trained logistic-regression baseline. Historical FMA recordings
 provide human reference labels; Echoes TTA provides generated labels. Labels are
 research assumptions, not certified authorship.
 
-## Open the Gradio demo
+## Open the Streamlit demo
+
+Install the environment with `uv sync --locked`, then run:
 
 ```powershell
-.\.venv\Scripts\python.exe app.py
+.\.venv\Scripts\python.exe -m streamlit run app.py
 ```
 
-Open **http://127.0.0.1:7860**. Upload a WAV, MP3, FLAC or OGG recording (10 seconds
-to 5 minutes, up to 50 MB), or select a local example and press **Analyze recording**.
-The demo includes original-audio playback, the analyzed clip's waveform and
-spectrogram, a raw score, exact feature contributions, and the saved model's
-confusion matrices and errors. Short or invalid recordings get a readable message.
+Open **http://localhost:8501**. Upload a WAV, MP3, FLAC or OGG recording (10 seconds
+to 5 minutes, up to 50 MB), or select a local example immediately below the uploader
+and press **Analyze recording**. The three tabs retain the dark IBM Plex Mono
+interface, sharp borders, teal/amber results, and clear primary action.
 
-The server stays on localhost with public sharing and Gradio analytics disabled.
-No Hugging Face encoder or remote inference service is used. Gradio requires some
-Hugging Face client packages as dependencies; no encoder weights were downloaded.
-Temporary audio copies go to ignored `.gradio_cache/`; they are cleaned periodically
-while the app runs. Local dataset examples appear only when their audio exists.
-To use another port, run `python app.py --port 7861`.
+The demo includes original-audio playback, waveform and spectrogram, raw score,
+exact feature contributions, and the saved model's confusion matrices and errors.
+Changing the recording clears the previous result. Short or invalid files produce
+a readable message.
 
-See the [Gradio debrief](GRADIO_DEBRIEF.md) for the display logic and verification.
+Audio processing runs wherever the app is hosted: locally during development,
+on the server after cloud deployment. Each upload is decoded through an isolated
+temporary file that is deleted after analysis. Audio and results are held in the
+browser's server session, never the shared application cache. No paid inference
+API, encoder download, or external model service is involved. Streamlit usage
+telemetry is disabled. Existing recordings are offered only when their local
+files exist; dataset audio is not bundled or downloaded at startup.
+
+To use another port, append `--server.port 8502`. To restrict access to this
+computer, append `--server.address 127.0.0.1`.
+
+See [the Streamlit migration debrief](STREAMLIT_DEBRIEF.md) for implementation
+and verification, and [cloud deployment instructions](DEPLOYMENT.md) for the
+free Community Cloud setup. The [Gradio debrief](GRADIO_DEBRIEF.md) remains a
+historical record of the previous interface.
 
 ## Run a prediction
 
