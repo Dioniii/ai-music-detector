@@ -338,3 +338,14 @@ print(dict(zip(FEATURE_NAMES, vector)))
 - Full suite: 103 passed, with the existing short-audio spectrogram warning. Independent artifact checks confirmed counts, path joins, restrictions and flags.
 - See [candidate manifest report](data/candidate_manifest_report.md) for the concrete Digital Lightning trace, reproduction commands, source hashes and learning exercise.
 - No dependencies, audio downloads, training, commits or split assignments. Pause for review before the next increment.
+
+
+## First bounded audio batch - 2026-09-21
+
+- Implemented `batch_audio.py` and nine new behavioral tests under the approved 20-group, at-most-80-file, 200 MiB additional-transfer scope. Initial tests failed on the missing module; final full suite: 112 passed with the existing short-audio spectrogram warning.
+- Selected one reference per group using a fixed metadata-only order, with one ACE-Step, AudioLDM and MusicGen counterpart each. Saved 80 manifest rows with existing flags and unassigned splits; the Rolemusic group stays development-only.
+- Downloaded all 80 selected members with size/CRC checks and SHA-256 receipts. Actual additional response-body transfer: 85,755,222 bytes (81.78 MiB), within 200 MiB. No pilot file happened to overlap this batch; receipt-checked no-network resume is tested.
+- Checked completed files as they arrived. All 80 decode to finite audio of at least ten seconds. No exact-file or exact-PCM duplicate groups were found within the batch; near-duplicate review remains pending.
+- Found quality flags on 30 recordings: three human channel offsets and 28 full-scale flags (eight human, all 20 MusicGen), with one overlap. Preserved originals; flags are review triggers, not AI evidence or automatic exclusions.
+- Source rate/channel/duration differences remain confounds, including AudioLDM at 16 kHz. Listening/content and usage review remain pending; no eligibility promotion, model training or split assignment occurred.
+- See [batch report](data/batch_audio_report.md) for measured results, the Scott Holmes array-shape trace, reproducibility instructions and exercise. Audio/receipts stay ignored by git; no packages, uploads or commits.

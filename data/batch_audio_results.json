@@ -1,0 +1,1948 @@
+{
+  "manifest_sha256": "e7d09092fba135e61a03ad9315a7ab6f83147e62c30de00420dd0a22396dfb8a",
+  "results": [
+    {
+      "candidate_id": "human:fma:114396",
+      "expected_label": "human",
+      "group_id": "fma_artist:19498",
+      "file_path": "data/audio_batch/b022f9d91befa3885ec9a1bd0c324b2a4c9fb64547de9caaa5ddc373ccb12221.mp3",
+      "status": "ok",
+      "sha256": "f3750318a556a19760cbbeeb4bdfffcda5d3ad6b3c93da62d6cd92b1c04e8afa",
+      "pcm_sha256": "523257867446634bf2238777aecb50e2bf0078dcf4f4e950e78db73b9da18f77",
+      "sample_rate": 44100,
+      "shape": [
+        1321967,
+        2
+      ],
+      "duration_seconds": 29.976575963718822,
+      "channel_mean_amplitude": [
+        3.5853424672701224e-05,
+        9.427354701392236e-05
+      ],
+      "peak_amplitude": 0.2817525863647461,
+      "rms_amplitude": 0.07840543059600286,
+      "finite_samples": true,
+      "quality_flags": [],
+      "listening_status": "pending"
+    },
+    {
+      "candidate_id": "ai:Echoes/TTA/acestep/Breathe_New_Life_Scott_Holmes_acestep_TTA_001.mp3",
+      "expected_label": "ai",
+      "group_id": "fma_artist:19498",
+      "file_path": "data/audio_batch/d6454914fa51f1b35b0f424e904df77f3decbcd476828fa5f9d9a8c6b5202914.mp3",
+      "status": "ok",
+      "sha256": "3b57be7170b7a98e55980799e683533f7fa200ea31e47501ef51eeb989ca2cb9",
+      "pcm_sha256": "3e0b8fe7d25222af05dcbec32a60b1a236eea52c4894d205071517fc6349c5a9",
+      "sample_rate": 48000,
+      "shape": [
+        4649935,
+        2
+      ],
+      "duration_seconds": 96.87364583333333,
+      "channel_mean_amplitude": [
+        0.0007308510757172995,
+        0.0006131039943354592
+      ],
+      "peak_amplitude": 0.7871280908584595,
+      "rms_amplitude": 0.11894195670016956,
+      "finite_samples": true,
+      "quality_flags": [],
+      "listening_status": "pending"
+    },
+    {
+      "candidate_id": "ai:Echoes/TTA/audioldm/Breathe_New_Life_Scott_Holmes_audioldm_TTA_001.mp3",
+      "expected_label": "ai",
+      "group_id": "fma_artist:19498",
+      "file_path": "data/audio_batch/7c0f156ae4c3bc969808e4eda0b1d1203c12348b266d0a463e8d4a92c9bde963.mp3",
+      "status": "ok",
+      "sha256": "f01d8873967d2e8229e83c66b84dbc69dc3a7208d326e1518d07883b411ef256",
+      "pcm_sha256": "534b3d0606d8bf3a6c5462c3b2c41ef55782ec3eef4a553def74464a34d41451",
+      "sample_rate": 16000,
+      "shape": [
+        491552,
+        1
+      ],
+      "duration_seconds": 30.722,
+      "channel_mean_amplitude": [
+        0.00021872162091585794
+      ],
+      "peak_amplitude": 0.3056562840938568,
+      "rms_amplitude": 0.04084984057110171,
+      "finite_samples": true,
+      "quality_flags": [],
+      "listening_status": "pending"
+    },
+    {
+      "candidate_id": "ai:Echoes/TTA/musicgen/Breathe_New_Life_Scott_Holmes_musicgen_TTA_001.wav",
+      "expected_label": "ai",
+      "group_id": "fma_artist:19498",
+      "file_path": "data/audio_batch/e72a3a0c99c41537e15c17b072aa042b4aad57ccb30bdda22ac4c3d79547b7df.wav",
+      "status": "ok",
+      "sha256": "3111730f3a247c30a79a12588ea90ed9475881867728dd7c6457b435cd570419",
+      "pcm_sha256": "78b4c34ec75b63e0cebfbb5da6bef8ddd28b20e628c3faa077678e23e4c7a4b6",
+      "sample_rate": 32000,
+      "shape": [
+        958080,
+        1
+      ],
+      "duration_seconds": 29.94,
+      "channel_mean_amplitude": [
+        -0.0005028853037393962
+      ],
+      "peak_amplitude": 1.0,
+      "rms_amplitude": 0.24645347114565272,
+      "finite_samples": true,
+      "quality_flags": [
+        "at_or_above_full_scale_review"
+      ],
+      "listening_status": "pending"
+    },
+    {
+      "candidate_id": "human:fma:116878",
+      "expected_label": "human",
+      "group_id": "fma_artist:17198",
+      "file_path": "data/audio_batch/de623aa2d604a558f3bdfb060323149fe8b0643ea3b3900d58fe16ca2aabfce7.mp3",
+      "status": "ok",
+      "sha256": "2c5dac47e04aca381f42eeb2ed6990df935dfaf3f7b95e6d8fbd7c1460a15219",
+      "pcm_sha256": "648ca8ed2af737837b5e98f1fd2711681c48435b824e26ef9ee110f52492f935",
+      "sample_rate": 44100,
+      "shape": [
+        1323119,
+        2
+      ],
+      "duration_seconds": 30.00269841269841,
+      "channel_mean_amplitude": [
+        -1.075042692318894e-05,
+        3.293989648948832e-05
+      ],
+      "peak_amplitude": 0.9953601956367493,
+      "rms_amplitude": 0.27778235069336327,
+      "finite_samples": true,
+      "quality_flags": [],
+      "listening_status": "pending"
+    },
+    {
+      "candidate_id": "ai:Echoes/TTA/acestep/Tapes_Gumbel_acestep_TTA_001.mp3",
+      "expected_label": "ai",
+      "group_id": "fma_artist:17198",
+      "file_path": "data/audio_batch/413f78ec86152e2e1d1fb270226e803cf7c5e25b46f154697fa303fbfeed0c64.mp3",
+      "status": "ok",
+      "sha256": "a9ec7e5f6ff32aac0542e8b874ccd36d98cc26cdc015afc4671071766bae3cc0",
+      "pcm_sha256": "cdee319c7a39e22e29a95c50e67bf86b9e3ee7510f5e73bfe485c6c196ac27eb",
+      "sample_rate": 48000,
+      "shape": [
+        2206825,
+        2
+      ],
+      "duration_seconds": 45.975520833333334,
+      "channel_mean_amplitude": [
+        0.0003467869378909798,
+        0.0003466271004632164
+      ],
+      "peak_amplitude": 0.5840134620666504,
+      "rms_amplitude": 0.11208681602186696,
+      "finite_samples": true,
+      "quality_flags": [],
+      "listening_status": "pending"
+    },
+    {
+      "candidate_id": "ai:Echoes/TTA/audioldm/Tapes_Gumbel_audioldm_TTA_001.mp3",
+      "expected_label": "ai",
+      "group_id": "fma_artist:17198",
+      "file_path": "data/audio_batch/353d81c7978f16566af69d5988dd327e0f1ef0b7c488086f106ced79c6c090f1.mp3",
+      "status": "ok",
+      "sha256": "75ef22c852eb037da7faed5b38897135f5729cf2aadc4ba9d534222def98c233",
+      "pcm_sha256": "e9311cc786ea67bee2c5ae559ffafac2b3065dfd20ebb2dcc041c2589fe849d5",
+      "sample_rate": 16000,
+      "shape": [
+        491552,
+        1
+      ],
+      "duration_seconds": 30.722,
+      "channel_mean_amplitude": [
+        0.00017184720657660926
+      ],
+      "peak_amplitude": 0.7550788521766663,
+      "rms_amplitude": 0.10051789047757596,
+      "finite_samples": true,
+      "quality_flags": [],
+      "listening_status": "pending"
+    },
+    {
+      "candidate_id": "ai:Echoes/TTA/musicgen/Tapes_Gumbel_musicgen_TTA_001.wav",
+      "expected_label": "ai",
+      "group_id": "fma_artist:17198",
+      "file_path": "data/audio_batch/5165a31e26a08ac0bd0d3e7b0738c3363c3d11f48a922bc88ca99b8284c8514e.wav",
+      "status": "ok",
+      "sha256": "ac4ffe1ca1b896972373076bcc9a717af3d5e013f919ea95798e960d45bfc150",
+      "pcm_sha256": "90deda0a4321fdf933b4c28f3eec53a1a9e7b52b0e9493c0080ea85c21a597eb",
+      "sample_rate": 32000,
+      "shape": [
+        958080,
+        1
+      ],
+      "duration_seconds": 29.94,
+      "channel_mean_amplitude": [
+        0.00031817212611257674
+      ],
+      "peak_amplitude": 1.0,
+      "rms_amplitude": 0.24159430351202005,
+      "finite_samples": true,
+      "quality_flags": [
+        "at_or_above_full_scale_review"
+      ],
+      "listening_status": "pending"
+    },
+    {
+      "candidate_id": "human:fma:91622",
+      "expected_label": "human",
+      "group_id": "fma_artist:10397",
+      "file_path": "data/audio_batch/0cd671c6e2090daafd89eab9655df800aa20aa80204b665a9f6b144353fa8a81.mp3",
+      "status": "ok",
+      "sha256": "f8d9bb68b4aa2af2071ce385bb73dffbd02248a46de4246f63e255bee6eb01c2",
+      "pcm_sha256": "98ab27ff5b9de677bded0e7d9be5023a653249a5b832856beef679ca2fe769a7",
+      "sample_rate": 44100,
+      "shape": [
+        1321967,
+        2
+      ],
+      "duration_seconds": 29.976575963718822,
+      "channel_mean_amplitude": [
+        -0.4378757309637161,
+        -0.4378757309637161
+      ],
+      "peak_amplitude": 0.9021185636520386,
+      "rms_amplitude": 0.5129645583971568,
+      "finite_samples": true,
+      "quality_flags": [
+        "channel_offset_review"
+      ],
+      "listening_status": "pending"
+    },
+    {
+      "candidate_id": "ai:Echoes/TTA/acestep/Scape_from_the_city_Rolemusic_acestep_TTA_001.mp3",
+      "expected_label": "ai",
+      "group_id": "fma_artist:10397",
+      "file_path": "data/audio_batch/0a3e7f843bad37081ff52bcd1eba0c165b75e082fb1ac5591fe4bc7ea6d2b74c.mp3",
+      "status": "ok",
+      "sha256": "f41d820d19d381ba98e5561c1a641fb2e990ddb654032e3dc4fd31c82442ff7a",
+      "pcm_sha256": "ad1401caac725d776c08b8f5992475d16534014ecbd00f9c0da34cbe24b197a5",
+      "sample_rate": 48000,
+      "shape": [
+        3825163,
+        2
+      ],
+      "duration_seconds": 79.69089583333333,
+      "channel_mean_amplitude": [
+        0.002867810493210763,
+        0.002888117968588773
+      ],
+      "peak_amplitude": 0.7280117869377136,
+      "rms_amplitude": 0.13037957120461563,
+      "finite_samples": true,
+      "quality_flags": [],
+      "listening_status": "pending"
+    },
+    {
+      "candidate_id": "ai:Echoes/TTA/audioldm/Scape_from_the_city_Rolemusic_audioldm_TTA_001.mp3",
+      "expected_label": "ai",
+      "group_id": "fma_artist:10397",
+      "file_path": "data/audio_batch/c3860182844e99b381802a682d67771e521bd7f507404bdc46854ae13675f050.mp3",
+      "status": "ok",
+      "sha256": "cc70641c991a54e7f168a33871b45ba3fde635fcf93f681c477a189041a0e539",
+      "pcm_sha256": "c356940d84b91f71e48a5462969baeee10867c0b6dd1bfdd206a6a354376af1c",
+      "sample_rate": 16000,
+      "shape": [
+        491552,
+        1
+      ],
+      "duration_seconds": 30.722,
+      "channel_mean_amplitude": [
+        0.00021308556856613445
+      ],
+      "peak_amplitude": 0.5379323363304138,
+      "rms_amplitude": 0.08801813043095266,
+      "finite_samples": true,
+      "quality_flags": [],
+      "listening_status": "pending"
+    },
+    {
+      "candidate_id": "ai:Echoes/TTA/musicgen/Scape_from_the_city_Rolemusic_musicgen_TTA_001.wav",
+      "expected_label": "ai",
+      "group_id": "fma_artist:10397",
+      "file_path": "data/audio_batch/68c0d850651e3842db0173dbd0855d5dae010f9f3f49f654a7ccd92c4f463739.wav",
+      "status": "ok",
+      "sha256": "12a5a2a7e8a1c51a2b0b23cba96d9002e25eef1e10547a506ab13101966fa09c",
+      "pcm_sha256": "fc79cf090bf8482797ec5a4cfd26b180c9423d7339fbc4636fc827a26d54c24c",
+      "sample_rate": 32000,
+      "shape": [
+        958080,
+        1
+      ],
+      "duration_seconds": 29.94,
+      "channel_mean_amplitude": [
+        0.008305793932938305
+      ],
+      "peak_amplitude": 1.0,
+      "rms_amplitude": 0.2878479199071843,
+      "finite_samples": true,
+      "quality_flags": [
+        "at_or_above_full_scale_review"
+      ],
+      "listening_status": "pending"
+    },
+    {
+      "candidate_id": "human:fma:114545",
+      "expected_label": "human",
+      "group_id": "fma_artist:6550",
+      "file_path": "data/audio_batch/1b2da198a7ac846239cc1c545c267d92dc6484cd8efc6a8729c5c9eec53e8b03.mp3",
+      "status": "ok",
+      "sha256": "81a5dd9d4f1d357822a56526a29e2a8e90fa4d339ea5c1b50230d311150d730a",
+      "pcm_sha256": "0c27d4ecd6aecacc7424743c846e4852b484717211ab495ed9b099e3d37fb230",
+      "sample_rate": 48000,
+      "shape": [
+        1439471,
+        2
+      ],
+      "duration_seconds": 29.988979166666667,
+      "channel_mean_amplitude": [
+        1.449369973204701e-05,
+        1.036462831831262e-06
+      ],
+      "peak_amplitude": 1.0190900564193726,
+      "rms_amplitude": 0.31983147298590814,
+      "finite_samples": true,
+      "quality_flags": [
+        "at_or_above_full_scale_review"
+      ],
+      "listening_status": "pending"
+    },
+    {
+      "candidate_id": "ai:Echoes/TTA/acestep/shmoove_epsilon_not_acestep_TTA_001.mp3",
+      "expected_label": "ai",
+      "group_id": "fma_artist:6550",
+      "file_path": "data/audio_batch/a1190192feccaf8b4b29bc22c597e2fe37a528067bf1929f70e4e1d9fc95dd26.mp3",
+      "status": "ok",
+      "sha256": "10fef12ffe1d3a8173c259fe735259bdd59bc632a54e9e91e59a60babd7460a9",
+      "pcm_sha256": "ae792cf6fd7fbd7cf43bf9ce7d80f2bfa647386828b5857b88fe1617f5cead23",
+      "sample_rate": 48000,
+      "shape": [
+        3499712,
+        2
+      ],
+      "duration_seconds": 72.91066666666667,
+      "channel_mean_amplitude": [
+        0.000625715297986484,
+        0.0005570580263350896
+      ],
+      "peak_amplitude": 0.8944268822669983,
+      "rms_amplitude": 0.16089239544058628,
+      "finite_samples": true,
+      "quality_flags": [],
+      "listening_status": "pending"
+    },
+    {
+      "candidate_id": "ai:Echoes/TTA/audioldm/shmoove_epsilon_not_audioldm_TTA_001.mp3",
+      "expected_label": "ai",
+      "group_id": "fma_artist:6550",
+      "file_path": "data/audio_batch/779f1769156f196cd553fa1ffb4012655cd5179f57849b347a071808b9457cc9.mp3",
+      "status": "ok",
+      "sha256": "74abd7d20d54c79f5a03fda4f8a8d775619fe2780fdd3355f6698fd722e91418",
+      "pcm_sha256": "efb8765ec3a7bf72908f45b38bff0c7258a60683c6b601e12ff2d8aa8981c01e",
+      "sample_rate": 16000,
+      "shape": [
+        491552,
+        1
+      ],
+      "duration_seconds": 30.722,
+      "channel_mean_amplitude": [
+        0.0003049781746971393
+      ],
+      "peak_amplitude": 0.4923619031906128,
+      "rms_amplitude": 0.05289423477734409,
+      "finite_samples": true,
+      "quality_flags": [],
+      "listening_status": "pending"
+    },
+    {
+      "candidate_id": "ai:Echoes/TTA/musicgen/shmoove_epsilon_not_musicgen_TTA_001.wav",
+      "expected_label": "ai",
+      "group_id": "fma_artist:6550",
+      "file_path": "data/audio_batch/5821515c36020d947118ad18cdea2e7c02805ac1e64fbbf280cc906ebc471d45.wav",
+      "status": "ok",
+      "sha256": "118bdaf0737cf162b4aa6eac3791c47381b29cdb4031c421a7524885bc167299",
+      "pcm_sha256": "76810cbab0ce1906e0e0896a55647a26cb7d29719dddd1c130b8aab80ad5355b",
+      "sample_rate": 32000,
+      "shape": [
+        958080,
+        1
+      ],
+      "duration_seconds": 29.94,
+      "channel_mean_amplitude": [
+        -6.768185851887695e-05
+      ],
+      "peak_amplitude": 1.0,
+      "rms_amplitude": 0.2802659888676967,
+      "finite_samples": true,
+      "quality_flags": [
+        "at_or_above_full_scale_review"
+      ],
+      "listening_status": "pending"
+    },
+    {
+      "candidate_id": "human:fma:141877",
+      "expected_label": "human",
+      "group_id": "fma_artist:22584",
+      "file_path": "data/audio_batch/51819202d424e368452c8b13c98b28832b2b4964468113c759b59562649f4091.mp3",
+      "status": "ok",
+      "sha256": "1ddc8e86289dc085a206c7a623c8d13b4a0eb344a8aadd5a67fd98aaa94d905c",
+      "pcm_sha256": "e34f32887f7b8014fcf22f2de4883ca0d06ef1bf05eb82650cca073fa4eb0605",
+      "sample_rate": 44100,
+      "shape": [
+        1321967,
+        2
+      ],
+      "duration_seconds": 29.976575963718822,
+      "channel_mean_amplitude": [
+        0.06048000804594927,
+        0.023889988019024585
+      ],
+      "peak_amplitude": 0.7009300589561462,
+      "rms_amplitude": 0.225724195222953,
+      "finite_samples": true,
+      "quality_flags": [
+        "channel_offset_review"
+      ],
+      "listening_status": "pending"
+    },
+    {
+      "candidate_id": "ai:Echoes/TTA/acestep/I_Nocturnal_Mayhem_acestep_TTA_001.mp3",
+      "expected_label": "ai",
+      "group_id": "fma_artist:22584",
+      "file_path": "data/audio_batch/0f54fbc4df7e18d7e787d2f4818627355716d55ab03fad1af0829a608cb495df.mp3",
+      "status": "ok",
+      "sha256": "003b665149bcdecac30d4ad2d61f11794db0b0da58639e7dda543a25ac171db8",
+      "pcm_sha256": "6baf33d097497fec8cb1276385dfefb9b000f801b4be3c2cc35cf385f10fd4c0",
+      "sample_rate": 48000,
+      "shape": [
+        4355692,
+        2
+      ],
+      "duration_seconds": 90.74358333333333,
+      "channel_mean_amplitude": [
+        0.0010316529159711898,
+        0.0008635794158622876
+      ],
+      "peak_amplitude": 0.850180983543396,
+      "rms_amplitude": 0.09627241988337704,
+      "finite_samples": true,
+      "quality_flags": [],
+      "listening_status": "pending"
+    },
+    {
+      "candidate_id": "ai:Echoes/TTA/audioldm/I_Nocturnal_Mayhem_audioldm_TTA_001.mp3",
+      "expected_label": "ai",
+      "group_id": "fma_artist:22584",
+      "file_path": "data/audio_batch/2befc06e35716601c9a070fd59d0450135f867b4ef9d2fda6eef534a008c15b6.mp3",
+      "status": "ok",
+      "sha256": "c28459b786da540660b256e89de1f234b5fd432c0fb701bc7084fbe1a17142e8",
+      "pcm_sha256": "9d871d5e12eac8ab12162aea685a3929600be6ac6110a27c0a281e54474dece7",
+      "sample_rate": 16000,
+      "shape": [
+        491552,
+        1
+      ],
+      "duration_seconds": 30.722,
+      "channel_mean_amplitude": [
+        0.000422343383962989
+      ],
+      "peak_amplitude": 0.6029311418533325,
+      "rms_amplitude": 0.08990549061816507,
+      "finite_samples": true,
+      "quality_flags": [],
+      "listening_status": "pending"
+    },
+    {
+      "candidate_id": "ai:Echoes/TTA/musicgen/I_Nocturnal_Mayhem_musicgen_TTA_001.wav",
+      "expected_label": "ai",
+      "group_id": "fma_artist:22584",
+      "file_path": "data/audio_batch/56511cb9d3f5117fb92def4cc084b7c565a1754fe22d756778450f8a28028736.wav",
+      "status": "ok",
+      "sha256": "473158c88eabaf4662d56455004d09e184b8ab038010050720e8a744ee27e578",
+      "pcm_sha256": "8738dd23267a978bbdca99138e1fca85722187ecc9b7966d8dcbe75572397d0d",
+      "sample_rate": 32000,
+      "shape": [
+        958080,
+        1
+      ],
+      "duration_seconds": 29.94,
+      "channel_mean_amplitude": [
+        0.0005441824276604968
+      ],
+      "peak_amplitude": 1.0,
+      "rms_amplitude": 0.406354099763957,
+      "finite_samples": true,
+      "quality_flags": [
+        "at_or_above_full_scale_review"
+      ],
+      "listening_status": "pending"
+    },
+    {
+      "candidate_id": "human:fma:149488",
+      "expected_label": "human",
+      "group_id": "fma_artist:23674",
+      "file_path": "data/audio_batch/c25c5168954422ed745dd85ce28b9403b9cc6d253e4e6b1f7f46e2da8c56af59.mp3",
+      "status": "ok",
+      "sha256": "6d6659482bd7b48316ea2dadef0f4fa29d36c524c81872ef5600a2c1ef9e9b70",
+      "pcm_sha256": "e65acce52833fd28c4bdd6113122ae5be8c2ab8328771c4b9da8c52baf69b590",
+      "sample_rate": 44100,
+      "shape": [
+        1323119,
+        2
+      ],
+      "duration_seconds": 30.00269841269841,
+      "channel_mean_amplitude": [
+        -0.0019202686710373669,
+        -0.002863866246266918
+      ],
+      "peak_amplitude": 0.49551892280578613,
+      "rms_amplitude": 0.11510104497372535,
+      "finite_samples": true,
+      "quality_flags": [],
+      "listening_status": "pending"
+    },
+    {
+      "candidate_id": "ai:Echoes/TTA/acestep/Lost_Paradise_Autumn_Interlude_acestep_TTA_001.mp3",
+      "expected_label": "ai",
+      "group_id": "fma_artist:23674",
+      "file_path": "data/audio_batch/0f9a3ce0a5217a2bddc2c4ff56bfb68f0c249dceefc7b2838b15c647aef17d1f.mp3",
+      "status": "ok",
+      "sha256": "c1307397a6207e4f9cf25644cd66eac834e53ac00f5029a52af96ad5868520ad",
+      "pcm_sha256": "138d7f507842e6646b88bf61cdcd8d1243f61d9616da4d9157cbfebd0a0fabd8",
+      "sample_rate": 48000,
+      "shape": [
+        1613880,
+        2
+      ],
+      "duration_seconds": 33.6225,
+      "channel_mean_amplitude": [
+        0.0002602610968495109,
+        0.0004460586533448868
+      ],
+      "peak_amplitude": 0.5373664498329163,
+      "rms_amplitude": 0.10761470527999285,
+      "finite_samples": true,
+      "quality_flags": [],
+      "listening_status": "pending"
+    },
+    {
+      "candidate_id": "ai:Echoes/TTA/audioldm/Lost_Paradise_Autumn_Interlude_audioldm_TTA_001.mp3",
+      "expected_label": "ai",
+      "group_id": "fma_artist:23674",
+      "file_path": "data/audio_batch/4df16e6d2e35947ff0a6eb14d8b88a3dd07988f01e2f75118ab3294e0308d5c8.mp3",
+      "status": "ok",
+      "sha256": "9ff97208639f1616e17d3f8426c9be2fcf593c5ee0d31ffd92e3a67ee6403e7e",
+      "pcm_sha256": "020e3ee1b8b1a9eeb87a8aa8db8d11ed281eb9aadc12ac9963c14048c3a38a2a",
+      "sample_rate": 16000,
+      "shape": [
+        491552,
+        1
+      ],
+      "duration_seconds": 30.722,
+      "channel_mean_amplitude": [
+        0.0002281143537431892
+      ],
+      "peak_amplitude": 0.2032562643289566,
+      "rms_amplitude": 0.005284496526410055,
+      "finite_samples": true,
+      "quality_flags": [],
+      "listening_status": "pending"
+    },
+    {
+      "candidate_id": "ai:Echoes/TTA/musicgen/Lost_Paradise_Autumn_Interlude_musicgen_TTA_001.wav",
+      "expected_label": "ai",
+      "group_id": "fma_artist:23674",
+      "file_path": "data/audio_batch/dfa32dff81aae5b2574c7cfca5f1c42621ad2fa8cb4b342923a236cabc0b30f6.wav",
+      "status": "ok",
+      "sha256": "9b2ab71678627e945b4a63214f3da4a0b464eb7f39e76cd33af9e919a7344579",
+      "pcm_sha256": "1bc735491fd9c7f0228a9b9fefbb98c705c741134cb1a26f9101220f0a58befd",
+      "sample_rate": 32000,
+      "shape": [
+        958080,
+        1
+      ],
+      "duration_seconds": 29.94,
+      "channel_mean_amplitude": [
+        0.00034754637805477494
+      ],
+      "peak_amplitude": 1.0,
+      "rms_amplitude": 0.27053078752385656,
+      "finite_samples": true,
+      "quality_flags": [
+        "at_or_above_full_scale_review"
+      ],
+      "listening_status": "pending"
+    },
+    {
+      "candidate_id": "human:fma:129962",
+      "expected_label": "human",
+      "group_id": "fma_artist:19164",
+      "file_path": "data/audio_batch/7b5923a7952a826bafad47afdb389571b833ea41f76959ec63edea0d0f27a75b.mp3",
+      "status": "ok",
+      "sha256": "484c4bc0bff9e51e5012a7705fc1f7fb73a426a040c4bc84325a02947a9bf13b",
+      "pcm_sha256": "b006ee98bdcaf266585f97c502a8776b7251ca93862f06297797ce662f048006",
+      "sample_rate": 44100,
+      "shape": [
+        1321967,
+        2
+      ],
+      "duration_seconds": 29.976575963718822,
+      "channel_mean_amplitude": [
+        -5.5817173102566004e-05,
+        -9.747497125702143e-05
+      ],
+      "peak_amplitude": 0.6807274222373962,
+      "rms_amplitude": 0.1306457310756277,
+      "finite_samples": true,
+      "quality_flags": [],
+      "listening_status": "pending"
+    },
+    {
+      "candidate_id": "ai:Echoes/TTA/acestep/Lights_Up_Pipe_Choir_acestep_TTA_001.mp3",
+      "expected_label": "ai",
+      "group_id": "fma_artist:19164",
+      "file_path": "data/audio_batch/a2518f26154ebc2cb5b28d34236f9e46e2f2a7993857fc4496d526eef61f2c13.mp3",
+      "status": "ok",
+      "sha256": "6beead16c6d87fa654046cae19467b6f92a132601f3ca53d2580e67179e6d910",
+      "pcm_sha256": "ba23dabee9ebbbfe51616d4879503841c2e3e768689d8dac07438cc41abac038",
+      "sample_rate": 48000,
+      "shape": [
+        3281259,
+        2
+      ],
+      "duration_seconds": 68.3595625,
+      "channel_mean_amplitude": [
+        0.0006990123027576247,
+        0.000658966395292061
+      ],
+      "peak_amplitude": 0.7982754707336426,
+      "rms_amplitude": 0.15945235531568316,
+      "finite_samples": true,
+      "quality_flags": [],
+      "listening_status": "pending"
+    },
+    {
+      "candidate_id": "ai:Echoes/TTA/audioldm/Lights_Up_Pipe_Choir_audioldm_TTA_001.mp3",
+      "expected_label": "ai",
+      "group_id": "fma_artist:19164",
+      "file_path": "data/audio_batch/c90f6726c603fc7782e14f59ff585677a22b0abf9f25862ef586b4866cddf945.mp3",
+      "status": "ok",
+      "sha256": "eaa91ac06efcb56c754442ca53f0a1f2e26b98c4cdad539677cac03c567cbbbd",
+      "pcm_sha256": "e76e8095ebc3e43fd3318f5ff9d21159876b2f1c1ff19f8a8cd5ea02a3ed29b6",
+      "sample_rate": 16000,
+      "shape": [
+        491552,
+        1
+      ],
+      "duration_seconds": 30.722,
+      "channel_mean_amplitude": [
+        0.0002943449280174522
+      ],
+      "peak_amplitude": 0.44773396849632263,
+      "rms_amplitude": 0.07216923998811708,
+      "finite_samples": true,
+      "quality_flags": [],
+      "listening_status": "pending"
+    },
+    {
+      "candidate_id": "ai:Echoes/TTA/musicgen/Lights_Up_Pipe_Choir_musicgen_TTA_001.wav",
+      "expected_label": "ai",
+      "group_id": "fma_artist:19164",
+      "file_path": "data/audio_batch/821d2c594585e3a4fd327046ef004ed06249b98c687ac7cb0b4a35a056b0a096.wav",
+      "status": "ok",
+      "sha256": "d2e60c16983b00491b2117336b254c921e6107c0301b97c28e493de575652215",
+      "pcm_sha256": "3e443817b11b927d3f5d7eef39c9cbc673d6696f0074240af07943413226a353",
+      "sample_rate": 32000,
+      "shape": [
+        958080,
+        1
+      ],
+      "duration_seconds": 29.94,
+      "channel_mean_amplitude": [
+        0.000764255039518327
+      ],
+      "peak_amplitude": 1.0,
+      "rms_amplitude": 0.4888483652063403,
+      "finite_samples": true,
+      "quality_flags": [
+        "at_or_above_full_scale_review"
+      ],
+      "listening_status": "pending"
+    },
+    {
+      "candidate_id": "human:fma:111819",
+      "expected_label": "human",
+      "group_id": "fma_artist:19189",
+      "file_path": "data/audio_batch/422db400c264763b3fff0fe41c6fd9587b6ae5752e3abf3587a2af1f10ed34b0.mp3",
+      "status": "ok",
+      "sha256": "a39dda6762f7cbb9fb9581d7045a986889c1bfbf3d9e2eab92dce069522e2139",
+      "pcm_sha256": "36d848171c9b2846def0ac912bd8a3550d6c4927394ac6242766a2e3ae75148a",
+      "sample_rate": 44100,
+      "shape": [
+        1321967,
+        2
+      ],
+      "duration_seconds": 29.976575963718822,
+      "channel_mean_amplitude": [
+        3.057555349561947e-06,
+        -9.730909501620302e-06
+      ],
+      "peak_amplitude": 0.5174068808555603,
+      "rms_amplitude": 0.09266673594075531,
+      "finite_samples": true,
+      "quality_flags": [],
+      "listening_status": "pending"
+    },
+    {
+      "candidate_id": "ai:Echoes/TTA/acestep/Ad_Astra_P_C_III_acestep_TTA_001.mp3",
+      "expected_label": "ai",
+      "group_id": "fma_artist:19189",
+      "file_path": "data/audio_batch/aba4602038297120ec56887642707c7504a8928f4738c81399234f8d05f632d8.mp3",
+      "status": "ok",
+      "sha256": "d078d33b1d504772be6a133e78fd8b733a6f00d0e7d39a149d84824f1537885d",
+      "pcm_sha256": "177c79856fa593b4caa537e144b3e0ce29fdf85e61d17e1bfd66c19533c48c78",
+      "sample_rate": 48000,
+      "shape": [
+        4676685,
+        2
+      ],
+      "duration_seconds": 97.4309375,
+      "channel_mean_amplitude": [
+        0.0006758111469673807,
+        0.0007101228783333991
+      ],
+      "peak_amplitude": 0.8707215189933777,
+      "rms_amplitude": 0.14702945949010798,
+      "finite_samples": true,
+      "quality_flags": [],
+      "listening_status": "pending"
+    },
+    {
+      "candidate_id": "ai:Echoes/TTA/audioldm/Ad_Astra_P_C_III_audioldm_TTA_001.mp3",
+      "expected_label": "ai",
+      "group_id": "fma_artist:19189",
+      "file_path": "data/audio_batch/b7c506b611387215f379cde5c102fcc83a60d528b498f74a05816ecfab157dba.mp3",
+      "status": "ok",
+      "sha256": "165193a44feb9ba96830b416bcdbb36cf9cecbbf68456393433d7da48b712008",
+      "pcm_sha256": "b1b70780540d1e4d7174b2c14bf0cf83f87e43cac0bdc9b7ced9ab5a3062296c",
+      "sample_rate": 16000,
+      "shape": [
+        491552,
+        1
+      ],
+      "duration_seconds": 30.722,
+      "channel_mean_amplitude": [
+        0.0002235378249662143
+      ],
+      "peak_amplitude": 0.5127597451210022,
+      "rms_amplitude": 0.10670371217447638,
+      "finite_samples": true,
+      "quality_flags": [],
+      "listening_status": "pending"
+    },
+    {
+      "candidate_id": "ai:Echoes/TTA/musicgen/Ad_Astra_P_C_III_musicgen_TTA_001.wav",
+      "expected_label": "ai",
+      "group_id": "fma_artist:19189",
+      "file_path": "data/audio_batch/31ffcb146f87406124e009e93eea8ec3e3b2026f60c109e89ac264bdeb86b3ec.wav",
+      "status": "ok",
+      "sha256": "c333e9c40e64f1430206479a212b2c325d7094528b8874f7362142b43a2f2e93",
+      "pcm_sha256": "fb6229d6f02e5bd24f1186fccdc287be48f133797f94f268217624231f1d7271",
+      "sample_rate": 32000,
+      "shape": [
+        958080,
+        1
+      ],
+      "duration_seconds": 29.94,
+      "channel_mean_amplitude": [
+        0.00037664835183876867
+      ],
+      "peak_amplitude": 1.0,
+      "rms_amplitude": 0.281204581518848,
+      "finite_samples": true,
+      "quality_flags": [
+        "at_or_above_full_scale_review"
+      ],
+      "listening_status": "pending"
+    },
+    {
+      "candidate_id": "human:fma:135336",
+      "expected_label": "human",
+      "group_id": "fma_artist:21957",
+      "file_path": "data/audio_batch/3b49362f90d4d89342f7d27c7f79b624f15f12e50f7b39d520626b1047918e77.mp3",
+      "status": "ok",
+      "sha256": "a1d8ead7e20ffd2a606bd80803978a9bc05df323b7d254d7cf30db82206f0ec4",
+      "pcm_sha256": "35402d6f8c801a1d2d9df21d2391e761ebb009537eda0fb09ab20507bfc18426",
+      "sample_rate": 44100,
+      "shape": [
+        1321967,
+        2
+      ],
+      "duration_seconds": 29.976575963718822,
+      "channel_mean_amplitude": [
+        0.00017743028104871394,
+        8.054714624984272e-05
+      ],
+      "peak_amplitude": 1.0680146217346191,
+      "rms_amplitude": 0.2783420270767691,
+      "finite_samples": true,
+      "quality_flags": [
+        "at_or_above_full_scale_review"
+      ],
+      "listening_status": "pending"
+    },
+    {
+      "candidate_id": "ai:Echoes/TTA/acestep/Slow_and_Steady_Caleb_Lemond_acestep_TTA_001.mp3",
+      "expected_label": "ai",
+      "group_id": "fma_artist:21957",
+      "file_path": "data/audio_batch/b7e732eebf3f12640e0dfe0c1a474d1a72c844b2b258194dd1fed1c148eedee1.mp3",
+      "status": "ok",
+      "sha256": "86e3ed64292e62d292134f3680488ceeb13ee9885003a1af26981a7e0a072152",
+      "pcm_sha256": "44bbf2c819b2d64e1c74a6fdc5e2d84349d7c189b4485a9435504c99ffd32033",
+      "sample_rate": 48000,
+      "shape": [
+        1876916,
+        2
+      ],
+      "duration_seconds": 39.10241666666667,
+      "channel_mean_amplitude": [
+        0.0003846612465729957,
+        0.0005572217908845134
+      ],
+      "peak_amplitude": 0.9201279878616333,
+      "rms_amplitude": 0.17565384944488116,
+      "finite_samples": true,
+      "quality_flags": [],
+      "listening_status": "pending"
+    },
+    {
+      "candidate_id": "ai:Echoes/TTA/audioldm/Slow_and_Steady_Caleb_Lemond_audioldm_TTA_001.mp3",
+      "expected_label": "ai",
+      "group_id": "fma_artist:21957",
+      "file_path": "data/audio_batch/6a74c0af3cc5b430105a27f463afd128b6cab507feb250fe4bb0a556d1a2abd7.mp3",
+      "status": "ok",
+      "sha256": "eb6911a89be17ac892412fb1edadc5180d47963638fdd8dc3e31c22791ccfaa8",
+      "pcm_sha256": "8d73f2b12a8354ae54ac7949ad8e91e9db56a9d8bab8a8da207b53831897c4fb",
+      "sample_rate": 16000,
+      "shape": [
+        491552,
+        1
+      ],
+      "duration_seconds": 30.722,
+      "channel_mean_amplitude": [
+        0.00022570934547821005
+      ],
+      "peak_amplitude": 0.20581361651420593,
+      "rms_amplitude": 0.00584598784890987,
+      "finite_samples": true,
+      "quality_flags": [],
+      "listening_status": "pending"
+    },
+    {
+      "candidate_id": "ai:Echoes/TTA/musicgen/Slow_and_Steady_Caleb_Lemond_musicgen_TTA_001.wav",
+      "expected_label": "ai",
+      "group_id": "fma_artist:21957",
+      "file_path": "data/audio_batch/8910c90ca17858986e4e1432d09317b56cfed24b4e8a05d0243f1c087b36db19.wav",
+      "status": "ok",
+      "sha256": "650b10bdf1b34fdd2aafe525e7dd01ae2857d6b2dd3abe2771a485a646bf8423",
+      "pcm_sha256": "e881b12379321a022e5846dc53f363e7cb7761cf1914651347ad577ba89da198",
+      "sample_rate": 32000,
+      "shape": [
+        958080,
+        1
+      ],
+      "duration_seconds": 29.94,
+      "channel_mean_amplitude": [
+        -0.0013704841106672166
+      ],
+      "peak_amplitude": 1.0,
+      "rms_amplitude": 0.46063204878202,
+      "finite_samples": true,
+      "quality_flags": [
+        "at_or_above_full_scale_review"
+      ],
+      "listening_status": "pending"
+    },
+    {
+      "candidate_id": "human:fma:140344",
+      "expected_label": "human",
+      "group_id": "fma_artist:22467",
+      "file_path": "data/audio_batch/4d6c30a8e09940041bf514166a38925224beba26d20f5800c41ca0d75c2b3d8b.mp3",
+      "status": "ok",
+      "sha256": "c86c874b122331710b326984ea32b2c303f1556573745d298a6f2bcf65bf71b3",
+      "pcm_sha256": "45d2446b0a1dca5c10bcf4597eefbdb378626e4f8d7834608bb9173694e5f50b",
+      "sample_rate": 44100,
+      "shape": [
+        1323119,
+        2
+      ],
+      "duration_seconds": 30.00269841269841,
+      "channel_mean_amplitude": [
+        -7.840171391545571e-06,
+        -0.00015464567111524933
+      ],
+      "peak_amplitude": 0.5018374919891357,
+      "rms_amplitude": 0.11215386991019505,
+      "finite_samples": true,
+      "quality_flags": [],
+      "listening_status": "pending"
+    },
+    {
+      "candidate_id": "ai:Echoes/TTA/acestep/Ohtli_Seclorance_acestep_TTA_001.mp3",
+      "expected_label": "ai",
+      "group_id": "fma_artist:22467",
+      "file_path": "data/audio_batch/b00436bb1c7ffdb395e33b1b416a784e2364bb1bc5aa5037868126677a4ddb89.mp3",
+      "status": "ok",
+      "sha256": "d3e22d8cf50194c81f01f35d48f742fa08d60b447afda4884194cf55c282bd2f",
+      "pcm_sha256": "04309e8d830ebde999f9ae35a2294fdef70eac6f6053c3de563e94382a07e0a8",
+      "sample_rate": 48000,
+      "shape": [
+        2255865,
+        2
+      ],
+      "duration_seconds": 46.9971875,
+      "channel_mean_amplitude": [
+        0.000833986551578893,
+        0.0009554055702767262
+      ],
+      "peak_amplitude": 0.6283265948295593,
+      "rms_amplitude": 0.08251223133723723,
+      "finite_samples": true,
+      "quality_flags": [],
+      "listening_status": "pending"
+    },
+    {
+      "candidate_id": "ai:Echoes/TTA/audioldm/Ohtli_Seclorance_audioldm_TTA_001.mp3",
+      "expected_label": "ai",
+      "group_id": "fma_artist:22467",
+      "file_path": "data/audio_batch/96535d4eb6d9593644dd4d5c43c2de5f85eed293a160872e5b881b6ed525aeff.mp3",
+      "status": "ok",
+      "sha256": "816cf163cb081a0db91411ce6f7420155c9eec9ce4197c74c8eeb03d8b5e1433",
+      "pcm_sha256": "da66392bb6ae77dbe1408b141ba851f93dfefb7db74716ab2b4bec08c9cb6222",
+      "sample_rate": 16000,
+      "shape": [
+        491552,
+        1
+      ],
+      "duration_seconds": 30.722,
+      "channel_mean_amplitude": [
+        0.0003375647693484736
+      ],
+      "peak_amplitude": 0.5505918264389038,
+      "rms_amplitude": 0.1276765025997509,
+      "finite_samples": true,
+      "quality_flags": [],
+      "listening_status": "pending"
+    },
+    {
+      "candidate_id": "ai:Echoes/TTA/musicgen/Ohtli_Seclorance_musicgen_TTA_001.wav",
+      "expected_label": "ai",
+      "group_id": "fma_artist:22467",
+      "file_path": "data/audio_batch/43c5e3713ddebd0e55d51a6815914e315b1cb57bf6f594ac0c6d975b3b369d2b.wav",
+      "status": "ok",
+      "sha256": "182752b5b1638920b3845e28a30968a845aa3172fd3c822dec9eb74410e4efd8",
+      "pcm_sha256": "336e9c7fda64d965e64fd030fc2edb2aad3890f09789c82de1e11ba4228fbb66",
+      "sample_rate": 32000,
+      "shape": [
+        958080,
+        1
+      ],
+      "duration_seconds": 29.94,
+      "channel_mean_amplitude": [
+        6.610721289992094e-05
+      ],
+      "peak_amplitude": 1.0,
+      "rms_amplitude": 0.2916459584686818,
+      "finite_samples": true,
+      "quality_flags": [
+        "at_or_above_full_scale_review"
+      ],
+      "listening_status": "pending"
+    },
+    {
+      "candidate_id": "human:fma:145607",
+      "expected_label": "human",
+      "group_id": "fma_artist:23198",
+      "file_path": "data/audio_batch/3a3696354f18cfb0028aeabbe7226ec3499b636576859e6e892d1952c469915a.mp3",
+      "status": "ok",
+      "sha256": "8266eb6ed735f717d5323ec04171fa564d380de40f194d4c6b82131d7caf14f7",
+      "pcm_sha256": "e77453d7540691a38d655f3695e99a8504c1091fe86551b190a8d646a015fe44",
+      "sample_rate": 44100,
+      "shape": [
+        1323119,
+        2
+      ],
+      "duration_seconds": 30.00269841269841,
+      "channel_mean_amplitude": [
+        -0.00011571945190672117,
+        -0.00025769432563043987
+      ],
+      "peak_amplitude": 1.0669589042663574,
+      "rms_amplitude": 0.3984510380764071,
+      "finite_samples": true,
+      "quality_flags": [
+        "at_or_above_full_scale_review"
+      ],
+      "listening_status": "pending"
+    },
+    {
+      "candidate_id": "ai:Echoes/TTA/acestep/The_Dawn_The_One_They_Fear_acestep_TTA_001.mp3",
+      "expected_label": "ai",
+      "group_id": "fma_artist:23198",
+      "file_path": "data/audio_batch/b97d770dc42e295f5c03cb45ad37f938ea5ed5b53084d144f1d3010df9025d84.mp3",
+      "status": "ok",
+      "sha256": "4c13dd6bd65598d949ec63c7379c79b018a28766405026f0b1afc14f8dc8b571",
+      "pcm_sha256": "10696277f3694c8e6b7718e7b297f837f085ffb1c9b6cabb5cf80d5ea096e19a",
+      "sample_rate": 48000,
+      "shape": [
+        2086453,
+        2
+      ],
+      "duration_seconds": 43.46777083333333,
+      "channel_mean_amplitude": [
+        0.0032785767667408644,
+        0.0024339537285655677
+      ],
+      "peak_amplitude": 0.8594000339508057,
+      "rms_amplitude": 0.23282367735843176,
+      "finite_samples": true,
+      "quality_flags": [],
+      "listening_status": "pending"
+    },
+    {
+      "candidate_id": "ai:Echoes/TTA/audioldm/The_Dawn_The_One_They_Fear_audioldm_TTA_001.mp3",
+      "expected_label": "ai",
+      "group_id": "fma_artist:23198",
+      "file_path": "data/audio_batch/1c7ce793af874e6d7eb5c1c3f9207ffb933b5e527b4f24f84183a886a12367dd.mp3",
+      "status": "ok",
+      "sha256": "62557da04081ffc60dbe37aacf813c770ea3cde35420c0af12b520391313f608",
+      "pcm_sha256": "d74554da3a498a5a318374049830cc255e1e9f6c28b56c95102a8bb8efe0076e",
+      "sample_rate": 16000,
+      "shape": [
+        491552,
+        1
+      ],
+      "duration_seconds": 30.722,
+      "channel_mean_amplitude": [
+        -6.120607515860414e-05
+      ],
+      "peak_amplitude": 0.9012315273284912,
+      "rms_amplitude": 0.2527188647897085,
+      "finite_samples": true,
+      "quality_flags": [],
+      "listening_status": "pending"
+    },
+    {
+      "candidate_id": "ai:Echoes/TTA/musicgen/The_Dawn_The_One_They_Fear_musicgen_TTA_001.wav",
+      "expected_label": "ai",
+      "group_id": "fma_artist:23198",
+      "file_path": "data/audio_batch/f99c93ad806a808f499cfe0567c1251e029afda5a65d8c539743f355fa9e48c3.wav",
+      "status": "ok",
+      "sha256": "85d8240b911ef5a92db41919d6abfd855fef47ecbe96ba09b0939b36e507b7c1",
+      "pcm_sha256": "c952745c58583f7a8d2d702cb8d880f6676175812e7b0a582f2009dcfb64b530",
+      "sample_rate": 32000,
+      "shape": [
+        958080,
+        1
+      ],
+      "duration_seconds": 29.94,
+      "channel_mean_amplitude": [
+        -0.002284458213913178
+      ],
+      "peak_amplitude": 1.0,
+      "rms_amplitude": 0.357684409956338,
+      "finite_samples": true,
+      "quality_flags": [
+        "at_or_above_full_scale_review"
+      ],
+      "listening_status": "pending"
+    },
+    {
+      "candidate_id": "human:fma:135370",
+      "expected_label": "human",
+      "group_id": "fma_artist:21958",
+      "file_path": "data/audio_batch/af8c7820640c619909cd7e5d1ae0f9f5755a05f0767e4e13216ed6af2c64f885.mp3",
+      "status": "ok",
+      "sha256": "b982482743b5401da7c1316b09f81ef43627d83a9348fea6f52e4074ddcedfe5",
+      "pcm_sha256": "86d6bfe21a7ab10292afc1d810f8baeedbf9490e3590b31aa47b870c963ebd2d",
+      "sample_rate": 44100,
+      "shape": [
+        1323119,
+        2
+      ],
+      "duration_seconds": 30.00269841269841,
+      "channel_mean_amplitude": [
+        8.62394335306434e-06,
+        -9.353691440779066e-06
+      ],
+      "peak_amplitude": 1.0301157236099243,
+      "rms_amplitude": 0.21226811947183352,
+      "finite_samples": true,
+      "quality_flags": [
+        "at_or_above_full_scale_review"
+      ],
+      "listening_status": "pending"
+    },
+    {
+      "candidate_id": "ai:Echoes/TTA/acestep/Happy_Lamprey_acestep_TTA_001.mp3",
+      "expected_label": "ai",
+      "group_id": "fma_artist:21958",
+      "file_path": "data/audio_batch/73fcbad1659273b5f5facb3e05d9bcb49564847b86fcd4561d3dcb7e216ea029.mp3",
+      "status": "ok",
+      "sha256": "cb3a2a33d455fff1279df517b8dd5b489e46bab1ecf6b21ed82a0746a5a7cb41",
+      "pcm_sha256": "0355b8307163328caf0d333e4c7b7122235c42e0ca8f78968d6039961b23eabc",
+      "sample_rate": 48000,
+      "shape": [
+        3308008,
+        2
+      ],
+      "duration_seconds": 68.91683333333333,
+      "channel_mean_amplitude": [
+        -0.0008261756285363717,
+        -0.0005064524786388779
+      ],
+      "peak_amplitude": 0.9008894562721252,
+      "rms_amplitude": 0.16298927412759734,
+      "finite_samples": true,
+      "quality_flags": [],
+      "listening_status": "pending"
+    },
+    {
+      "candidate_id": "ai:Echoes/TTA/audioldm/Happy_Lamprey_audioldm_TTA_001.mp3",
+      "expected_label": "ai",
+      "group_id": "fma_artist:21958",
+      "file_path": "data/audio_batch/ff4a3ee3ab8cf3e35ce4801260320b2676d0d5dafbcd82d1068ddda16debb20b.mp3",
+      "status": "ok",
+      "sha256": "2d64148e9128059db3202aca63a0adc65134b6e3c03122d4277d548d404195ca",
+      "pcm_sha256": "f7bd6507844a7b1fe51ff21d18928f01002223eee63cd5648e039305faf058ed",
+      "sample_rate": 16000,
+      "shape": [
+        491552,
+        1
+      ],
+      "duration_seconds": 30.722,
+      "channel_mean_amplitude": [
+        0.000244176910950705
+      ],
+      "peak_amplitude": 0.6026875972747803,
+      "rms_amplitude": 0.051965354017837015,
+      "finite_samples": true,
+      "quality_flags": [],
+      "listening_status": "pending"
+    },
+    {
+      "candidate_id": "ai:Echoes/TTA/musicgen/Happy_Lamprey_musicgen_TTA_001.wav",
+      "expected_label": "ai",
+      "group_id": "fma_artist:21958",
+      "file_path": "data/audio_batch/863aaef6a4242e15f72e6a610fd7e49269a8858bf9fc9dd9db3058f507180462.wav",
+      "status": "ok",
+      "sha256": "f171385b14903f0df73de971a1b6b07c69270b9ec5aa0c6029eb3e5af343f1c7",
+      "pcm_sha256": "37843530ed88dd49b9ff53f780de010b1e04efce9c153408eaa7466886f9462f",
+      "sample_rate": 32000,
+      "shape": [
+        958080,
+        1
+      ],
+      "duration_seconds": 29.94,
+      "channel_mean_amplitude": [
+        0.0006609158270663234
+      ],
+      "peak_amplitude": 1.0,
+      "rms_amplitude": 0.43711050608727164,
+      "finite_samples": true,
+      "quality_flags": [
+        "at_or_above_full_scale_review"
+      ],
+      "listening_status": "pending"
+    },
+    {
+      "candidate_id": "human:fma:47071",
+      "expected_label": "human",
+      "group_id": "fma_artist:10779",
+      "file_path": "data/audio_batch/854d9aa0ae80f8847bb1fc4bab217a40a56dfb7f69e9afd17c4eab8370eac782.mp3",
+      "status": "ok",
+      "sha256": "16839cec93ec8fa2b56c2d74b923b066ebb916160c379171f6c8e534c8188faa",
+      "pcm_sha256": "d8952999d72d39cff27f314cde39d751ec0ed3dbc5e20ce552c2f1a8a2bf19e7",
+      "sample_rate": 44100,
+      "shape": [
+        1321967,
+        2
+      ],
+      "duration_seconds": 29.976575963718822,
+      "channel_mean_amplitude": [
+        -0.0008890112305589111,
+        -0.0008739632900252031
+      ],
+      "peak_amplitude": 0.7438187599182129,
+      "rms_amplitude": 0.1221246045767853,
+      "finite_samples": true,
+      "quality_flags": [],
+      "listening_status": "pending"
+    },
+    {
+      "candidate_id": "ai:Echoes/TTA/acestep/All_of_Us_Eric_Skiff_acestep_TTA_001.mp3",
+      "expected_label": "ai",
+      "group_id": "fma_artist:10779",
+      "file_path": "data/audio_batch/7ca64302ac3b8e33f56fb983ac7aa5c87f1cd84c21baea0703da07f951bd4fa9.mp3",
+      "status": "ok",
+      "sha256": "e5fa1f5442c75f3034a412b5148f29f9faffa7749f76d210d1cacd19e7a9c05c",
+      "pcm_sha256": "4581cb6a6183f8755dcbcbfa6cec9bd393a62dcefd1e6cb77f25b00e960ddc46",
+      "sample_rate": 48000,
+      "shape": [
+        2599149,
+        2
+      ],
+      "duration_seconds": 54.1489375,
+      "channel_mean_amplitude": [
+        0.0002644010748309332,
+        0.0001353920489398637
+      ],
+      "peak_amplitude": 0.6654298305511475,
+      "rms_amplitude": 0.10518607758389265,
+      "finite_samples": true,
+      "quality_flags": [],
+      "listening_status": "pending"
+    },
+    {
+      "candidate_id": "ai:Echoes/TTA/audioldm/All_of_Us_Eric_Skiff_audioldm_TTA_001.mp3",
+      "expected_label": "ai",
+      "group_id": "fma_artist:10779",
+      "file_path": "data/audio_batch/cab6337f0451aa51b9a51bd4bec8f759f5e5db03da081f7cee984a7351591644.mp3",
+      "status": "ok",
+      "sha256": "566a94afab51ad50166c6b52e7fc597098258702fe7b49ac09d71fc733bd06e3",
+      "pcm_sha256": "b7ecf0b4815d71abeb7594687a5cdd1a1307ea0259d3d603e07cb3465b40afa5",
+      "sample_rate": 16000,
+      "shape": [
+        491552,
+        1
+      ],
+      "duration_seconds": 30.722,
+      "channel_mean_amplitude": [
+        0.0002482235356832698
+      ],
+      "peak_amplitude": 0.3910802900791168,
+      "rms_amplitude": 0.05335421824247435,
+      "finite_samples": true,
+      "quality_flags": [],
+      "listening_status": "pending"
+    },
+    {
+      "candidate_id": "ai:Echoes/TTA/musicgen/All_of_Us_Eric_Skiff_musicgen_TTA_001.wav",
+      "expected_label": "ai",
+      "group_id": "fma_artist:10779",
+      "file_path": "data/audio_batch/aa9d1673b2fcf8ef771800c4a2e2904f5b170cafd912eb1d48b1ff42631c915a.wav",
+      "status": "ok",
+      "sha256": "826dd98630866742aeb3dc27b9c1e3e8760b3fa577dd45b6515542a9765ef59c",
+      "pcm_sha256": "79ca557d41bc697e081af52f22d68628c8698b369ad8e929cb0b899123567089",
+      "sample_rate": 32000,
+      "shape": [
+        958080,
+        1
+      ],
+      "duration_seconds": 29.94,
+      "channel_mean_amplitude": [
+        0.00013506366319471626
+      ],
+      "peak_amplitude": 1.0,
+      "rms_amplitude": 0.23947494599804667,
+      "finite_samples": true,
+      "quality_flags": [
+        "at_or_above_full_scale_review"
+      ],
+      "listening_status": "pending"
+    },
+    {
+      "candidate_id": "human:fma:42372",
+      "expected_label": "human",
+      "group_id": "fma_artist:9067",
+      "file_path": "data/audio_batch/231221175cddc43951ece983ffcad4a7ee4ef965ef3f8f8ccf34d1e9b6778575.mp3",
+      "status": "ok",
+      "sha256": "380a9a21856e83d9016fdfe5d3a5dcea00cc91905d0c93fab14d3a83c1769c2a",
+      "pcm_sha256": "d87be78525a6adf86a34cfb461fe179063e14e0b5a2ecf8fac51caa4273246fa",
+      "sample_rate": 44100,
+      "shape": [
+        1323119,
+        2
+      ],
+      "duration_seconds": 30.00269841269841,
+      "channel_mean_amplitude": [
+        0.0643372722922284,
+        0.06245841399288781
+      ],
+      "peak_amplitude": 1.062580943107605,
+      "rms_amplitude": 0.31126410246261177,
+      "finite_samples": true,
+      "quality_flags": [
+        "channel_offset_review",
+        "at_or_above_full_scale_review"
+      ],
+      "listening_status": "pending"
+    },
+    {
+      "candidate_id": "ai:Echoes/TTA/acestep/Only_Instrumental_Broke_For_Free_acestep_TTA_001.mp3",
+      "expected_label": "ai",
+      "group_id": "fma_artist:9067",
+      "file_path": "data/audio_batch/95a85824e31ef2e7533c909ed77b11109e2deea91fefef82b6f2154a9375dca0.mp3",
+      "status": "ok",
+      "sha256": "c69dadf24d99d1e099b912e3c2e547e917999ed5321fcd08a8d7d9b10265291d",
+      "pcm_sha256": "5a88961034a9c8275301e7186a1daf1617eef735a902d21b0be6dcebbd9aabaf",
+      "sample_rate": 48000,
+      "shape": [
+        3896495,
+        2
+      ],
+      "duration_seconds": 81.17697916666667,
+      "channel_mean_amplitude": [
+        0.0007519643589665022,
+        0.0006503496709056984
+      ],
+      "peak_amplitude": 0.8894428610801697,
+      "rms_amplitude": 0.12845007243221937,
+      "finite_samples": true,
+      "quality_flags": [],
+      "listening_status": "pending"
+    },
+    {
+      "candidate_id": "ai:Echoes/TTA/audioldm/Only_Instrumental_Broke_For_Free_audioldm_TTA_001.mp3",
+      "expected_label": "ai",
+      "group_id": "fma_artist:9067",
+      "file_path": "data/audio_batch/3ce69866a316fd5e3e7969b9874cbb5051d676b699a9c14746c33a0c46ed5573.mp3",
+      "status": "ok",
+      "sha256": "e63a5297573b755343aaa56123ce66813824260635b34fecee92bd1f54f2918a",
+      "pcm_sha256": "18f1fa123e6684905e617255229567ba8d23949e5654fcb6ac21e902905b3b97",
+      "sample_rate": 16000,
+      "shape": [
+        491552,
+        1
+      ],
+      "duration_seconds": 30.722,
+      "channel_mean_amplitude": [
+        0.0003744134338247482
+      ],
+      "peak_amplitude": 0.3355379104614258,
+      "rms_amplitude": 0.06172576615651318,
+      "finite_samples": true,
+      "quality_flags": [],
+      "listening_status": "pending"
+    },
+    {
+      "candidate_id": "ai:Echoes/TTA/musicgen/Only_Instrumental_Broke_For_Free_musicgen_TTA_001.wav",
+      "expected_label": "ai",
+      "group_id": "fma_artist:9067",
+      "file_path": "data/audio_batch/f3e0cd90e7be3ff95ff6160a50d1842114ef6c7f6e89d6cefd213286f58a188f.wav",
+      "status": "ok",
+      "sha256": "203accaf32cf9f0213a3c8f3a02705ab34189250e5c6e6c9d62a7f97a36456de",
+      "pcm_sha256": "6b15fc34f4ed28acd2bda3d2755fee85873a3f809dba999f0e83e1747b41caf6",
+      "sample_rate": 32000,
+      "shape": [
+        958080,
+        1
+      ],
+      "duration_seconds": 29.94,
+      "channel_mean_amplitude": [
+        0.0003448106642158014
+      ],
+      "peak_amplitude": 1.0,
+      "rms_amplitude": 0.3530351470156176,
+      "finite_samples": true,
+      "quality_flags": [
+        "at_or_above_full_scale_review"
+      ],
+      "listening_status": "pending"
+    },
+    {
+      "candidate_id": "human:fma:15769",
+      "expected_label": "human",
+      "group_id": "fma_artist:4365",
+      "file_path": "data/audio_batch/07f46b61b62ca7071b5222faf306743561dfa50b38091eeb24fdc0849f605cdf.mp3",
+      "status": "ok",
+      "sha256": "694009d559255f4b4c05b8bcf59f5da2791797d0332c69cf46efa89b0dc1a797",
+      "pcm_sha256": "3f566a29a700194e48e9cf0c2172383a97de199837dcc951ce0ba0aa8eeb43c6",
+      "sample_rate": 44100,
+      "shape": [
+        1321967,
+        2
+      ],
+      "duration_seconds": 29.976575963718822,
+      "channel_mean_amplitude": [
+        3.8202541425882614e-05,
+        -4.34673257632897e-07
+      ],
+      "peak_amplitude": 0.6556634902954102,
+      "rms_amplitude": 0.15170770306075737,
+      "finite_samples": true,
+      "quality_flags": [],
+      "listening_status": "pending"
+    },
+    {
+      "candidate_id": "ai:Echoes/TTA/acestep/The_Factory_Multifaros_acestep_TTA_001.mp3",
+      "expected_label": "ai",
+      "group_id": "fma_artist:4365",
+      "file_path": "data/audio_batch/71479715adcfa51774d47e5ed5b64b37c9ee6bee58c2c368575475a7c74acb8a.mp3",
+      "status": "ok",
+      "sha256": "dbf7b0215658439dd10e784d673a63f6e9f6cdbdc035844c4a13c5500d5f6a21",
+      "pcm_sha256": "9ac60eff2d48a842222e20104fcd3568216ac29154a94e8e38f4deddba06b685",
+      "sample_rate": 48000,
+      "shape": [
+        1992830,
+        2
+      ],
+      "duration_seconds": 41.517291666666665,
+      "channel_mean_amplitude": [
+        0.0003676427902491966,
+        0.0004394815896078621
+      ],
+      "peak_amplitude": 0.7466827630996704,
+      "rms_amplitude": 0.15360842299964703,
+      "finite_samples": true,
+      "quality_flags": [],
+      "listening_status": "pending"
+    },
+    {
+      "candidate_id": "ai:Echoes/TTA/audioldm/The_Factory_Multifaros_audioldm_TTA_001.mp3",
+      "expected_label": "ai",
+      "group_id": "fma_artist:4365",
+      "file_path": "data/audio_batch/776e1220c81750ef5eb7ccde2eea99ba60dae358bef400a21e04958dd99371ed.mp3",
+      "status": "ok",
+      "sha256": "8af9d949461b04c807a06d60c628e97b12ef7fc9cfd40c0e48c391aa49d78d48",
+      "pcm_sha256": "2f7bf5bd50b28d7e284c67379f77b6debd655d8ab2c87e6d5984a749ed46e554",
+      "sample_rate": 16000,
+      "shape": [
+        491552,
+        1
+      ],
+      "duration_seconds": 30.722,
+      "channel_mean_amplitude": [
+        0.00021159446980029993
+      ],
+      "peak_amplitude": 0.5957174301147461,
+      "rms_amplitude": 0.15164348827807883,
+      "finite_samples": true,
+      "quality_flags": [],
+      "listening_status": "pending"
+    },
+    {
+      "candidate_id": "ai:Echoes/TTA/musicgen/The_Factory_Multifaros_musicgen_TTA_001.wav",
+      "expected_label": "ai",
+      "group_id": "fma_artist:4365",
+      "file_path": "data/audio_batch/9fd9817d20ad3834482c1d34ac1e2acae8774bba2d34dc7fc5a0f83546458468.wav",
+      "status": "ok",
+      "sha256": "e7486a6781de7ea3ffa07d4d24e7514cea594a739d3f6734eb1ddef1b4f36efa",
+      "pcm_sha256": "b62f6fa734e332c8bb6e7087dc5bb1901f32933621f71f294cf3f354e047670c",
+      "sample_rate": 32000,
+      "shape": [
+        958080,
+        1
+      ],
+      "duration_seconds": 29.94,
+      "channel_mean_amplitude": [
+        -0.010390262884064841
+      ],
+      "peak_amplitude": 1.0,
+      "rms_amplitude": 0.510850536075517,
+      "finite_samples": true,
+      "quality_flags": [
+        "at_or_above_full_scale_review"
+      ],
+      "listening_status": "pending"
+    },
+    {
+      "candidate_id": "human:fma:143055",
+      "expected_label": "human",
+      "group_id": "fma_artist:22774",
+      "file_path": "data/audio_batch/3660e49b1f644b9aeff6af788dd3359cc9f23a19d632e14c8bcd24967d3117e1.mp3",
+      "status": "ok",
+      "sha256": "bedc14ae8b3987c51fd2f7bc3790cb886aad752c88c46a1d4988985ad1696446",
+      "pcm_sha256": "6908feebce45de8a20a15a2e1a29c1cde7c2f5f0d1ba6b79c5328f04f32c621e",
+      "sample_rate": 44100,
+      "shape": [
+        1323119,
+        2
+      ],
+      "duration_seconds": 30.00269841269841,
+      "channel_mean_amplitude": [
+        0.0010077571164520936,
+        0.001166976645105374
+      ],
+      "peak_amplitude": 1.0057876110076904,
+      "rms_amplitude": 0.1880972135500038,
+      "finite_samples": true,
+      "quality_flags": [
+        "at_or_above_full_scale_review"
+      ],
+      "listening_status": "pending"
+    },
+    {
+      "candidate_id": "ai:Echoes/TTA/acestep/Robot_Heart_Mystery_Mammal_acestep_TTA_001.mp3",
+      "expected_label": "ai",
+      "group_id": "fma_artist:22774",
+      "file_path": "data/audio_batch/feffa34eedbd2bb5b16b44b87617a79e97b08676700d2aa4d1311c61b51e84aa.mp3",
+      "status": "ok",
+      "sha256": "543d723abcaf71e3a68a60821d1957b0e02716cc698ccf038084d710a1a21efb",
+      "pcm_sha256": "bcf08fa7cc2399a90a5c05d37b23248effb9e393e0701433bb7dddc9d54f1dac",
+      "sample_rate": 48000,
+      "shape": [
+        3941077,
+        2
+      ],
+      "duration_seconds": 82.10577083333334,
+      "channel_mean_amplitude": [
+        0.0012351725355537852,
+        0.0012060842752103465
+      ],
+      "peak_amplitude": 0.9144526720046997,
+      "rms_amplitude": 0.15172125648367218,
+      "finite_samples": true,
+      "quality_flags": [],
+      "listening_status": "pending"
+    },
+    {
+      "candidate_id": "ai:Echoes/TTA/audioldm/Robot_Heart_Mystery_Mammal_audioldm_TTA_001.mp3",
+      "expected_label": "ai",
+      "group_id": "fma_artist:22774",
+      "file_path": "data/audio_batch/7228556e84aa8b7a03b6ed5059b5ea33af4bff49a8542c520a1e8bafee929a03.mp3",
+      "status": "ok",
+      "sha256": "6afad3d1c9fdd49b09636f130f8fdfdfe03dadb2ac8e090ae77b962048ad6975",
+      "pcm_sha256": "a77aa3856ef9de50857ea33b9ca16ded0d519650d8e87011bc5ab0b54a9962e2",
+      "sample_rate": 16000,
+      "shape": [
+        491552,
+        1
+      ],
+      "duration_seconds": 30.722,
+      "channel_mean_amplitude": [
+        4.217750260397132e-07
+      ],
+      "peak_amplitude": 0.7722048759460449,
+      "rms_amplitude": 0.22684607353935354,
+      "finite_samples": true,
+      "quality_flags": [],
+      "listening_status": "pending"
+    },
+    {
+      "candidate_id": "ai:Echoes/TTA/musicgen/Robot_Heart_Mystery_Mammal_musicgen_TTA_001.wav",
+      "expected_label": "ai",
+      "group_id": "fma_artist:22774",
+      "file_path": "data/audio_batch/54e86d0473a84e038dd7c318e6eb926f8a96123fa8a5d027a2df2a0267512bc8.wav",
+      "status": "ok",
+      "sha256": "9311a164e6724418ecb92befa0550e2f8567c94071f58227ff99211cff9729ea",
+      "pcm_sha256": "27ef3401f52e84211a22ca67eee34e1d3702f106dfa292378ddef476395c4b04",
+      "sample_rate": 32000,
+      "shape": [
+        958080,
+        1
+      ],
+      "duration_seconds": 29.94,
+      "channel_mean_amplitude": [
+        0.0009254606548913257
+      ],
+      "peak_amplitude": 1.0,
+      "rms_amplitude": 0.3777485296890562,
+      "finite_samples": true,
+      "quality_flags": [
+        "at_or_above_full_scale_review"
+      ],
+      "listening_status": "pending"
+    },
+    {
+      "candidate_id": "human:fma:138061",
+      "expected_label": "human",
+      "group_id": "fma_artist:22222",
+      "file_path": "data/audio_batch/05c25b2d484175fde1e10d763d3cfa69068029b87bd80ff2642971483d031f70.mp3",
+      "status": "ok",
+      "sha256": "50118604f77dadd1ad44d8cb689f0b3e16a27747e9ef5c864011b71e61fcb4f8",
+      "pcm_sha256": "bc578623228b5e0f234aab50ac8312506b19c89e71e3caa34f8d86e9a2bcec12",
+      "sample_rate": 44100,
+      "shape": [
+        1321967,
+        2
+      ],
+      "duration_seconds": 29.976575963718822,
+      "channel_mean_amplitude": [
+        0.0010516257427402535,
+        0.0005742325458555665
+      ],
+      "peak_amplitude": 0.9778274297714233,
+      "rms_amplitude": 0.19897424109675574,
+      "finite_samples": true,
+      "quality_flags": [],
+      "listening_status": "pending"
+    },
+    {
+      "candidate_id": "ai:Echoes/TTA/acestep/Bergwald_Bergwald_Every_Now_and_Every_Then_acestep_TTA_001.mp3",
+      "expected_label": "ai",
+      "group_id": "fma_artist:22222",
+      "file_path": "data/audio_batch/e398d33a5a2227e1978358a9da51a9611cb5d3f835ab238ab5add48e73396925.mp3",
+      "status": "ok",
+      "sha256": "426dece13772f847a052020aaa58c48588841cd13ef9219c85bd05aaf70513f3",
+      "pcm_sha256": "7a2b5d2d9762df0379c0d025600c00d984eb9ffc1efbbd0204e648b4c2e31787",
+      "sample_rate": 48000,
+      "shape": [
+        1711961,
+        2
+      ],
+      "duration_seconds": 35.66585416666667,
+      "channel_mean_amplitude": [
+        0.0005748227459639006,
+        0.0009199666420548813
+      ],
+      "peak_amplitude": 0.7415784597396851,
+      "rms_amplitude": 0.13772901937326185,
+      "finite_samples": true,
+      "quality_flags": [],
+      "listening_status": "pending"
+    },
+    {
+      "candidate_id": "ai:Echoes/TTA/audioldm/Bergwald_Bergwald_Every_Now_and_Every_Then_audioldm_TTA_001.mp3",
+      "expected_label": "ai",
+      "group_id": "fma_artist:22222",
+      "file_path": "data/audio_batch/bb808ec511038156e2d875e5b38588727ef488c9ec99b651562bf4e9daee3540.mp3",
+      "status": "ok",
+      "sha256": "1ca916abae0734c9fdde1b5db35a8681e05eae9b399b24f04a2715a1652d7b27",
+      "pcm_sha256": "ec0c9938483d9eef19b386102b68c0058e48399a55810c7f0cb830cfa1f9f10c",
+      "sample_rate": 16000,
+      "shape": [
+        491552,
+        1
+      ],
+      "duration_seconds": 30.722,
+      "channel_mean_amplitude": [
+        0.0002236263758233606
+      ],
+      "peak_amplitude": 0.37834280729293823,
+      "rms_amplitude": 0.024151574428687726,
+      "finite_samples": true,
+      "quality_flags": [],
+      "listening_status": "pending"
+    },
+    {
+      "candidate_id": "ai:Echoes/TTA/musicgen/Bergwald_Bergwald_Every_Now_and_Every_Then_musicgen_TTA_001.wav",
+      "expected_label": "ai",
+      "group_id": "fma_artist:22222",
+      "file_path": "data/audio_batch/8045704ebf3a5557c94fd222b2b3af46cdbbec06c53715ea13dd162fe279738d.wav",
+      "status": "ok",
+      "sha256": "9a3957c4444be400fce8e776f3c06c0960f0601d9c95746a62e3f49ce8aab72b",
+      "pcm_sha256": "bbe4073e3be2e8b67ddd9f3329f15658185cdf14b7fccd80fe8011475ba34d78",
+      "sample_rate": 32000,
+      "shape": [
+        958080,
+        1
+      ],
+      "duration_seconds": 29.94,
+      "channel_mean_amplitude": [
+        0.00044947766270252094
+      ],
+      "peak_amplitude": 1.0,
+      "rms_amplitude": 0.3337449183600736,
+      "finite_samples": true,
+      "quality_flags": [
+        "at_or_above_full_scale_review"
+      ],
+      "listening_status": "pending"
+    },
+    {
+      "candidate_id": "human:fma:52628",
+      "expected_label": "human",
+      "group_id": "fma_artist:11679",
+      "file_path": "data/audio_batch/c3eb1258d4891a6a054e20aaa18c1ceff6187612b3fe0b6baa80fc624a65abf8.mp3",
+      "status": "ok",
+      "sha256": "bf251adcdaf72cbf07523c9c7b8f9371a383c89c63ff4c211a6bb051493a9c2a",
+      "pcm_sha256": "69aa7a10bd825a08442e2c9d487383e180598954b69ce342e1a0bc17edda7c7c",
+      "sample_rate": 44100,
+      "shape": [
+        1321967,
+        1
+      ],
+      "duration_seconds": 29.976575963718822,
+      "channel_mean_amplitude": [
+        -0.00012893837313629301
+      ],
+      "peak_amplitude": 0.9159369468688965,
+      "rms_amplitude": 0.19517640204142916,
+      "finite_samples": true,
+      "quality_flags": [],
+      "listening_status": "pending"
+    },
+    {
+      "candidate_id": "ai:Echoes/TTA/acestep/Vanishing_Horizon_Jason_Shaw_acestep_TTA_001.mp3",
+      "expected_label": "ai",
+      "group_id": "fma_artist:11679",
+      "file_path": "data/audio_batch/73f209527ea2dbbbfc59ee878848664dbb0041004c4d4097458eac966c039f78.mp3",
+      "status": "ok",
+      "sha256": "20b62069cc58fb7bd6d3f60913a6dc756b80a43099f7b58c71c32c2d3e7d0bbb",
+      "pcm_sha256": "c366895f028dbbddcf32ae7b98e4305e5d00aef6d34afad8718e065a19e11a66",
+      "sample_rate": 48000,
+      "shape": [
+        2518901,
+        2
+      ],
+      "duration_seconds": 52.47710416666666,
+      "channel_mean_amplitude": [
+        0.00028130656248844015,
+        0.00023636188580367773
+      ],
+      "peak_amplitude": 0.7874286770820618,
+      "rms_amplitude": 0.11420295497583513,
+      "finite_samples": true,
+      "quality_flags": [],
+      "listening_status": "pending"
+    },
+    {
+      "candidate_id": "ai:Echoes/TTA/audioldm/Vanishing_Horizon_Jason_Shaw_audioldm_TTA_001.mp3",
+      "expected_label": "ai",
+      "group_id": "fma_artist:11679",
+      "file_path": "data/audio_batch/0f3a315ff4bf6d31651d465818c46085718c3f0c97720b036f9b823f2b2e2893.mp3",
+      "status": "ok",
+      "sha256": "6a156f0f3fc25bdc9ba03a1e835afed42409d36da68bf2f331c517f683bc480d",
+      "pcm_sha256": "ef4225feed04593a88e6a4d8be482e5d2addaa2bf5b363ff8f40ddf2b8ceb2f8",
+      "sample_rate": 16000,
+      "shape": [
+        491552,
+        1
+      ],
+      "duration_seconds": 30.722,
+      "channel_mean_amplitude": [
+        0.00022646281344296533
+      ],
+      "peak_amplitude": 0.5451582670211792,
+      "rms_amplitude": 0.11113916394597759,
+      "finite_samples": true,
+      "quality_flags": [],
+      "listening_status": "pending"
+    },
+    {
+      "candidate_id": "ai:Echoes/TTA/musicgen/Vanishing_Horizon_Jason_Shaw_musicgen_TTA_001.wav",
+      "expected_label": "ai",
+      "group_id": "fma_artist:11679",
+      "file_path": "data/audio_batch/1ace7954ec444dcff998dd36587024a7ad094b64c796c891d27711810d29bafd.wav",
+      "status": "ok",
+      "sha256": "00827aedc2c09f90e9a71e9d49480e76280fd7d1493b7de1afd19c1bb4df58f6",
+      "pcm_sha256": "0affcfe1b33ea4487f312b372a1294986315b53570413a4349660fbbe7625b64",
+      "sample_rate": 32000,
+      "shape": [
+        958080,
+        1
+      ],
+      "duration_seconds": 29.94,
+      "channel_mean_amplitude": [
+        0.030113768211267912
+      ],
+      "peak_amplitude": 1.0,
+      "rms_amplitude": 0.3744848285279599,
+      "finite_samples": true,
+      "quality_flags": [
+        "at_or_above_full_scale_review"
+      ],
+      "listening_status": "pending"
+    },
+    {
+      "candidate_id": "human:fma:89814",
+      "expected_label": "human",
+      "group_id": "fma_artist:16893",
+      "file_path": "data/audio_batch/ea70de5e6621b1ea23aebc997fbcfe812f3f628c2781638c2df13c5457be8aae.mp3",
+      "status": "ok",
+      "sha256": "9aeefae006f48463cc506f695a03f6f811b38984ce9273f4c72a6a8d5604e536",
+      "pcm_sha256": "5617861ee8109ae7f5bd344c068c5a98ef8bfd931691de13eaa8a11aff7d97ff",
+      "sample_rate": 44100,
+      "shape": [
+        1323119,
+        2
+      ],
+      "duration_seconds": 30.00269841269841,
+      "channel_mean_amplitude": [
+        0.0006077466530715674,
+        0.000675569327613169
+      ],
+      "peak_amplitude": 1.0922667980194092,
+      "rms_amplitude": 0.29045827830803145,
+      "finite_samples": true,
+      "quality_flags": [
+        "at_or_above_full_scale_review"
+      ],
+      "listening_status": "pending"
+    },
+    {
+      "candidate_id": "ai:Echoes/TTA/acestep/Dreams_ENDRUDARK_acestep_TTA_001.mp3",
+      "expected_label": "ai",
+      "group_id": "fma_artist:16893",
+      "file_path": "data/audio_batch/8b38696ae73182db8bc25b481181b31706662100d1acb632cbe2fac0a99630d2.mp3",
+      "status": "ok",
+      "sha256": "f72de064c1aa9231b7895c4ea77ebed31279e7f5cacba1b45bda1c3acc428775",
+      "pcm_sha256": "e9d490769ef50d631d812071e9268551fa8b5721954fdcbdd6db79c3e218182c",
+      "sample_rate": 48000,
+      "shape": [
+        4146155,
+        2
+      ],
+      "duration_seconds": 86.37822916666667,
+      "channel_mean_amplitude": [
+        0.0009626919703341143,
+        0.0009340556845302103
+      ],
+      "peak_amplitude": 0.8740274310112,
+      "rms_amplitude": 0.2139941953721438,
+      "finite_samples": true,
+      "quality_flags": [],
+      "listening_status": "pending"
+    },
+    {
+      "candidate_id": "ai:Echoes/TTA/audioldm/Dreams_ENDRUDARK_audioldm_TTA_001.mp3",
+      "expected_label": "ai",
+      "group_id": "fma_artist:16893",
+      "file_path": "data/audio_batch/65d91f975232be9e040f1618715e21586271005bd97371a7a17f117afbad81a9.mp3",
+      "status": "ok",
+      "sha256": "bc35455755d8451746737a5e4e9d4f101b569a09590c22ac3b02ae42833ac1f1",
+      "pcm_sha256": "e931832262ad21e0469690092619e1a879aaf0b96feac1544db467f0952fbed3",
+      "sample_rate": 16000,
+      "shape": [
+        491552,
+        1
+      ],
+      "duration_seconds": 30.722,
+      "channel_mean_amplitude": [
+        0.0002986257709250622
+      ],
+      "peak_amplitude": 0.4066055119037628,
+      "rms_amplitude": 0.07628505328075658,
+      "finite_samples": true,
+      "quality_flags": [],
+      "listening_status": "pending"
+    },
+    {
+      "candidate_id": "ai:Echoes/TTA/musicgen/Dreams_ENDRUDARK_musicgen_TTA_001.wav",
+      "expected_label": "ai",
+      "group_id": "fma_artist:16893",
+      "file_path": "data/audio_batch/4a1cb888f9d9afc559ca28586a53d174a790293bd9099d97930c3ebedf1f5123.wav",
+      "status": "ok",
+      "sha256": "f89c1612bca09b73a7b3c10da0b83d227e7af25df406201edae1603ce424869f",
+      "pcm_sha256": "6ab7b655b518b6edb9a6e39be273990e1b86892ad78bb1b4c691c82d621b70e6",
+      "sample_rate": 32000,
+      "shape": [
+        958080,
+        1
+      ],
+      "duration_seconds": 29.94,
+      "channel_mean_amplitude": [
+        0.0005133503344987501
+      ],
+      "peak_amplitude": 1.0,
+      "rms_amplitude": 0.29893483797946496,
+      "finite_samples": true,
+      "quality_flags": [
+        "at_or_above_full_scale_review"
+      ],
+      "listening_status": "pending"
+    },
+    {
+      "candidate_id": "human:fma:142080",
+      "expected_label": "human",
+      "group_id": "fma_artist:21394",
+      "file_path": "data/audio_batch/2771d6fd37a6b42d7b9ccab72b6efde140585ce15bd55c0c96615c8ccbc3abcf.mp3",
+      "status": "ok",
+      "sha256": "81675c9de15bcf260038806c899d6f1b1d83465b4a07a3ae4dcb9d07bb0c0abc",
+      "pcm_sha256": "ddd920d34f402973e0ee7b743b816efeaaac0dd196c3839f4f6366799d9317a1",
+      "sample_rate": 44100,
+      "shape": [
+        1323119,
+        2
+      ],
+      "duration_seconds": 30.00269841269841,
+      "channel_mean_amplitude": [
+        0.00018385228263168547,
+        0.0002545719798886564
+      ],
+      "peak_amplitude": 1.1389403343200684,
+      "rms_amplitude": 0.4261777744279424,
+      "finite_samples": true,
+      "quality_flags": [
+        "at_or_above_full_scale_review"
+      ],
+      "listening_status": "pending"
+    },
+    {
+      "candidate_id": "ai:Echoes/TTA/acestep/OOOTHERSIDE_-_Liquid_Paper_Mike_B._Fort_acestep_TTA_001.mp3",
+      "expected_label": "ai",
+      "group_id": "fma_artist:21394",
+      "file_path": "data/audio_batch/df11cbdf55274d660be98de04dd037964304608efde93b9ca9c8c1ad1ca4f8a7.mp3",
+      "status": "ok",
+      "sha256": "b39147a76155e351253f11ff9faa32f2850e589646d6f65140ffa4cb195ff1a0",
+      "pcm_sha256": "0e925e4d88360f535fb8401f4446215cbb3ae1f5e308b7e60c6754ed45d61275",
+      "sample_rate": 48000,
+      "shape": [
+        4703434,
+        2
+      ],
+      "duration_seconds": 97.98820833333333,
+      "channel_mean_amplitude": [
+        0.001338222143298054,
+        0.0013874832255135164
+      ],
+      "peak_amplitude": 0.8673685193061829,
+      "rms_amplitude": 0.1315922873829045,
+      "finite_samples": true,
+      "quality_flags": [],
+      "listening_status": "pending"
+    },
+    {
+      "candidate_id": "ai:Echoes/TTA/audioldm/OOOTHERSIDE_-_Liquid_Paper_Mike_B._Fort_audioldm_TTA_001.mp3",
+      "expected_label": "ai",
+      "group_id": "fma_artist:21394",
+      "file_path": "data/audio_batch/875634cebd6d9a2078cab66505cef0386bb599713a418c9df25a3e2356959a5f.mp3",
+      "status": "ok",
+      "sha256": "c99b731e29b585ac3dedc50bfc8903aff35bc5679b93d4278a76f7c4bbb66f51",
+      "pcm_sha256": "02836f74c5895e22b8a3d8dee3413d321fe12cb9ec86c04f09b3db2b947001dd",
+      "sample_rate": 16000,
+      "shape": [
+        491552,
+        1
+      ],
+      "duration_seconds": 30.722,
+      "channel_mean_amplitude": [
+        0.00021519022222074675
+      ],
+      "peak_amplitude": 0.43157440423965454,
+      "rms_amplitude": 0.04378187961664803,
+      "finite_samples": true,
+      "quality_flags": [],
+      "listening_status": "pending"
+    },
+    {
+      "candidate_id": "ai:Echoes/TTA/musicgen/OOOTHERSIDE_Liquid_Paper_Mike_B_Fort_musicgen_TTA_001.wav",
+      "expected_label": "ai",
+      "group_id": "fma_artist:21394",
+      "file_path": "data/audio_batch/0521cb57b4f8759ea4a68fa7f6ddd3487d9e44091d732aaf90531f2b4e4d8f30.wav",
+      "status": "ok",
+      "sha256": "2edabe26eb81c2cab518aa8b55148b202aa593ae9cad8de7d9dc77904b9040e0",
+      "pcm_sha256": "22a9f07b464d1145113536d9e51da27cf03cec2b2af071b78f10383bd94c6d0b",
+      "sample_rate": 32000,
+      "shape": [
+        958080,
+        1
+      ],
+      "duration_seconds": 29.94,
+      "channel_mean_amplitude": [
+        0.0002962603916226822
+      ],
+      "peak_amplitude": 1.0,
+      "rms_amplitude": 0.3367871746404599,
+      "finite_samples": true,
+      "quality_flags": [
+        "at_or_above_full_scale_review"
+      ],
+      "listening_status": "pending"
+    }
+  ],
+  "exact_file_duplicates": [],
+  "exact_pcm_duplicates": [],
+  "near_duplicate_review": "pending"
+}
