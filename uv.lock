@@ -8,6 +8,7 @@ version = "0.1.0"
 source = { virtual = "." }
 dependencies = [
     { name = "librosa" },
+    { name = "scikit-learn" },
     { name = "matplotlib" },
     { name = "numpy" },
     { name = "scipy" },
@@ -22,6 +23,7 @@ dev = [
 [package.metadata]
 requires-dist = [
     { name = "librosa", specifier = ">=0.11,<0.12" },
+    { name = "scikit-learn", specifier = ">=1.9,<1.10" },
     { name = "matplotlib", specifier = ">=3.10,<4" },
     { name = "numpy", specifier = ">=2,<3" },
     { name = "scipy", specifier = ">=1.16,<2" },

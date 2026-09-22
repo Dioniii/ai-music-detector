@@ -1,0 +1,73 @@
+{
+  "schema_version": 1,
+  "experiment": "baseline_v1",
+  "feature_names": [
+    "rms_mean",
+    "rms_std",
+    "zero_crossing_rate_mean",
+    "zero_crossing_rate_std",
+    "spectral_centroid_hz_mean",
+    "spectral_centroid_hz_std",
+    "spectral_bandwidth_hz_mean",
+    "spectral_bandwidth_hz_std",
+    "spectral_flatness_mean",
+    "spectral_flatness_std"
+  ],
+  "scaler_mean": [
+    0.17248260401312834,
+    0.05782245596465587,
+    0.10166753623249018,
+    0.05535181154918154,
+    2030.199183249593,
+    764.1691494618435,
+    1977.9896513608949,
+    451.49783556250367,
+    0.03229759536668847,
+    0.03582049365533826
+  ],
+  "scaler_scale": [
+    0.1377419096144572,
+    0.04794152773528502,
+    0.09683080468110777,
+    0.05294631937174483,
+    1299.4305665861946,
+    593.0351168195293,
+    744.2213843143173,
+    293.11006056160625,
+    0.05124371623797791,
+    0.04362392668943921
+  ],
+  "coefficients": [
+    -1.2176301447132283,
+    0.6541759301664937,
+    0.5664817536911068,
+    0.9914162852868339,
+    0.15931713259588345,
+    0.7332459806652576,
+    -1.2348711709007532,
+    -0.403684100573514,
+    -0.31478255927841814,
+    0.1861633369627291
+  ],
+  "intercept": 0.707765547826003,
+  "threshold": 0.5,
+  "start_seconds": 0.0,
+  "calibrated": false,
+  "class_labels": [
+    "human",
+    "ai"
+  ],
+  "sklearn_version": "1.9.1",
+  "contract_sha256": {
+    "audio_inspection.py": "cf4cc3483e98ede7954943efcfaa863a59a9d6e12c2bf5692184799550abacc9",
+    "preprocessing.py": "5c183ff12942887d9b80174a80b5953ba7229c5adab17aff64cc1c53f04c4325",
+    "features.py": "065618508e38fbedf34f85d15e7ac85e1f2a82c0a3c8e34db1f1bc6bde9f635d"
+  },
+  "training": {
+    "C": 1.0,
+    "class_weight": "balanced",
+    "max_iter": 1000,
+    "solver": "lbfgs",
+    "iterations": 14
+  }
+}

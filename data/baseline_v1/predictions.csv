@@ -1,0 +1,81 @@
+candidate_id,reference,artist_id,group_id,generator,split,true_label,predicted_label,ai_score
+human:fma:114396,Breathe New Life - Scott Holmes,19498,fma_artist:19498,,train,human,ai,0.7980986156369996
+ai:Echoes/TTA/acestep/Breathe_New_Life_Scott_Holmes_acestep_TTA_001.mp3,Breathe New Life - Scott Holmes,19498,fma_artist:19498,acestep,train,ai,ai,0.8330023530948172
+ai:Echoes/TTA/audioldm/Breathe_New_Life_Scott_Holmes_audioldm_TTA_001.mp3,Breathe New Life - Scott Holmes,19498,fma_artist:19498,audioldm,train,ai,ai,0.6819217424951477
+ai:Echoes/TTA/musicgen/Breathe_New_Life_Scott_Holmes_musicgen_TTA_001.wav,Breathe New Life - Scott Holmes,19498,fma_artist:19498,musicgen,train,ai,ai,0.7103530966846685
+human:fma:116878,Tapes - Gumbel,17198,fma_artist:17198,,train,human,human,0.4226964944251506
+ai:Echoes/TTA/acestep/Tapes_Gumbel_acestep_TTA_001.mp3,Tapes - Gumbel,17198,fma_artist:17198,acestep,train,ai,ai,0.5545275094785087
+ai:Echoes/TTA/audioldm/Tapes_Gumbel_audioldm_TTA_001.mp3,Tapes - Gumbel,17198,fma_artist:17198,audioldm,train,ai,ai,0.5968476863432626
+ai:Echoes/TTA/musicgen/Tapes_Gumbel_musicgen_TTA_001.wav,Tapes - Gumbel,17198,fma_artist:17198,musicgen,train,ai,ai,0.9909561739798969
+human:fma:91622,Scape from the city - Rolemusic,10397,fma_artist:10397,,train,human,human,0.009908550356819767
+ai:Echoes/TTA/acestep/Scape_from_the_city_Rolemusic_acestep_TTA_001.mp3,Scape from the city - Rolemusic,10397,fma_artist:10397,acestep,train,ai,human,0.37248763850782407
+ai:Echoes/TTA/audioldm/Scape_from_the_city_Rolemusic_audioldm_TTA_001.mp3,Scape from the city - Rolemusic,10397,fma_artist:10397,audioldm,train,ai,ai,0.5587288576239362
+ai:Echoes/TTA/musicgen/Scape_from_the_city_Rolemusic_musicgen_TTA_001.wav,Scape from the city - Rolemusic,10397,fma_artist:10397,musicgen,train,ai,human,0.4519197997336021
+human:fma:114545,shmoove - epsilon not,6550,fma_artist:6550,,train,human,human,0.04632099341863672
+ai:Echoes/TTA/acestep/shmoove_epsilon_not_acestep_TTA_001.mp3,shmoove - epsilon not,6550,fma_artist:6550,acestep,train,ai,ai,0.8004465558678041
+ai:Echoes/TTA/audioldm/shmoove_epsilon_not_audioldm_TTA_001.mp3,shmoove - epsilon not,6550,fma_artist:6550,audioldm,train,ai,ai,0.8576886968655818
+ai:Echoes/TTA/musicgen/shmoove_epsilon_not_musicgen_TTA_001.wav,shmoove - epsilon not,6550,fma_artist:6550,musicgen,train,ai,ai,0.9760562739779036
+human:fma:141877,I - Nocturnal Mayhem,22584,fma_artist:22584,,train,human,human,0.21983821001419318
+ai:Echoes/TTA/acestep/I_Nocturnal_Mayhem_acestep_TTA_001.mp3,I - Nocturnal Mayhem,22584,fma_artist:22584,acestep,train,ai,ai,0.8053984651122158
+ai:Echoes/TTA/audioldm/I_Nocturnal_Mayhem_audioldm_TTA_001.mp3,I - Nocturnal Mayhem,22584,fma_artist:22584,audioldm,train,ai,ai,0.712810166608497
+ai:Echoes/TTA/musicgen/I_Nocturnal_Mayhem_musicgen_TTA_001.wav,I - Nocturnal Mayhem,22584,fma_artist:22584,musicgen,train,ai,ai,0.869403279102794
+human:fma:149488,Lost Paradise - Autumn Interlude,23674,fma_artist:23674,,holdout,human,human,0.4650006561207315
+ai:Echoes/TTA/acestep/Lost_Paradise_Autumn_Interlude_acestep_TTA_001.mp3,Lost Paradise - Autumn Interlude,23674,fma_artist:23674,acestep,holdout,ai,ai,0.8434919583496516
+ai:Echoes/TTA/audioldm/Lost_Paradise_Autumn_Interlude_audioldm_TTA_001.mp3,Lost Paradise - Autumn Interlude,23674,fma_artist:23674,audioldm,holdout,ai,ai,0.68570569379244
+ai:Echoes/TTA/musicgen/Lost_Paradise_Autumn_Interlude_musicgen_TTA_001.wav,Lost Paradise - Autumn Interlude,23674,fma_artist:23674,musicgen,holdout,ai,ai,0.8749392456163282
+human:fma:129962,Lights Up - Pipe Choir,19164,fma_artist:19164,,train,human,human,0.36517041038571535
+ai:Echoes/TTA/acestep/Lights_Up_Pipe_Choir_acestep_TTA_001.mp3,Lights Up - Pipe Choir,19164,fma_artist:19164,acestep,train,ai,ai,0.8643758928195151
+ai:Echoes/TTA/audioldm/Lights_Up_Pipe_Choir_audioldm_TTA_001.mp3,Lights Up - Pipe Choir,19164,fma_artist:19164,audioldm,train,ai,ai,0.7759871045607107
+ai:Echoes/TTA/musicgen/Lights_Up_Pipe_Choir_musicgen_TTA_001.wav,Lights Up - Pipe Choir,19164,fma_artist:19164,musicgen,train,ai,ai,0.868442362802849
+human:fma:111819,Ad Astra - P C III,19189,fma_artist:19189,,validation,human,ai,0.6732098888119221
+ai:Echoes/TTA/acestep/Ad_Astra_P_C_III_acestep_TTA_001.mp3,Ad Astra - P C III,19189,fma_artist:19189,acestep,validation,ai,ai,0.5910749699494158
+ai:Echoes/TTA/audioldm/Ad_Astra_P_C_III_audioldm_TTA_001.mp3,Ad Astra - P C III,19189,fma_artist:19189,audioldm,validation,ai,ai,0.6893431480911375
+ai:Echoes/TTA/musicgen/Ad_Astra_P_C_III_musicgen_TTA_001.wav,Ad Astra - P C III,19189,fma_artist:19189,musicgen,validation,ai,ai,0.9607098779034934
+human:fma:135336,Slow and Steady - Caleb Lemond,21957,fma_artist:21957,,validation,human,ai,0.8334190096025236
+ai:Echoes/TTA/acestep/Slow_and_Steady_Caleb_Lemond_acestep_TTA_001.mp3,Slow and Steady - Caleb Lemond,21957,fma_artist:21957,acestep,validation,ai,ai,0.7392913978031895
+ai:Echoes/TTA/audioldm/Slow_and_Steady_Caleb_Lemond_audioldm_TTA_001.mp3,Slow and Steady - Caleb Lemond,21957,fma_artist:21957,audioldm,validation,ai,ai,0.8604008899498269
+ai:Echoes/TTA/musicgen/Slow_and_Steady_Caleb_Lemond_musicgen_TTA_001.wav,Slow and Steady - Caleb Lemond,21957,fma_artist:21957,musicgen,validation,ai,ai,0.6565316332053635
+human:fma:140344,Ohtli - Seclorance,22467,fma_artist:22467,,train,human,human,0.4500548636528748
+ai:Echoes/TTA/acestep/Ohtli_Seclorance_acestep_TTA_001.mp3,Ohtli - Seclorance,22467,fma_artist:22467,acestep,train,ai,human,0.41172381197481117
+ai:Echoes/TTA/audioldm/Ohtli_Seclorance_audioldm_TTA_001.mp3,Ohtli - Seclorance,22467,fma_artist:22467,audioldm,train,ai,ai,0.6477172130482486
+ai:Echoes/TTA/musicgen/Ohtli_Seclorance_musicgen_TTA_001.wav,Ohtli - Seclorance,22467,fma_artist:22467,musicgen,train,ai,human,0.4897202440977321
+human:fma:145607,The Dawn - The One They Fear,23198,fma_artist:23198,,holdout,human,human,0.12206077222789058
+ai:Echoes/TTA/acestep/The_Dawn_The_One_They_Fear_acestep_TTA_001.mp3,The Dawn - The One They Fear,23198,fma_artist:23198,acestep,holdout,ai,ai,0.7885583293423475
+ai:Echoes/TTA/audioldm/The_Dawn_The_One_They_Fear_audioldm_TTA_001.mp3,The Dawn - The One They Fear,23198,fma_artist:23198,audioldm,holdout,ai,human,0.23635854577272838
+ai:Echoes/TTA/musicgen/The_Dawn_The_One_They_Fear_musicgen_TTA_001.wav,The Dawn - The One They Fear,23198,fma_artist:23198,musicgen,holdout,ai,ai,0.9714767716561986
+human:fma:135370,Happy - Lamprey,21958,fma_artist:21958,,validation,human,ai,0.9003990513633209
+ai:Echoes/TTA/acestep/Happy_Lamprey_acestep_TTA_001.mp3,Happy - Lamprey,21958,fma_artist:21958,acestep,validation,ai,ai,0.5470082117491177
+ai:Echoes/TTA/audioldm/Happy_Lamprey_audioldm_TTA_001.mp3,Happy - Lamprey,21958,fma_artist:21958,audioldm,validation,ai,ai,0.889472676528065
+ai:Echoes/TTA/musicgen/Happy_Lamprey_musicgen_TTA_001.wav,Happy - Lamprey,21958,fma_artist:21958,musicgen,validation,ai,ai,0.99844481284532
+human:fma:47071,All of Us - Eric Skiff,10779,fma_artist:10779,,validation,human,human,0.12903689406266625
+ai:Echoes/TTA/acestep/All_of_Us_Eric_Skiff_acestep_TTA_001.mp3,All of Us - Eric Skiff,10779,fma_artist:10779,acestep,validation,ai,human,0.46345813606781805
+ai:Echoes/TTA/audioldm/All_of_Us_Eric_Skiff_audioldm_TTA_001.mp3,All of Us - Eric Skiff,10779,fma_artist:10779,audioldm,validation,ai,ai,0.6716029239339922
+ai:Echoes/TTA/musicgen/All_of_Us_Eric_Skiff_musicgen_TTA_001.wav,All of Us - Eric Skiff,10779,fma_artist:10779,musicgen,validation,ai,ai,0.9768184200937671
+human:fma:42372,Only Instrumental - Broke For Free,9067,fma_artist:9067,,train,human,human,0.19123449212116392
+ai:Echoes/TTA/acestep/Only_Instrumental_Broke_For_Free_acestep_TTA_001.mp3,Only Instrumental - Broke For Free,9067,fma_artist:9067,acestep,train,ai,ai,0.8532300367421475
+ai:Echoes/TTA/audioldm/Only_Instrumental_Broke_For_Free_audioldm_TTA_001.mp3,Only Instrumental - Broke For Free,9067,fma_artist:9067,audioldm,train,ai,ai,0.6157356230036082
+ai:Echoes/TTA/musicgen/Only_Instrumental_Broke_For_Free_musicgen_TTA_001.wav,Only Instrumental - Broke For Free,9067,fma_artist:9067,musicgen,train,ai,ai,0.9963411975516329
+human:fma:15769,The Factory - Multifaros,4365,fma_artist:4365,,train,human,human,0.12498913811375212
+ai:Echoes/TTA/acestep/The_Factory_Multifaros_acestep_TTA_001.mp3,The Factory - Multifaros,4365,fma_artist:4365,acestep,train,ai,ai,0.7031083062504936
+ai:Echoes/TTA/audioldm/The_Factory_Multifaros_audioldm_TTA_001.mp3,The Factory - Multifaros,4365,fma_artist:4365,audioldm,train,ai,human,0.4450953124369274
+ai:Echoes/TTA/musicgen/The_Factory_Multifaros_musicgen_TTA_001.wav,The Factory - Multifaros,4365,fma_artist:4365,musicgen,train,ai,ai,0.9938335711286806
+human:fma:143055,Robot Heart - Mystery Mammal,22774,fma_artist:22774,,holdout,human,ai,0.8739368672125107
+ai:Echoes/TTA/acestep/Robot_Heart_Mystery_Mammal_acestep_TTA_001.mp3,Robot Heart - Mystery Mammal,22774,fma_artist:22774,acestep,holdout,ai,ai,0.8880907201809478
+ai:Echoes/TTA/audioldm/Robot_Heart_Mystery_Mammal_audioldm_TTA_001.mp3,Robot Heart - Mystery Mammal,22774,fma_artist:22774,audioldm,holdout,ai,ai,0.7474693995872358
+ai:Echoes/TTA/musicgen/Robot_Heart_Mystery_Mammal_musicgen_TTA_001.wav,Robot Heart - Mystery Mammal,22774,fma_artist:22774,musicgen,holdout,ai,ai,0.9944741827337209
+human:fma:138061,Bergwald Bergwald - Every Now and Every Then,22222,fma_artist:22222,,train,human,human,0.2667807687149691
+ai:Echoes/TTA/acestep/Bergwald_Bergwald_Every_Now_and_Every_Then_acestep_TTA_001.mp3,Bergwald Bergwald - Every Now and Every Then,22222,fma_artist:22222,acestep,train,ai,ai,0.5390689005614341
+ai:Echoes/TTA/audioldm/Bergwald_Bergwald_Every_Now_and_Every_Then_audioldm_TTA_001.mp3,Bergwald Bergwald - Every Now and Every Then,22222,fma_artist:22222,audioldm,train,ai,ai,0.7874338699280529
+ai:Echoes/TTA/musicgen/Bergwald_Bergwald_Every_Now_and_Every_Then_musicgen_TTA_001.wav,Bergwald Bergwald - Every Now and Every Then,22222,fma_artist:22222,musicgen,train,ai,ai,0.7883128031636393
+human:fma:52628,Vanishing Horizon - Jason Shaw,11679,fma_artist:11679,,holdout,human,ai,0.6070789350488858
+ai:Echoes/TTA/acestep/Vanishing_Horizon_Jason_Shaw_acestep_TTA_001.mp3,Vanishing Horizon - Jason Shaw,11679,fma_artist:11679,acestep,holdout,ai,ai,0.8595533801735065
+ai:Echoes/TTA/audioldm/Vanishing_Horizon_Jason_Shaw_audioldm_TTA_001.mp3,Vanishing Horizon - Jason Shaw,11679,fma_artist:11679,audioldm,holdout,ai,ai,0.6092834022972317
+ai:Echoes/TTA/musicgen/Vanishing_Horizon_Jason_Shaw_musicgen_TTA_001.wav,Vanishing Horizon - Jason Shaw,11679,fma_artist:11679,musicgen,holdout,ai,ai,0.9268027597330863
+human:fma:89814,Dreams - ENDRUDARK,16893,fma_artist:16893,,train,human,human,0.3177110448933335
+ai:Echoes/TTA/acestep/Dreams_ENDRUDARK_acestep_TTA_001.mp3,Dreams - ENDRUDARK,16893,fma_artist:16893,acestep,train,ai,ai,0.8246450548566143
+ai:Echoes/TTA/audioldm/Dreams_ENDRUDARK_audioldm_TTA_001.mp3,Dreams - ENDRUDARK,16893,fma_artist:16893,audioldm,train,ai,ai,0.6429028318098519
+ai:Echoes/TTA/musicgen/Dreams_ENDRUDARK_musicgen_TTA_001.wav,Dreams - ENDRUDARK,16893,fma_artist:16893,musicgen,train,ai,ai,0.6627591974718172
+human:fma:142080,OOOTHERSIDE - Liquid Paper - Mike B. Fort,21394,fma_artist:21394,,train,human,human,0.052837456131032946
+ai:Echoes/TTA/acestep/OOOTHERSIDE_-_Liquid_Paper_Mike_B._Fort_acestep_TTA_001.mp3,OOOTHERSIDE - Liquid Paper - Mike B. Fort,21394,fma_artist:21394,acestep,train,ai,ai,0.7969754631601427
+ai:Echoes/TTA/audioldm/OOOTHERSIDE_-_Liquid_Paper_Mike_B._Fort_audioldm_TTA_001.mp3,OOOTHERSIDE - Liquid Paper - Mike B. Fort,21394,fma_artist:21394,audioldm,train,ai,ai,0.7399430526551677
+ai:Echoes/TTA/musicgen/OOOTHERSIDE_Liquid_Paper_Mike_B_Fort_musicgen_TTA_001.wav,OOOTHERSIDE - Liquid Paper - Mike B. Fort,21394,fma_artist:21394,musicgen,train,ai,ai,0.9903674462336514

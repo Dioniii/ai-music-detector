@@ -349,3 +349,25 @@ print(dict(zip(FEATURE_NAMES, vector)))
 - Found quality flags on 30 recordings: three human channel offsets and 28 full-scale flags (eight human, all 20 MusicGen), with one overlap. Preserved originals; flags are review triggers, not AI evidence or automatic exclusions.
 - Source rate/channel/duration differences remain confounds, including AudioLDM at 16 kHz. Listening/content and usage review remain pending; no eligibility promotion, model training or split assignment occurred.
 - See [batch report](data/batch_audio_report.md) for measured results, the Scott Holmes array-shape trace, reproducibility instructions and exercise. Audio/receipts stay ignored by git; no packages, uploads or commits.
+
+
+## Paired audio-quality diagnostic - 2026-09-22
+
+- Added `quality_diagnostics.py` and nine behavioral tests. Initial tests failed on the missing module; final full suite: 121 passed with the existing short-audio spectrogram warning.
+- Compared existing first-ten-second features with and without whole-recording per-channel mean removal for all 80 files. Saved 160 feature rows, 80 full-scale measurements and a 13-entry listening checklist covering ten flagged humans plus three generator examples.
+- Rolemusic's Scape from the city RMS mean changed from 0.508414 to 0.258094, showing that the offset strongly affects the representation. This is not a detection result or a production-policy adoption.
+- MusicGen boundary-hit fractions range from 0.012838% to 2.308784% across whole recordings; none of those hits exceeds the boundary. Counts alone do not establish audible clipping or generation provenance.
+- Receipt and before/after hash checks confirmed unchanged originals. No downloads, packages, training, split changes or edits to production preprocessing. Listening remains pending.
+- These whole-batch comparisons are preprocessing-development evidence; a policy chosen from them needs fresh groups for an untouched final test. No split restrictions were automatically rewritten.
+- See [diagnostic debrief](data/quality_diagnostics/REPORT.md) for data flow, measured tables, reproducibility, limitations and the denominator exercise.
+
+
+## First trained exploratory baseline - 2026-09-22
+
+- Following the user's direction to prioritize the portfolio baseline over additional diagnostic stages, implemented training and local-file prediction in `baseline.py`. No new test suite or diagnostic stage was added.
+- Kept original preprocessing and the ten existing baseline features. Split the 20 provisional artist groups deterministically into 12 training, four validation and four exploratory holdout groups, with the known pilot group forced into training.
+- Fit training-only StandardScaler plus balanced logistic regression (C=1, fixed threshold 0.5). Saved portable numeric model parameters, all 80 predictions/assignments, metrics and a detailed report; added a concise project README.
+- Holdout: 11/12 AI examples detected, 2/4 human false positives; AI precision 84.6%, recall 91.7%, human FPR 50%, accuracy 81.25%. Validation human FPR is 75%. These are exploratory results from a previously inspected batch, not an untouched final or unseen-generator test.
+- Actual execution verified group separation, convergence, finite features, exported score agreement and a fresh-file feature/prediction round trip. Existing unit tests were not rerun. Existing scikit-learn package was promoted to a direct dependency; offline lock validation passed after preserving locked package entries. No downloads or installations.
+- Pending quality/source flags remain documented; no original audio, production preprocessing or source eligibility fields were altered. No commits or publication.
+- See [baseline report](data/baseline_v1/REPORT.md) for actual errors and reproduction commands. We now have a working trained backend whose main measured weakness is human false positives.
