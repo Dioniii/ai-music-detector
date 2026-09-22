@@ -7,3 +7,5 @@ data/source_metadata/
 data/audio_pilot/
 data/pilot_plots/
 data/audio_batch/
+.gradio_cache/
+.gradio_server/

@@ -371,3 +371,13 @@ print(dict(zip(FEATURE_NAMES, vector)))
 - Actual execution verified group separation, convergence, finite features, exported score agreement and a fresh-file feature/prediction round trip. Existing unit tests were not rerun. Existing scikit-learn package was promoted to a direct dependency; offline lock validation passed after preserving locked package entries. No downloads or installations.
 - Pending quality/source flags remain documented; no original audio, production preprocessing or source eligibility fields were altered. No commits or publication.
 - See [baseline report](data/baseline_v1/REPORT.md) for actual errors and reproduction commands. We now have a working trained backend whose main measured weakness is human false positives.
+
+
+## Local Gradio showcase - 2026-09-22
+
+- Added `app.py` and installed/locked Gradio 6.28.0. Built audio-analysis, model-results and pipeline-explanation tabs around the existing saved baseline.
+- Visuals show the exact analyzed waveform/spectrogram, ten feature values, exact additive logit contributions including intercept, raw score, confusion matrices, score distributions and recorded errors. Local examples include a known human false positive.
+- Verified three real predictions against the CLI and contribution reconstruction to 1e-12. Live Gradio uploads returned the expected score, plots and feature table; missing/short files clear outputs and show readable errors.
+- A headless browser screenshot exposed a dark-mode heading contrast issue, which was fixed. Visually checked the contribution chart. Built-in browser access was unavailable due to the sandbox helper; browser interaction was not automated.
+- Kept original audio preprocessing and model unchanged. No new diagnostic stage, model training, public deployment or encoder download. The app runs on localhost with sharing and analytics disabled.
+- Updated README and [Gradio debrief](GRADIO_DEBRIEF.md). Temporary uploaded audio and server logs/screenshots are gitignored. Hugging Face encoders remain deferred.
