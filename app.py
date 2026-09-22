@@ -45,15 +45,15 @@ CSS="""
 @font-face {font-family:'IBM Plex Mono';src:url('__FONT_BASE__/IBMPlexMono-SemiBold.ttf') format('truetype');font-weight:600;font-style:normal;font-display:swap;}
 @font-face {font-family:'IBM Plex Mono';src:url('__FONT_BASE__/IBMPlexMono-Bold.ttf') format('truetype');font-weight:700;font-style:normal;font-display:swap;}
 html,body {background:#0d0d0d!important;}
-.gradio-container {max-width:1200px!important;margin:auto!important;padding:12px!important;font-family:'IBM Plex Mono',monospace!important;}
+.gradio-container {max-width:1200px!important;margin:auto!important;padding:24px!important;font-family:'IBM Plex Mono',monospace!important;}
 .gradio-container,.gradio-container * {font-family:'IBM Plex Mono',monospace!important;border-radius:0!important;box-shadow:none!important;background-image:none!important;backdrop-filter:none!important;text-shadow:none!important;}
 .gradio-container *::before,.gradio-container *::after {border-radius:0!important;box-shadow:none!important;background-image:none!important;backdrop-filter:none!important;}
-.gradio-container .hero {padding:16px 0 12px;border-bottom:1px solid #2a2a28;margin-bottom:8px;}
+.gradio-container .hero {padding:24px 0 24px;border-bottom:1px solid #2a2a28;margin-bottom:24px;}
 .gradio-container .eyebrow {font-size:11px;letter-spacing:2px;font-weight:700;color:#8a8a85;text-transform:uppercase;}
 .gradio-container .hero h1 {font-size:42px;line-height:1.1;letter-spacing:-1.5px;color:#e8e8e3;margin:6px 0;}
 .gradio-container .hero p {max-width:720px;color:#8a8a85;font-size:16px;line-height:1.6;margin:6px 0;}
-.gradio-container .result-card {padding:12px;background:#0d0d0d;border:1px solid #2a2a28;}
-.gradio-container .result-card h2 {font-size:26px;margin:4px 0 8px;color:#e8e8e3;}
+.gradio-container .result-card {padding:24px;background:#0d0d0d;border:1px solid #2a2a28;}
+.gradio-container .result-card h2 {font-size:26px;margin:8px 0 16px;color:#e8e8e3;}
 .gradio-container .result-card p {color:#8a8a85;line-height:1.55;margin:6px 0;}
 .gradio-container .result-card[data-result="ai"] {border-color:#d4a24e;--result-accent:#d4a24e;}
 .gradio-container .result-card[data-result="human"] {border-color:#5a8a80;--result-accent:#5a8a80;}
@@ -61,20 +61,31 @@ html,body {background:#0d0d0d!important;}
 .gradio-container .score-track {height:8px;background:#0d0d0d;border:1px solid #2a2a28;position:relative;margin:12px 0 6px;}
 .gradio-container .score-pin {position:absolute;top:-4px;height:14px;width:4px;background:var(--result-accent,#e8e8e3);}
 .gradio-container .score-labels {display:flex;justify-content:space-between;color:#8a8a85;font-size:12px;}
-.gradio-container .stat-grid {display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:8px 0;}
-.gradio-container .stat {border:1px solid #2a2a28;background:#0d0d0d;padding:10px;}
+.gradio-container .stat-grid {display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin:24px 0;}
+.gradio-container .stat {border:1px solid #2a2a28;background:#0d0d0d;padding:24px;}
 .gradio-container .stat strong {font-size:28px;display:block;color:#e8e8e3;text-align:right;font-variant-numeric:tabular-nums;}
 .gradio-container .stat span {color:#8a8a85;font-size:13px;}
 .gradio-container .small-note {font-size:13px;color:#8a8a85;line-height:1.6;}
-.gradio-container [role="tablist"] {border-bottom:1px solid #2a2a28;gap:4px;}
-.gradio-container [role="tab"] {padding:8px 10px;border:1px solid transparent;color:#8a8a85;}
+.gradio-container [role="tablist"] {border-bottom:1px solid #2a2a28;gap:16px;margin-bottom:24px;}
+.gradio-container [role="tab"] {padding:12px 8px;border:1px solid transparent;color:#8a8a85;}
 .gradio-container [role="tab"][aria-selected="true"] {color:#e8e8e3;border-bottom:1px solid #5a8a80;}
 .gradio-container button:focus-visible,.gradio-container input:focus-visible,.gradio-container textarea:focus-visible {outline:1px solid #5a8a80;outline-offset:1px;}
-.gradio-container table {border-collapse:collapse;border:1px solid #2a2a28;}
-.gradio-container th,.gradio-container td {border:1px solid #2a2a28;padding:6px 8px;}
+.gradio-container table {border-collapse:collapse;border:0;}
+.gradio-container th,.gradio-container td {border:0;border-bottom:1px solid #2a2a28;padding:10px 14px;}
 .gradio-container #feature-values th:not(:first-child),.gradio-container #feature-values td:not(:first-child),.gradio-container #holdout-errors th:last-child,.gradio-container #holdout-errors td:last-child {text-align:right;font-variant-numeric:tabular-nums;}
 .gradio-container hr {border:0;border-top:1px solid #2a2a28;}
 @media(max-width:650px){.gradio-container .hero h1{font-size:30px}.gradio-container .stat-grid{grid-template-columns:1fr}.gradio-container .stat strong{font-size:24px}}
+
+.gradio-container #analysis-layout {gap:32px;align-items:flex-start;}
+.gradio-container #upload-control {border:1px solid #5a8a80!important;}
+.gradio-container #analyze-action {min-height:52px;margin-top:4px;margin-bottom:12px;font-weight:700;}
+.gradio-container #input-guidance {color:#8a8a85;line-height:1.75;}
+.gradio-container #input-guidance strong {color:#e8e8e3;}
+.gradio-container #original-player {border:0!important;border-top:1px solid #2a2a28!important;padding-top:20px!important;}
+.gradio-container #signal-plot,.gradio-container #influence-plot {border:0!important;margin-top:12px;}
+.gradio-container #explanation-panel {border:0!important;border-top:1px solid #2a2a28!important;margin-top:32px;padding-top:20px!important;}
+.gradio-container #example-list {margin-top:0;padding-top:12px;border-top:1px solid #2a2a28;}
+@media(max-width:650px){.gradio-container{padding:16px!important}.gradio-container #analysis-layout{gap:24px}.gradio-container .result-card{padding:20px}}
 """.replace('__FONT_BASE__','/gradio_api/file='+FONT_DIR.as_posix())
 
 
@@ -99,12 +110,14 @@ def build_theme():
     set_values('block_border_width panel_border_width input_border_width button_border_width','1px')
     set_values('block_radius container_radius input_radius table_radius embed_radius block_label_radius block_label_right_radius block_title_radius button_small_radius button_medium_radius button_large_radius','0px')
     set_values('shadow_drop shadow_drop_lg shadow_inset block_shadow block_label_shadow input_shadow input_shadow_focus','none')
-    set_values('block_padding input_padding layout_gap form_gap_width','8px')
-    set_values('button_large_padding button_medium_padding button_small_padding','8px 12px')
+    set_values('block_padding input_padding','12px')
+    set_values('layout_gap','24px')
+    set_values('form_gap_width','16px')
+    set_values('button_large_padding button_medium_padding button_small_padding','12px 18px')
     for kind in ('primary','secondary'):
         prefix='button_'+kind+'_'
-        for suffix,value in {'background_fill':BACKGROUND,'background_fill_hover':BACKGROUND,
-            'text_color':INK,'text_color_hover':INK,'border_color':GREEN if kind=='primary' else BORDER,
+        for suffix,value in {'background_fill':INK if kind=='primary' else BACKGROUND,'background_fill_hover':GREEN if kind=='primary' else BACKGROUND,
+            'text_color':BACKGROUND if kind=='primary' else INK,'text_color_hover':BACKGROUND if kind=='primary' else INK,'border_color':INK if kind=='primary' else BORDER,
             'border_color_hover':GREEN,'shadow':'none','shadow_hover':'none','shadow_active':'none'}.items():
             set_values(prefix+suffix,value)
     return theme.set(**values)
@@ -118,7 +131,8 @@ def style_axis(axis):
     axis.tick_params(colors=MUTED,labelsize=9)
     for spine in axis.spines.values():spine.set_color(BORDER);spine.set_linewidth(1)
     axis.set_axisbelow(True)
-    axis.grid(color=BORDER,alpha=1,linewidth=1)
+    axis.grid(False)
+    axis.xaxis.grid(color=BORDER,alpha=1,linewidth=.5)
 
 
 def signal_figure(clip):
@@ -231,30 +245,30 @@ def build_demo():
     predictions=read_csv(DEFAULT_OUTPUT/'predictions.csv')
     h=metrics['holdout'];cm=h['confusion_matrix_true_rows_predicted_columns_human_ai']
     with gr.Blocks(title='AI Music Detector · Audio Lab',analytics_enabled=False,delete_cache=(3600,3600)) as demo:
-        gr.HTML('<div class="hero"><div class="eyebrow">Audio lab / Portfolio experiment 01</div><h1>Listen. Measure. Inspect.</h1><p>Explore how our trained AI music detector reads a recording—and see the measurements behind its decision.</p><span class="small-note">Handcrafted features + logistic regression · exploratory baseline</span></div>')
+        gr.HTML('<div class="hero"><h1>Listen. Measure. Inspect.</h1><p>Explore how our trained AI music detector reads a recording—and see the measurements behind its decision.</p><span class="small-note">Handcrafted features + logistic regression · exploratory baseline</span></div>')
         with gr.Tab('Analyze audio'):
-            with gr.Row():
+            with gr.Row(elem_id='analysis-layout'):
                 with gr.Column(scale=1,min_width=290):
-                    upload=gr.File(label='Your recording',file_types=['.wav','.mp3','.flac','.ogg'],type='filepath',height=140)
-                    gr.Markdown('**10 seconds to 5 minutes.** Only the first 10 seconds are analyzed. Uploads are processed on this computer; microphone evaluation is deferred.')
-                    button=gr.Button('Analyze recording',variant='primary',size='lg')
-                    original=gr.Audio(label='Listen to the original',interactive=False,format=None)
+                    upload=gr.File(label='Your recording',file_types=['.wav','.mp3','.flac','.ogg'],type='filepath',height=180,elem_id='upload-control')
+                    examples,labels=local_examples()
+                    if examples:
+                        gr.Examples(examples,inputs=[upload],label='Try an existing recording, then press Analyze',example_labels=labels,cache_examples=False,elem_id='example-list')
+                    gr.Markdown('**10 seconds to 5 minutes.** Only the first 10 seconds are analyzed. Uploads are processed on this computer; microphone evaluation is deferred.',elem_id='input-guidance')
+                    button=gr.Button('Analyze recording',variant='primary',size='lg',elem_id='analyze-action')
+                    original=gr.Audio(label='Listen to the original',interactive=False,format=None,elem_id='original-player')
                     details=gr.Markdown('')
                 with gr.Column(scale=2,min_width=360):
                     verdict=gr.HTML(EMPTY)
-                    signal=gr.Plot(label='Inside the audio')
-            with gr.Accordion('Why did the model lean this way?',open=True):
+                    signal=gr.Plot(label='Inside the audio',elem_id='signal-plot')
+            with gr.Accordion('Why did the model lean this way?',open=True,elem_id='explanation-panel'):
                 gr.Markdown('Green bars push toward human; coral bars push toward AI. These are exact weighted contributions in **logit units**, including the intercept. They show model influence—not causal evidence of AI generation.')
-                influence=gr.Plot(label='Feature contributions')
+                influence=gr.Plot(label='Feature contributions',elem_id='influence-plot')
                 with gr.Accordion('See the ten feature values',open=False):
                     table=gr.Dataframe(headers=['Feature','Measured value','Training-standardized value','Logit contribution'],datatype=['str','number','number','number'],interactive=False,elem_id='feature-values')
             outputs=[verdict,details,original,signal,influence,table]
             # Clear old results whenever the selected input changes.
             upload.change(reset_results,outputs=outputs,queue=False,api_name=False)
             button.click(analyze,inputs=upload,outputs=outputs,api_name='analyze',concurrency_limit=1)
-            examples,labels=local_examples()
-            if examples:
-                gr.Examples(examples,inputs=[upload],label='Try an existing recording, then press Analyze',example_labels=labels,cache_examples=False)
         with gr.Tab('Model results'):
             gr.Markdown('## A real baseline, including its mistakes\nFour artist groups form this **exploratory holdout**: four human references and 12 generated recordings. The batch was inspected during development; it is not an untouched final test.')
             gr.HTML(f'<div class="stat-grid"><div class="stat"><strong>{cm[1][1]} / {h["ai_tracks"]}</strong><span>AI recordings detected · recall {h["ai_recall"]:.1%}</span></div><div class="stat"><strong>{cm[0][1]} / {h["human_tracks"]}</strong><span>Human recordings falsely flagged · {h["human_false_positive_rate"]:.0%}</span></div><div class="stat"><strong>{h["ai_precision"]:.1%}</strong><span>AI precision on this small holdout</span></div></div>')
