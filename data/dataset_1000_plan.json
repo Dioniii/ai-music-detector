@@ -1,0 +1,43 @@
+{
+  "records": 1000,
+  "compressed_payload_bytes": 1684271518,
+  "labels": {
+    "human": 500,
+    "ai": 500
+  },
+  "generators": {
+    "diffrhythm": 42,
+    "acestep": 42,
+    "audioldm": 42,
+    "udio": 42,
+    "suno": 41,
+    "brev": 41,
+    "elevenlabs": 43,
+    "mubert": 40,
+    "producer": 40,
+    "stableaudio": 41,
+    "songgen": 42,
+    "musicgen": 44
+  },
+  "split_counts": {
+    "train": {
+      "human": 350,
+      "ai": 350
+    },
+    "validation": {
+      "human": 75,
+      "ai": 75
+    },
+    "holdout": {
+      "human": 75,
+      "ai": 75
+    }
+  },
+  "groups_per_split": {
+    "train": 350,
+    "validation": 75,
+    "holdout": 78
+  },
+  "inspected_groups_training_only": true,
+  "limitations": "Dataset labels are assumptions; artist IDs are provisional; no near-duplicate or listening review."
+}

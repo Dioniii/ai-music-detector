@@ -56,22 +56,46 @@ fixed decision threshold is 0.5.
 This uses the same model as Streamlit. Its weights and evaluation files live in
 `data/baseline_random/demo/`. No paid API or external model service is involved.
 
-## Train the current model again
+## Train on the 1,000-recording dataset
 
-Training requires the existing 80 local dataset recordings. It does not download
-anything. Use a new output folder so the current model is not overwritten:
+The fixed manifest is `data/dataset_1000.csv`: 500 human-reference recordings
+from FMA Small and 500 generated recordings from Echoes TTA, covering 12 generators.
+To download only the selected recordings (about 1.6 GiB), then train:
 
 ```powershell
+.\.venv\Scripts\python.exe -m tools.batch_audio download-expanded
 .\.venv\Scripts\python.exe baseline.py train --output data/model_rerun
 ```
 
-The 20 artist groups stay in the original 12/4/4 split: 48 training recordings,
-16 validation and 16 holdout. Only training recordings fit the scaler and model.
-The command saves weights, predictions, metrics and sampled sections. To try the
-new output from the command line, pass `--model data/model_rerun/model.json`.
-Training does not automatically switch the demo to that output.
+Downloads resume using verified local receipts. Training itself does not download
+anything. Use a new output folder to preserve previous results.
 
-## What the results mean
+The fixed split is **700 training, 150 validation and 150 holdout**, balanced
+between the two labels. Related artists and reference recordings stay together;
+previously inspected artists are restricted to training. Only training data fits
+the scaler and classifier. The command saves weights, extracted features,
+predictions, metrics, sampled sections and a comparison with the demo model.
+
+To try another output from the command line, pass
+`--model data/model_rerun/model.json`. Training does not automatically switch
+the demo to that output. Historical 80-recording training is still available
+with `--manifest data/batch_manifest.csv`.
+
+## The 1,000-recording experiment
+
+The larger dataset is downloaded and the new model is saved in
+`data/baseline_1000/`. On the same new 150-recording holdout, human false positives
+fell from **25/75 to 21/75**, while AI detections fell from **42/75 to 41/75**.
+Validation accuracy declined from **68.0% to 63.3%**, so the demo still uses the
+previous model. Dea now falls on the human side with the new model, but that
+single known example does not justify replacing the demo model.
+
+Try the experimental model with
+`python baseline.py predict "path/to/recording.mp3" --model data/baseline_1000/model.json`.
+The [experiment report](data/baseline_1000/REPORT.md) explains the data, method,
+comparison, limitations and commands in detail.
+
+## What the current demo results mean
 
 The current model detects 10 of 12 AI recordings in the exploratory holdout and
 falsely flags 2 of 4 human recordings. These are small, previously inspected

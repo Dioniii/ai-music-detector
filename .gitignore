@@ -12,3 +12,5 @@ data/audio_batch/
 
 .streamlit/secrets.toml
 .streamlit_server/
+
+data/audio_1000/

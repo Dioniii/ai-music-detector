@@ -155,7 +155,7 @@ def render_analysis():
                                    options=range(len(examples)), index=None,
                                    format_func=lambda index: labels[index], key='example',
                                    on_change=example_changed)
-        st.markdown(INPUT_GUIDANCE)
+        ###st.markdown(INPUT_GUIDANCE)
         if st.button('Analyze recording', type='primary', width='stretch'):
             clear_result()
             if upload is not None or example is not None:

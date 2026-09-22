@@ -1,0 +1,16 @@
+{
+  "recording": "TDS - Dea (Official Video HD).mp3",
+  "expected_label": "human (user-supplied label)",
+  "used_for_training_or_model_selection": false,
+  "previously_inspected": true,
+  "results": {
+    "previous": {
+      "ai_score": 0.7977146458146931,
+      "prediction": "likely_ai_generated"
+    },
+    "expanded": {
+      "ai_score": 0.4586906807855603,
+      "prediction": "likely_human_made"
+    }
+  }
+}

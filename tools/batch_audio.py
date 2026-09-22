@@ -1,4 +1,4 @@
-﻿"""Select, download and inspect the approved 20-group batch; no training or splits."""
+﻿"""Prepare the historical batch or the 1,000-recording training dataset."""
 import argparse
 from collections import Counter, defaultdict
 import csv
@@ -185,10 +185,190 @@ def read_csv(path: Path) -> list[dict]:
         return list(csv.DictReader(handle))
 
 
+
+EXPANDED = Path('data/dataset_1000.csv')
+EXPANDED_AUDIO = Path('data/audio_1000')
+
+
+def expand_dataset():
+    """Select 500 per class using metadata only; keep inspected artists in training."""
+    if EXPANDED.exists():
+        print(f'Using existing selection: {EXPANDED}')
+        return
+    def order(value):
+        return hashlib.sha256(('scale1000:' + value).encode()).hexdigest()
+    candidates = read_csv(Path('data/candidate_manifest.csv'))
+    ai = [dict(r) for r in candidates if r['expected_label'] == 'ai'
+          and r['reference_metadata_status'] == 'metadata_complete'
+          and not r['reference_review_reasons'] and int(r['file_bytes']) <= 8 * 1024**2]
+    old = read_csv(MANIFEST) + read_csv(Path('data/audio_pilot_manifest.csv'))
+    seen_groups = {r.get('group_id') or r['artist_group_id'] for r in old}
+    fresh = sorted({r['group_id'] for r in ai} - seen_groups, key=order)
+    group_roles = {g: 'train' for g in seen_groups}
+    # Reserve at least seven new reference-artist groups for each evaluation split.
+    for role in ('holdout', 'validation'):
+        selected_groups = []
+        while len(selected_groups) < 7 or sum(r['group_id'] in selected_groups for r in ai) < 100:
+            if not fresh:
+                raise ValueError('Insufficient fresh groups for evaluation')
+            group = fresh.pop(0)
+            selected_groups.append(group)
+            group_roles[group] = role
+    for row in ai:
+        row['split'] = group_roles.setdefault(row['group_id'], 'train')
+        row['genre'] = row['echoes_genre']
+    selected_ai = []
+    for role, count in [('train', 350), ('validation', 75), ('holdout', 75)]:
+        pool = sorted([r for r in ai if r['split'] == role], key=lambda r: order(r['candidate_id']))
+        genres, generators, artists = Counter(), Counter(), Counter()
+        for _ in range(count):
+            if not pool:
+                raise ValueError(f'Insufficient AI candidates in {role}')
+            row = min(pool, key=lambda r: (genres[r['genre']], generators[r['generator']], artists[r['group_id']], order(r['candidate_id'])))
+            pool.remove(row); selected_ai.append(row)
+            genres[row['genre']] += 1; generators[row['generator']] += 1; artists[row['group_id']] += 1
+    # Read the public FMA metadata, using only files present in the small archive.
+    index = {r['name']: r for r in json.loads(Path('data/source_metadata/fma_small_archive_index.json').read_text())}
+    metadata = {}
+    with Path('data/source_metadata/fma_tracks.csv').open(encoding='utf-8-sig', newline='') as handle:
+        reader = csv.reader(handle); upper = next(reader); lower = next(reader); next(reader)
+        genre_col = list(zip(upper, lower)).index(('track', 'genre_top'))
+        for row in reader:
+            member = f'fma_small/{int(row[0]) // 1000:03d}/{int(row[0]):06d}.mp3'
+            if member in index:
+                metadata[row[0]] = (row[genre_col], member)
+    humans = []
+    with Path('data/source_metadata/fma_raw_tracks.csv').open(encoding='utf-8-sig', newline='') as handle:
+        for source in csv.DictReader(handle):
+            tid = source['track_id']
+            if tid not in metadata or not source['artist_id']:
+                continue
+            genre, member = metadata[tid]
+            license_url = source['license_url']
+            if (genre not in {'Pop', 'Rock', 'Electronic'}
+                    or 'creativecommons.org/licenses/by' not in license_url or '-nd' in license_url):
+                continue
+            group = 'fma_artist:' + source['artist_id']
+            if group not in group_roles:
+                bucket = int(order(group), 16) % 100
+                group_roles[group] = 'train' if bucket < 70 else 'validation' if bucket < 85 else 'holdout'
+            entry = index[member]
+            humans.append({'candidate_id': 'human:fma:' + tid, 'expected_label': 'human',
+                'reference': source['track_title'] + ' - ' + source['artist_name'],
+                'reference_track_id': tid, 'artist_id': source['artist_id'], 'group_id': group,
+                'generator': '', 'genre': genre, 'split': group_roles[group],
+                'development_only': group in seen_groups, 'label_basis': 'Historical FMA reference label',
+                'archive': 'fma_small', 'archive_url': FMA_AUDIO_URL, 'archive_member': member,
+                'file_bytes': entry['bytes'], 'compressed_bytes': entry['compressed_bytes'],
+                'source_url': source['track_url'], 'license_url': license_url})
+    selected_human = []
+    for role in ('train', 'validation', 'holdout'):
+        target = Counter(r['genre'] for r in selected_ai if r['split'] == role)
+        artist_counts = Counter()
+        for genre, count in sorted(target.items()):
+            pool = [r for r in humans if r['split'] == role and r['genre'] == genre]
+            if len(pool) < count:
+                raise ValueError(f'Insufficient human {genre} in {role}: {len(pool)} < {count}')
+            for _ in range(count):
+                row = min(pool, key=lambda r: (artist_counts[r['group_id']], order(r['candidate_id'])))
+                pool.remove(row); selected_human.append(row); artist_counts[row['group_id']] += 1
+    rows = selected_human + selected_ai
+    previous = {(r['archive'], r['archive_member']): r for r in old}
+    for row in rows:
+        previous_row = previous.get((row['archive'], row['archive_member']))
+        row['file_path'] = (previous_row['file_path'] if previous_row and Path(previous_row['file_path']).is_file()
+                            else (EXPANDED_AUDIO / (hashlib.sha256(row['candidate_id'].encode()).hexdigest()
+                                                  + Path(row['archive_member']).suffix)).as_posix())
+        row['development_only'] = row['group_id'] in seen_groups
+    fields = ['candidate_id', 'expected_label', 'reference', 'reference_track_id', 'artist_id',
+              'group_id', 'generator', 'genre', 'split', 'development_only', 'label_basis',
+              'archive', 'archive_url', 'archive_member', 'file_bytes', 'compressed_bytes',
+              'source_url', 'license_url', 'file_path']
+    with EXPANDED.open('x', encoding='utf-8', newline='') as handle:
+        writer = csv.DictWriter(handle, fieldnames=fields, extrasaction='ignore')
+        writer.writeheader(); writer.writerows(rows)
+    summary = {'records': len(rows), 'compressed_payload_bytes': sum(int(r['compressed_bytes']) for r in rows),
+               'labels': dict(Counter(r['expected_label'] for r in rows)),
+               'generators': dict(Counter(r['generator'] for r in selected_ai)),
+               'split_counts': {role: dict(Counter(r['expected_label'] for r in rows if r['split'] == role))
+                                for role in ('train', 'validation', 'holdout')},
+               'groups_per_split': {role: len({r['group_id'] for r in rows if r['split'] == role})
+                                   for role in ('train', 'validation', 'holdout')},
+               'inspected_groups_training_only': all(r['split'] == 'train' for r in rows if r['group_id'] in seen_groups),
+               'limitations': 'Dataset labels are assumptions; artist IDs are provisional; no near-duplicate or listening review.'}
+    Path('data/dataset_1000_plan.json').write_text(json.dumps(summary, indent=2) + '\n')
+    print(json.dumps(summary, indent=2))
+
+
+def download_expanded():
+    """Fetch only selected ZIP members with resumable receipts and a 4 GiB cap."""
+    rows = read_csv(EXPANDED)
+    if len(rows) != 1000 or Counter(r['expected_label'] for r in rows) != {'human': 500, 'ai': 500}:
+        raise ValueError('Expected the approved 500+500 selection')
+    budget = TransferBudget(Path('data/source_metadata/expanded_transfers.json'), limit=4 * 1024**3)
+    plan_path = Path('data/source_metadata/expanded_transfers.plan.json')
+    plan_hash = hashlib.sha256(EXPANDED.read_bytes()).hexdigest()
+    if plan_path.exists() and json.loads(plan_path.read_text())['manifest_sha256'] != plan_hash:
+        raise ValueError('Selection changed after download started')
+    plan_path.write_text(json.dumps({'manifest_sha256': plan_hash, 'limit': budget.limit}))
+    completed = 0
+    for source, url in ARCHIVES.items():
+        pending = []
+        for row in [r for r in rows if r['archive'] == source]:
+            target = Path(row['file_path'])
+            if row['archive_url'] != url or not any(target.resolve().is_relative_to(p.resolve())
+                    for p in [EXPANDED_AUDIO, BATCH, Path('data/audio_pilot')]):
+                raise ValueError('Unexpected download source or target')
+            if verify_existing(target, row):
+                completed += 1
+            else:
+                pending.append(row)
+        if not pending:
+            continue
+        def request_range(start, end):
+            for attempt in range(3):
+                try:
+                    return budget.fetch(url, start, end)
+                except TimeoutError:
+                    if attempt == 2:
+                        raise
+                    print(f'Retrying timed-out range from {source}', flush=True)
+        _, size = request_range(0, 0)
+        cache_start, cache_data = -1, b''
+        def fetch(start, end):
+            if cache_start <= start and end < cache_start + len(cache_data):
+                return cache_data[start-cache_start:end-cache_start+1]
+            return request_range(start, end)[0]
+        with zipfile.ZipFile(RangeReader(size, fetch)) as archive:
+            offsets = sorted([info.header_offset for info in archive.infolist()] + [archive.start_dir])
+            next_offset = dict(zip(offsets[:-1], offsets[1:]))
+            allowed = {r['archive_member'] for r in pending}
+            for row in pending:
+                info = archive.getinfo(row['archive_member'])
+                cache_start = info.header_offset
+                cache_data = request_range(cache_start, next_offset[cache_start]-1)[0]
+                path = Path(row['file_path'])
+                checksum = download_member(archive, row['archive_member'], int(row['file_bytes']),
+                                           int(row['compressed_bytes']), path, allowed)
+                path.with_suffix('.receipt.json').write_text(json.dumps({
+                    'candidate_id': row['candidate_id'], 'source_url': url,
+                    'archive_member': row['archive_member'], 'sha256': checksum,
+                    'file_bytes': path.stat().st_size}, indent=2))
+                completed += 1
+                if completed % 10 == 0:
+                    print(f'Downloaded/reused {completed}/1000 | {budget.used/1024**2:.1f} MiB transferred', flush=True)
+    print(f'Complete: {completed}/1000, {budget.used/1024**2:.1f} MiB transferred', flush=True)
+
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument('command', choices=['select', 'download', 'inspect'])
+    parser.add_argument('command', choices=['select', 'download', 'inspect', 'expand', 'download-expanded'])
     args = parser.parse_args()
+    if args.command == 'expand':
+        expand_dataset()
+        return
+    if args.command == 'download-expanded':
+        download_expanded()
+        return
     if args.command == 'select':
         rows = select_batch(read_csv(Path('data/candidate_manifest.csv')))
         pilot = {(r['archive'], r['archive_member']): r for r in read_csv(Path('data/audio_pilot_manifest.csv'))}

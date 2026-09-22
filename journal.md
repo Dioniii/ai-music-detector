@@ -453,3 +453,81 @@ the saved scaler and coefficients within 1e-10; its temporary output was removed
 Dea retained its score and exact sampled timestamps, and Streamlit example
 analysis returned both charts and ten feature rows. The data-tool module entry
 point and consolidated baseline command also launch successfully.
+
+
+## Expanding to 1,000 recordings: selection and method
+
+Approved scope: 500 human-reference recordings and 500 AI recordings. Extended
+the existing tools/batch_audio.py instead of adding another Python module.
+The selection is recorded in data/dataset_1000.csv, with source URLs, archive
+members, labels, artist/reference IDs, license metadata, local paths and splits.
+The companion dataset_1000_plan.json records the counts.
+
+The human pool comes from FMA Small and the AI pool from Echoes TTA. Twelve
+generators replace the earlier three-generator subset. Pop, Rock and Electronic
+counts are matched between the classes within each split, to reduce an obvious
+genre shortcut. Metadata selection uses a deterministic SHA-256 ordering; it
+does not use model scores. Artists and related reference recordings stay in one
+split. All previously inspected artist groups are restricted to training.
+
+The fixed split is 700 training (350 per class), 150 validation (75 per class),
+and 150 holdout (75 per class). The AI side has 29 reference-artist groups in
+training, seven in validation and nine in holdout. More recordings therefore
+do not mean equally many independent source groups. FMA artists are spread
+more broadly. Labels and artist IDs remain dataset assumptions.
+
+Selected compressed payload is 1,684,271,518 bytes, about 1.57 GiB. Download
+only the selected ZIP members using byte ranges, reusing existing receipt-
+verified files. Completed files have hashes and receipts, so interrupted
+downloads can resume. Audio remains gitignored; no paid API is involved.
+FMA selection includes CC BY, BY-SA, BY-NC and BY-NC-SA metadata, excludes ND,
+and retains individual license URLs. This does not grant general redistribution
+permission; the downloaded recordings are not bundled into the public app.
+
+The planned training comparison keeps the same ten raw features, random
+20-second sampling policy, scaler, logistic regression and 0.5 threshold.
+Only the training split fits the scaler and classifier. Compare against the
+saved 80-recording model on the same new validation and holdout recordings.
+Use validation accuracy (balanced classes) to decide whether to switch the demo;
+the holdout reports the result rather than selecting model settings.
+No additional hyperparameter search, microphone augmentation or encoders are
+part of this expansion. Exact decoded duplicates are rejected during extraction.
+Near-duplicate and listening reviews are not being added to this portfolio step.
+
+Manifest validation confirmed 350/350 training and 75/75 in both evaluation
+splits, without artist or reference overlap. The selected holdout contains
+Electronic (38 per class) and Rock (37 per class), with no Pop. Validation
+contains all three genres. Holdout metrics therefore do not establish Pop
+performance. This is reported as a limitation, not corrected after looking at
+model outcomes.
+
+During extraction, FMA track 29245, "The Angel - Benjamin Bret", emitted an
+mpg123 dequantization warning. It decoded to 30.0027 seconds of finite samples
+with nonzero RMS (0.11886), and was retained in training. No claim is made that
+its source encoding is clean. Validation and holdout do not contain this track.
+This is a recorded data-quality limitation rather than a silent exclusion or
+an outcome-driven change to the fixed selection.
+
+### Completed result
+
+All 1,000 selected recordings downloaded and extracted successfully. Exact
+decoded duplicates: zero. Model/artifacts are saved in data/baseline_1000/.
+The same-new-holdout comparison is old 61.3% vs new 63.3% accuracy, 25/75 vs
+21/75 human false positives, and 42/75 vs 41/75 AI detections. Validation accuracy
+fell from 68.0% to 63.3%, with unchanged 25/75 human false positives and AI
+detections falling from 52/75 to 45/75. Following the recorded validation rule,
+the demo model remains unchanged. No threshold or hyperparameter search was
+performed in response to these outcomes.
+
+Dea changed from AI score 0.797715 to 0.458691 (human side) with the experimental
+model. It remained outside training and selection. The detailed report records
+this diagnostic, the mixed outcome and data limitations for the eventual article.
+The next step should examine the representation before assuming more recordings
+alone will solve the remaining errors. No new Python files were added.
+
+Verification: all 121 existing tests passed (one pre-existing short-spectrogram
+warning). The exported model reproduced all 1,000 saved scores within 1e-12;
+its scaler mean and scale matched only the 700 training feature vectors. The
+manifest hash matched, all three splits contained both classes and all 12
+generators, and the previous demo model hash remained unchanged. The repository
+still has six root Python modules. The new model JSON is 1,698 bytes.

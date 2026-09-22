@@ -1,0 +1,131 @@
+{
+  "baseline_model_sha256": "84c8ee21f8843fe3b4c50813804bf65c125cd2f72ccde217739fac34daf1ba0b",
+  "previous_model": {
+    "train": {
+      "tracks": 700,
+      "groups": 350,
+      "human_tracks": 350,
+      "ai_tracks": 350,
+      "confusion_matrix_true_rows_predicted_columns_human_ai": [
+        [
+          236,
+          114
+        ],
+        [
+          127,
+          223
+        ]
+      ],
+      "ai_precision": 0.6617210682492581,
+      "ai_recall": 0.6371428571428571,
+      "human_false_positive_rate": 0.32571428571428573,
+      "accuracy": 0.6557142857142857
+    },
+    "validation": {
+      "tracks": 150,
+      "groups": 75,
+      "human_tracks": 75,
+      "ai_tracks": 75,
+      "confusion_matrix_true_rows_predicted_columns_human_ai": [
+        [
+          50,
+          25
+        ],
+        [
+          23,
+          52
+        ]
+      ],
+      "ai_precision": 0.6753246753246753,
+      "ai_recall": 0.6933333333333334,
+      "human_false_positive_rate": 0.3333333333333333,
+      "accuracy": 0.68
+    },
+    "holdout": {
+      "tracks": 150,
+      "groups": 78,
+      "human_tracks": 75,
+      "ai_tracks": 75,
+      "confusion_matrix_true_rows_predicted_columns_human_ai": [
+        [
+          50,
+          25
+        ],
+        [
+          33,
+          42
+        ]
+      ],
+      "ai_precision": 0.6268656716417911,
+      "ai_recall": 0.56,
+      "human_false_positive_rate": 0.3333333333333333,
+      "accuracy": 0.6133333333333333
+    }
+  },
+  "new_model": {
+    "train": {
+      "tracks": 700,
+      "groups": 350,
+      "human_tracks": 350,
+      "ai_tracks": 350,
+      "confusion_matrix_true_rows_predicted_columns_human_ai": [
+        [
+          246,
+          104
+        ],
+        [
+          112,
+          238
+        ]
+      ],
+      "ai_precision": 0.695906432748538,
+      "ai_recall": 0.68,
+      "human_false_positive_rate": 0.29714285714285715,
+      "accuracy": 0.6914285714285714
+    },
+    "validation": {
+      "tracks": 150,
+      "groups": 75,
+      "human_tracks": 75,
+      "ai_tracks": 75,
+      "confusion_matrix_true_rows_predicted_columns_human_ai": [
+        [
+          50,
+          25
+        ],
+        [
+          30,
+          45
+        ]
+      ],
+      "ai_precision": 0.6428571428571429,
+      "ai_recall": 0.6,
+      "human_false_positive_rate": 0.3333333333333333,
+      "accuracy": 0.6333333333333333
+    },
+    "holdout": {
+      "tracks": 150,
+      "groups": 78,
+      "human_tracks": 75,
+      "ai_tracks": 75,
+      "confusion_matrix_true_rows_predicted_columns_human_ai": [
+        [
+          54,
+          21
+        ],
+        [
+          34,
+          41
+        ]
+      ],
+      "ai_precision": 0.6612903225806451,
+      "ai_recall": 0.5466666666666666,
+      "human_false_positive_rate": 0.28,
+      "accuracy": 0.6333333333333333
+    }
+  },
+  "exact_pcm_duplicates": 0,
+  "baseline_model_path": "data/baseline_random/demo/model.json",
+  "demo_promoted": false,
+  "promotion_reason": "Validation accuracy declined from 0.68 to 0.6333333333333333; keep the previous demo model."
+}

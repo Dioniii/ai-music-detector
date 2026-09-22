@@ -1,0 +1,66 @@
+{
+  "training_manifest": "data/dataset_1000.csv",
+  "training_manifest_sha256": "8b684d808d054967e4fbc5ff2f1d63dac0c0b23b26c4eb9e35cbbbf12e9a25ae",
+  "schema_version": 3,
+  "variant": "multi_raw",
+  "feature_names": [
+    "rms_mean",
+    "rms_std",
+    "zero_crossing_rate_mean",
+    "zero_crossing_rate_std",
+    "spectral_centroid_hz_mean",
+    "spectral_centroid_hz_std",
+    "spectral_bandwidth_hz_mean",
+    "spectral_bandwidth_hz_std",
+    "spectral_flatness_mean",
+    "spectral_flatness_std"
+  ],
+  "threshold": 0.5,
+  "calibrated": false,
+  "section_policy": {
+    "sampling": "stratified_random",
+    "seed": 42,
+    "rng": "PCG64",
+    "max_sections": 5,
+    "max_section_seconds": 20,
+    "min_recording_seconds": 10,
+    "aggregation": "mean of section feature vectors"
+  },
+  "scaler_mean": [
+    0.17648209292735195,
+    0.0602087385566249,
+    0.08731415512836413,
+    0.04695504809417424,
+    2045.6004065752659,
+    695.9817681973065,
+    2230.306891339196,
+    464.8145854229055,
+    0.027590920817091278,
+    0.030266985290499808
+  ],
+  "scaler_scale": [
+    0.09156989109937835,
+    0.03331079660258376,
+    0.051936921373451225,
+    0.030454696757914127,
+    859.8880486478872,
+    352.89871713579595,
+    646.1731625520833,
+    207.9046808472029,
+    0.04262656549125036,
+    0.03442303840446698
+  ],
+  "coefficients": [
+    -0.8078549117177721,
+    -0.03566934598341267,
+    -0.46153130590294117,
+    0.3987082004730739,
+    0.9305794447709499,
+    1.0243799701618175,
+    -1.308497050076056,
+    -0.6110263759261716,
+    1.0239173301721638,
+    -1.178607878404046
+  ],
+  "intercept": 0.013570470438003274
+}
