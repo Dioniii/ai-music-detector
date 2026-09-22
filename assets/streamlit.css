@@ -76,3 +76,46 @@ button:focus-visible, input:focus-visible {outline:1px solid #5a8a80!important;o
 audio {width:100%;border:1px solid #2a2a28;border-radius:0!important;}
 audio::-webkit-media-controls-enclosure {border-radius:0;background:#0d0d0d;}
 audio::-webkit-media-controls-panel {background:#0d0d0d;}
+
+/* Readable figures without forcing the whole phone page to scroll sideways. */
+.responsive-plot {margin:0;min-width:0;max-width:100%;}
+.plot-scroll {max-width:100%;overflow-x:auto;overscroll-behavior-x:contain;}
+.responsive-plot img {display:block;width:100%;height:auto;}
+.responsive-plot figcaption {text-align:center;font-size:12px;color:#8a8a85;margin:12px 0;}
+.plot-scroll:focus-visible,.table-scroll:focus-visible {outline:1px solid #5a8a80;outline-offset:2px;}
+.table-scroll {max-width:100%;overscroll-behavior-x:contain;}
+@media(max-width:700px) {
+    [data-testid="stMainBlockContainer"] {padding:2.5rem 16px 2rem;}
+    [data-testid="stVerticalBlock"] {gap:16px;}
+    .hero {padding:8px 0 16px;margin-bottom:8px;}
+    .hero h1 {font-size:clamp(25px,7.5vw,30px);letter-spacing:-1px;line-height:1.15;}
+    .hero p {font-size:14px;line-height:1.55;margin:10px 0;}
+    .hero .small-note {font-size:12px;line-height:1.5;display:block;}
+    [data-baseweb="tab-list"] {gap:4px;margin-bottom:12px;overflow-x:auto;}
+    button[data-baseweb="tab"] {min-height:48px;padding:10px 6px;white-space:nowrap;}
+    button[data-baseweb="tab"] p {font-size:12px!important;}
+    [data-testid="stFileUploaderDropzone"] {min-height:120px;padding:12px;gap:8px;}
+    [data-testid="stBaseButton-secondary"], [data-baseweb="select"] > div {min-height:44px;}
+    [data-testid="stBaseButton-primary"] {min-height:52px;}
+    [data-testid="stMarkdownContainer"] p {font-size:14px;line-height:1.6;overflow-wrap:anywhere;}
+    [data-testid="stWidgetLabel"] p {font-size:13px;}
+    [data-baseweb="select"] input {font-size:16px!important;}
+    [data-baseweb="popover"] {max-width:calc(100vw - 24px);}
+    [role="option"] {min-height:44px;white-space:normal;overflow-wrap:anywhere;}
+    .result-card {padding:16px;}
+    .result-card h2 {font-size:23px;line-height:1.25;overflow-wrap:anywhere;}
+    .result-card p {font-size:13px;}
+    .score-labels {font-size:10px;gap:6px;}
+    .eyebrow {font-size:10px;letter-spacing:1.5px;}
+    .stat-grid {gap:12px;margin:16px 0;}
+    .stat {padding:16px;}
+    .stat strong {font-size:25px;}
+    .stat span {font-size:12px;}
+    [data-testid="stExpander"] summary {min-height:48px;}
+    [data-testid="stExpander"] summary p {font-size:13px;}
+    .responsive-plot img {min-width:760px;}
+    .plot-scroll,.table-scroll {scrollbar-width:thin;scrollbar-color:#5a8a80 #2a2a28;}
+    .values-table {min-width:620px;font-size:12px;}
+    .values-table th,.values-table td {padding:10px 12px;}
+    hr {margin:16px 0;}
+}

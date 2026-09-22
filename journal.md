@@ -392,3 +392,14 @@ authored copy into showcase_content.py. Added per-session results, isolated uplo
 temporary files, focused UI checks, theme configuration, and deployment notes.
 All three example scores match the unchanged CLI. No retraining, source-audio
 upload, commit, or public deployment was performed. See STREAMLIT_DEBRIEF.md.
+
+
+## 2026-09-22 - Mobile layout finish
+
+Reduced mobile hero and upload spacing, added 44-52 px touch targets, wrapped long
+file names, and kept charts/tables readable inside horizontal scroll regions.
+Desktop charts retain their full-width presentation. CSS file changes now invalidate
+the cached stylesheet. Browser checks at 320 and 390 px found no page-width overflow;
+the Analyze button is fully visible within an 844 px viewport at both widths.
+On a 390 px screen, evaluation charts retain 760 px content within a 358 px scroll
+region. Model code and predictions are unchanged. No deployment performed.

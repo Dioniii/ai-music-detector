@@ -23,7 +23,7 @@ from showcase_content import (
 
 
 @st.cache_data(show_spinner=False)
-def stylesheet():
+def stylesheet(css_version):
     """Bundle local fonts; the browser makes no third-party font requests."""
     fonts = []
     for name, weight in [('Regular', 400), ('SemiBold', 600), ('Bold', 700)]:
@@ -79,6 +79,16 @@ def example_changed():
     st.session_state['upload_generation'] = st.session_state.get('upload_generation', 0) + 1
 
 
+
+def responsive_plot(data, caption):
+    """Keep plot labels readable on phones with a locally scrollable figure."""
+    encoded = base64.b64encode(data).decode('ascii')
+    label = html.escape(caption, quote=True)
+    st.html(f'<figure class="responsive-plot"><div class="plot-scroll" tabindex="0" role="region" aria-label="{label}">'
+            f'<img src="data:image/png;base64,{encoded}" alt="{label}"></div>'
+            f'<figcaption>{label}</figcaption></figure>')
+
+
 def numeric_table(headers, rows):
     """Accessible HTML table keeps numeric values right-aligned and monospace."""
     head = ''.join(f'<th scope="col">{html.escape(value)}</th>' for value in headers)
@@ -90,7 +100,7 @@ def numeric_table(headers, rows):
             rendered = f'{value:.6g}' if numeric else str(value)
             cells.append(f'<td class="{"number" if numeric else "text"}">{html.escape(rendered)}</td>')
         body.append('<tr>' + ''.join(cells) + '</tr>')
-    st.html('<div class="table-scroll"><table class="values-table"><thead><tr>' + head +
+    st.html('<div class="table-scroll" tabindex="0" role="region" aria-label="Scrollable data table"><table class="values-table"><thead><tr>' + head +
             '</tr></thead><tbody>' + ''.join(body) + '</tbody></table></div>')
 
 
@@ -140,12 +150,12 @@ def render_analysis():
     with right:
         st.html(result[0])
         if result[3] is not None:
-            st.image(result[3], caption='Inside the audio', width='stretch')
+            responsive_plot(result[3], 'Inside the audio')
     st.divider()
     with st.expander('Why did the model lean this way?', expanded=True):
         st.markdown(CONTRIBUTION_GUIDE)
         if result[4] is not None:
-            st.image(result[4], caption='Feature contributions', width='stretch')
+            responsive_plot(result[4], 'Feature contributions')
         with st.expander('See the ten feature values'):
             numeric_table(['Feature', 'Measured value', 'Training-standardized value', 'Logit contribution'], result[5])
 
@@ -156,9 +166,9 @@ def render_results():
     cm = h['confusion_matrix_true_rows_predicted_columns_human_ai']
     st.markdown(RESULTS_INTRO)
     st.html(f'<div class="stat-grid"><div class="stat"><strong>{cm[1][1]} / {h["ai_tracks"]}</strong><span>AI recordings detected · recall {h["ai_recall"]:.1%}</span></div><div class="stat"><strong>{cm[0][1]} / {h["human_tracks"]}</strong><span>Human recordings falsely flagged · {h["human_false_positive_rate"]:.0%}</span></div><div class="stat"><strong>{h["ai_precision"]:.1%}</strong><span>AI precision on this small holdout</span></div></div>')
-    st.image(confusion, caption='Correct predictions and errors', width='stretch')
+    responsive_plot(confusion, 'Correct predictions and errors')
     st.markdown(SCORES_INTRO)
-    st.image(distribution, caption='Score distributions by dataset label', width='stretch')
+    responsive_plot(distribution, 'Score distributions by dataset label')
     errors = [[r['reference'], r['generator'] or 'Human reference', r['true_label'], r['predicted_label'], float(r['ai_score'])]
               for r in predictions if r['split'] == 'holdout' and r['true_label'] != r['predicted_label']]
     st.markdown('The actual holdout mistakes')
@@ -168,7 +178,7 @@ def render_results():
 
 def main():
     st.set_page_config(page_title='AI Music Detector · Audio Lab', layout='wide', initial_sidebar_state='collapsed')
-    st.html(stylesheet())
+    st.html(stylesheet((ROOT / 'assets/streamlit.css').stat().st_mtime_ns))
     st.html(HERO)
     analysis_tab, results_tab, how_tab = st.tabs(['Analyze audio', 'Model results', 'How it works'])
     with analysis_tab:
