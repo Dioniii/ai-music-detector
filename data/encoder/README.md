@@ -39,3 +39,8 @@ was 3.16 seconds on the first extraction, 0.67 seconds warm and 574 MiB peak
 working set. Repeated embeddings were identical. This measures a local extraction
 process, not the full Streamlit app or hosted capacity. Cloud deployment has
 not been performed.
+
+The runtime narrowly suppresses the known torch.jit.load and legacy STFT
+deprecation notices only for pinned PyTorch 2.14.0, around the relevant calls.
+This does not migrate those APIs. Other warnings remain visible, and upgrading
+PyTorch disables these filters. Real-recording prediction parity was verified.

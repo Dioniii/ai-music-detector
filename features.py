@@ -5,6 +5,7 @@ Features describe audio properties. They do not establish AI generation.
 
 from pathlib import Path
 from functools import lru_cache
+import warnings
 
 import librosa
 import numpy as np
@@ -179,7 +180,13 @@ def load_encoder():
     if hashlib.sha256(ENCODER_PATH.read_bytes()).hexdigest() != provenance['export_sha256']:
         raise ValueError('Encoder artifact does not match its recorded checksum')
     torch.set_num_threads(2)
-    return torch.jit.load(str(ENCODER_PATH), map_location='cpu').eval()
+    # This verified export uses APIs deprecated in the pinned runtime. Limit
+    # filtering to known messages; a future version must surface its warnings.
+    with warnings.catch_warnings():
+        if torch.__version__.split('+')[0] == '2.14.0':
+            warnings.filterwarnings('ignore', message=r"`torch\.jit\.load` is deprecated\.",
+                                    category=FutureWarning, module=r'torch\.jit\._serialization')
+        return torch.jit.load(str(ENCODER_PATH), map_location='cpu').eval()
 
 
 def encoder_features(audio):
@@ -188,7 +195,10 @@ def encoder_features(audio):
     encoder = load_encoder()
     mono, sections = prepare_recording(audio, sample_rate=32000)
     vectors = []
-    with torch.inference_mode():
+    with torch.inference_mode(), warnings.catch_warnings():
+        if torch.__version__.split('+')[0] == '2.14.0':
+            warnings.filterwarnings('ignore', message=r'stft with return_complex=False is deprecated\.',
+                                    category=UserWarning, module=r'torch\.nn\.modules\.module')
         for section in sections:
             start = round(section['start_seconds'] * 32000)
             end = round(section['end_seconds'] * 32000)
