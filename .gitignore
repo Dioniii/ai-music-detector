@@ -17,3 +17,6 @@ data/audio_1000/
 
 data/encoder_source/
 data/embedding_cache/
+
+# Personal recordings stay local, separate from source and dataset manifests.
+data/local_recordings/

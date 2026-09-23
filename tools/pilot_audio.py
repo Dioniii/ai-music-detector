@@ -22,7 +22,7 @@ from tools.dataset_audit import RangeReader, SOURCES, TransferBudget
 
 AUDIO_DIR = Path("data/audio_pilot")
 PLOTS_DIR = Path("data/pilot_plots")
-MANIFEST = Path("data/audio_pilot_manifest.csv")
+MANIFEST = Path("data/preparation/audio_pilot_manifest.csv")
 ARCHIVES = {"fma_small": "https://os.unil.cloud.switch.ch/fma/fma_small.zip",
             "echoes": SOURCES["echoes"]}
 SELECTED = {
@@ -133,7 +133,7 @@ def inspect(rows: list[dict[str, str]]) -> None:
             plt.close(figure)
             result["plot_path"] = plot_path.as_posix()
         results.append(result)
-    Path("data/audio_pilot_results.json").write_text(json.dumps(results, indent=2) + "\n", encoding="utf-8")
+    Path("data/preparation/audio_pilot_results.json").write_text(json.dumps(results, indent=2) + "\n", encoding="utf-8")
     print(json.dumps(results, indent=2))
 
 

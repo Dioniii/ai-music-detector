@@ -329,7 +329,7 @@ def main() -> None:
     pilot = commands.add_parser("pilot")
     pilot.add_argument("matches_csv", type=Path)
     pilot.add_argument("raw_tracks_csv", type=Path)
-    pilot.add_argument("--output", type=Path, default=Path("data/pilot_review.csv"))
+    pilot.add_argument("--output", type=Path, default=Path("data/preparation/pilot_review.csv"))
     args = parser.parse_args()
     METADATA_DIR.mkdir(parents=True, exist_ok=True)
     if args.command in {"list", "fetch"}:

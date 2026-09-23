@@ -27,7 +27,7 @@ Read them in this order:
 | File | Responsibility |
 |---|---|
 | `audio_inspection.py` | Load a recording and provide the spectrogram calculation. |
-| `preprocessing.py` | Convert to mono at 24 kHz and choose the audio sections. |
+| `preprocessing.py` | Convert to mono at 32 kHz for the encoder (24 kHz for the baseline) and choose sections. |
 | `features.py` | Extract and average EfficientAT embeddings, or historical handcrafted features. |
 | `baseline.py` | Train the classifier, load its weights, and predict. |
 | `showcase.py` | Turn predictions and evaluation results into charts and display data. |
@@ -74,12 +74,12 @@ The fixed split is **700 training, 150 validation and 150 holdout**, balanced
 between the two labels. Related artists and reference recordings stay together;
 previously inspected artists are restricted to training. Only training data fits
 the scaler and classifier. The command saves weights, extracted features,
-predictions, metrics, sampled sections and a comparison with the demo model.
+predictions, metrics, sampled sections and a comparison with the preserved handcrafted baseline.
 
 To try another output from the command line, pass
 `--model data/model_rerun/model.json`. Training does not automatically switch
 the demo to that output. Historical 80-recording training is still available
-by omitting `--encoder` and using `--manifest data/batch_manifest.csv`.
+by omitting `--encoder` and using `--manifest data/preparation/batch_manifest.csv`.
 
 ## Current encoder results
 
@@ -100,16 +100,39 @@ Microphone robustness and unfamiliar-generator performance remain untested.
 Historical FMA supplies human-reference labels and Echoes TTA supplies generated
 labels; these are dataset assumptions rather than verified authorship.
 
-## Supporting folders
+## Repository layout
 
-- `assets/`: dark monospace styling and bundled fonts.
-- `data/`: model files, manifests and experiment results. The original audio folders
-  are gitignored; local examples appear only when their files exist.
-- `tools/`: optional scripts used earlier to source and inspect the dataset.
-  They are not needed to run the app. Run them from the repository root as modules,
-  for example `python -m tools.dataset_audit --help`.
-- `tests/`: existing checks for audio processing and dataset tools.
-- `.streamlit/`: theme and upload configuration.
+```text
+app.py, showcase.py                 Streamlit interface and charts
+baseline.py, features.py            Training, prediction and encoder
+preprocessing.py, audio_inspection.py  Audio loading and sampling
+assets/                             Styling and fonts
+.streamlit/                         App configuration
+data/
+  encoder/                          Frozen encoder, license and provenance
+  baseline_encoder/                 Current classifier and evaluation
+  baseline_1000/                    Handcrafted comparison and reusable features
+  baseline_random/demo/             Preserved earlier baseline
+  dataset_1000.csv                   Current dataset selection and splits
+  dataset_1000_plan.json             Dataset selection summary
+  preparation/                      Earlier manifests and preparation records
+  archive/                          One ZIP of early raw experiment outputs
+docs/
+  DEPLOYMENT.md                     Hosting instructions
+  journal.md                        Project decisions and progress
+  history/                          Earlier reports and learning debriefs
+tools/                              Dataset download and preparation commands
+tests/                              Audio and dataset checks
+```
+
+Downloaded audio, source metadata, embedding caches and personal recordings are
+gitignored. Local examples appear only when their files exist. Personal test
+recordings belong in `data/local_recordings/`.
+
+The five scripts in `tools/` support dataset preparation and download; the app
+does not import them. Run them from the repository root, for example
+`python -m tools.batch_audio --help`. They remain separate from the six main
+Python files so the normal learning path stays short.
 
 Uploads are processed on the machine hosting the app. Temporary files are deleted
 after analysis; playback bytes and results stay in that browser's server session.
@@ -117,13 +140,14 @@ Uploaded audio is not put in a shared cache. Streamlit usage telemetry is disabl
 
 ## Project history and hosting
 
-[Deployment instructions](DEPLOYMENT.md) describe the free Community Cloud setup.
-The project has not been publicly deployed by this cleanup.
+[Deployment instructions](docs/DEPLOYMENT.md) describe the free Community Cloud setup.
+Public deployment remains a separate step.
 
-The [journal](journal.md), [first baseline report](data/baseline_v1/REPORT.md),
-[volume experiment](data/baseline_v2/REPORT.md), and
-[random-sampling report](data/baseline_random/REPORT.md) preserve the findings for
-an article. Their old file names and commands describe historical versions. The
-current commands and six-file structure are documented above; duplicate experiment
-implementations were removed after consolidation. Historical model files are
-reference artifacts, not additional supported runtime modes.
+The [journal](docs/journal.md), [first baseline report](docs/history/first_baseline.md),
+[volume experiment](docs/history/volume_experiment.md), and
+[random-sampling report](docs/history/random_sampling.md) preserve the findings for
+an article. These are historical snapshots, not current run instructions.
+The [early experiment archive](data/archive/early_experiments.zip) replaces 28
+loose generated files. It preserves their original repository paths and includes
+an `ARCHIVE_INDEX.json` with SHA-256 checksums. Open it to recover old raw results;
+it is not required to run or train the current model.

@@ -1,3 +1,5 @@
+> Historical snapshot. For the current setup and file layout, see the [project README](../../README.md). Earlier raw experiment outputs are preserved in [the archive](../../data/archive/early_experiments.zip), using their original paths. Audio and plot links may refer to local-only files.
+
 # Candidate manifest build
 
 Date: 2026-09-21. Approved scope: expand local metadata into a recording-level
@@ -5,9 +7,9 @@ candidate CSV, with behavioral tests. No downloads, dependencies or training.
 
 ## What changed and why
 
-[candidate_manifest.py](../candidate_manifest.py) joins the existing review to
+[candidate_manifest.py](../../tools/candidate_manifest.py) joins the existing review to
 Echoes rows and the two saved audio archive indexes. It produces one row per
-recording in [candidate_manifest.csv](candidate_manifest.csv). Candidate labels
+recording in [candidate_manifest.csv](../../data/preparation/candidate_manifest.csv). Candidate labels
 follow the approved historical-FMA/Echoes-TTA research standard, not certified
 authorship or a numerical probability.
 

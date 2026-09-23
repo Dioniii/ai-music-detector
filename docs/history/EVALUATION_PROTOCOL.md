@@ -1,3 +1,5 @@
+> Historical snapshot. For the current setup and file layout, see the [project README](../../README.md). Earlier raw experiment outputs are preserved in [the archive](../../data/archive/early_experiments.zip), using their original paths. Audio and plot links may refer to local-only files.
+
 # Evaluation protocol for the first music-detection experiments
 
 Version: 0.2 — 21 September 2026.
@@ -60,7 +62,7 @@ For generated recordings, preserve generator/model identifiers, generation mode,
 dataset revision, and the source's generation record. A provider name alone may
 not distinguish related model versions or aliases.
 
-Current evidence in [data/audit.md](data/audit.md): 116 provisional human references,
+Current evidence in [data/audit.md](audit.md): 116 provisional human references,
 109 with complete metadata, but all 116 still marked unverified for authorship.
 Thus this document does not declare 109 records eligible. The seven legacy-license
 cases, ambiguous names, repeated paths and NoDerivatives cases remain subject to
@@ -108,7 +110,7 @@ claimed artist-disjoint train/test split.
 
 ## 4. The inspected pilot is development data
 
-The six files in [data/audio_pilot_manifest.csv](data/audio_pilot_manifest.csv)
+The six files in [data/audio_pilot_manifest.csv](../../data/preparation/audio_pilot_manifest.csv)
 have already influenced implementation and our understanding of confounds.
 Keep their complete connected groups in the development pool, excluded from both
 final-test sets. Discovering another related record later propagates that exclusion.
@@ -180,8 +182,8 @@ specific family remains pending in this protocol.
 
 Use the same preprocessing code and feature order for all classes and splits.
 The current baseline representation is mono, 24 kHz, ten seconds, five frame
-properties summarized by mean/std. See [features.py](features.py) and
-[data/pilot_features_config.json](data/pilot_features_config.json).
+properties summarized by mean/std. See [features.py](../../features.py) and
+[data/pilot_features_config.json](../../data/archive/early_experiments.zip).
 
 Before experimental extraction, fix the number of clips per track, start-time
 selection policy and short/silent-file policy. Apply them without class labels

@@ -1,3 +1,5 @@
+> Historical snapshot. For the current setup and file layout, see the [project README](../../README.md). Earlier raw experiment outputs are preserved in [the archive](../../data/archive/early_experiments.zip), using their original paths. Audio and plot links may refer to local-only files.
+
 # Echoes + FMA small: metadata audit
 
 Date: 2026-09-19. This report describes actual metadata checks, not a trained detector.
@@ -179,7 +181,7 @@ Further implementation or audio downloads require a new approved increment.
 ## Increment 3: pilot metadata review
 
 Approved on 2026-09-19: retrieve original FMA track metadata, review the provisional
-pool, and create [pilot_review.csv](pilot_review.csv). No audio downloads or training.
+pool, and create [pilot_review.csv](../../data/preparation/pilot_review.csv). No audio downloads or training.
 
 The additional ZIP member `fma_metadata/raw_tracks.csv` was retrieved from the same
 official FMA metadata archive. Its extracted SHA-256 is

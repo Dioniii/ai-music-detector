@@ -19,7 +19,7 @@ PAYLOAD_LIMIT = 180 * 1024**2  # Reserve room for ZIP indexes and request overla
 GENERATORS = ('acestep', 'audioldm', 'musicgen')
 ARCHIVES = {'fma_small': FMA_AUDIO_URL, 'echoes': SOURCES['echoes']}
 BATCH = Path('data/audio_batch')
-MANIFEST = Path('data/batch_manifest.csv')
+MANIFEST = Path('data/preparation/batch_manifest.csv')
 LEDGER = Path('data/source_metadata/batch_audio_transfers.json')
 
 
@@ -197,11 +197,11 @@ def expand_dataset():
         return
     def order(value):
         return hashlib.sha256(('scale1000:' + value).encode()).hexdigest()
-    candidates = read_csv(Path('data/candidate_manifest.csv'))
+    candidates = read_csv(Path('data/preparation/candidate_manifest.csv'))
     ai = [dict(r) for r in candidates if r['expected_label'] == 'ai'
           and r['reference_metadata_status'] == 'metadata_complete'
           and not r['reference_review_reasons'] and int(r['file_bytes']) <= 8 * 1024**2]
-    old = read_csv(MANIFEST) + read_csv(Path('data/audio_pilot_manifest.csv'))
+    old = read_csv(MANIFEST) + read_csv(Path('data/preparation/audio_pilot_manifest.csv'))
     seen_groups = {r.get('group_id') or r['artist_group_id'] for r in old}
     fresh = sorted({r['group_id'] for r in ai} - seen_groups, key=order)
     group_roles = {g: 'train' for g in seen_groups}
@@ -370,8 +370,8 @@ def main() -> None:
         download_expanded()
         return
     if args.command == 'select':
-        rows = select_batch(read_csv(Path('data/candidate_manifest.csv')))
-        pilot = {(r['archive'], r['archive_member']): r for r in read_csv(Path('data/audio_pilot_manifest.csv'))}
+        rows = select_batch(read_csv(Path('data/preparation/candidate_manifest.csv')))
+        pilot = {(r['archive'], r['archive_member']): r for r in read_csv(Path('data/preparation/audio_pilot_manifest.csv'))}
         for row in rows:
             original = pilot.get((row['archive'], row['archive_member']))
             if original and verify_existing(Path(original['file_path']), row):
@@ -386,7 +386,7 @@ def main() -> None:
         return
     rows = read_csv(MANIFEST)
     # Reject alterations to selected metadata before any network operation.
-    expected = select_batch(read_csv(Path('data/candidate_manifest.csv')))
+    expected = select_batch(read_csv(Path('data/preparation/candidate_manifest.csv')))
     if [{k: v for k, v in r.items() if k != 'file_path'} for r in rows] != expected:
         raise ValueError('Batch no longer matches deterministic candidate selection')
     if args.command == 'download':
@@ -408,7 +408,7 @@ def main() -> None:
             'results': results, 'exact_file_duplicates': duplicate_groups(results, 'sha256'),
             'exact_pcm_duplicates': duplicate_groups(results, 'pcm_sha256'),
             'near_duplicate_review': 'pending'}
-        with Path('data/batch_audio_results.json').open('x', encoding='utf-8') as handle:
+        with Path('data/preparation/batch_audio_results.json').open('x', encoding='utf-8') as handle:
             json.dump(report, handle, indent=2)
         print(json.dumps({'statuses': dict(Counter(r['status'] for r in results)),
             'quality_flags': dict(Counter(f for r in results for f in r['quality_flags'])),

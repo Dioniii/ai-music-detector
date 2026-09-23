@@ -59,7 +59,7 @@ Explain why `(8000, 2)` at 8000 Hz lasts one second, and why channel 1 is select
   regression tests failed before adding real-data anomaly diagnostics. Full suite:
   26 passed, one pre-existing short-audio warning.
 - Full evidence, source links, exact counts, limitations and reproduction commands:
-  [data/audit.md](data/audit.md).
+  [data/audit.md](history/audit.md).
 - Learning check: Why must a duplicate title/artist pair stay ambiguous? Why are
   1,342 generated rows not equivalent to 1,342 independent human references?
 - Exercise: add a second matching FMA record to the exact-match test fixture and
@@ -70,7 +70,7 @@ Explain why `(8000, 2)` at 8000 Hz lasts one second, and why channel 1 is select
 ## Increment 3: pilot review manifest - 2026-09-19
 
 - Added the approved metadata review to `dataset_audit.py` and wrote
-  [data/pilot_review.csv](data/pilot_review.csv): 116 candidate reference rows,
+  [data/pilot_review.csv](../data/preparation/pilot_review.csv): 116 candidate reference rows,
   source/license URLs, original dates, artist/reference grouping keys and linked
   Echoes paths. No packages, audio, training or publication.
 - Original FMA metadata retrieval consumed 7.91 MiB against an enforced 15 MiB
@@ -100,7 +100,7 @@ Explain why `(8000, 2)` at 8000 Hz lasts one second, and why channel 1 is select
   (ACE-Step, Suno, Udio) using selective ZIP reads, exact member-size checks, ZIP
   CRC validation, and SHA-256 receipts. Audio and plots remain local and git-ignored.
 - Added `pilot_audio.py`, behavioral tests, the six-file manifest, measured JSON
-  results, and [data/audio_pilot_report.md](data/audio_pilot_report.md).
+  results, and [data/audio_pilot_report.md](history/audio_pilot_report.md).
 - Pilot traffic was 10.27 MiB under a 32 MiB cap, including archive-index reads.
   Existing SoundFile decoded all six MP3s. No new dependencies or training.
 - All files match expected durations within 0.25 seconds, have finite samples,
@@ -149,7 +149,7 @@ Explain why `(8000, 2)` at 8000 Hz lasts one second, and why channel 1 is select
   shape `(240000,)`, dtype `float32`, 24,000 Hz, and 10 seconds. SHA-256 checks
   confirmed both original files and input arrays were unchanged.
 - Measured configuration, versions, source/output hashes and per-file statistics
-  are saved in [data/preprocessing_pilot_results.json](data/preprocessing_pilot_results.json).
+  are saved in [data/preprocessing_pilot_results.json](../data/archive/early_experiments.zip).
   Derived clips were held in memory, not written as new audio files.
 - Concrete trace: Digital Lightning loads as `(1323119, 2)` at 44,100 Hz.
   Averaging axis 1 produces `(1323119,)`; resampling changes the sampling grid
@@ -196,8 +196,8 @@ print(clip.shape, clip.dtype, len(clip) / TARGET_SAMPLE_RATE)
   No models or audio were downloaded. Existing source files and input clips were
   hash-checked before/after extraction and remained unchanged.
 - Measured the same first ten seconds of all six pilot recordings, explicitly
-  using `start_seconds=0.0`. Saved [data/pilot_features.csv](data/pilot_features.csv)
-  and [data/pilot_features_config.json](data/pilot_features_config.json). The latter
+  using `start_seconds=0.0`. Saved [data/pilot_features.csv](../data/archive/early_experiments.zip)
+  and [data/pilot_features_config.json](../data/archive/early_experiments.zip). The latter
   records versions, settings, feature order and source/output hashes.
 - The resulting numeric matrix is `(6, 10)`. Identity, label expectation, reference
   group, generator, start time, source hash and review note are metadata columns,
@@ -292,7 +292,7 @@ print(dict(zip(FEATURE_NAMES, vector)))
 
 ## Increment 7: evaluation protocol - 2026-09-21
 
-- Created [EVALUATION_PROTOCOL.md](EVALUATION_PROTOCOL.md), version 0.1, under
+- Created [EVALUATION_PROTOCOL.md](history/EVALUATION_PROTOCOL.md), version 0.1, under
   the approved documentation-only scope. No records were relabeled or split.
 - Separated metadata completeness from eligibility: provenance, listening and
   quality questions remain unresolved and must be reviewed before modeling.
@@ -312,7 +312,7 @@ print(dict(zip(FEATURE_NAMES, vector)))
 
 ## Dataset eligibility inventory - 2026-09-21
 
-- Reviewed existing manifests and recorded [eligibility/group counts](data/eligibility_inventory.md).
+- Reviewed existing manifests and recorded [eligibility/group counts](history/eligibility_inventory.md).
 - Metadata-complete candidates: 109 human references, 45 artist-ID groups and 1,239 associated TTA paths. Outside the three pilot artists: 96 references, 42 groups and 1,088 paths. Groups remain provisional pending duplicate/alias review.
 - Confirmed that the pilot development restriction covers 13 reference tracks and 151 generated paths through shared artists.
 - Deferred microphone validation as requested; direct-file modeling remains the first target.
@@ -336,7 +336,7 @@ print(dict(zip(FEATURE_NAMES, vector)))
 - Preserved source evidence, license separation, unresolved reference flags and the existing Straw Fields offset finding. All rows remain needs_review and unassigned; no authorship verification flags changed.
 - Indexed compressed member payloads total 3,161,129,585 bytes, about 2.94 GiB; this is not a download budget and includes existing pilot members.
 - Full suite: 103 passed, with the existing short-audio spectrogram warning. Independent artifact checks confirmed counts, path joins, restrictions and flags.
-- See [candidate manifest report](data/candidate_manifest_report.md) for the concrete Digital Lightning trace, reproduction commands, source hashes and learning exercise.
+- See [candidate manifest report](history/candidate_manifest_report.md) for the concrete Digital Lightning trace, reproduction commands, source hashes and learning exercise.
 - No dependencies, audio downloads, training, commits or split assignments. Pause for review before the next increment.
 
 
@@ -348,7 +348,7 @@ print(dict(zip(FEATURE_NAMES, vector)))
 - Checked completed files as they arrived. All 80 decode to finite audio of at least ten seconds. No exact-file or exact-PCM duplicate groups were found within the batch; near-duplicate review remains pending.
 - Found quality flags on 30 recordings: three human channel offsets and 28 full-scale flags (eight human, all 20 MusicGen), with one overlap. Preserved originals; flags are review triggers, not AI evidence or automatic exclusions.
 - Source rate/channel/duration differences remain confounds, including AudioLDM at 16 kHz. Listening/content and usage review remain pending; no eligibility promotion, model training or split assignment occurred.
-- See [batch report](data/batch_audio_report.md) for measured results, the Scott Holmes array-shape trace, reproducibility instructions and exercise. Audio/receipts stay ignored by git; no packages, uploads or commits.
+- See [batch report](history/batch_audio_report.md) for measured results, the Scott Holmes array-shape trace, reproducibility instructions and exercise. Audio/receipts stay ignored by git; no packages, uploads or commits.
 
 
 ## Paired audio-quality diagnostic - 2026-09-22
@@ -359,7 +359,7 @@ print(dict(zip(FEATURE_NAMES, vector)))
 - MusicGen boundary-hit fractions range from 0.012838% to 2.308784% across whole recordings; none of those hits exceeds the boundary. Counts alone do not establish audible clipping or generation provenance.
 - Receipt and before/after hash checks confirmed unchanged originals. No downloads, packages, training, split changes or edits to production preprocessing. Listening remains pending.
 - These whole-batch comparisons are preprocessing-development evidence; a policy chosen from them needs fresh groups for an untouched final test. No split restrictions were automatically rewritten.
-- See [diagnostic debrief](data/quality_diagnostics/REPORT.md) for data flow, measured tables, reproducibility, limitations and the denominator exercise.
+- See [diagnostic debrief](history/audio_quality.md) for data flow, measured tables, reproducibility, limitations and the denominator exercise.
 
 
 ## First trained exploratory baseline - 2026-09-22
@@ -370,7 +370,7 @@ print(dict(zip(FEATURE_NAMES, vector)))
 - Holdout: 11/12 AI examples detected, 2/4 human false positives; AI precision 84.6%, recall 91.7%, human FPR 50%, accuracy 81.25%. Validation human FPR is 75%. These are exploratory results from a previously inspected batch, not an untouched final or unseen-generator test.
 - Actual execution verified group separation, convergence, finite features, exported score agreement and a fresh-file feature/prediction round trip. Existing unit tests were not rerun. Existing scikit-learn package was promoted to a direct dependency; offline lock validation passed after preserving locked package entries. No downloads or installations.
 - Pending quality/source flags remain documented; no original audio, production preprocessing or source eligibility fields were altered. No commits or publication.
-- See [baseline report](data/baseline_v1/REPORT.md) for actual errors and reproduction commands. We now have a working trained backend whose main measured weakness is human false positives.
+- See [baseline report](history/first_baseline.md) for actual errors and reproduction commands. We now have a working trained backend whose main measured weakness is human false positives.
 
 
 ## Local Gradio showcase - 2026-09-22
@@ -380,7 +380,7 @@ print(dict(zip(FEATURE_NAMES, vector)))
 - Verified three real predictions against the CLI and contribution reconstruction to 1e-12. Live Gradio uploads returned the expected score, plots and feature table; missing/short files clear outputs and show readable errors.
 - A headless browser screenshot exposed a dark-mode heading contrast issue, which was fixed. Visually checked the contribution chart. Built-in browser access was unavailable due to the sandbox helper; browser interaction was not automated.
 - Kept original audio preprocessing and model unchanged. No new diagnostic stage, model training, public deployment or encoder download. The app runs on localhost with sharing and analytics disabled.
-- Updated README and [Gradio debrief](GRADIO_DEBRIEF.md). Temporary uploaded audio and server logs/screenshots are gitignored. Hugging Face encoders remain deferred.
+- Updated README and Gradio debrief (historical document removed). Temporary uploaded audio and server logs/screenshots are gitignored. Hugging Face encoders remain deferred.
 
 
 ## 2026-09-22 - Streamlit migration
@@ -568,3 +568,24 @@ validation/evaluation accuracy is read from saved metrics. Visible chart labels
 use Evaluation rather than Holdout. Presentation changes invalidate cached
 results and evaluation charts. Streamlit checks passed for all tabs and a full
 example analysis. Model weights and prediction logic were not changed.
+
+
+## Repository organization
+
+Kept the six main Python modules and active model artifacts in place. Moved
+hosting instructions and this journal into docs/, with historical reports and
+debriefs in docs/history/. Grouped six earlier preparation manifests/results
+under data/preparation/ and updated tool paths. Moved the personal root WAV to
+ignored data/local_recordings/ without deleting the recording.
+
+Replaced 28 loose early experiment outputs with data/archive/early_experiments.zip.
+Every entry was SHA-256 verified before removing its loose copy; original paths
+and a checksum index are inside the ZIP. Current encoder results, handcrafted
+1,000-recording comparison features, and the baseline used by training remain
+available without extraction. Updated documentation links and README navigation.
+No model weights, dataset rows, training split or prediction policy changed.
+
+Cleanup verification: 121 tests pass; relocated preparation manifests reproduce
+the original selection; all checked Markdown links resolve; model/dataset and
+archive hashes match; Streamlit example analysis produces predictions and both
+charts. No commit or push was performed.

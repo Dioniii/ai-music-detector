@@ -1,3 +1,5 @@
+> Historical snapshot. For the current setup and file layout, see the [project README](../../README.md). Earlier raw experiment outputs are preserved in [the archive](../../data/archive/early_experiments.zip), using their original paths. Audio and plot links may refer to local-only files.
+
 # Six-file audio pilot
 
 Date: 2026-09-19. This is a download/decoding sanity check, not a detector experiment.
@@ -21,12 +23,12 @@ verified; all six listening checks remain pending.
 
 | Local sample | Reference title | Source | Rate | Channels | Duration (s) |
 |---|---|---|---:|---:|---:|
-| [human_45101.mp3](audio_pilot/human_45101.mp3) | Straw Fields — Rolemusic | FMA small | 44,100 | 1 | 29.977 |
-| [ai_45101.mp3](audio_pilot/ai_45101.mp3) | Straw Fields reference | Echoes / ACE-Step | 48,000 | 2 | 83.778 |
-| [human_127294.mp3](audio_pilot/human_127294.mp3) | Autopsy — Oh Yeah, the Future | FMA small | 44,100 | 2 | 29.977 |
-| [ai_127294.mp3](audio_pilot/ai_127294.mp3) | Autopsy reference | Echoes / Suno | 48,000 | 2 | 168.720 |
-| [human_112315.mp3](audio_pilot/human_112315.mp3) | Digital Lightning — Cloudkicker | FMA small | 44,100 | 2 | 30.003 |
-| [ai_112315.mp3](audio_pilot/ai_112315.mp3) | Digital Lightning reference | Echoes / Udio | 48,000 | 2 | 130.859 |
+| [human_45101.mp3](../../data/audio_pilot/human_45101.mp3) | Straw Fields — Rolemusic | FMA small | 44,100 | 1 | 29.977 |
+| [ai_45101.mp3](../../data/audio_pilot/ai_45101.mp3) | Straw Fields reference | Echoes / ACE-Step | 48,000 | 2 | 83.778 |
+| [human_127294.mp3](../../data/audio_pilot/human_127294.mp3) | Autopsy — Oh Yeah, the Future | FMA small | 44,100 | 2 | 29.977 |
+| [ai_127294.mp3](../../data/audio_pilot/ai_127294.mp3) | Autopsy reference | Echoes / Suno | 48,000 | 2 | 168.720 |
+| [human_112315.mp3](../../data/audio_pilot/human_112315.mp3) | Digital Lightning — Cloudkicker | FMA small | 44,100 | 2 | 30.003 |
+| [ai_112315.mp3](../../data/audio_pilot/ai_112315.mp3) | Digital Lightning reference | Echoes / Udio | 48,000 | 2 | 130.859 |
 
 AI examples are text-generated counterparts, not synchronized covers or matching
 excerpts. Each human excerpt is about 30 seconds; its generated counterpart is a
@@ -38,9 +40,9 @@ decoded samples are finite. None is entirely zero. These checks do not rule out
 partial silence, unexpected speech, incorrect titles, or semantic mislabeling.
 
 Full machine-readable measurements and SHA-256 hashes are in
-[audio_pilot_results.json](audio_pilot_results.json). Selection, exact archive
+[audio_pilot_results.json](../../data/preparation/audio_pilot_results.json). Selection, exact archive
 members/sizes, source/license URLs, grouping IDs and pending listening status
-are in [audio_pilot_manifest.csv](audio_pilot_manifest.csv).
+are in [audio_pilot_manifest.csv](../../data/preparation/audio_pilot_manifest.csv).
 
 ## What the inspection revealed
 
@@ -66,10 +68,10 @@ are in [audio_pilot_manifest.csv](audio_pilot_manifest.csv).
    separately by the existing plotting function, so equal colors across images
    do not necessarily mean equal power. Only the first channel is plotted.
 
-Plot links: [Straw Fields human](pilot_plots/human_45101.png),
-[ACE-Step](pilot_plots/ai_45101.png), [Autopsy human](pilot_plots/human_127294.png),
-[Suno](pilot_plots/ai_127294.png), [Digital Lightning human](pilot_plots/human_112315.png),
-[Udio](pilot_plots/ai_112315.png).
+Plot links: [Straw Fields human](../../data/pilot_plots/human_45101.png),
+[ACE-Step](../../data/pilot_plots/ai_45101.png), [Autopsy human](../../data/pilot_plots/human_127294.png),
+[Suno](../../data/pilot_plots/ai_127294.png), [Digital Lightning human](../../data/pilot_plots/human_112315.png),
+[Udio](../../data/pilot_plots/ai_112315.png).
 
 ## Provenance, storage, and reproducibility
 

@@ -1,3 +1,5 @@
+> Historical snapshot. For the current setup and file layout, see the [project README](../../README.md). Earlier raw experiment outputs are preserved in [the archive](../../data/archive/early_experiments.zip), using their original paths. Audio and plot links may refer to local-only files.
+
 # Audio-quality diagnostic debrief
 
 Date: 2026-09-22. This approved experiment compares existing first-ten-second
@@ -6,15 +8,15 @@ preprocessing, source audio, eligibility labels and splits are unchanged.
 
 ## What we built and why
 
-[quality_diagnostics.py](../../quality_diagnostics.py) reuses the existing loader,
+[quality_diagnostics.py](../../tools/quality_diagnostics.py) reuses the existing loader,
 receipt checks, preprocessing and feature extractor. It adds a temporary mean-removal
 operation and detailed full-scale counts. Nine behavioral tests cover per-channel
 centering, nonmutation, valid shapes, whole-recording scope, finite input checks,
 count denominators and constant-offset feature behavior.
 
-The outputs are [features.csv](features.csv) (160 rows: two variants per recording),
-[measurements.json](measurements.json) (80 source-audio measurements), and
-[listening_checklist.csv](listening_checklist.csv) (13 pending review entries).
+The outputs are [features.csv](../../data/archive/early_experiments.zip) (160 rows: two variants per recording),
+[measurements.json](../../data/archive/early_experiments.zip) (80 source-audio measurements), and
+[listening_checklist.csv](../../data/archive/early_experiments.zip) (13 pending review entries).
 No new packages, downloads, models or training were involved.
 
 ## Exact data flow

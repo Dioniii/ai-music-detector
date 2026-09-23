@@ -1,3 +1,5 @@
+> Historical snapshot. For the current setup and file layout, see the [project README](../../README.md). Earlier raw experiment outputs are preserved in [the archive](../../data/archive/early_experiments.zip), using their original paths. Audio and plot links may refer to local-only files.
+
 # First trained baseline
 
 Run date: 2026-09-22. This is an exploratory portfolio experiment, not a validated
@@ -70,10 +72,10 @@ saved scaler, weights, intercept and threshold. An AI score is a raw model outpu
 not a calibrated probability of authorship. This first binary baseline has no
 inconclusive rule and should not force product-level certainty.
 
-- [model.json](model.json): portable numeric parameters, feature order, settings,
+- [model.json](../../data/archive/early_experiments.zip): portable numeric parameters, feature order, settings,
   scikit-learn version and preprocessing-source hashes.
-- [metrics.json](metrics.json): actual partition metrics, policies and input hashes.
-- [predictions.csv](predictions.csv): all 80 assignments, labels and scores,
+- [metrics.json](../../data/archive/early_experiments.zip): actual partition metrics, policies and input hashes.
+- [predictions.csv](../../data/archive/early_experiments.zip): all 80 assignments, labels and scores,
   including mistakes for later review.
 
 ```powershell

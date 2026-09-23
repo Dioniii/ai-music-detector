@@ -150,7 +150,7 @@ def distribution_figure(predictions):
 
 
 def local_examples():
-    manifest=ROOT/load_model(MODEL_PATH).get('training_manifest', 'data/batch_manifest.csv')
+    manifest=ROOT/load_model(MODEL_PATH).get('training_manifest', 'data/preparation/batch_manifest.csv')
     if not manifest.exists():return [],[]
     mapping={r['candidate_id']:r for r in read_csv(manifest)}
     predictions=read_csv(DEFAULT_OUTPUT/'predictions.csv')

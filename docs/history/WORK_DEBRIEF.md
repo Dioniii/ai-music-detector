@@ -1,3 +1,5 @@
+> Historical snapshot. For the current setup and file layout, see the [project README](../../README.md). Earlier raw experiment outputs are preserved in [the archive](../../data/archive/early_experiments.zip), using their original paths. Audio and plot links may refer to local-only files.
+
 # Work debrief: building the foundations of an AI-music detector
 
 **Snapshot: 19 September 2026, after feature extraction.**
@@ -90,8 +92,8 @@ infer whether a new recording is AI-generated.
 | Python standard library | CSV/JSON metadata, ZIP reading, HTTP requests and hashes |
 
 The recorded feature run used Python 3.12.10, NumPy 2.5.3, SciPy 1.18.1 and
-librosa 0.11.0. Exact dependencies are in [uv.lock](uv.lock); direct requirements
-are in [pyproject.toml](pyproject.toml). Scikit-learn is installed as a librosa
+librosa 0.11.0. Exact dependencies are in [uv.lock](../../uv.lock); direct requirements
+are in [pyproject.toml](../../pyproject.toml). Scikit-learn is installed as a librosa
 dependency, but no classifier has been used.
 
 The verified development environment is Windows/PowerShell. A GTX 1660 Ti with
@@ -107,7 +109,7 @@ not guarantee that we supplied the right shapes, units, or parameters.
 
 ### What we built
 
-[audio_inspection.py](audio_inspection.py) loads a local file, prints metadata,
+[audio_inspection.py](../../audio_inspection.py) loads a local file, prints metadata,
 and creates a waveform and spectrogram. You also reported successfully producing
 a spectrogram from your own local file.
 
@@ -161,13 +163,13 @@ name did not guarantee that Echoes' references belonged to FMA's small subset,
 so we checked the actual metadata before downloading audio.
 
 The original sources and audited release information are linked in
-[data/audit.md](data/audit.md), including the
+[data/audit.md](audit.md), including the
 [pinned Echoes release](https://huggingface.co/datasets/Octavian97/Echoes/tree/14b0c76c6a691c42fadfab9fb6a4eb1ee8c628a2)
 and [FMA repository](https://github.com/mdeff/fma).
 
 ### What the metadata audit does
 
-[dataset_audit.py](dataset_audit.py) compares Echoes' reference strings with FMA
+[dataset_audit.py](../../tools/dataset_audit.py) compares Echoes' reference strings with FMA
 titles and artist names. It searches the full FMA metadata first, then checks
 whether an unambiguous match belongs to the small subset.
 
@@ -217,7 +219,7 @@ licensing, or that a label is correct.
 ## 6. Third increment: distinguish complete metadata from verified provenance
 
 We retrieved FMA's original track metadata and created
-[data/pilot_review.csv](data/pilot_review.csv), with one row per candidate human
+[data/pilot_review.csv](../../data/preparation/pilot_review.csv), with one row per candidate human
 reference and links to its generated counterparts.
 
 The review retained source URLs, license URLs, artist IDs, reference IDs,
@@ -267,7 +269,7 @@ three human-labeled FMA excerpts and three linked Echoes text-generated examples
 The word “counterpart” means linked through Echoes' reference metadata. It does
 not mean a synchronized cover, identical composition, or corresponding timestamp.
 
-[pilot_audio.py](pilot_audio.py) restricts retrieval to six specific archive members,
+[pilot_audio.py](../../tools/pilot_audio.py) restricts retrieval to six specific archive members,
 checks expected sizes, preserves existing files, and writes integrity receipts.
 The full pilot, including index reads, transferred 10.27 MiB under its 32 MiB cap.
 Audio and generated plots are excluded from Git.
@@ -293,14 +295,14 @@ excerpt and a visibly downward-shifted waveform. We documented the offset rather
 than assuming its cause or repairing it automatically. Some other decoded peaks
 exceeded magnitude 1; that observation alone does not diagnose audible clipping.
 
-See [data/audio_pilot_report.md](data/audio_pilot_report.md) for audio/plot links,
-and [data/audio_pilot_results.json](data/audio_pilot_results.json) for measurements.
+See [data/audio_pilot_report.md](audio_pilot_report.md) for audio/plot links,
+and [data/audio_pilot_results.json](../../data/preparation/audio_pilot_results.json) for measurements.
 
 ## 8. Fifth increment: define one preprocessing contract
 
 The purpose of preprocessing is to give downstream code a consistent input
 representation. We implemented this explicit contract in
-[preprocessing.py](preprocessing.py):
+[preprocessing.py](../../preprocessing.py):
 
 ```text
 Input:  floating samples shaped (frames, 1 or 2), original sample rate,
@@ -346,7 +348,7 @@ Matching shape/rate does not erase earlier compression or collection differences
 
 ## 9. Sixth increment: turn each clip into ten measurements
 
-[features.py](features.py) measures five properties across short analysis windows,
+[features.py](../../features.py) measures five properties across short analysis windows,
 then summarizes their mean and population standard deviation.
 
 | Property | Meaning | Caution |
@@ -379,7 +381,7 @@ The 513 bins come from a 1024-point transform of real audio: `1024/2 + 1`.
 There are 467 complete windows. The final 384 samples, or 16 ms, do not fit another
 full window and are omitted. RMS/zero crossings use unwindowed samples; spectral
 measurements use a Hann window. Details are explicit in the code and
-[recorded configuration](data/pilot_features_config.json).
+[recorded configuration](../../data/archive/early_experiments.zip).
 
 The output order is RMS mean/std, zero-crossing mean/std, centroid mean/std,
 bandwidth mean/std, then flatness mean/std. `FEATURE_NAMES` exposes that order so
@@ -474,7 +476,7 @@ result, or microphone robustness measurement yet.
 | Mean RMS separated our three-versus-three sample | Tiny observations do not establish generalization |
 
 All three human-labeled clips have higher mean RMS than the three generated clips
-in [the saved table](data/pilot_features.csv). We must not turn that into an
+in [the saved table](../../data/archive/early_experiments.zip). We must not turn that into an
 “AI fingerprint” claim. Mastering, intro selection, the offset, or source choices
 may account for the pattern. We have not tested those explanations.
 
@@ -491,21 +493,21 @@ and deciding whether/when to correct offsets or normalize amplitude.
 
 | File | Where to look and why |
 |---|---|
-| [audio_inspection.py](audio_inspection.py) | Decoding, the Audio container, metadata and plots |
-| [dataset_audit.py](dataset_audit.py) | Bounded metadata access, matching and candidate review |
-| [pilot_audio.py](pilot_audio.py) | Six-file download allowlist and audio sanity checks |
-| [preprocessing.py](preprocessing.py) | Shared mono/rate/duration contract |
-| [features.py](features.py) | Five frame measurements and ten ordered summaries |
-| [tests/](tests/) | Expected behavior and regression cases |
-| [journal.md](journal.md) | Increment-by-increment decisions and execution history |
-| [data/audit.md](data/audit.md) | Dataset counts, source evidence and unresolved metadata |
-| [data/pilot_review.csv](data/pilot_review.csv) | Candidate references, evidence and review flags |
-| [data/audio_pilot_manifest.csv](data/audio_pilot_manifest.csv) | Six selected members and their source expectations |
-| [data/audio_pilot_report.md](data/audio_pilot_report.md) | Audio properties, issues and plot links |
-| [data/preprocessing_pilot_results.json](data/preprocessing_pilot_results.json) | Actual preprocessing outputs and checks |
-| [data/pilot_features.csv](data/pilot_features.csv) | Six rows with ten measurements plus metadata |
-| [data/pilot_features_config.json](data/pilot_features_config.json) | Versions, settings, feature order and hashes |
-| [pyproject.toml](pyproject.toml) / [uv.lock](uv.lock) | Declared dependencies and resolved versions |
+| [audio_inspection.py](../../audio_inspection.py) | Decoding, the Audio container, metadata and plots |
+| [dataset_audit.py](../../tools/dataset_audit.py) | Bounded metadata access, matching and candidate review |
+| [pilot_audio.py](../../tools/pilot_audio.py) | Six-file download allowlist and audio sanity checks |
+| [preprocessing.py](../../preprocessing.py) | Shared mono/rate/duration contract |
+| [features.py](../../features.py) | Five frame measurements and ten ordered summaries |
+| [tests/](../../tests) | Expected behavior and regression cases |
+| [journal.md](../journal.md) | Increment-by-increment decisions and execution history |
+| [data/audit.md](audit.md) | Dataset counts, source evidence and unresolved metadata |
+| [data/pilot_review.csv](../../data/preparation/pilot_review.csv) | Candidate references, evidence and review flags |
+| [data/audio_pilot_manifest.csv](../../data/preparation/audio_pilot_manifest.csv) | Six selected members and their source expectations |
+| [data/audio_pilot_report.md](audio_pilot_report.md) | Audio properties, issues and plot links |
+| [data/preprocessing_pilot_results.json](../../data/archive/early_experiments.zip) | Actual preprocessing outputs and checks |
+| [data/pilot_features.csv](../../data/archive/early_experiments.zip) | Six rows with ten measurements plus metadata |
+| [data/pilot_features_config.json](../../data/archive/early_experiments.zip) | Versions, settings, feature order and hashes |
+| [pyproject.toml](../../pyproject.toml) / [uv.lock](../../uv.lock) | Declared dependencies and resolved versions |
 
 The feature CSV also contains labels, IDs, generator names and review notes.
 Those are metadata, not feature columns. Passing all CSV columns blindly into a

@@ -65,9 +65,9 @@ def main() -> None:
     # Exclusive directory avoids overwriting prior diagnostics or listening notes.
     if args.output_dir.exists():
         raise FileExistsError(args.output_dir)
-    manifest=Path('data/batch_manifest.csv')
+    manifest=Path('data/preparation/batch_manifest.csv')
     rows=read_csv(manifest)
-    prior_path=Path('data/batch_audio_results.json')
+    prior_path=Path('data/preparation/batch_audio_results.json')
     prior=json.loads(prior_path.read_text(encoding='utf-8'))
     manifest_hash=hashlib.sha256(manifest.read_bytes()).hexdigest()
     if prior['manifest_sha256']!=manifest_hash:

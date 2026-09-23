@@ -1,3 +1,5 @@
+> Historical snapshot. For the current setup and file layout, see the [project README](../../README.md). Earlier raw experiment outputs are preserved in [the archive](../../data/archive/early_experiments.zip), using their original paths. Audio and plot links may refer to local-only files.
+
 # Dataset eligibility and group inventory
 
 Review date: 2026-09-21. Local metadata review only; no audio downloads, label changes, split assignment or training.
@@ -80,7 +82,7 @@ Input SHA-256 hashes:
 - `data/pilot_review.csv`: `f129437a5fa47f8618053f9648d53d08d03e959dac1ba58ea21be3bbf1ca02cd`
 - `data/audio_pilot_manifest.csv`: `e555d5e00bb8d071c65e5f517bc98f3a689fd3daf681e2b03f938d756d1e48f7`
 
-Related documents: [audit](audit.md), [evaluation protocol](../EVALUATION_PROTOCOL.md).
+Related documents: [audit](audit.md), [evaluation protocol](EVALUATION_PROTOCOL.md).
 
 Learning exercise: explain why the ten Oh Yeah, the Future references must stay together even though only one was used in our pilot.
 

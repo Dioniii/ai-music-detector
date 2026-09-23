@@ -166,10 +166,10 @@ def write_manifest(path: Path, rows: list[dict]) -> None:
 
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument('--review', type=Path, default=Path('data/pilot_review.csv'))
-    parser.add_argument('--pilot', type=Path, default=Path('data/audio_pilot_manifest.csv'))
+    parser.add_argument('--review', type=Path, default=Path('data/preparation/pilot_review.csv'))
+    parser.add_argument('--pilot', type=Path, default=Path('data/preparation/audio_pilot_manifest.csv'))
     parser.add_argument('--metadata-dir', type=Path, default=Path('data/source_metadata'))
-    parser.add_argument('--output', type=Path, default=Path('data/candidate_manifest.csv'))
+    parser.add_argument('--output', type=Path, default=Path('data/preparation/candidate_manifest.csv'))
     args = parser.parse_args()
     if args.output.exists():
         raise FileExistsError(args.output)
