@@ -1,153 +1,143 @@
-# AI music detector
+# AI Music Detector
 
-A beginner portfolio project that uses a frozen EfficientAT audio encoder and
-our own trained logistic-regression classifier. Streamlit shows the prediction,
-sampled audio sections and the strongest learned-dimension contributions.
+An audio classification project that explores whether a recording is human-made
+or AI-generated. It combines a pretrained **EfficientAT** encoder with a
+**logistic-regression classifier trained for this project**, presented through
+an interactive Streamlit app.
 
-**This is an exploratory model, not proof of authorship.** Its AI score is not
-a calibrated confidence percentage. The earlier ten-feature baseline is retained
-for comparison.
+Upload a song, inspect the sampled audio, and see how the classifier reached its
+result. The output is an experimental model score, not proof of authorship.
 
-## Run the app
+## The demo
 
-Use Python 3.12. Install the environment once with `uv sync --locked`, then run:
+- **Analyze a recording** and get a human/AI prediction with its model score.
+- **See what was sampled** through a waveform and a spectrogram.
+- **Inspect the classifier** through the strongest embedding contributions.
+- **Explore the results**, including incorrectly classified recordings.
 
-```powershell
-.\.venv\Scripts\python.exe -m streamlit run app.py
-```
+The interface uses a dark monospace design and supports desktop and mobile
+screens. Inference runs on the app server using CPU PyTorch, without a paid API.
 
-Open **http://localhost:8501**. Choose an audio file or a local example and press
-**Analyze recording**. Accepted uploads are WAV, MP3, FLAC and OGG, from 10 seconds
-to 5 minutes and up to 50 MB.
-
-## The six Python files to understand
-
-Read them in this order:
-
-| File | Responsibility |
-|---|---|
-| `audio_inspection.py` | Load a recording and provide the spectrogram calculation. |
-| `preprocessing.py` | Convert to mono at 32 kHz for the encoder (24 kHz for the baseline) and choose sections. |
-| `features.py` | Extract and average EfficientAT embeddings, or historical handcrafted features. |
-| `baseline.py` | Train the classifier, load its weights, and predict. |
-| `showcase.py` | Turn predictions and evaluation results into charts and display data. |
-| `app.py` | Build the Streamlit interface and handle uploads. |
-
-The prediction path is:
-
-`recording -> 32 kHz sections -> frozen encoder -> 960 features -> trained classifier -> score`
-
-Sampling uses up to five 20-second sections, one random start in each range of
-legal positions. Seed 42 makes the selection repeatable. Shorter recordings use
-the available audio; sections may overlap. The first section need not start at
-zero. The same selection method is used in training and prediction.
-
-EfficientAT converts each section into 960 learned features. We average those
-vectors, standardize with training-only statistics and apply our own learned
-classifier weights. The decision threshold stays at 0.5. Embedding dimensions do
-not have simple physical meanings; the chart shows their arithmetic contribution.
-
-## Predict without the interface
-
-```powershell
-.\.venv\Scripts\python.exe baseline.py predict "path\to\recording.mp3"
-```
-
-This uses the same model as Streamlit. Its weights and evaluation files live in
-`data/baseline_encoder/`; the frozen encoder is in `data/encoder/`. No paid API or external model service is involved.
-
-## Train on the 1,000-recording dataset
-
-The fixed manifest is `data/dataset_1000.csv`: 500 human-reference recordings
-from FMA Small and 500 generated recordings from Echoes TTA, covering 12 generators.
-To download only the selected recordings (about 1.6 GiB), then train:
-
-```powershell
-.\.venv\Scripts\python.exe -m tools.batch_audio download-expanded
-.\.venv\Scripts\python.exe baseline.py train --encoder --output data/model_rerun
-```
-
-Downloads resume using verified local receipts. Training itself does not download
-anything. Use a new output folder to preserve previous results.
-
-The fixed split is **700 training, 150 validation and 150 holdout**, balanced
-between the two labels. Related artists and reference recordings stay together;
-previously inspected artists are restricted to training. Only training data fits
-the scaler and classifier. The command saves weights, extracted features,
-predictions, metrics, sampled sections and a comparison with the preserved handcrafted baseline.
-
-To try another output from the command line, pass
-`--model data/model_rerun/model.json`. Training does not automatically switch
-the demo to that output. Historical 80-recording training is still available
-by omitting `--encoder` and using `--manifest data/preparation/batch_manifest.csv`.
-
-## Current encoder results
-
-Validation accuracy is **88.7%**, compared with 68.0% for the previous demo on
-the same validation recordings. On the reused 150-recording evaluation set,
-accuracy is **86.7%**, AI detection is **66/75**, and human false positives are
-**11/75**. This is a reused benchmark, not a new blind test. Dea falls on the
-human side, but that known example was not used for model selection.
-
-[Encoder experiment and implementation report](data/baseline_encoder/REPORT.md)
-explains the method, results and checks. [Encoder packaging](data/encoder/README.md)
-records the source, license, export procedure and local CPU benchmark.
-The [handcrafted 1,000-recording experiment](data/baseline_1000/REPORT.md) remains
-as a historical comparison. Try the old demo with
-`--model data/baseline_random/demo/model.json`.
-
-Microphone robustness and unfamiliar-generator performance remain untested.
-Historical FMA supplies human-reference labels and Echoes TTA supplies generated
-labels; these are dataset assumptions rather than verified authorship.
-
-## Repository layout
+## How it works
 
 ```text
-app.py, showcase.py                 Streamlit interface and charts
-baseline.py, features.py            Training, prediction and encoder
-preprocessing.py, audio_inspection.py  Audio loading and sampling
-assets/                             Styling and fonts
-.streamlit/                         App configuration
-data/
-  encoder/                          Frozen encoder, license and provenance
-  baseline_encoder/                 Current classifier and evaluation
-  baseline_1000/                    Handcrafted comparison and reusable features
-  baseline_random/demo/             Preserved earlier baseline
-  dataset_1000.csv                   Current dataset selection and splits
-  dataset_1000_plan.json             Dataset selection summary
-  preparation/                      Earlier manifests and preparation records
-  archive/                          One ZIP of early raw experiment outputs
-docs/
-  DEPLOYMENT.md                     Hosting instructions
-  journal.md                        Project decisions and progress
-  history/                          Earlier reports and learning debriefs
-tools/                              Dataset download and preparation commands
-tests/                              Audio and dataset checks
+Audio -> sampled sections -> EfficientAT embeddings -> trained classifier -> AI score
 ```
 
-Downloaded audio, source metadata, embedding caches and personal recordings are
-gitignored. Local examples appear only when their files exist. Personal test
-recordings belong in `data/local_recordings/`.
+Audio is converted to mono at 32 kHz. Up to five 20-second sections are selected
+across the recording using a fixed random seed, making repeated analyses
+consistent. Shorter files use the available audio; sections can overlap.
 
-The five scripts in `tools/` support dataset preparation and download; the app
-does not import them. Run them from the repository root, for example
-`python -m tools.batch_audio --help`. They remain separate from the six main
-Python files so the normal learning path stays short.
+EfficientAT describes each section with **960 learned values**, called an
+embedding. Their average is standardized and passed to the classifier. The
+encoder stays frozen; the scaler and classifier learn from the project's
+labeled training recordings.
 
-Uploads are processed on the machine hosting the app. Temporary files are deleted
-after analysis; playback bytes and results stay in that browser's server session.
-Uploaded audio is not put in a shared cache. Streamlit usage telemetry is disabled.
+Scores at or above **0.5** receive the AI label. The contribution chart shows
+how embedding values influence that score. Individual dimensions are not named
+musical properties such as vocals or loudness.
 
-## Project history and hosting
+## Results
 
-[Deployment instructions](docs/DEPLOYMENT.md) describe the free Community Cloud setup.
-Public deployment remains a separate step.
+The current dataset contains **1,000 recordings**: 500 human references from
+FMA Small and 500 generated recordings from Echoes TTA, covering 12 generators.
+The split is **700 training / 150 validation / 150 evaluation**, with balanced
+classes and related reference artists kept together.
 
-The [journal](docs/journal.md), [first baseline report](docs/history/first_baseline.md),
-[volume experiment](docs/history/volume_experiment.md), and
-[random-sampling report](docs/history/random_sampling.md) preserve the findings for
-an article. These are historical snapshots, not current run instructions.
-The [early experiment archive](data/archive/early_experiments.zip) replaces 28
-loose generated files. It preserves their original repository paths and includes
-an `ARCHIVE_INDEX.json` with SHA-256 checksums. Open it to recover old raw results;
-it is not required to run or train the current model.
+The project began with ten handcrafted audio measurements. Expanding the dataset
+did not clearly improve that approach; replacing those measurements with encoder
+embeddings produced a stronger result.
+
+| Approach | Training recordings | Validation accuracy | Evaluation accuracy |
+|---|---:|---:|---:|
+| Initial handcrafted baseline | 48 | 68.0% | 61.3% |
+| Expanded handcrafted baseline | 700 | 63.3% | 63.3% |
+| **EfficientAT + logistic regression** | **700** | **88.7%** | **86.7%** |
+
+All rows use the same 150 validation and 150 evaluation recordings. The encoder
+model detected **66 of 75 AI recordings** and incorrectly flagged **11 of 75
+human recordings** in evaluation.
+
+These evaluation recordings were reused across experiments, so this is a
+comparison benchmark rather than a fresh blind test. Full methodology and
+limitations are in the [experiment report](data/baseline_encoder/REPORT.md).
+
+## Run locally
+
+With **Python 3.12** and **uv** installed, run these commands from the repository
+root:
+
+```bash
+uv sync --locked
+uv run --locked streamlit run app.py
+```
+
+Open **http://localhost:8501**. Upload a WAV, MP3, FLAC or OGG file between
+**10 seconds and 5 minutes**, up to **50 MB**. Local examples appear when dataset
+recordings are available on your machine.
+
+The encoder and classifier are included. You do not need to download the training
+dataset to use the app. Uploaded temporary files are deleted after analysis;
+playback and results remain in the current browser's server session.
+
+To predict from the command line:
+
+```bash
+uv run --locked baseline.py predict "path/to/recording.mp3"
+```
+
+<details>
+<summary><strong>Reproduce training</strong></summary>
+
+Download the fixed selection of recordings, then train into a new output folder:
+
+```bash
+uv run --locked python -m tools.batch_audio download-expanded
+uv run --locked baseline.py train --encoder --output data/encoder_rerun
+```
+
+The download is approximately 1.6 GiB and resumes completed files. Audio and
+embedding caches stay local. Only training recordings fit the scaler and
+classifier; the saved manifest fixes the splits.
+
+Training saves a new model and evaluation artifacts without replacing the demo.
+To use that model, pass `--model data/encoder_rerun/model.json` to the prediction
+command. The earlier baseline remains available at
+`data/baseline_random/demo/model.json`.
+
+Run the existing checks with:
+
+```bash
+uv run --locked pytest -q
+```
+
+</details>
+
+## Inside the project
+
+| Files | Purpose |
+|---|---|
+| `audio_inspection.py`, `preprocessing.py` | Load audio and select sections. |
+| `features.py`, `baseline.py` | Extract embeddings, train and predict. |
+| `showcase.py`, `app.py` | Generate charts and build the interface. |
+
+`data/` holds model artifacts, manifests and experiment results. `tools/` contains
+dataset preparation commands, `tests/` contains checks, and `docs/` records the
+project's development. Downloaded audio and personal recordings are gitignored.
+
+## Scope and limitations
+
+This is an exploratory detector. Its score is not a calibrated probability,
+and dataset labels are assumptions rather than verified authorship. The current
+evaluation covers Rock and Electronic, with no Pop. Microphone recordings,
+coffee-shop noise and unfamiliar generators have not been validated. Source
+encoding and other dataset differences may influence predictions.
+
+Public deployment and Streamlit Community Cloud resource usage remain unverified.
+
+## Further reading
+
+- [Experiment report](data/baseline_encoder/REPORT.md) - model comparison and verification.
+- [Encoder details](data/encoder/README.md) - source, attribution and local CPU benchmark.
+- [Project journal](docs/journal.md) - decisions and progress from the first baseline onward.
+- [Deployment guide](docs/DEPLOYMENT.md) - the planned free Streamlit hosting setup.
