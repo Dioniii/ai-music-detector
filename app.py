@@ -165,10 +165,8 @@ def render_analysis():
                           horizontal=True, key='audio_source_mic_first', on_change=clear_result)
         upload = microphone = example = None
         if source == 'Use microphone':
-            st.caption('Tap record, allow microphone access, and capture 20-30 seconds of music. Stop recording, then press Analyze. At least 10 seconds is required; the limit is 5 minutes.')
             microphone = st.audio_input('Record nearby music', sample_rate=32000,
                                         key=f'microphone_{st.session_state.get("microphone_generation", 0)}', on_change=upload_changed)
-            st.caption('Background noise can affect the result. We have not measured accuracy on phone recordings yet.')
             with st.expander('Microphone not working?'):
                 st.write('Allow microphone access in your browser settings. On a phone, open the app using an HTTPS link. A plain HTTP address from your laptop will not enable recording. You can also record with your phone and upload the saved file.')
         else:
@@ -199,14 +197,20 @@ def render_analysis():
                     st.info('Record some music and stop the recording before pressing Analyze.')
                 else:
                     st.session_state['analysis_result'] = analyze(None)
-        result = st.session_state.get('analysis_result', (EMPTY, '', None, None, None, []))
+        empty_card = '' if st.session_state.get('has_analyzed_audio', False) else EMPTY
+        result = st.session_state.get('analysis_result', (empty_card, '', None, None, None, []))
         if result[2] is not None:
+            st.session_state['has_analyzed_audio'] = True
             st.divider()
             st.markdown('Listen to the original')
             st.audio(result[2], format=st.session_state.get('playback_format', 'audio/wav'))
             st.markdown(result[1])
     with right:
-        st.html(result[0])
+        if result[0]:
+            st.html(result[0])
+        if source == 'Use microphone' and result[0] == EMPTY and not st.session_state.get('has_analyzed_audio', False):
+            st.caption('Tap record, allow microphone access, and capture 20-30 seconds of music. Stop recording, then press Analyze. At least 10 seconds is required; the limit is 5 minutes.')
+            st.caption('Background noise can affect the result. We have not measured accuracy on phone recordings yet.')
         if result[3] is not None:
             responsive_plot(result[3], 'The sections we checked and a sound map of the first section')
 
