@@ -118,8 +118,9 @@ def upload_changed():
 
 def example_changed():
     clear_result()
-    # A new uploader key clears the previously uploaded file unambiguously.
+    # New widget keys clear previous audio when an example is selected.
     st.session_state['upload_generation'] = st.session_state.get('upload_generation', 0) + 1
+    st.session_state['microphone_generation'] = st.session_state.get('microphone_generation', 0) + 1
 
 
 
@@ -166,7 +167,7 @@ def render_analysis():
         if source == 'Use microphone':
             st.caption('Tap record, allow microphone access, and capture 20-30 seconds of music. Stop recording, then press Analyze. At least 10 seconds is required; the limit is 5 minutes.')
             microphone = st.audio_input('Record nearby music', sample_rate=32000,
-                                        key='microphone', on_change=clear_result)
+                                        key=f'microphone_{st.session_state.get("microphone_generation", 0)}', on_change=upload_changed)
             st.caption('Background noise can affect the result. We have not measured accuracy on phone recordings yet.')
             with st.expander('Microphone not working?'):
                 st.write('Allow microphone access in your browser settings. On a phone, open the app using an HTTPS link. A plain HTTP address from your laptop will not enable recording. You can also record with your phone and upload the saved file.')
@@ -174,12 +175,12 @@ def render_analysis():
             upload = st.file_uploader('Your recording', type=['wav', 'mp3', 'flac', 'ogg'],
                                       key=f'upload_{st.session_state.get("upload_generation", 0)}',
                                       on_change=upload_changed, max_upload_size=50)
-            examples, labels = local_examples()
-            if examples:
-                example = st.selectbox('Try an existing recording, then press Analyze',
-                                       options=range(len(examples)), index=None,
-                                       format_func=lambda index: labels[index], key='example',
-                                       on_change=example_changed)
+        examples, labels = local_examples()
+        if examples:
+            example = st.selectbox('Try an existing recording, then press Analyze',
+                                   options=range(len(examples)), index=None,
+                                   format_func=lambda index: labels[index], key='example',
+                                   on_change=example_changed)
         if st.button('Analyze recording', type='primary', width='stretch'):
             clear_result()
             if microphone is not None or upload is not None or example is not None:
