@@ -72,3 +72,26 @@ benchmark was about 574 MiB peak working set; this excludes the full UI and is
 not a guarantee of hosted memory use. The app is verified locally; actual
 Community Cloud deployment and resource capacity remain unverified. Keep the
 free-only policy above.
+
+
+## Phone microphone recordings
+
+Select **Use microphone**, allow browser microphone access, record 20-30 seconds
+of music, stop, then select **Analyze recording**. Recordings must be at least
+10 seconds and at most 5 minutes. The native Streamlit recorder requests 32 kHz
+WAV audio and uses the same size limits, temporary-file cleanup and prediction
+pipeline as uploads. No new package or paid service is required. Switching input
+methods clears the displayed result so a previous upload is not analyzed by mistake.
+
+Phones need a trusted HTTPS app URL and microphone permission. Opening the
+laptop's plain HTTP LAN address on a phone is not sufficient. Localhost works for
+testing on the computer running the app; it does not refer to that computer when
+opened on a phone. If access is blocked, check site permissions or upload a file
+recorded with the phone's recording app. Do not disable browser security to test.
+
+Adding recording support does not establish accuracy on phone microphones or
+music in noisy rooms. Real iOS/Android capture and hosted HTTPS permissions still
+need a device check after deployment.
+
+References: [Streamlit audio input](https://docs.streamlit.io/develop/api-reference/widgets/st.audio_input)
+and [browser microphone requirements](https://developer.mozilla.org/en-US/docs/Web/API/MediaDevices/getUserMedia).

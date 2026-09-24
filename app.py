@@ -18,7 +18,7 @@ from showcase import (
     distribution_figure, local_examples, read_csv,
 )
 
-HERO = '<div class="hero"><h1>Human-made or AI-generated?</h1><p>Upload a song and see what the model thinks.</p><span class="small-note">An experimental music detector. It can make mistakes.</span></div>'
+HERO = '<div class="hero"><h1>Human-made or AI-generated?</h1><p>Upload a song or record nearby music and see what the model thinks.</p><span class="small-note">An experimental music detector. It can make mistakes.</span></div>'
 
 RESULTS_INTRO = """## How often did it get it right?
 We used **700 recordings to teach the model**, **150 to help choose the best version**, and **150 more to check its predictions**. Each group had equal numbers of human and AI recordings. Related recordings stayed together to make the checks fairer.
@@ -30,7 +30,7 @@ SCORES_INTRO = '### How the model scored each recording\nEach dot is one recordi
 
 LIMITATIONS = '**Keep in mind:** the model can mistake human music for AI, and miss AI music too. These results cover Rock and Electronic music, not every genre. We have not checked how well it works with microphone recordings, background noise or new AI music tools. The labels come from the datasets; they are not proof of who made a song.'
 
-HOW_IT_WORKS = """## What happens when you upload a song?
+HOW_IT_WORKS = """## What happens when you add a recording?
 ### 1. Pick a few parts to check
 The app selects up to **five 20-second sections** from across your recording. This helps it look beyond just the intro. Sections can overlap. For recordings under 20 seconds, it uses the whole clip. Checking the same file again uses the same sections.
 
@@ -160,22 +160,33 @@ def evaluation_artifacts(model_version):
 def render_analysis():
     left, right = st.columns([1, 1.65], gap='large')
     with left:
-        upload = st.file_uploader('Your recording', type=['wav', 'mp3', 'flac', 'ogg'],
-                                  key=f'upload_{st.session_state.get("upload_generation", 0)}',
-                                  on_change=upload_changed, max_upload_size=50)
-        examples, labels = local_examples()
-        example = None
-        if examples:
-            example = st.selectbox('Try an existing recording, then press Analyze',
-                                   options=range(len(examples)), index=None,
-                                   format_func=lambda index: labels[index], key='example',
-                                   on_change=example_changed)
-        ###st.markdown(INPUT_GUIDANCE)
+        source = st.radio('Add your audio', ['Upload a file', 'Use microphone'],
+                          horizontal=True, key='audio_source', on_change=clear_result)
+        upload = microphone = example = None
+        if source == 'Use microphone':
+            st.caption('Tap record, allow microphone access, and capture 20-30 seconds of music. Stop recording, then press Analyze. At least 10 seconds is required; the limit is 5 minutes.')
+            microphone = st.audio_input('Record nearby music', sample_rate=32000,
+                                        key='microphone', on_change=clear_result)
+            st.caption('Background noise can affect the result. We have not measured accuracy on phone recordings yet.')
+            with st.expander('Microphone not working?'):
+                st.write('Allow microphone access in your browser settings. On a phone, open the app using an HTTPS link. A plain HTTP address from your laptop will not enable recording. You can also record with your phone and upload the saved file.')
+        else:
+            upload = st.file_uploader('Your recording', type=['wav', 'mp3', 'flac', 'ogg'],
+                                      key=f'upload_{st.session_state.get("upload_generation", 0)}',
+                                      on_change=upload_changed, max_upload_size=50)
+            examples, labels = local_examples()
+            if examples:
+                example = st.selectbox('Try an existing recording, then press Analyze',
+                                       options=range(len(examples)), index=None,
+                                       format_func=lambda index: labels[index], key='example',
+                                       on_change=example_changed)
         if st.button('Analyze recording', type='primary', width='stretch'):
             clear_result()
-            if upload is not None or example is not None:
+            if microphone is not None or upload is not None or example is not None:
                 with st.spinner('Analyzing recording...'):
-                    if upload is not None:
+                    if microphone is not None:
+                        data, name = microphone.getvalue(), 'Microphone recording.wav'
+                    elif upload is not None:
                         data, name = upload.getvalue(), upload.name
                     else:
                         path = Path(examples[example][0])
@@ -183,7 +194,10 @@ def render_analysis():
                     st.session_state['analysis_result'] = run_analysis(data, name)
                     st.session_state['playback_format'] = {'.mp3': 'audio/mpeg', '.flac': 'audio/flac', '.ogg': 'audio/ogg'}.get(Path(name).suffix.lower(), 'audio/wav')
             else:
-                st.session_state['analysis_result'] = analyze(None)
+                if source == 'Use microphone':
+                    st.info('Record some music and stop the recording before pressing Analyze.')
+                else:
+                    st.session_state['analysis_result'] = analyze(None)
         result = st.session_state.get('analysis_result', (EMPTY, '', None, None, None, []))
         if result[2] is not None:
             st.divider()

@@ -35,7 +35,7 @@ PRETTY=['RMS mean','RMS variation','Zero crossings mean','Zero crossings variati
         'Spectral center mean','Spectral center variation','Bandwidth mean','Bandwidth variation',
         'Flatness mean','Flatness variation']
 
-EMPTY='<div class="result-card"><div class="eyebrow">Ready when you are</div><h2>Start with a recording</h2><p>Upload a song or choose an example, then select Analyze recording.</p><p class="small-note">10 seconds to 5 minutes, up to 50 MB. We check a few sections from across the recording.</p></div>'
+EMPTY='<div class="result-card"><div class="eyebrow">Ready when you are</div><h2>Start with a recording</h2><p>Upload a song, choose an example or use your microphone, then select Analyze recording.</p><p class="small-note">10 seconds to 5 minutes, up to 50 MB. We check a few sections from across the recording.</p></div>'
 
 
 def style_axis(axis):
