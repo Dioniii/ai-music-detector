@@ -122,8 +122,8 @@ uv run --locked pytest -q
 | `showcase.py`, `app.py` | Generate charts and build the interface. |
 
 `data/` holds model artifacts, manifests and experiment results. `tools/` contains
-dataset preparation commands, `tests/` contains checks, and `docs/` records the
-project's development. Downloaded audio and personal recordings are gitignored.
+dataset preparation commands, and `tests/` contains checks. Downloaded audio
+and personal recordings are gitignored.
 
 ## Scope and limitations
 
@@ -139,5 +139,3 @@ Public deployment and Streamlit Community Cloud resource usage remain unverified
 
 - [Experiment report](data/baseline_encoder/REPORT.md) - model comparison and verification.
 - [Encoder details](data/encoder/README.md) - source, attribution and local CPU benchmark.
-- [Project journal](docs/journal.md) - decisions and progress from the first baseline onward.
-- [Deployment guide](docs/DEPLOYMENT.md) - the planned free Streamlit hosting setup.

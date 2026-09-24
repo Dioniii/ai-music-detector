@@ -20,3 +20,6 @@ data/embedding_cache/
 
 # Personal recordings stay local, separate from source and dataset manifests.
 data/local_recordings/
+
+# Personal project notes and learning documents stay local.
+/docs/
