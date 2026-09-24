@@ -18,51 +18,51 @@ from showcase import (
     distribution_figure, local_examples, read_csv,
 )
 
-HERO = '<div class="hero"><h1>Listen. Measure. Inspect.</h1><p>Explore how a pretrained audio encoder and our trained classifier assess a recording.</p><span class="small-note">EfficientAT mn10_as + logistic regression | 960 learned audio features</span></div>'
+HERO = '<div class="hero"><h1>Human-made or AI-generated?</h1><p>Upload a song and see what the model thinks.</p><span class="small-note">An experimental music detector. It can make mistakes.</span></div>'
 
-RESULTS_INTRO = """## How the encoder model performed
-We trained our classifier on **700 recordings**, used **150 for validation**, and evaluated it on another **150: 75 human and 75 AI recordings**. The EfficientAT encoder stayed frozen throughout.
+RESULTS_INTRO = """## How often did it get it right?
+We used **700 recordings to teach the model**, **150 to help choose the best version**, and **150 more to check its predictions**. Each group had equal numbers of human and AI recordings. Related recordings stayed together to make the checks fairer.
 
-Related reference artists stay in one split. The evaluation recordings were also used in earlier experiments, so these results are a reused benchmark, not a new blind test.
+The results below come from those checks, not from your upload. We have checked these recordings before while building the project, so this is not a completely new test.
 """
 
-SCORES_INTRO = '### Where the scores fall\nEach dot is one recording. The line at 0.5 is the decision threshold. Human recordings to its right are false positives; AI recordings to its left are missed detections. These scores are not confidence percentages.'
+SCORES_INTRO = '### How the model scored each recording\nEach dot is one recording. Scores to the right of the middle line are labeled AI; scores to the left are labeled human. A human recording on the right, or an AI recording on the left, is a mistake.'
 
-LIMITATIONS = '**Where this model is limited:** it still makes mistakes. Dataset source, encoding and genre may influence predictions. Evaluation covers Rock and Electronic, with no Pop. Microphone recordings, room noise and unfamiliar generators have not been validated. Dataset labels are not proof of authorship.'
+LIMITATIONS = '**Keep in mind:** the model can mistake human music for AI, and miss AI music too. These results cover Rock and Electronic music, not every genre. We have not checked how well it works with microphone recordings, background noise or new AI music tools. The labels come from the datasets; they are not proof of who made a song.'
 
-HOW_IT_WORKS = """## From a recording to an AI score
-### 1. Choose sections across the recording
-We convert the audio to mono at **32 kHz**, then select up to **five 20-second sections** from different parts of the recording. The random seed stays fixed, so analyzing the same file again selects the same sections. Sections may overlap; files shorter than 20 seconds use all available audio.
+HOW_IT_WORKS = """## What happens when you upload a song?
+### 1. Pick a few parts to check
+The app selects up to **five 20-second sections** from across your recording. This helps it look beyond just the intro. Sections can overlap. For recordings under 20 seconds, it uses the whole clip. Checking the same file again uses the same sections.
 
-### 2. Let EfficientAT describe the sound
-**EfficientAT mn10_as is a pretrained audio encoder.** It turns each section's mel spectrogram into a list of **960 numbers**, called an embedding. Think of it as a learned description of the sound. We average the section embeddings into one description of the recording.
+### 2. Look for patterns in the sound
+We use **EfficientAT**, an existing model trained to recognize patterns in audio. It turns each section into a set of numbers describing the sound. We combine these descriptions to get one result for the recording.
 
-These numbers are not named measurements such as loudness, nor do individual numbers reliably mean guitar or vocals. The information is spread across the embedding. The encoder itself does not decide whether music is human or AI-generated.
+### 3. Make a prediction
+We trained our own model using examples labeled human-made or AI-generated. It uses the sound description to decide which group your recording is more similar to.
 
-### 3. Apply the classifier we trained
-We trained **our own logistic-regression classifier** on embeddings from labeled human and AI recordings. A scaler first puts the embedding values on the scales learned from training data. The classifier combines 960 weighted values and an intercept; a sigmoid turns that total into an AI score between 0 and 1.
+The result is a **score from 0 to 1**: lower leans human, higher leans AI. At **0.5 or above**, the app says **Likely AI-generated**. Below that, it says **Likely human-made**.
 
-The encoder weights stay unchanged: only our scaler and classifier learn from the project's training recordings.
+### 4. Treat the result as a clue
+The model always chooses one of those two labels, even when the score is close to the middle. **A score of 0.9 does not mean there is a 90% chance the song is AI-generated.** The result is a prediction, not proof of who made the music.
 
-### 4. Read the result
-A score **at or above 0.5** produces **Likely AI-generated**; a lower score produces **Likely human-made**. A score of 0.9 does not establish a 90% chance of AI authorship. These scores have not been calibrated, and the model does not yet offer an inconclusive result.
+### What did it learn from?
+We collected **1,000 recordings: 500 labeled human and 500 labeled AI**. The human music came from FMA, a music collection. The AI music came from Echoes TTA and includes music from 12 AI tools.
 
-### What we trained on
-**1,000 recordings: 500 human references and 500 generated recordings.** Human labels come from historical FMA recordings; AI labels come from Echoes TTA, covering 12 generators. The split is **700 training, 150 validation and 150 evaluation**, with equal class counts in each. Only the training split fits the scaler and classifier. Validation guides model selection; evaluation has been reused across experiments.
+Our model learned from 700 of those recordings. The other 300 helped us compare versions and check results. We used EfficientAT as it was; we trained the part that makes the human-or-AI prediction.
 
-### What the visuals explain
-**Waveform:** where the sampled sections are located. **Spectrogram:** the frequencies in the first sampled section, shown for inspection. The encoder computes its own mel spectrogram internally; this displayed plot is not the image fed into the model.
+### What do the charts show?
+**Audio overview:** the outlined areas show which parts of your recording we checked.
 
-**Contribution chart:** how the classifier used the averaged embedding. We show the ten dimensions with the largest absolute contributions, combine the other 950 into one bar, and include the intercept. Teal pushes toward human; amber pushes toward AI. All bars sum to the classifier's raw total, called a logit, before the sigmoid.
+**Sound map:** shows low and high sounds in the first selected section. The colors show how strong they are. This is a view of the audio, not a map of where AI was detected.
 
-A label such as **Embedding 623** is a coordinate in a learned representation, not a named musical property. This chart explains the classifier's arithmetic; it does not reveal exactly what the encoder heard or prove that an audible detail was generated by AI.
+### Can it explain why a song sounds AI-generated?
+Not in everyday musical terms. It can give a prediction, but it cannot reliably point to a voice, instrument or moment and say "this is why." The audio charts show what we checked, not evidence that a song was made by AI.
 
-**Built with** NumPy, SciPy, PyTorch, scikit-learn and Streamlit. The encoder and classifier run on the app server without a paid inference API.
+### Where is my recording processed?
+The app processes your upload on the computer running it. Uploading a song does not teach or update the model.
 """
 
-CONTRIBUTION_GUIDE = "These bars show how our classifier used the encoder's 960-number description. The ten strongest dimensions are shown separately; the other 950 are summed into one bar. Teal pushes toward human and amber toward AI. Dimension numbers are not named audio properties. The bars and intercept sum to the raw score (logit) before it becomes an AI score."
-
-INPUT_GUIDANCE = '**10 seconds to 5 minutes, up to 50 MB.** EfficientAT encodes up to five random 20-second sections; our trained classifier scores their average embedding. Uploads are processed on the app server.'
+INPUT_GUIDANCE = '**10 seconds to 5 minutes, up to 50 MB.** We check up to five 20-second sections from across the recording. Your upload is processed on the computer running this app.'
 
 
 @st.cache_data(show_spinner=False)
@@ -193,14 +193,7 @@ def render_analysis():
     with right:
         st.html(result[0])
         if result[3] is not None:
-            responsive_plot(result[3], 'Inside the audio')
-    st.divider()
-    with st.expander('How the classifier used the embedding', expanded=True):
-        st.markdown(CONTRIBUTION_GUIDE)
-        if result[4] is not None:
-            responsive_plot(result[4], 'Embedding contributions to the classifier')
-        with st.expander('Inspect the ten strongest embedding dimensions'):
-            numeric_table(['Embedding dimension', 'Average embedding value', 'Standardized value', 'Contribution (logit)'], result[5])
+            responsive_plot(result[3], 'The sections we checked and a sound map of the first section')
 
 
 def render_results():
@@ -208,15 +201,15 @@ def render_results():
     h = metrics['holdout']
     cm = h['confusion_matrix_true_rows_predicted_columns_human_ai']
     st.markdown(RESULTS_INTRO)
-    st.markdown(f'**Validation accuracy: {metrics["validation"]["accuracy"]:.1%} | Evaluation accuracy: {h["accuracy"]:.1%}.** Accuracy is the fraction of recordings classified correctly; AI precision below is the fraction of AI predictions that were correct.')
-    st.html(f'<div class="stat-grid"><div class="stat"><strong>{cm[1][1]} / {h["ai_tracks"]}</strong><span>AI recordings detected · recall {h["ai_recall"]:.1%}</span></div><div class="stat"><strong>{cm[0][1]} / {h["human_tracks"]}</strong><span>Human recordings falsely flagged · {h["human_false_positive_rate"]:.0%}</span></div><div class="stat"><strong>{h["ai_precision"]:.1%}</strong><span>AI precision on the evaluation set</span></div></div>')
+    st.markdown(f'**The model got {cm[0][0] + cm[1][1]} of {h["tracks"]} recordings right ({h["accuracy"]:.1%}) in the final check.** It got {metrics["validation"]["accuracy"]:.1%} right in the earlier check used to choose the model.')
+    st.html(f'<div class="stat-grid"><div class="stat"><strong>{cm[1][1]} / {h["ai_tracks"]}</strong><span>AI recordings correctly spotted</span></div><div class="stat"><strong>{cm[0][1]} / {h["human_tracks"]}</strong><span>Human recordings mistaken for AI</span></div><div class="stat"><strong>{h["ai_precision"]:.1%}</strong><span>Of recordings flagged AI, this share had the AI label</span></div></div>')
     responsive_plot(confusion, 'Correct predictions and errors')
     st.markdown(SCORES_INTRO)
-    responsive_plot(distribution, 'Score distributions by dataset label')
-    errors = [[r['reference'], r['generator'] or 'Human reference', r['true_label'], r['predicted_label'], float(r['ai_score'])]
+    responsive_plot(distribution, 'Scores for human and AI recordings')
+    errors = [[r['reference'], r['generator'] or 'Human recording', r['true_label'], r['predicted_label'], float(r['ai_score'])]
               for r in predictions if r['split'] == 'holdout' and r['true_label'] != r['predicted_label']]
-    st.markdown('Recordings the encoder classifier got wrong')
-    numeric_table(['Evaluation recording', 'Source label', 'Dataset label', 'Prediction', 'AI score'], errors)
+    st.markdown('Recordings the model got wrong')
+    numeric_table(['Recording', 'Music source', 'Original label', 'Model prediction', 'AI score'], errors)
     st.markdown(LIMITATIONS)
 
 
