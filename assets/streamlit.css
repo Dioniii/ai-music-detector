@@ -39,9 +39,26 @@ button[data-baseweb="tab"][aria-selected="true"] {color:#e8e8e3;}
 [data-baseweb="tab-highlight"] {background:#5a8a80;height:1px;}
 [data-testid="stFileUploaderDropzone"] {
     background:#0d0d0d; border:1px solid #5a8a80; min-height:180px;
-    flex-direction:column; align-items:stretch; justify-content:center; gap:12px;
+    flex-direction:column; align-items:center; justify-content:center; gap:16px;
+    padding:24px 16px; text-align:center;
 }
-[data-testid="stFileUploaderDropzoneInstructions"] {width:100%;}
+/* Center the button wrapper as well as the file guidance, including narrow columns. */
+[data-testid="stFileUploaderDropzone"] > div {
+    align-self:center!important; margin:0!important; max-width:100%;
+}
+[data-testid="stFileUploaderDropzoneInstructions"] {
+    display:flex; justify-content:center; align-items:center;
+    width:100%; text-align:center; margin:0!important;
+}
+[data-testid="stFileUploaderDropzoneInstructions"] > div {
+    align-items:center!important; text-align:center;
+}
+[data-testid="stFileUploaderDropzoneInstructions"] small {
+    display:block; text-align:center; white-space:normal; line-height:1.6;
+}
+[data-testid="stFileUploaderDropzone"] button {
+    margin-inline:auto; min-width:140px; justify-content:center;
+}
 [data-testid="stFileUploaderDropzone"] svg {display:none;}
 [data-testid="stBaseButton-primary"] {
     background:#e8e8e3!important;color:#0d0d0d!important;
@@ -94,7 +111,7 @@ audio::-webkit-media-controls-panel {background:#0d0d0d;}
     [data-baseweb="tab-list"] {gap:4px;margin-bottom:12px;overflow-x:auto;}
     button[data-baseweb="tab"] {min-height:48px;padding:10px 6px;white-space:nowrap;}
     button[data-baseweb="tab"] p {font-size:12px!important;}
-    [data-testid="stFileUploaderDropzone"] {min-height:120px;padding:12px;gap:8px;}
+    [data-testid="stFileUploaderDropzone"] {min-height:160px;padding:20px 12px;gap:14px;}
     [data-testid="stBaseButton-secondary"], [data-baseweb="select"] > div {min-height:44px;}
     [data-testid="stBaseButton-primary"] {min-height:52px;}
     [data-testid="stMarkdownContainer"] p {font-size:14px;line-height:1.6;overflow-wrap:anywhere;}

@@ -18,7 +18,7 @@ from showcase import (
     distribution_figure, local_examples, read_csv,
 )
 
-HERO = '<div class="hero"><h1>Human-made or AI-generated?</h1><p>Upload a song or record nearby music and see what the model thinks.</p><span class="small-note">An experimental music detector. It can make mistakes.</span></div>'
+HERO = '<div class="hero"><h1>Human-made or AI-generated?</h1><p>Record nearby music or upload a song and see what the model thinks.</p><span class="small-note">An experimental music detector. It can make mistakes.</span></div>'
 
 RESULTS_INTRO = """## How often did it get it right?
 We used **700 recordings to teach the model**, **150 to help choose the best version**, and **150 more to check its predictions**. Each group had equal numbers of human and AI recordings. Related recordings stayed together to make the checks fairer.
@@ -160,8 +160,8 @@ def evaluation_artifacts(model_version):
 def render_analysis():
     left, right = st.columns([1, 1.65], gap='large')
     with left:
-        source = st.radio('Add your audio', ['Upload a file', 'Use microphone'],
-                          horizontal=True, key='audio_source', on_change=clear_result)
+        source = st.radio('Add your audio', ['Use microphone', 'Upload a file'],
+                          horizontal=True, key='audio_source_mic_first', on_change=clear_result)
         upload = microphone = example = None
         if source == 'Use microphone':
             st.caption('Tap record, allow microphone access, and capture 20-30 seconds of music. Stop recording, then press Analyze. At least 10 seconds is required; the limit is 5 minutes.')
