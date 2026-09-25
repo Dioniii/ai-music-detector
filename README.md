@@ -1,110 +1,148 @@
 # AI Music Detector
 
-An audio classification project that explores whether a recording is human-made
-or AI-generated. It combines a pretrained **EfficientAT** encoder with a
-**logistic-regression classifier trained for this project**, presented through
-an interactive Streamlit app.
+Record nearby music or upload an audio file to explore whether it resembles
+human-made or AI-generated music. The app returns a prediction, shows the parts
+of the recording it checked, and lets you explore the model's results.
 
-Record nearby music or upload a song, inspect the sampled audio, and view the
-model result. The output is an experimental model score, not proof of authorship.
+Built with **Python, EfficientAT, scikit-learn and Streamlit**.
 
-## The demo
+> This is an experimental detector. Its predictions can be wrong, and its score
+> is not proof of who made a song. Performance on real phone recordings has not
+> been established.
 
-- **Analyze a recording** and get a human/AI prediction with its model score.
-- **See what was sampled** through a waveform and a spectrogram.
-- **Record again when needed** with a basic weak-signal and clipping check.
-- **Explore the results**, including incorrectly classified recordings.
+## What you can do
 
-The interface uses a dark monospace design and supports desktop and mobile
-screens. Inference runs on the app server using CPU PyTorch, without a paid API.
+- **Record music directly** through your browser's microphone, or upload a file.
+- **Analyze the audio** and see a human/AI prediction with a score.
+- **Explore the recording** through a waveform, selected sections and a sound map.
+- **Delete and record again** if you want to try another clip.
+- **Review the model's performance**, including its mistakes.
 
-## How it works
+The interface supports desktop and mobile screens. A basic quality check asks
+for another recording when the audio is very weak or heavily clipped. It cannot
+reliably distinguish quiet music from background noise.
 
-```text
-Audio -> sampled sections -> EfficientAT embeddings -> trained classifier -> AI score
-```
+## Try it locally
 
-Audio is converted to mono at 32 kHz. Up to five 20-second sections are selected
-across the recording using a fixed random seed, making repeated analyses
-consistent. Shorter files use the available audio; sections can overlap.
-
-EfficientAT describes each section with **960 learned values**, called an
-embedding. Their average is standardized and passed to the classifier. The
-encoder stays frozen; the scaler and classifier learn from the project's
-labeled training recordings.
-
-Scores at or above **0.5** receive the AI label. The model cannot explain its
-result in terms of named musical properties such as vocals or instruments.
-The UI rejects recordings with fewer than five seconds above its minimum level
-or heavy clipping; this is not a reliable detector of music over room noise.
-
-## Results
-
-The current dataset contains **1,000 recordings**: 500 human references from
-FMA Small and 500 generated recordings from Echoes TTA, covering 12 generators.
-The split is **700 training / 150 validation / 150 evaluation**, with balanced
-classes and related reference artists kept together.
-
-The project began with ten handcrafted audio measurements. Expanding the dataset
-did not clearly improve that approach; replacing those measurements with encoder
-embeddings produced a stronger result.
-
-| Approach | Training recordings | Validation accuracy | Evaluation accuracy |
-|---|---:|---:|---:|
-| Initial handcrafted baseline | 48 | 68.0% | 61.3% |
-| Expanded handcrafted baseline | 700 | 63.3% | 63.3% |
-| Original EfficientAT classifier | 700 | 88.7% | 86.7% |
-| **Final classifier with room augmentation** | **700 + 700 altered copies** | **86.7%** | **86.7%** |
-
-All rows use the same 150 validation and 150 evaluation recordings. The final
-model detected **63 of 75 AI recordings** and incorrectly flagged **8 of 75
-human recordings** on clean evaluation. The original encoder detected 66 and
-flagged 11: fewer human false positives now comes with more missed AI recordings.
-
-The final experiment added one deterministic room/noise variation per training
-recording, keeping EfficientAT frozen. On the same 150 evaluation recordings
-with simulated room effects, accuracy improved from **74.0% to 78.7%**. Human
-false positives fell from **12/75 to 10/75**, and AI detections rose from **48/75
-to 53/75**. Separate noise source recordings were used for training, validation
-and evaluation. This does not establish accuracy on actual phone recordings.
-
-The candidate met the rule set before training: no more than a two-point clean
-validation accuracy drop, improved simulated validation accuracy and fewer
-simulated validation human false positives. No threshold or parameter search
-was performed. This is the final planned model experiment.
-
-These evaluation recordings were reused across experiments, so this is a
-comparison benchmark rather than a fresh blind test. Full methodology and
-limitations are in the [experiment report](data/baseline_room/REPORT.md).
-
-## Run locally
-
-With **Python 3.12** and **uv** installed, run these commands from the repository
-root:
+You need **Python 3.12**, **uv** and **Git** installed.
 
 ```bash
+git clone https://github.com/Dioniii/ai-music-detector.git
+cd ai-music-detector
 uv sync --locked
 uv run --locked streamlit run app.py
 ```
 
-Open **http://localhost:8501**. Upload a WAV, MP3, FLAC or OGG file between
-**10 seconds and 5 minutes**, up to **50 MB**. Local examples appear when dataset
-recordings are available on your machine.
+Open **http://localhost:8501** in your browser. The trained model is included;
+there is no need to download the training dataset or obtain an API key.
 
-The encoder and classifier are included. You do not need to download the training
-dataset to use the app. Uploaded temporary files are deleted after analysis;
-playback and results remain in the current browser's server session.
+Choose **Use microphone** or **Upload a file**, then press **Analyze recording**.
+For microphone input, record around 20-30 seconds of music and stop recording
+before analyzing. Files must be **10 seconds to 5 minutes**, up to **50 MB**.
+Supported upload formats are WAV, MP3, FLAC and OGG.
 
-To predict from the command line:
+Microphone access requires browser permission. Localhost works on the computer
+running the app; recording from a phone requires an HTTPS deployment. The
+example-recording selector appears only when local example audio is available.
+
+## How it works
+
+```text
+Recording -> selected audio sections -> sound description -> trained classifier -> result
+```
+
+The app checks up to five 20-second sections from across a recording, so it does
+not rely only on the intro. Repeated analyses use the same selected sections.
+
+**EfficientAT**, a pretrained audio model, turns each section into a numerical
+description of its sound. We combine those descriptions and pass them to a
+**logistic-regression classifier trained for this project**. EfficientAT stays
+unchanged; our classifier learns the human/AI distinction from labeled examples.
+
+The project started with simple measurements such as signal level and spectral
+brightness. Pretrained audio descriptions performed better. The final experiment
+added noise, echo and volume changes during training to better represent music
+recorded through speakers and a room.
+
+Inference runs on the app server using CPU PyTorch, without a paid inference API.
+Uploads do not update the model. Temporary audio files are removed after analysis;
+playback and results remain in the current session until cleared or replaced.
+
+## Results
+
+The dataset contains **1,000 recordings**: 500 labeled human from FMA Small and
+500 labeled AI from Echoes TTA, covering 12 generators. The split is **700 for
+training, 150 for validation and 150 for evaluation**, with equal class counts.
+Related artists and reference recordings stay within the same split.
+
+The final classifier trained on the 700 originals plus one altered version of
+each: **1,400 examples from 700 distinct recordings**.
+
+| Evaluation condition | Original encoder classifier | Final augmented classifier |
+|---|---:|---:|
+| Original audio files | 86.7% accuracy | **86.7% accuracy** |
+| Simulated room noise and echo | 74.0% accuracy | **78.7% accuracy** |
+
+Each row compares both models on the same 150 recordings. For the final model:
+
+- On original files, **63 of 75 AI recordings were detected**, and **8 of 75 human recordings were mistaken for AI**.
+- With simulated room effects, **53 of 75 AI recordings were detected**, and **10 of 75 human recordings were mistaken for AI**.
+
+The improvement comes with tradeoffs. Clean validation accuracy fell from 88.7%
+to 86.7%. On clean evaluation, the final model made fewer false accusations but
+missed three more AI recordings than the original encoder classifier.
+
+These recordings were reused across experiments, so this is a comparison
+benchmark, not a fresh blind test. Simulated noise results do not establish
+accuracy on real phones. See the [full experiment report](data/baseline_room/REPORT.md)
+for the method, selection rule and detailed comparisons.
+
+## What the result does not tell you
+
+A score of **0.9 does not mean a verified 90% chance of AI authorship**. The model
+has not been calibrated to make that claim. It also cannot point to a voice,
+instrument or moment as proof that a song was generated.
+
+Evaluation covers Rock and Electronic music, not every genre. Background chatter,
+phone processing, unfamiliar generators and differences between dataset sources
+may affect predictions. Dataset labels are not independently verified authorship,
+and music combining human and AI work is outside the simple two-label setup.
+
+## For developers
+
+The project keeps its main workflow in six Python files:
+
+| Files | Responsibility |
+|---|---|
+| `audio_inspection.py`, `preprocessing.py` | Load audio, check recording quality and select sections. |
+| `features.py`, `baseline.py` | Extract audio descriptions, train the classifier and predict. |
+| `showcase.py`, `app.py` | Build the charts, results and Streamlit interface. |
+
+The current model and results are in `data/baseline_room/`; the pretrained encoder
+is in `data/encoder/`. Downloaded audio, embedding caches and detailed training
+arrays stay local. Dataset and noise-source metadata remain available for
+reproducing the experiment.
+
+<details>
+<summary>CLI predictions, tests and training</summary>
+
+Predict using the current model:
 
 ```bash
 uv run --locked baseline.py predict "path/to/recording.mp3"
 ```
 
-<details>
-<summary><strong>Reproduce training</strong></summary>
+The CLI returns detailed JSON. The app's recording-quality gate and upload limits
+are applied by the UI analysis path, not by this CLI command.
 
-Download the fixed selection of recordings, then train into a new output folder:
+Run the tests:
+
+```bash
+uv run --locked pytest -q
+```
+
+To reproduce the final training experiment, download the fixed dataset and the
+small noise collection, then choose a new output directory:
 
 ```bash
 uv run --locked python -m tools.batch_audio download-expanded
@@ -112,48 +150,24 @@ uv run --locked python -m tools.batch_audio download-room-noise
 uv run --locked baseline.py train --encoder --augment --output data/room_rerun
 ```
 
-The download is approximately 1.6 GiB and resumes completed files. Audio and
-embedding caches stay local. Only training recordings fit the scaler and
-classifier; the saved manifest fixes the splits.
+Training audio requires approximately 1.6 GiB, plus about 3.8 MiB for noise clips.
+Downloads resume completed files. Altered audio is generated temporarily; clean
+and augmented embeddings are cached locally. Only training examples fit the
+scaler and classifier. Training a new model does not automatically replace the
+app's default.
 
-Training saves a new model and evaluation artifacts without replacing the demo.
-To use that model, pass `--model data/room_rerun/model.json` to the prediction
-command. The original encoder model remains at `data/baseline_encoder/model.json`; the
-earlier handcrafted baseline remains at `data/baseline_random/demo/model.json`.
-The nine attributed noise clips add about 3.8 MiB of downloads and remain local.
-See [noise sources and licensing](data/room_noise/README.md).
-
-Run the existing checks with:
-
-```bash
-uv run --locked pytest -q
-```
+The original encoder classifier is preserved at
+`data/baseline_encoder/model.json` for comparison. Use `--model` with the predict
+command to select a different saved classifier.
 
 </details>
 
-## Inside the project
+## Sources and attribution
 
-| Files | Purpose |
-|---|---|
-| `audio_inspection.py`, `preprocessing.py` | Load audio and select sections. |
-| `features.py`, `baseline.py` | Extract embeddings, train and predict. |
-| `showcase.py`, `app.py` | Generate charts and build the interface. |
+- [EfficientAT encoder](data/encoder/README.md): upstream model, license and export details.
+- [Background audio](data/room_noise/README.md): ESC-50 sources, attribution and licensing.
+- [Dataset manifest](data/dataset_1000.csv): music sources, labels and split assignments.
+- [Final experiment](data/baseline_room/REPORT.md): results, limitations and reproduction details.
 
-`data/` holds model artifacts, manifests and experiment results. `tools/` contains
-dataset preparation commands, and `tests/` contains checks. Downloaded audio
-and personal recordings are gitignored.
-
-## Scope and limitations
-
-This is an exploratory detector. Its score is not a calibrated probability,
-and dataset labels are assumptions rather than verified authorship. The current
-evaluation covers Rock and Electronic, with no Pop. Microphone recordings,
-coffee-shop noise and unfamiliar generators have not been validated. Source
-encoding and other dataset differences may influence predictions.
-
-Public deployment and Streamlit Community Cloud resource usage remain unverified.
-
-## Further reading
-
-- [Experiment report](data/baseline_room/REPORT.md) - model comparison and verification.
-- [Encoder details](data/encoder/README.md) - source, attribution and local CPU benchmark.
+Audio sources carry their own licenses. Downloaded music and noise recordings
+are not redistributed in this repository.
