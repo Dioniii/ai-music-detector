@@ -116,6 +116,12 @@ def upload_changed():
     st.session_state['example'] = None
 
 
+def delete_recording():
+    """Discard the current microphone clip and its displayed analysis."""
+    upload_changed()
+    st.session_state['microphone_generation'] = st.session_state.get('microphone_generation', 0) + 1
+
+
 def example_changed():
     clear_result()
     # New widget keys clear previous audio when an example is selected.
@@ -167,6 +173,9 @@ def render_analysis():
         if source == 'Use microphone':
             microphone = st.audio_input('Record nearby music', sample_rate=32000,
                                         key=f'microphone_{st.session_state.get("microphone_generation", 0)}', on_change=upload_changed)
+            if microphone is not None:
+                st.button('Delete recording and record again', on_click=delete_recording,
+                          width='stretch', key='delete_recording')
             with st.expander('Microphone not working?'):
                 st.write('Allow microphone access in your browser settings. On a phone, open the app using an HTTPS link. A plain HTTP address from your laptop will not enable recording. You can also record with your phone and upload the saved file.')
         else:
