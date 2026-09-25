@@ -359,10 +359,36 @@ def download_expanded():
                     print(f'Downloaded/reused {completed}/1000 | {budget.used/1024**2:.1f} MiB transferred', flush=True)
     print(f'Complete: {completed}/1000, {budget.used/1024**2:.1f} MiB transferred', flush=True)
 
+def download_room_noise():
+    """Download only the nine pinned, attributed noise clips for the final experiment."""
+    from urllib.request import urlopen
+    root = Path(__file__).resolve().parents[1] / 'data/room_noise'
+    manifest = json.loads((root / 'manifest.json').read_text())
+    for entry in manifest['clips']:
+        path = root / entry['filename']
+        if path.exists() and hashlib.sha256(path.read_bytes()).hexdigest() == entry['sha256']:
+            continue
+        for attempt in range(3):
+            try:
+                with urlopen(entry['url'], timeout=45) as response:
+                    data = response.read(1024 * 1024)
+                if hashlib.sha256(data).hexdigest() != entry['sha256']:
+                    raise ValueError('Noise download does not match its pinned checksum')
+                path.write_bytes(data)
+                break
+            except (OSError, ValueError):
+                if attempt == 2:
+                    raise
+        print('Downloaded ' + entry['filename'], flush=True)
+
+
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument('command', choices=['select', 'download', 'inspect', 'expand', 'download-expanded'])
+    parser.add_argument('command', choices=['select', 'download', 'inspect', 'expand', 'download-expanded', 'download-room-noise'])
     args = parser.parse_args()
+    if args.command == 'download-room-noise':
+        download_room_noise()
+        return
     if args.command == 'expand':
         expand_dataset()
         return

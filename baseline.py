@@ -10,12 +10,12 @@ from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import confusion_matrix
 from sklearn.pipeline import make_pipeline
 from sklearn.preprocessing import StandardScaler
-from audio_inspection import load_audio
+from audio_inspection import Audio, load_audio
 from features import FEATURE_NAMES, ENCODER_NAMES, ENCODER_DIR, recording_features, encoder_features
 from preprocessing import SAMPLING_SEED
 
 ROOT = Path(__file__).resolve().parent
-DEFAULT_OUTPUT = ROOT / 'data/baseline_encoder'
+DEFAULT_OUTPUT = ROOT / 'data/baseline_room'
 MODEL_PATH = DEFAULT_OUTPUT / 'model.json'
 REFERENCE_MODEL_PATH = ROOT / 'data/baseline_random/demo/model.json'
 
@@ -117,8 +117,45 @@ def measure(labels, scores, group_count):
     }
 
 
-def train(output, manifest=ROOT / "data/dataset_1000.csv", encoder=False):
+def simulate_room(audio, seed, noise):
+    """One deterministic speaker/room/noise variation; used offline, never by inference.
+
+    This is a simple room approximation, not a recording-device simulator.
+    Noise clips loop with a random offset. Labels do not enter this function.
+    """
+    from preprocessing import prepare_recording
+    from scipy.signal import butter, sosfilt
+    rng = np.random.default_rng(seed)
+    rate = 32000
+    mono, _ = prepare_recording(audio, sample_rate=rate)
+    low, high = float(rng.uniform(60, 220)), float(rng.uniform(3500, 12000))
+    filtered = sosfilt(butter(2, [low, high], btype='bandpass', fs=rate, output='sos'), mono)
+    reverberant = filtered.copy()
+    delays = sorted(rng.integers(int(.015 * rate), int(.22 * rate), size=6).tolist())
+    gains = (rng.uniform(.12, .40, 6) * np.exp(-np.asarray(delays) / (rate * .15))).tolist()
+    for delay, gain in zip(delays, gains):
+        reverberant[delay:] += gain * filtered[:-delay]
+    target_db = float(rng.uniform(-32, -16))
+    snr_db = float(rng.uniform(8, 25))
+    signal_rms = float(np.sqrt(np.mean(reverberant ** 2)))
+    reverberant *= 10 ** (target_db / 20) / max(signal_rms, 1e-10)
+    offset = int(rng.integers(len(noise)))
+    background = np.resize(np.roll(noise, offset), len(mono)).astype(np.float64)
+    background -= background.mean()
+    background *= (10 ** ((target_db - snr_db) / 20)) / max(float(np.sqrt(np.mean(background ** 2))), 1e-10)
+    mixed = reverberant + background
+    peak_scale = min(1., .98 / max(float(np.max(np.abs(mixed))), 1e-10))
+    mixed *= peak_scale
+    parameters = dict(seed=seed, low_hz=low, high_hz=high, delays_samples=delays,
+                      echo_gains=gains, target_rms_dbfs=target_db, snr_db=snr_db,
+                      noise_offset=offset, peak_scale=peak_scale)
+    return Audio(mixed.astype(np.float32)[:, None], rate), parameters
+
+
+def train(output, manifest=ROOT / "data/dataset_1000.csv", encoder=False, augment=False):
     """Fit one model on training artists, then evaluate the fixed splits."""
+    if augment and not encoder:
+        raise ValueError('--augment requires --encoder')
     output = Path(output)
     if output.exists():
         raise FileExistsError(f'Refusing to overwrite {output}; choose a new folder')
@@ -140,6 +177,26 @@ def train(output, manifest=ROOT / "data/dataset_1000.csv", encoder=False):
         raw_dir = ROOT / 'data/baseline_1000'
         raw_features = {r['candidate_id']: r for r in read_csv(raw_dir / 'features.csv')} if (raw_dir / 'features.csv').exists() else {}
         raw_hashes = {r['candidate_id']: r['pcm_sha256'] for r in json.loads((raw_dir / 'sections.json').read_text())} if raw_features else {}
+    augmented_vectors, augmentation_log = [], []
+    if augment:
+        from scipy.signal import resample_poly
+        from math import gcd
+        noise_manifest = json.loads((ROOT / 'data/room_noise/manifest.json').read_text())
+        noise_banks = {role: [] for role in ('train', 'validation', 'holdout')}
+        sources = {}
+        for entry in noise_manifest['clips']:
+            path = ROOT / 'data/room_noise' / entry['filename']
+            if digest(path) != entry['sha256']:
+                raise ValueError('Noise checksum mismatch')
+            if sources.setdefault(entry['src_file'], entry['split']) != entry['split']:
+                raise ValueError('Noise source crosses splits')
+            noise = load_audio(path)
+            divisor = gcd(noise.sample_rate, 32000)
+            values = resample_poly(noise.samples.mean(axis=1), 32000 // divisor, noise.sample_rate // divisor)
+            noise_banks[entry['split']].append((entry, values))
+        if not all(noise_banks.values()):
+            raise ValueError('Each split needs separate noise sources')
+        augmentation_version = digest(Path(__file__)) + digest(ROOT / 'data/room_noise/manifest.json')
     decoded_hashes = {}
     for index, row in enumerate(rows, 1):
         audio = load_audio(ROOT / row['file_path'])
@@ -163,6 +220,22 @@ def train(output, manifest=ROOT / "data/dataset_1000.csv", encoder=False):
                 comparison_vectors.append(recording_features(audio)[0])
         else:
             vector, sections = recording_features(audio)
+        if augment:
+            role = roles[index - 1]
+            seed = int.from_bytes(hashlib.sha256(('room-v1:' + row['candidate_id']).encode()).digest()[:8], 'little')
+            bank = noise_banks[role]
+            entry, noise = bank[seed % len(bank)]
+            key = hashlib.sha256((pcm.hexdigest() + cache_version + augmentation_version + str(seed) + entry['sha256']).encode()).hexdigest()
+            path = cache_dir / ('room-' + key + '.json')
+            if path.exists():
+                cached = json.loads(path.read_text())
+                augmented_vector, parameters = np.asarray(cached['vector']), cached['parameters']
+            else:
+                altered, parameters = simulate_room(audio, seed, noise)
+                augmented_vector, _ = encoder_features(altered)
+                path.write_text(json.dumps(dict(vector=augmented_vector.tolist(), parameters=parameters)))
+            augmented_vectors.append(augmented_vector)
+            augmentation_log.append(dict(candidate_id=row['candidate_id'], split=str(role), noise=entry['filename'], **parameters))
         vectors.append(vector)
         section_log.append({'candidate_id': row['candidate_id'], 'sections': sections,
                             'duration_seconds': audio.duration_seconds, 'pcm_sha256': pcm.hexdigest()})
@@ -174,7 +247,13 @@ def train(output, manifest=ROOT / "data/dataset_1000.csv", encoder=False):
     for role in ('train', 'validation', 'holdout'):
         if set(labels[roles == role]) != {0, 1}:
             raise ValueError(f'Missing a class in {role}')
-    pipeline.fit(matrix[roles == 'train'], labels[roles == 'train'])
+    training = roles == 'train'
+    fit_matrix, fit_labels = matrix[training], labels[training]
+    if augment:
+        augmented_matrix = np.asarray(augmented_vectors)
+        fit_matrix = np.concatenate([fit_matrix, augmented_matrix[training]])
+        fit_labels = np.tile(fit_labels, 2)
+    pipeline.fit(fit_matrix, fit_labels)
     scaler, classifier = pipeline.steps[0][1], pipeline.steps[1][1]
     scores = pipeline.predict_proba(matrix)[:, 1]
     model = {
@@ -192,14 +271,41 @@ def train(output, manifest=ROOT / "data/dataset_1000.csv", encoder=False):
     metrics = {role: measure(labels[roles == role], scores[roles == role],
                             len({r['group_id'] for r, split in zip(rows, roles) if split == role}))
                for role in ('train', 'validation', 'holdout')}
-    previous_model = load_model(REFERENCE_MODEL_PATH)
-    previous_scores = score_features(previous_model, np.asarray(comparison_vectors) if encoder else matrix)
-    comparison = {'baseline_model_path': REFERENCE_MODEL_PATH.relative_to(ROOT).as_posix(),
-                  'baseline_model_sha256': digest(REFERENCE_MODEL_PATH),
+    reference_path = ROOT / 'data/baseline_encoder/model.json' if augment else REFERENCE_MODEL_PATH
+    previous_model = load_model(reference_path)
+    previous_scores = score_features(previous_model, matrix if augment else (np.asarray(comparison_vectors) if encoder else matrix))
+    comparison = {'baseline_model_path': reference_path.relative_to(ROOT).as_posix(),
+                  'baseline_model_sha256': digest(reference_path),
                   'previous_model': {role: measure(labels[roles == role], previous_scores[roles == role], metrics[role]['groups'])
                                      for role in ('train', 'validation', 'holdout')},
                   'new_model': metrics, 'exact_pcm_duplicates': 0}
+    if augment:
+        model['augmentation'] = {'version': 'room-v1', 'training_originals': int(training.sum()),
+                                 'training_examples': len(fit_labels), 'source_sha256': augmentation_version,
+                                 'noise_manifest_sha256': digest(ROOT / 'data/room_noise/manifest.json')}
+        augmented_scores = score_features(model, augmented_matrix)
+        old_augmented_scores = score_features(previous_model, augmented_matrix)
+        comparison['simulated_room'] = {
+            name: {role: measure(labels[roles == role], values[roles == role], metrics[role]['groups'])
+                   for role in ('train', 'validation', 'holdout')}
+            for name, values in [('previous_model', old_augmented_scores), ('new_model', augmented_scores)]}
+        old = comparison['simulated_room']['previous_model']['validation']
+        new = comparison['simulated_room']['new_model']['validation']
+        comparison['promotion_rule'] = 'Clean validation accuracy loss <=2 percentage points, higher simulated validation accuracy and lower simulated human false-positive rate; no holdout selection.'
+        comparison['promote'] = bool(metrics['validation']['accuracy'] >= comparison['previous_model']['validation']['accuracy'] - .02
+                                     and new['accuracy'] > old['accuracy']
+                                     and new['human_false_positive_rate'] < old['human_false_positive_rate'])
+        comparison['real_phone_evaluation'] = 'Not performed; no independent labeled phone dataset available.'
     output.mkdir(parents=True)
+    if augment:
+        np.savez_compressed(output / 'augmented_features.npz', vectors=augmented_matrix,
+                            candidate_ids=np.array([r['candidate_id'] for r in rows]))
+        (output / 'augmentation.json').write_text(json.dumps(augmentation_log, indent=2))
+        with (output / 'simulated_predictions.csv').open('w', newline='') as handle:
+            writer = csv.writer(handle)
+            writer.writerow(['candidate_id', 'split', 'true_label', 'previous_score', 'new_score'])
+            writer.writerows((r['candidate_id'], role, r['expected_label'], float(old), float(new))
+                             for r, role, old, new in zip(rows, roles, old_augmented_scores, augmented_scores))
     (output / 'comparison.json').write_text(json.dumps(comparison, indent=2) + '\n', encoding='utf-8')
     if encoder:
         np.savez_compressed(output / 'features.npz', vectors=matrix,
@@ -232,6 +338,7 @@ def main():
     commands = parser.add_subparsers(dest='command', required=True)
     fit = commands.add_parser('train')
     fit.add_argument('--output', type=Path, required=True)
+    fit.add_argument('--augment', action='store_true', help='Add one room/noise variation per training recording')
     fit.add_argument('--encoder', action='store_true', help='Train on frozen EfficientAT embeddings')
     fit.add_argument('--manifest', type=Path, default=ROOT / 'data/dataset_1000.csv')
     infer = commands.add_parser('predict')
@@ -239,7 +346,7 @@ def main():
     infer.add_argument('--model', type=Path, default=MODEL_PATH)
     args = parser.parse_args()
     if args.command == 'train':
-        train(args.output, args.manifest, encoder=args.encoder)
+        train(args.output, args.manifest, encoder=args.encoder, augment=args.augment)
     else:
         print(json.dumps(predict(args.audio, args.model), indent=2))
 

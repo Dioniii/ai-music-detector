@@ -5,14 +5,14 @@ or AI-generated. It combines a pretrained **EfficientAT** encoder with a
 **logistic-regression classifier trained for this project**, presented through
 an interactive Streamlit app.
 
-Upload a song, inspect the sampled audio, and see how the classifier reached its
-result. The output is an experimental model score, not proof of authorship.
+Record nearby music or upload a song, inspect the sampled audio, and view the
+model result. The output is an experimental model score, not proof of authorship.
 
 ## The demo
 
 - **Analyze a recording** and get a human/AI prediction with its model score.
 - **See what was sampled** through a waveform and a spectrogram.
-- **Inspect the classifier** through the strongest embedding contributions.
+- **Record again when needed** with a basic weak-signal and clipping check.
 - **Explore the results**, including incorrectly classified recordings.
 
 The interface uses a dark monospace design and supports desktop and mobile
@@ -33,9 +33,10 @@ embedding. Their average is standardized and passed to the classifier. The
 encoder stays frozen; the scaler and classifier learn from the project's
 labeled training recordings.
 
-Scores at or above **0.5** receive the AI label. The contribution chart shows
-how embedding values influence that score. Individual dimensions are not named
-musical properties such as vocals or loudness.
+Scores at or above **0.5** receive the AI label. The model cannot explain its
+result in terms of named musical properties such as vocals or instruments.
+The UI rejects recordings with fewer than five seconds above its minimum level
+or heavy clipping; this is not a reliable detector of music over room noise.
 
 ## Results
 
@@ -52,15 +53,29 @@ embeddings produced a stronger result.
 |---|---:|---:|---:|
 | Initial handcrafted baseline | 48 | 68.0% | 61.3% |
 | Expanded handcrafted baseline | 700 | 63.3% | 63.3% |
-| **EfficientAT + logistic regression** | **700** | **88.7%** | **86.7%** |
+| Original EfficientAT classifier | 700 | 88.7% | 86.7% |
+| **Final classifier with room augmentation** | **700 + 700 altered copies** | **86.7%** | **86.7%** |
 
-All rows use the same 150 validation and 150 evaluation recordings. The encoder
-model detected **66 of 75 AI recordings** and incorrectly flagged **11 of 75
-human recordings** in evaluation.
+All rows use the same 150 validation and 150 evaluation recordings. The final
+model detected **63 of 75 AI recordings** and incorrectly flagged **8 of 75
+human recordings** on clean evaluation. The original encoder detected 66 and
+flagged 11: fewer human false positives now comes with more missed AI recordings.
+
+The final experiment added one deterministic room/noise variation per training
+recording, keeping EfficientAT frozen. On the same 150 evaluation recordings
+with simulated room effects, accuracy improved from **74.0% to 78.7%**. Human
+false positives fell from **12/75 to 10/75**, and AI detections rose from **48/75
+to 53/75**. Separate noise source recordings were used for training, validation
+and evaluation. This does not establish accuracy on actual phone recordings.
+
+The candidate met the rule set before training: no more than a two-point clean
+validation accuracy drop, improved simulated validation accuracy and fewer
+simulated validation human false positives. No threshold or parameter search
+was performed. This is the final planned model experiment.
 
 These evaluation recordings were reused across experiments, so this is a
 comparison benchmark rather than a fresh blind test. Full methodology and
-limitations are in the [experiment report](data/baseline_encoder/REPORT.md).
+limitations are in the [experiment report](data/baseline_room/REPORT.md).
 
 ## Run locally
 
@@ -93,7 +108,8 @@ Download the fixed selection of recordings, then train into a new output folder:
 
 ```bash
 uv run --locked python -m tools.batch_audio download-expanded
-uv run --locked baseline.py train --encoder --output data/encoder_rerun
+uv run --locked python -m tools.batch_audio download-room-noise
+uv run --locked baseline.py train --encoder --augment --output data/room_rerun
 ```
 
 The download is approximately 1.6 GiB and resumes completed files. Audio and
@@ -101,9 +117,11 @@ embedding caches stay local. Only training recordings fit the scaler and
 classifier; the saved manifest fixes the splits.
 
 Training saves a new model and evaluation artifacts without replacing the demo.
-To use that model, pass `--model data/encoder_rerun/model.json` to the prediction
-command. The earlier baseline remains available at
-`data/baseline_random/demo/model.json`.
+To use that model, pass `--model data/room_rerun/model.json` to the prediction
+command. The original encoder model remains at `data/baseline_encoder/model.json`; the
+earlier handcrafted baseline remains at `data/baseline_random/demo/model.json`.
+The nine attributed noise clips add about 3.8 MiB of downloads and remain local.
+See [noise sources and licensing](data/room_noise/README.md).
 
 Run the existing checks with:
 
@@ -137,5 +155,5 @@ Public deployment and Streamlit Community Cloud resource usage remain unverified
 
 ## Further reading
 
-- [Experiment report](data/baseline_encoder/REPORT.md) - model comparison and verification.
+- [Experiment report](data/baseline_room/REPORT.md) - model comparison and verification.
 - [Encoder details](data/encoder/README.md) - source, attribution and local CPU benchmark.

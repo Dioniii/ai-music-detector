@@ -21,9 +21,9 @@ from showcase import (
 HERO = '<div class="hero"><h1>Human-made or AI-generated?</h1><p>Record nearby music or upload a song and see what the model thinks.</p><span class="small-note">An experimental music detector. It can make mistakes.</span></div>'
 
 RESULTS_INTRO = """## How often did it get it right?
-We used **700 recordings to teach the model**, **150 to help choose the best version**, and **150 more to check its predictions**. Each group had equal numbers of human and AI recordings. Related recordings stayed together to make the checks fairer.
+We used **700 recordings to teach the model**, plus one version of each with added noise, echo and changes in volume. That makes **1,400 training examples from 700 recordings**. Another **150 recordings helped choose the version**, and **150 more checked its predictions**. Human and AI examples were balanced, and related recordings stayed together.
 
-The results below come from those checks, not from your upload. We have checked these recordings before while building the project, so this is not a completely new test.
+The charts below use the original audio files, not your upload. A separate simulated-noise check is shown at the bottom. We have checked these recordings before while building the project, so this is not a completely new test.
 """
 
 SCORES_INTRO = '### How the model scored each recording\nEach dot is one recording. Scores to the right of the middle line are labeled AI; scores to the left are labeled human. A human recording on the right, or an AI recording on the left, is a mistake.'
@@ -51,7 +51,9 @@ The app checks for very weak sound and signs that the recording is too loud. If 
 ### What did it learn from?
 We collected **1,000 recordings: 500 labeled human and 500 labeled AI**. The human music came from FMA, a music collection. The AI music came from Echoes TTA and includes music from 12 AI tools.
 
-Our model learned from 700 of those recordings. The other 300 helped us compare versions and check results. We used EfficientAT as it was; we trained the part that makes the human-or-AI prediction.
+Our model learned from 700 of those recordings, plus a changed version of each with background noise, echo and different volume. Both human and AI music received the same kinds of changes. The other 300 recordings helped us compare versions and check results. We used EfficientAT as it was; we trained the part that makes the human-or-AI prediction.
+
+This helped on our simulated-noise check, but it does not establish accuracy on real phone recordings or in busy rooms.
 
 ### What do the charts show?
 **Audio overview:** the outlined areas show which parts of your recording we checked.
@@ -243,6 +245,13 @@ def render_results():
     st.markdown('Recordings the model got wrong')
     numeric_table(['Recording', 'Music source', 'Original label', 'Model prediction', 'AI score'], errors)
     st.markdown(LIMITATIONS)
+    comparison = json.loads((DEFAULT_OUTPUT / 'comparison.json').read_text(encoding='utf-8'))
+    room = comparison.get('simulated_room')
+    if room:
+        previous, current = room['previous_model']['holdout'], room['new_model']['holdout']
+        counts = current['confusion_matrix_true_rows_predicted_columns_human_ai']
+        st.markdown('### What happened when we added noise and echo?')
+        st.markdown(f'On **150 computer-altered recordings**, the updated model got **{current["accuracy"]:.1%} right**, compared with **{previous["accuracy"]:.1%}** before. It spotted **{counts[1][1]} of 75 AI recordings** and mistook **{counts[0][1]} of 75 human recordings** for AI. These are simulated room conditions, not real phone recordings.')
 
 
 def main():

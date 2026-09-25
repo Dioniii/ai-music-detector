@@ -1,0 +1,258 @@
+{
+  "baseline_model_path": "data/baseline_encoder/model.json",
+  "baseline_model_sha256": "3dd77e4e72eeadb603e5cffee4dab775c4539fcdf10f7768f9d680169aff232b",
+  "previous_model": {
+    "train": {
+      "tracks": 700,
+      "groups": 350,
+      "human_tracks": 350,
+      "ai_tracks": 350,
+      "confusion_matrix_true_rows_predicted_columns_human_ai": [
+        [
+          350,
+          0
+        ],
+        [
+          0,
+          350
+        ]
+      ],
+      "ai_precision": 1.0,
+      "ai_recall": 1.0,
+      "human_false_positive_rate": 0.0,
+      "accuracy": 1.0
+    },
+    "validation": {
+      "tracks": 150,
+      "groups": 75,
+      "human_tracks": 75,
+      "ai_tracks": 75,
+      "confusion_matrix_true_rows_predicted_columns_human_ai": [
+        [
+          64,
+          11
+        ],
+        [
+          6,
+          69
+        ]
+      ],
+      "ai_precision": 0.8625,
+      "ai_recall": 0.92,
+      "human_false_positive_rate": 0.14666666666666667,
+      "accuracy": 0.8866666666666667
+    },
+    "holdout": {
+      "tracks": 150,
+      "groups": 78,
+      "human_tracks": 75,
+      "ai_tracks": 75,
+      "confusion_matrix_true_rows_predicted_columns_human_ai": [
+        [
+          64,
+          11
+        ],
+        [
+          9,
+          66
+        ]
+      ],
+      "ai_precision": 0.8571428571428571,
+      "ai_recall": 0.88,
+      "human_false_positive_rate": 0.14666666666666667,
+      "accuracy": 0.8666666666666667
+    }
+  },
+  "new_model": {
+    "train": {
+      "tracks": 700,
+      "groups": 350,
+      "human_tracks": 350,
+      "ai_tracks": 350,
+      "confusion_matrix_true_rows_predicted_columns_human_ai": [
+        [
+          350,
+          0
+        ],
+        [
+          0,
+          350
+        ]
+      ],
+      "ai_precision": 1.0,
+      "ai_recall": 1.0,
+      "human_false_positive_rate": 0.0,
+      "accuracy": 1.0
+    },
+    "validation": {
+      "tracks": 150,
+      "groups": 75,
+      "human_tracks": 75,
+      "ai_tracks": 75,
+      "confusion_matrix_true_rows_predicted_columns_human_ai": [
+        [
+          61,
+          14
+        ],
+        [
+          6,
+          69
+        ]
+      ],
+      "ai_precision": 0.8313253012048193,
+      "ai_recall": 0.92,
+      "human_false_positive_rate": 0.18666666666666668,
+      "accuracy": 0.8666666666666667
+    },
+    "holdout": {
+      "tracks": 150,
+      "groups": 78,
+      "human_tracks": 75,
+      "ai_tracks": 75,
+      "confusion_matrix_true_rows_predicted_columns_human_ai": [
+        [
+          67,
+          8
+        ],
+        [
+          12,
+          63
+        ]
+      ],
+      "ai_precision": 0.8873239436619719,
+      "ai_recall": 0.84,
+      "human_false_positive_rate": 0.10666666666666667,
+      "accuracy": 0.8666666666666667
+    }
+  },
+  "exact_pcm_duplicates": 0,
+  "simulated_room": {
+    "previous_model": {
+      "train": {
+        "tracks": 700,
+        "groups": 350,
+        "human_tracks": 350,
+        "ai_tracks": 350,
+        "confusion_matrix_true_rows_predicted_columns_human_ai": [
+          [
+            278,
+            72
+          ],
+          [
+            24,
+            326
+          ]
+        ],
+        "ai_precision": 0.8190954773869347,
+        "ai_recall": 0.9314285714285714,
+        "human_false_positive_rate": 0.2057142857142857,
+        "accuracy": 0.8628571428571429
+      },
+      "validation": {
+        "tracks": 150,
+        "groups": 75,
+        "human_tracks": 75,
+        "ai_tracks": 75,
+        "confusion_matrix_true_rows_predicted_columns_human_ai": [
+          [
+            55,
+            20
+          ],
+          [
+            19,
+            56
+          ]
+        ],
+        "ai_precision": 0.7368421052631579,
+        "ai_recall": 0.7466666666666667,
+        "human_false_positive_rate": 0.26666666666666666,
+        "accuracy": 0.74
+      },
+      "holdout": {
+        "tracks": 150,
+        "groups": 78,
+        "human_tracks": 75,
+        "ai_tracks": 75,
+        "confusion_matrix_true_rows_predicted_columns_human_ai": [
+          [
+            63,
+            12
+          ],
+          [
+            27,
+            48
+          ]
+        ],
+        "ai_precision": 0.8,
+        "ai_recall": 0.64,
+        "human_false_positive_rate": 0.16,
+        "accuracy": 0.74
+      }
+    },
+    "new_model": {
+      "train": {
+        "tracks": 700,
+        "groups": 350,
+        "human_tracks": 350,
+        "ai_tracks": 350,
+        "confusion_matrix_true_rows_predicted_columns_human_ai": [
+          [
+            350,
+            0
+          ],
+          [
+            0,
+            350
+          ]
+        ],
+        "ai_precision": 1.0,
+        "ai_recall": 1.0,
+        "human_false_positive_rate": 0.0,
+        "accuracy": 1.0
+      },
+      "validation": {
+        "tracks": 150,
+        "groups": 75,
+        "human_tracks": 75,
+        "ai_tracks": 75,
+        "confusion_matrix_true_rows_predicted_columns_human_ai": [
+          [
+            61,
+            14
+          ],
+          [
+            20,
+            55
+          ]
+        ],
+        "ai_precision": 0.7971014492753623,
+        "ai_recall": 0.7333333333333333,
+        "human_false_positive_rate": 0.18666666666666668,
+        "accuracy": 0.7733333333333333
+      },
+      "holdout": {
+        "tracks": 150,
+        "groups": 78,
+        "human_tracks": 75,
+        "ai_tracks": 75,
+        "confusion_matrix_true_rows_predicted_columns_human_ai": [
+          [
+            65,
+            10
+          ],
+          [
+            22,
+            53
+          ]
+        ],
+        "ai_precision": 0.8412698412698413,
+        "ai_recall": 0.7066666666666667,
+        "human_false_positive_rate": 0.13333333333333333,
+        "accuracy": 0.7866666666666666
+      }
+    }
+  },
+  "promotion_rule": "Clean validation accuracy loss <=2 percentage points, higher simulated validation accuracy and lower simulated human false-positive rate; no holdout selection.",
+  "promote": true,
+  "real_phone_evaluation": "Not performed; no independent labeled phone dataset available."
+}

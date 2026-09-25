@@ -1,0 +1,10 @@
+{
+  "tests_passed": 136,
+  "training_only_vectors": 1400,
+  "aligned_originals": 1000,
+  "exported_score_parity": true,
+  "original_model_preserved": true,
+  "streamlit_tabs": 3,
+  "streamlit_example_and_cli_parity": true,
+  "real_phone_evaluation": false
+}

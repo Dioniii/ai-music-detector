@@ -1,0 +1,1001 @@
+candidate_id,reference,artist_id,group_id,generator,split,true_label,predicted_label,ai_score
+human:fma:121452,Strawberry Boogie - Dan Lizard,20274,fma_artist:20274,,train,human,human,1.9722717631146468e-07
+human:fma:39607,Unexpected Little Happenings - UltraCat,9403,fma_artist:9403,,train,human,human,0.0014917828798037568
+human:fma:26652,Bleuacide - Graphiqs Groove,6747,fma_artist:6747,,train,human,human,0.001664992468250575
+human:fma:123506,About 10 Hours Looking At The Ceiling (Azureflux Arrange) - Irisu Syndrome,20659,fma_artist:20659,,train,human,human,0.00025392449690682
+human:fma:100535,Back From Århus - Small Colin,12787,fma_artist:12787,,train,human,human,0.0001572378795596913
+human:fma:143061,Lonely Satellite - Mystery Mammal,22774,fma_artist:22774,,train,human,human,0.00574559823303896
+human:fma:148443,Arid Badlands - No Human,22984,fma_artist:22984,,train,human,human,5.350622049281246e-08
+human:fma:32435,Password - Go Gadget,7972,fma_artist:7972,,train,human,human,4.5332803099706704e-05
+human:fma:93727,endless #05 - etc.,13518,fma_artist:13518,,train,human,human,0.0014001780506490444
+human:fma:115339,Whiteout - Little Glass Men,19453,fma_artist:19453,,train,human,human,0.04046331492389676
+human:fma:15771,The Staff - Multifaros,4365,fma_artist:4365,,train,human,human,0.025249473203389515
+human:fma:68898,Like Swimming - Broke For Free,9067,fma_artist:9067,,train,human,human,0.003000581142842021
+human:fma:125160,Stargate Pumpin - Gorowski,3578,fma_artist:3578,,train,human,human,0.019097339725839445
+human:fma:97542,Lotus Flower - Amitron_7,11569,fma_artist:11569,,train,human,human,0.003068241171320172
+human:fma:116344,Bitstrain - Csum,19183,fma_artist:19183,,train,human,human,3.305008093397288e-07
+human:fma:64333,You Can't Unfeel The Rhythm (DJ JC Radio Edit) - Pierlo,6104,fma_artist:6104,,train,human,human,0.012347916758343002
+human:fma:52639,Get A Move On - Jason Shaw,11679,fma_artist:11679,,train,human,human,0.03148462943001424
+human:fma:109543,Fallen Astronaut - Newton Balloon,19015,fma_artist:19015,,train,human,human,7.660368268302697e-05
+human:fma:130136,Wet - Michett,21456,fma_artist:21456,,train,human,human,0.005565476548197843
+human:fma:100973,Dark Side - Dyman,14048,fma_artist:14048,,train,human,human,0.010516184795978708
+human:fma:27667,Deep Performance - Gradient,6972,fma_artist:6972,,train,human,human,0.0023126046065984427
+human:fma:64535,found - Retral,13477,fma_artist:13477,,train,human,human,0.0005127013704696149
+human:fma:127936,Armageddon - Synapsis,21128,fma_artist:21128,,train,human,human,0.016695235027705292
+human:fma:36099,morpheus - Exteenager,5978,fma_artist:5978,,train,human,human,0.0030577111203414463
+human:fma:32433,Wake Up - Crazy Games,7970,fma_artist:7970,,train,human,human,0.0067942738686288294
+human:fma:85039,Irradiated Dub - Sick To The Back Teeth,5450,fma_artist:5450,,train,human,human,1.5225482862478333e-05
+human:fma:28548,summer - General Fuzz,7171,fma_artist:7171,,train,human,human,0.00031445338974004625
+human:fma:134447,Intro - Grav,21886,fma_artist:21886,,train,human,human,2.897064340154273e-08
+human:fma:116239,Bonus Life - Radarsat-1,7504,fma_artist:7504,,train,human,human,1.5158043204716539e-05
+human:fma:91085,THISBASS - URB,17022,fma_artist:17022,,train,human,human,4.53862303336266e-08
+human:fma:84483,m00m4m4 feat. Ovenrake - BLEO,15307,fma_artist:15307,,train,human,human,0.00011297586360730517
+human:fma:108533,The Prowler - Ghost By Nature,18885,fma_artist:18885,,train,human,human,0.00031659275797614553
+human:fma:114386,Lost - Quaro/Bruno Del Ben,19497,fma_artist:19497,,train,human,human,7.0359563858625545e-06
+human:fma:139226,Life In Bloom - Mike B. Fort,21394,fma_artist:21394,,train,human,human,0.01091293799670268
+human:fma:85837,Enter The Code - Frame,11574,fma_artist:11574,,train,human,human,0.00023804485109756165
+human:fma:28179,Raise Riddim - I.D. & Baobinga,7082,fma_artist:7082,,train,human,human,6.41978075855855e-08
+human:fma:114283,Quantum Leaper (feat. Lady Parsec) - Azureflux,18846,fma_artist:18846,,train,human,human,0.00010694630009548988
+human:fma:55186,The Crazies Are Out Tonight - Dylan Palme,12099,fma_artist:12099,,train,human,human,0.004496069188853282
+human:fma:4522,Oceanus - High Places,846,fma_artist:846,,train,human,human,0.008296682296672084
+human:fma:54874,Grenfeld - Global Goon,12053,fma_artist:12053,,train,human,human,0.0005160121071114849
+human:fma:53457,Forever falling up - Fanas,11840,fma_artist:11840,,train,human,human,0.0010649050488128837
+human:fma:114242,Disco Time - Tentacles,19475,fma_artist:19475,,train,human,human,3.631744787097244e-06
+human:fma:137151,Awakening - Cloudjumper,19056,fma_artist:19056,,train,human,human,0.03219198974221724
+human:fma:13474,Then - Black Era,2882,fma_artist:2882,,train,human,human,2.7791206242604e-09
+human:fma:114063,Transcendence (Decktonic Remix) - Anthony Seeha,14615,fma_artist:14615,,train,human,human,0.00037107802990328715
+human:fma:84264,elastic_waves - .crk,14023,fma_artist:14023,,train,human,human,3.4361885385250187e-09
+human:fma:91621,Another beek beep beer please - Rolemusic,10397,fma_artist:10397,,train,human,human,2.199079986913135e-05
+human:fma:124915,Monument - Six Umbrellas,20826,fma_artist:20826,,train,human,human,0.015966588541296924
+human:fma:56796,The Pigeon Strut - Podington Bear,7168,fma_artist:7168,,train,human,human,0.007246619827401634
+human:fma:148441,Gugugu - Angel Garcia,22990,fma_artist:22990,,train,human,human,0.00015150054006960736
+human:fma:108230,Pahuutta sydän - Marlaja Virta & ono,18838,fma_artist:18838,,train,human,human,0.004524353137040838
+human:fma:87070,Argonaut Into Deep Space (SFI remix) - (F.E.V.E.R.),16673,fma_artist:16673,,train,human,human,4.349075085674755e-08
+human:fma:72233,Poisons & Potions - Edward Shallow,11111,fma_artist:11111,,train,human,human,1.0413178831993498e-07
+human:fma:141873,Refinery - Remain,22429,fma_artist:22429,,train,human,human,0.0011065101151107222
+human:fma:84202,Illuminations (radio edit) - Lee Rosevere,2008,fma_artist:2008,,train,human,human,0.021616868839179106
+human:fma:26902,The Hit - Goto80,3766,fma_artist:3766,,train,human,human,0.01221645643754526
+human:fma:85317,Human Face - Titus 12,5789,fma_artist:5789,,train,human,human,0.0005692445442513197
+human:fma:69200,Force Of Nature (JMD remix) - Redmann,14211,fma_artist:14211,,train,human,human,0.039881270067269194
+human:fma:104283,Wanna See My Spaceship - Beatoven,18405,fma_artist:18405,,train,human,human,0.006937284778319858
+human:fma:122832,Mount Rey - Sci Fi Industries,14348,fma_artist:14348,,train,human,human,3.480623616311016e-05
+human:fma:116880,Levels - Gumbel,17198,fma_artist:17198,,train,human,human,0.002093170683081612
+human:fma:115697,Emphase feat. Cansu - Ultratech,19677,fma_artist:19677,,train,human,human,0.0005051423303158274
+human:fma:94411,Ichill - Kakurenbo,16743,fma_artist:16743,,train,human,human,0.023693584497384932
+human:fma:65777,Sun Rice - Adubter,13720,fma_artist:13720,,train,human,human,7.959458885443418e-05
+human:fma:105662,Intro - Gilo,17892,fma_artist:17892,,train,human,human,1.4240072055667635e-05
+human:fma:116237,Voight-Kampff - DJ Puffin,19779,fma_artist:19779,,train,human,human,0.0012208143824863319
+human:fma:63655,Part I - Jahzzar,13262,fma_artist:13262,,train,human,human,0.004844438343063491
+human:fma:114545,shmoove - epsilon not,6550,fma_artist:6550,,train,human,human,1.2787013216210844e-05
+human:fma:56029,one two 3 4 - Origami Repetika,12217,fma_artist:12217,,train,human,human,0.003039433258062451
+human:fma:112770,iks rated - Richard Jonas,9680,fma_artist:9680,,train,human,human,2.8778192136762444e-05
+human:fma:110109,World 10 (Azureflux Remix) - Rushjet1,8657,fma_artist:8657,,train,human,human,0.0058133612588039535
+human:fma:3573,Piggled - Dan Deacon,1647,fma_artist:1647,,train,human,human,0.0001541507632825986
+human:fma:72477,Last Days of Disco - Fhernando,14102,fma_artist:14102,,train,human,human,0.005590369872804067
+human:fma:35569,Education After Auschwitz (Bonus Track) - Ion (Romania),8616,fma_artist:8616,,train,human,human,0.0006611088499795365
+human:fma:21167,Bouncy Castle - Roglok,5552,fma_artist:5552,,train,human,human,0.007225413878211951
+human:fma:36144,Apollo Wakes - Shatterfreak,8667,fma_artist:8667,,train,human,human,1.0412339937234253e-05
+human:fma:105673,Inside Voices - Gilo feat. As Metralhadoras,18569,fma_artist:18569,,train,human,human,0.006687365070340253
+human:fma:137463,half a world away - beat.dowsing,22127,fma_artist:22127,,train,human,human,1.4588977205378663e-07
+human:fma:80793,Spirit - Ostin,15841,fma_artist:15841,,train,human,human,0.003573438659740551
+human:fma:69195,Last Flight Home (Marc Burt remix) - Marc Burt,14209,fma_artist:14209,,train,human,human,0.001301741549347763
+human:fma:32439,Chased By A Running Chupacabra - Son Of A Bit!,7976,fma_artist:7976,,train,human,human,4.484834060773726e-06
+human:fma:125299,Organic (electric edit) - Beat Doctor,14215,fma_artist:14215,,train,human,human,1.4851539839774957e-05
+human:fma:100550,Beyond The Universe (Transcendance) - Megatone,17128,fma_artist:17128,,train,human,human,0.004979750871856491
+human:fma:73560,Byte Marks - S.J. Mellia,14476,fma_artist:14476,,train,human,human,1.781932742628327e-05
+human:fma:48442,8bitDetective - Bass Assassin,11089,fma_artist:11089,,train,human,human,1.482484040824385e-05
+human:fma:141310,Memories (ft. Lotta Rasva) - Jens East,19742,fma_artist:19742,,train,human,human,0.0026592241953219548
+human:fma:113453,Lucky Dip - Mr Frisby's Beat Pocket,19392,fma_artist:19392,,train,human,human,0.006293210468233895
+human:fma:130923,Victorious Accomplishment - mathgrant,21535,fma_artist:21535,,train,human,human,0.014648591056809053
+human:fma:147780,Dimension - Creo,23485,fma_artist:23485,,train,human,human,0.00016069553465231098
+human:fma:32218,Happy Sun - Monokle & Galun,7948,fma_artist:7948,,train,human,human,0.002093298276079578
+human:fma:23013,Bust This Bust That - Professor Kliq,3217,fma_artist:3217,,train,human,human,2.239473685851497e-06
+human:fma:31568,Morning News - Nameless Dancers,7797,fma_artist:7797,,train,human,human,1.4903450298644943e-08
+human:fma:25066,Laugh Chile Puree - the menu,6446,fma_artist:6446,,train,human,human,0.00012000061178023566
+human:fma:71509,Ravetrap - Hexawe (Various Artists),14565,fma_artist:14565,,train,human,human,7.63823459812503e-06
+human:fma:69222,Slump (feat. Mac) - Max Grin,14217,fma_artist:14217,,train,human,human,4.5731961804930813e-07
+human:fma:79605,Trolls in Dub - trollhead,14661,fma_artist:14661,,train,human,human,4.466027809323314e-06
+human:fma:148439,Adrenaline Intro - Langax,22985,fma_artist:22985,,train,human,human,1.9505224142039212e-05
+human:fma:71822,The Cemetery - Sinqlogue,14634,fma_artist:14634,,train,human,human,0.014107748391839918
+human:fma:115722,Sunrise - Martin R.,19679,fma_artist:19679,,train,human,human,6.782810434374615e-06
+human:fma:13562,It's Not Jazzz - Maniax Memori,3703,fma_artist:3703,,train,human,human,0.0012974614772707758
+human:fma:47073,Searching - Eric Skiff,10779,fma_artist:10779,,train,human,human,0.002564083002595746
+human:fma:69199,Aquarius (Psychadelik Pedestrian remix) - Phish Funk,14212,fma_artist:14212,,train,human,human,0.0025412629698312586
+human:fma:27177,Quartz Boy - Pixelord,6890,fma_artist:6890,,train,human,human,6.400958359752198e-07
+human:fma:66073,Berlin - LASERS,13767,fma_artist:13767,,train,human,human,0.005840957498914709
+human:fma:145041,Lijperoni - Oelek,21061,fma_artist:21061,,train,human,human,4.0220386866381717e-07
+human:fma:47659,Erinnerung (snippet Nina Simone) - Haute Culture,10902,fma_artist:10902,,train,human,human,2.7691784401004156e-07
+human:fma:36143,Beautiful Android - Kink Slap Simian,8666,fma_artist:8666,,train,human,human,0.0027718988653757607
+human:fma:71507,BACKSTRAP feat. puppyspazz - staRpauSe,4421,fma_artist:4421,,train,human,human,0.00025355832009401697
+human:fma:51954,Beta Stability - Tony Dubshot,9944,fma_artist:9944,,train,human,human,0.0039761562768444786
+human:fma:71503,@ - ui,15504,fma_artist:15504,,train,human,human,0.00014082524038912356
+human:fma:40851,Moving Toward You - Str8 Sounds,8403,fma_artist:8403,,train,human,human,0.0012312571064857533
+human:fma:116240,Rah Rah Rah - RPG-H8R,19781,fma_artist:19781,,train,human,human,1.0371608385431281e-06
+human:fma:46157,over and under - Antiphon,10590,fma_artist:10590,,train,human,human,0.005013252496261895
+human:fma:46160,kaze no tani no naushika - Poorpot,10593,fma_artist:10593,,train,human,human,0.006507901161356238
+human:fma:66638,Grief And Sleep - Ghosts,13889,fma_artist:13889,,train,human,human,0.0009038048254261348
+human:fma:36659,Lucky - All India Radio,8760,fma_artist:8760,,train,human,human,0.008682337308243825
+human:fma:23353,Eigenvalue Subspace Decomposition - Choc,6087,fma_artist:6087,,train,human,human,0.028837985970774038
+human:fma:125723,Vacation - Babe Parade,20941,fma_artist:20941,,train,human,human,1.4500272033791327e-08
+human:fma:122806,bearded - The Carnys,20544,fma_artist:20544,,train,human,human,2.8815384684264724e-08
+human:fma:26765,Everybody Is Happy - Tiny Creatures,6774,fma_artist:6774,,train,human,human,8.907244262744749e-05
+human:fma:67366,Broken Eights - Aranos,13998,fma_artist:13998,,train,human,human,6.936684622454443e-10
+human:fma:46841,All the Time - Monk Turner,1939,fma_artist:1939,,train,human,human,5.8597327972475866e-05
+human:fma:153956,Border Collie - We Is Shore Dedicated,22090,fma_artist:22090,,train,human,human,0.0001469048247623807
+human:fma:131451,B05 Mesh Shirt - Mom Jeans,21568,fma_artist:21568,,train,human,human,0.014853781693032019
+human:fma:127271,Do You Like Forces of Nature? - Hissing Fauna,21077,fma_artist:21077,,train,human,human,1.0768974665300458e-05
+human:fma:135339,I Think From Now On - Caleb Lemond,21957,fma_artist:21957,,train,human,human,0.021861168536019968
+human:fma:129054,You're Stealing Sound - Total Unicorn,21268,fma_artist:21268,,train,human,human,2.3197935154779448e-05
+human:fma:36618,the deceptive time machine - Amil Byleckie,7546,fma_artist:7546,,train,human,human,5.023437332978857e-05
+human:fma:52039,Sea Woof - Poland,11615,fma_artist:11615,,train,human,human,0.0031536728109658493
+human:fma:132789,Urinating on Myself - Gardenella,12953,fma_artist:12953,,train,human,human,3.4599388778778336e-06
+human:fma:64007,Nevesta - Gosprom,8375,fma_artist:8375,,train,human,human,9.346723468438311e-06
+human:fma:69188,Sheep - Samoln,14160,fma_artist:14160,,train,human,human,6.2216549300164805e-09
+human:fma:19423,Flamingo - Orquestra Popular De Paio Pires,5202,fma_artist:5202,,train,human,human,0.0003933687014616972
+human:fma:48456,nez - AlexandreDavidGabriel,7337,fma_artist:7337,,train,human,human,0.005425740691185544
+human:fma:109974,Plastination - Phemale,9454,fma_artist:9454,,train,human,human,0.014620464831716697
+human:fma:120109,Accidental Beatnik - Coconut Monkeyrocket,16763,fma_artist:16763,,train,human,human,0.007459623049378604
+human:fma:57178,"NO (Midi #2: Camille/""Modern Music Mix"") - Skeletons",10406,fma_artist:10406,,train,human,human,3.638505491189491e-05
+human:fma:144933,Saturday - Maxwell Powers,23102,fma_artist:23102,,train,human,human,9.047509248008181e-06
+human:fma:57435,Way Beyond the Logic of Odds by Decade in Exile - Decade in Exile,12420,fma_artist:12420,,train,human,human,7.311182050139043e-08
+human:fma:64834,Music For Baby - Radioactive Sparrow,3171,fma_artist:3171,,train,human,human,8.968445136533547e-05
+human:fma:29045,I Want You - Buffalo Stance,7271,fma_artist:7271,,train,human,human,1.6428834814904826e-05
+human:fma:70875,lady bird - owlface,9713,fma_artist:9713,,train,human,human,0.013837115663649901
+human:fma:47100,02 Le bon dieu et les filles hippies - Manuel J Grotesk,8728,fma_artist:8728,,train,human,human,8.818322099925601e-10
+human:fma:10807,Three Owls Teahaus - Lesbian Afternoon,2735,fma_artist:2735,,train,human,human,1.933632934824647e-06
+human:fma:27802,Like A Flock Of Birds In Flight - onlymeith,7014,fma_artist:7014,,train,human,human,0.016950093100213004
+human:fma:134389,Against All Odds - Scott Holmes,19498,fma_artist:19498,,train,human,human,0.011266223279144316
+human:fma:126405,® o c k e t s - Shy Kids,20995,fma_artist:20995,,train,human,human,3.7870962822589435e-06
+human:fma:107810,Birds Don't Sing - TV Girl,18802,fma_artist:18802,,train,human,human,9.874264737786232e-07
+human:fma:12188,Gimme - Christine,3229,fma_artist:3229,,train,human,human,0.019940237327956127
+human:fma:45335,Billy Ocean - Baby Jazz,10451,fma_artist:10451,,train,human,human,7.667214431330565e-09
+human:fma:12387,Spherical Hearts (Trondheim Remix) - Norton,3343,fma_artist:3343,,train,human,human,0.0013829659362492406
+human:fma:127294,"Autopsy - Oh Yeah, the Future",21081,fma_artist:21081,,train,human,human,3.4566002714243415e-05
+human:fma:58115,Spooky - The Golden Hours,803,fma_artist:803,,train,human,human,2.735014260335656e-08
+human:fma:130265,Show The Way - Rockit Maxx,19390,fma_artist:19390,,train,human,human,4.931130814762042e-06
+human:fma:21232,Where I Stand - Alex077,5574,fma_artist:5574,,train,human,human,0.0008699643733168878
+human:fma:153452,Métal Province - Trotski Nautique,24208,fma_artist:24208,,train,human,human,2.633923945304606e-05
+human:fma:94638,"Tv, médias : Indosat TV - Mike Morton",15460,fma_artist:15460,,train,human,human,0.004217996391067075
+human:fma:11261,India - Mira Cook,2904,fma_artist:2904,,train,human,human,0.013559415660243409
+human:fma:54667,Sunday Lovers - Monday Night Fever,12028,fma_artist:12028,,train,human,human,9.513840822059676e-06
+human:fma:91159,The Race Forever - Monroeville Music Center,13391,fma_artist:13391,,train,human,human,3.0110451518442523e-05
+human:fma:113808,Next Life - The Copycuts,19438,fma_artist:19438,,train,human,human,5.6867660995293225e-05
+human:fma:17906,I Want You Pretty - Learning Music,1922,fma_artist:1922,,train,human,human,0.001110551181387213
+human:fma:104779,Humus - Unthunk,16993,fma_artist:16993,,train,human,human,7.425536745296954e-06
+human:fma:72476,"Model, Job, Metro, Time Square - Björn & Gorden",9018,fma_artist:9018,,train,human,human,1.3124251141905664e-05
+human:fma:120112,Very Happy Encounters - Inzah,1864,fma_artist:1864,,train,human,human,0.01728056949441387
+human:fma:93942,Weekends Away - Ready for Men,17350,fma_artist:17350,,train,human,human,1.1268707333680254e-05
+human:fma:67361,Rich In Vitamin C - Squimaoto,13993,fma_artist:13993,,train,human,human,5.028561989483088e-07
+human:fma:12376,"Good Morning, Bubblegum - The Harvey Girls",3318,fma_artist:3318,,train,human,human,4.902375745870507e-06
+human:fma:67359,Savage Customs - Emperors of Blefuscu,13986,fma_artist:13986,,train,human,human,2.666641499438074e-06
+human:fma:34511,Vilse (Slutet Cover) - Symfoniorkestern,8472,fma_artist:8472,,train,human,human,0.008639659011990966
+human:fma:27805,Both Eyes Closed (ft. Panu Moon) - State Shirt,7017,fma_artist:7017,,train,human,human,0.00020004172266268932
+human:fma:149750,Dites 33 - Manuel Duval,23711,fma_artist:23711,,train,human,human,1.9259146655898805e-08
+human:fma:126105,Nice - No Lala,20968,fma_artist:20968,,train,human,human,0.006126456557167475
+human:fma:53591,"It's Okay, Roseanne - The Parish of Little Clifton",11875,fma_artist:11875,,train,human,human,1.3783497488088562e-09
+human:fma:42751,Butterfly - Delicate Steve,10020,fma_artist:10020,,train,human,human,0.0002969999863048366
+human:fma:16095,YOU GOT THE POWER - MEGA*CHURCH,4427,fma_artist:4427,,train,human,human,0.00044977264022953787
+human:fma:48453,deux dents dehors - AlexandredavidgabrielMehdi,11093,fma_artist:11093,,train,human,human,2.2666454392039003e-11
+human:fma:29180,mamido - Charlene Darling,7286,fma_artist:7286,,train,human,human,0.006111835207303253
+human:fma:21677,I Don't Wanna Speak - Guidance Counselor,5731,fma_artist:5731,,train,human,human,1.4543522978288796e-06
+human:fma:821,Sir - Hecuba,155,fma_artist:155,,train,human,human,0.00016656120039522032
+human:fma:75194,Stay - Sanawon,15241,fma_artist:15241,,train,human,human,3.1754252665537e-07
+human:fma:26298,"Slow Down, Joe - Karl Blau",6484,fma_artist:6484,,train,human,human,1.2081295246926144e-09
+human:fma:119584,Dildo Saga - Pee-Bug,1821,fma_artist:1821,,train,human,human,0.006799453886467653
+human:fma:19759,Let It Go - Dirty Mittens,5283,fma_artist:5283,,train,human,human,0.0025222532414111527
+human:fma:108426,Giving It Up - cultureculture,18870,fma_artist:18870,,train,human,human,1.5477255108390734e-06
+human:fma:128477,GO!GO!GO! - Emerald Park,8018,fma_artist:8018,,train,human,human,7.15630237284652e-05
+human:fma:57078,Lirik Untuk Lagu Pop - Belkastrelka,9845,fma_artist:9845,,train,human,human,0.0007925663308303139
+human:fma:12537,Maree Lunaire - Smoking After,3384,fma_artist:3384,,train,human,human,0.00010545854883257152
+human:fma:128476,Memories=Lies - cellardoor,21151,fma_artist:21151,,train,human,human,0.005703019297936256
+human:fma:64787,Beastly - Invisible Sports,12725,fma_artist:12725,,train,human,human,1.1534669746711857e-10
+human:fma:67332,Island Pop - Drama for Yamaha,13985,fma_artist:13985,,train,human,human,0.012869024245070252
+human:fma:18145,2 scratchy 2 dance - Funky Terrorist,2532,fma_artist:2532,,train,human,human,0.0029577564969519776
+human:fma:25104,Black Cat Veins - Bombay Laughing Club,6447,fma_artist:6447,,train,human,human,3.5263990812443434e-05
+human:fma:72514,Wonders - Zero V,14734,fma_artist:14734,,train,human,human,0.014280797960536324
+human:fma:56895,(as Puppen) - Lame Drivers,1655,fma_artist:1655,,train,human,human,2.782852007074434e-08
+human:fma:32760,Bury The Doubt - Christophe Marc,6044,fma_artist:6044,,train,human,human,5.985807658667667e-09
+human:fma:56249,Woman Alone - Jiony,12253,fma_artist:12253,,train,human,human,3.118493889817804e-08
+human:fma:67368,Get Off My Beach - Super Creep,14000,fma_artist:14000,,train,human,human,0.0008807442107262735
+human:fma:129374,L'Universitaire - Lonely Kid Quentin Ensemble,21291,fma_artist:21291,,train,human,human,0.0003566935360877774
+human:fma:27797,Come to Gwangju with Me (ft. Grizzly616) - The Orchestral Movement of 1932,7009,fma_artist:7009,,train,human,human,0.04693652275132718
+human:fma:12146,Kokoro (I Fall To Pieces) - The Slants,3200,fma_artist:3200,,train,human,human,7.458329014113986e-08
+human:fma:29245,The Angel - Benjamin Bret,7290,fma_artist:7290,,train,human,human,9.781513167799842e-05
+human:fma:120206,Just Believe (We'll Get There) - Very Proper Dragonflies,2013,fma_artist:2013,,train,human,human,0.012978167539617906
+human:fma:16895,American Standard - Matt Carlson,4649,fma_artist:4649,,train,human,human,9.475006105075505e-05
+human:fma:120099,Do The Food - The Nourishment,2017,fma_artist:2017,,train,human,human,1.6401853377723105e-05
+human:fma:37369,Grasping for Thoughts - Útidúr,8965,fma_artist:8965,,train,human,human,0.0013509761493688906
+human:fma:13378,I Wish - Peter Fox Simon,3652,fma_artist:3652,,train,human,human,0.006356788534452464
+human:fma:120105,Happy Boccherini - Lanark,1916,fma_artist:1916,,train,human,human,0.001657364033493538
+human:fma:13191,Outside To Play - Emily In Love,3586,fma_artist:3586,,train,human,human,8.031119467023957e-07
+human:fma:44806,Letter to the Los Angeleans [BEFORE] - Monk Turner + Fascinoma,10296,fma_artist:10296,,train,human,human,0.000160459382155817
+human:fma:2099,....like bacon sundays - luc,348,fma_artist:348,,train,human,human,0.0015503670445971749
+human:fma:29271,Discount Store - Dan Bryk,7296,fma_artist:7296,,train,human,human,3.797125737952137e-09
+human:fma:29128,gymnosperm - Jim Morisson mon cul,7276,fma_artist:7276,,train,human,human,0.0006054920574862444
+human:fma:53229,Cocaine - Fruit Flesh,11811,fma_artist:11811,,train,human,human,0.00014762932263571592
+human:fma:12179,U Fine - Garmisch,3222,fma_artist:3222,,train,human,human,0.021838297698365705
+human:fma:67364,Ether - Andersens,13996,fma_artist:13996,,train,human,human,0.0008181668465969858
+human:fma:21231,"Not Like That-Collaboration Mix (ft. Mindmovie, Peter (Paddy) Bussmeier) - TheJoe",5556,fma_artist:5556,,train,human,human,2.40304120104265e-05
+human:fma:120201,"So Be It Soviet, The Undertow - R. Stevie Moore (with Irwin Chusid)",20204,fma_artist:20204,,train,human,human,0.0004922680478795411
+human:fma:67358,Were You Gone - Brutal Vainqueur,13990,fma_artist:13990,,train,human,human,8.577098119724488e-06
+human:fma:74945,Morning Light - Mate,15217,fma_artist:15217,,train,human,human,0.003387565525766705
+human:fma:79741,LAB CLINICIAN's DAY TRIP - YELLOW CHAIR,15717,fma_artist:15717,,train,human,human,1.4861059557282432e-09
+human:fma:120207,Like A Virgin - The Apartment,1764,fma_artist:1764,,train,human,human,1.6507456522746008e-07
+human:fma:11199,Love Is An Eternal Lie - The Sleeping Tree,2880,fma_artist:2880,,train,human,human,0.02751332716299779
+human:fma:120111,Bicycle Fascism - Erick Gallun & Chris Stecker (Brain Science),20182,fma_artist:20182,,train,human,human,0.00011637453623395315
+human:fma:67360,Fresh Flesh - Inquiet,6758,fma_artist:6758,,train,human,human,1.4785221160252859e-08
+human:fma:64796,Could Be (ft. Jesse Taylor) - Jenny Mayhem,12272,fma_artist:12272,,train,human,human,2.834426404581257e-06
+human:fma:19442,Tongue Tied - Paper Navy,5209,fma_artist:5209,,train,human,human,1.3478907473552624e-05
+human:fma:36371,U.G.L.Y. (CC BY-NC-SA 3.0) - ZOE.LEELA,7295,fma_artist:7295,,train,human,human,0.00023390896179443317
+human:fma:77564,Abba Ingee - Bryyn,12618,fma_artist:12618,,train,human,human,2.232988362810752e-05
+human:fma:46855,Turkey Time - Monk Turner,1939,fma_artist:1939,,train,human,human,8.107286868757259e-07
+human:fma:132791,What it is - Gardenella,12953,fma_artist:12953,,train,human,human,1.1076685339600549e-07
+human:fma:52037,Alesser Whale - Poland,11615,fma_artist:11615,,train,human,human,0.013822347216772765
+human:fma:59451,Sister - Phemale,9454,fma_artist:9454,,train,human,human,0.00035566670333368993
+human:fma:62750,Roller-skate - Jahzzar,13262,fma_artist:13262,,train,human,human,2.087134005148241e-06
+human:fma:105141,Debris - Waste Disposal Machine,11578,fma_artist:11578,,train,human,human,0.0015009201399531387
+human:fma:33538,Roka - Calexico,538,fma_artist:538,,train,human,human,1.0527824506681823e-08
+human:fma:111658,awake - springtide,13523,fma_artist:13523,,train,human,human,2.0717934069622058e-08
+human:fma:143221,The Madness - The Invasion,22790,fma_artist:22790,,train,human,human,3.5087036815961195e-07
+human:fma:133273,Sadness - Movie Theater,21772,fma_artist:21772,,train,human,human,0.012748436264900352
+human:fma:10671,Discipline - Nine Inch Nails,2630,fma_artist:2630,,train,human,human,6.794553548007714e-08
+human:fma:40985,Chocolate Makes You Happy - Xiu Xiu,331,fma_artist:331,,train,human,human,0.0013943638729388612
+human:fma:12521,Never Get Out - Brad Sucks,3227,fma_artist:3227,,train,human,human,1.418854921452994e-06
+human:fma:22093,I'm Not Dreaming - Josh Woodward,3228,fma_artist:3228,,train,human,human,9.294523798547424e-05
+human:fma:135372,Parasite - Lamprey,21958,fma_artist:21958,,train,human,human,0.00035700491718753443
+human:fma:9553,Morning Birds - Kristin Hersh,1917,fma_artist:1917,,train,human,human,0.00022494437935650225
+human:fma:112066,Lullaby - Still Pluto,16689,fma_artist:16689,,train,human,human,2.3853963786926056e-06
+human:fma:119257,like love - The Wades,1810,fma_artist:1810,,train,human,human,0.009254936110514101
+human:fma:82464,Not Too Soon - Throwing Muses,4120,fma_artist:4120,,train,human,human,4.179744580777016e-05
+human:fma:85792,Relived/Replayed - Rations,13535,fma_artist:13535,,train,human,human,0.0014837091298483772
+human:fma:72738,12 - Tumble to the grass below - Expwy,13385,fma_artist:13385,,train,human,human,6.62398578010828e-08
+human:fma:26640,04 - Flowerheads,6742,fma_artist:6742,,train,human,human,0.011507022828071664
+human:fma:55718,Kopeika - et_,12166,fma_artist:12166,,train,human,human,0.0019969884464320774
+human:fma:106564,Victoria's Son - Apache Tomcat,18269,fma_artist:18269,,train,human,human,2.011210821625254e-05
+human:fma:113512,Once the Sky - A Crooked Pulse,19406,fma_artist:19406,,train,human,human,2.8815098852847676e-10
+human:fma:42044,NanowaR - NanowaR Of Steel,9947,fma_artist:9947,,train,human,human,0.017299682701411533
+human:fma:137424,Loser - Monkey Mind,22156,fma_artist:22156,,train,human,human,1.6228796091914078e-05
+human:fma:31999,I Want a House - Twin Sister,7920,fma_artist:7920,,train,human,human,0.0013441618663930525
+human:fma:86443,Befall - Fever Dream,16606,fma_artist:16606,,train,human,human,1.9436879325912533e-09
+human:fma:93867,Peanut Butter Jesus - Vitamin Pets,17344,fma_artist:17344,,train,human,human,1.1597319597624011e-05
+human:fma:93956,Flea Circus - Lemur,17353,fma_artist:17353,,train,human,human,1.3592640449391788e-06
+human:fma:143318,Hundred Years in Helheim - Tri-Tachyon,21127,fma_artist:21127,,train,human,human,0.00024199741562011589
+human:fma:48369,One Enemy Among Twenty-Five Million Friends - Cloudkicker,11018,fma_artist:11018,,train,human,human,0.0017069176660480289
+human:fma:95535,i must have love - Westy Reflector,17370,fma_artist:17370,,train,human,human,4.296894992223997e-05
+human:fma:9491,Rape Me - Toxic Lipstick,2249,fma_artist:2249,,train,human,human,1.551127799616612e-07
+human:fma:87362,Unless - Nisi Period,4202,fma_artist:4202,,train,human,human,2.2354272015897476e-09
+human:fma:104668,Undone - BIG BUG,18195,fma_artist:18195,,train,human,human,0.0001863787288759708
+human:fma:690,Cataclysm - Flying Luttenbachers,137,fma_artist:137,,train,human,human,0.0002912620881354938
+human:fma:40139,Horror - Krestovsky,9417,fma_artist:9417,,train,human,human,2.5898663494512646e-05
+human:fma:90639,lord - Noaidi,16989,fma_artist:16989,,train,human,human,8.708472622644946e-07
+human:fma:110980,Time Forward - Antethic,19115,fma_artist:19115,,train,human,human,6.305331681412528e-07
+human:fma:58221,Kick Back - Sick of Sarah,12620,fma_artist:12620,,train,human,human,0.0058665991858935975
+human:fma:106465,Live - Dinosaur Jugnot,18665,fma_artist:18665,,train,human,human,0.005628637819586543
+human:fma:113165,Un' Ultima Carezza - I Re della Spiaggia,19345,fma_artist:19345,,train,human,human,6.885191326994636e-05
+human:fma:4022,Can't Tell No One - Negative Approach,1072,fma_artist:1072,,train,human,human,1.822055067717639e-07
+human:fma:122685,Kaos o MoMa - Salmo,17997,fma_artist:17997,,train,human,human,0.00313040431076012
+human:fma:91851,Angel's Fall (Instrumental) - Archétypo 120,17124,fma_artist:17124,,train,human,human,0.0047679192562977545
+human:fma:7495,Soft South Africans - Homosexuals,853,fma_artist:853,,train,human,human,1.7924052124059332e-10
+human:fma:1040,Dracula Mountain - Lightning Bolt,190,fma_artist:190,,train,human,human,4.655420327546478e-08
+human:fma:75230,Steps - Aching Beauty,15249,fma_artist:15249,,train,human,human,1.5767920644714351e-06
+human:fma:58540,One Chord Wonder - Man Bites Dog,12721,fma_artist:12721,,train,human,human,6.11577849963072e-05
+human:fma:65619,BlackBox Red at Vondelbunker - BlackBox Red,13671,fma_artist:13671,,train,human,human,3.5248777939000413e-06
+human:fma:129089,Loco Banana - The Vivisectors,1860,fma_artist:1860,,train,human,human,7.918870858170644e-06
+human:fma:138010,Man made lightning - Jardin de la Croix,22213,fma_artist:22213,,train,human,human,0.0019027405574030118
+human:fma:129268,Under The Sea - The IMG,21287,fma_artist:21287,,train,human,human,1.2261725227872477e-07
+human:fma:109355,Beautiful Day - TIGERBERRY,15300,fma_artist:15300,,train,human,human,8.094808844343768e-05
+human:fma:71371,Good Times - Black Bones,14555,fma_artist:14555,,train,human,human,2.1328166926558347e-05
+human:fma:86788,Es ist nie genug - Die Leere im Kern Deiner Hoffnung,16627,fma_artist:16627,,train,human,human,3.06798831121641e-05
+human:fma:70813,Sakit Jiwa Terinfeksi - Hellcore,14486,fma_artist:14486,,train,human,human,0.004799489993488702
+human:fma:67673,Soft Power - James Beaudreau,7501,fma_artist:7501,,train,human,human,1.8360620294073057e-07
+human:fma:6788,Tokugiri Star - Peelander-Z,1119,fma_artist:1119,,train,human,human,0.00017306635033074042
+human:fma:23041,Cold Age - Stromble Fix,4449,fma_artist:4449,,train,human,human,1.9418189014152583e-08
+human:fma:1087,Tell The Police The Truth - Mahjongg,201,fma_artist:201,,train,human,human,2.9747552259073285e-06
+human:fma:64659,Fake Italian - Labasheeda,13496,fma_artist:13496,,train,human,human,3.891328780422083e-11
+human:fma:42310,Sumar (intro) - Lockerbie,9976,fma_artist:9976,,train,human,human,3.587344481236641e-06
+human:fma:777,Relaxing - Glove Compartment,149,fma_artist:149,,train,human,human,1.6721435842337072e-06
+human:fma:112733,Forsaken - Is,19287,fma_artist:19287,,train,human,human,0.002651351970596344
+human:fma:89704,Turn Your Back - The Woolen Men,7486,fma_artist:7486,,train,human,human,1.62899238831124e-05
+human:fma:129962,Lights Up - Pipe Choir,19164,fma_artist:19164,,train,human,human,1.1480070784105144e-06
+human:fma:66717,Love On The Run - Young Love,13904,fma_artist:13904,,train,human,human,0.0068966512166377175
+human:fma:35571,Dunebuggy - Marvelry Skimmer,8371,fma_artist:8371,,train,human,human,1.6878694044811464e-10
+human:fma:108297,Battles - Celebration,16025,fma_artist:16025,,train,human,human,0.0002799153840101305
+human:fma:145259,Joika - Lonely Punk,23152,fma_artist:23152,,train,human,human,0.0012710840079528884
+human:fma:90652,A Lament - Wreck and Reference,16982,fma_artist:16982,,train,human,human,4.860860184600047e-07
+human:fma:132171,Color Blindness - Ulises Lima,21655,fma_artist:21655,,train,human,human,5.985212272705964e-10
+human:fma:84743,This Body - Whore Paint,16366,fma_artist:16366,,train,human,human,0.0009935253901712745
+human:fma:1427,I Feel Evils - Plastic Crimewave Sound,240,fma_artist:240,,train,human,human,5.580072473448089e-10
+human:fma:123278,Turf (Raw - Live) - STYPTIC,18191,fma_artist:18191,,train,human,human,0.0012112437578678254
+human:fma:41962,Living Tribunal - Ga'an,9884,fma_artist:9884,,train,human,human,4.5961330142946986e-05
+human:fma:108504,Lewy - Botinki Ra,18884,fma_artist:18884,,train,human,human,0.0002627439798303075
+human:fma:136404,Tragic Prayer - Castles in the Sky,22051,fma_artist:22051,,train,human,human,0.01435920350272236
+human:fma:133772,Grindstone - Hearse Pileup,19770,fma_artist:19770,,train,human,human,4.7082896652275676e-07
+human:fma:128710,Ghost Baby - The Crypts!,21203,fma_artist:21203,,train,human,human,0.007430291603376162
+human:fma:85027,define my day - Maan,16402,fma_artist:16402,,train,human,human,0.005914340910270882
+human:fma:46024,Beggin' Dogs - Obits,2915,fma_artist:2915,,train,human,human,8.662548989740844e-09
+human:fma:9513,Cold Water - Old Time Relijun,1097,fma_artist:1097,,train,human,human,1.769774253924599e-07
+human:fma:108502,Slender Man - Voodoo Puppets,17247,fma_artist:17247,,train,human,human,0.00010806179569343724
+human:fma:145609,With These Flames - The One They Fear,23198,fma_artist:23198,,train,human,human,0.016625172114735416
+human:fma:63922,Happy Me - Beme Seed,12779,fma_artist:12779,,train,human,human,8.245091603169582e-08
+human:fma:118327,Or Does It Explode? - Tyranny is Tyranny,20023,fma_artist:20023,,train,human,human,3.4351796636079854e-11
+human:fma:86799,Marktversagen - Von Korf,16622,fma_artist:16622,,train,human,human,3.086936230901082e-10
+human:fma:21859,Alchemy Lab - Paint and Copter,5790,fma_artist:5790,,train,human,human,0.013409383164159724
+human:fma:459,Machines and Muscles - CAVE,95,fma_artist:95,,train,human,human,0.0014762337787888975
+human:fma:5006,"So Long, Silver Lining - New Bomb Turks",1075,fma_artist:1075,,train,human,human,6.0772152553287406e-05
+human:fma:127559,High Hopes - Droopies,21107,fma_artist:21107,,train,human,human,1.5080683767850044e-08
+human:fma:255,We Want to be Old - Bird Names,80,fma_artist:80,,train,human,human,3.3392698923612977e-07
+human:fma:67163,Poserslave - Hisko Detria,13940,fma_artist:13940,,train,human,human,3.26415767493415e-05
+human:fma:105682,Heaven In Your Mouth - intouch,17080,fma_artist:17080,,train,human,human,0.00011770745331865637
+human:fma:68909,Walking - Inperfektion,14170,fma_artist:14170,,train,human,human,1.7503633065805624e-05
+human:fma:137935,Epic n' roll - Chafouin,22207,fma_artist:22207,,train,human,human,1.750919751817996e-05
+human:fma:6778,Dresscode - Japanische Kampfhorspiele,889,fma_artist:889,,train,human,human,0.0005391731224798783
+human:fma:99260,Happy end - Distemper,16183,fma_artist:16183,,train,human,human,0.0017220077775872207
+human:fma:141173,Seis - Corazones service,22535,fma_artist:22535,,train,human,human,0.003061141252457939
+human:fma:54942,Brilliant Brightness - Dolorvotre,12077,fma_artist:12077,,train,human,human,2.766214861597733e-06
+human:fma:138060,One Knife - Every Now and Every Then,22222,fma_artist:22222,,train,human,human,0.001935874645264808
+human:fma:136054,Vertigo - Sinapsi,22017,fma_artist:22017,,train,human,human,0.0055494442818707955
+human:fma:141877,I - Nocturnal Mayhem,22584,fma_artist:22584,,train,human,human,0.009619249635456472
+human:fma:132914,The Heart Of The Mountain (piano cover by heklAa) - Release The Long Ships,21754,fma_artist:21754,,train,human,human,0.003022765928575071
+human:fma:108962,Unquietness - The Mystery Artist,18947,fma_artist:18947,,train,human,human,1.3553035343561332e-06
+human:fma:107388,Le kid de la plage - Aussitôt Mort / MORT MORT MORT,18754,fma_artist:18754,,train,human,human,1.3537001350847942e-06
+human:fma:23037,Chinese Drop - major Major,6043,fma_artist:6043,,train,human,human,4.370317505089943e-07
+human:fma:13556,Let Me Go - STEEP,3699,fma_artist:3699,,train,human,human,0.0003216693346853429
+human:fma:97286,We Wanna Rock - Чокнутый Пропеллер,17448,fma_artist:17448,,train,human,human,0.009913234776152089
+human:fma:50752,Ballada Bezbożna - Metalmorphosis,11418,fma_artist:11418,,train,human,human,0.010730901747462085
+human:fma:133731,With Arms - the silence industry,8781,fma_artist:8781,,train,human,human,1.6906996798552654e-06
+human:fma:66535,Baladora - Waylon Thornton,10027,fma_artist:10027,,train,human,human,1.7422986874213574e-06
+human:fma:134034,So Unreal - The Spectacular Fantastic,17145,fma_artist:17145,,train,human,human,6.786483256793723e-07
+human:fma:114430,Warming Days - Patrick Lee,8370,fma_artist:8370,,train,human,human,0.004365152392139285
+human:fma:131978,Cena slobode - Nafta,10121,fma_artist:10121,,train,human,human,0.00012545169460983263
+human:fma:9962,Amour - Avec Noir,15690,fma_artist:15690,,train,human,human,0.017450649938307337
+human:fma:124184,Heist - Bloodgod,20733,fma_artist:20733,,train,human,human,0.007351028277531235
+human:fma:67470,Might As Well Whistle - Ant Neely,14014,fma_artist:14014,,validation,human,human,0.03770915411667767
+human:fma:107127,Moving Rocks - Marrach,18732,fma_artist:18732,,validation,human,human,0.025744368713684334
+human:fma:72072,Watch Your Dubstep Version 2 - Decktonic,14670,fma_artist:14670,,validation,human,ai,0.5435718510555709
+human:fma:26629,Heroic Hexa Epic - NOISE64,6739,fma_artist:6739,,validation,human,human,7.791407169915169e-05
+human:fma:140923,Whispers Invoke Paranoia - Nihilore,21691,fma_artist:21691,,validation,human,ai,0.9639408909435748
+human:fma:71513,M0NOR4V3N - XC3N,15497,fma_artist:15497,,validation,human,ai,0.5532766144743053
+human:fma:146879,A Bit of Electro - 4T Thieves,23015,fma_artist:23015,,validation,human,human,0.1448200233348649
+human:fma:123004,Convalescence II: Love Again - Anima,19102,fma_artist:19102,,validation,human,human,9.600252023680789e-07
+human:fma:66689,July.#04 - arizono kazuhiro,13546,fma_artist:13546,,validation,human,ai,0.8198655398797805
+human:fma:36245,::Intro - mo-seph,8681,fma_artist:8681,,validation,human,human,0.0002144985889495054
+human:fma:69211,Interference (Psychadelik Pedestrian remix) - JMD v Kube,14216,fma_artist:14216,,validation,human,human,0.0001228119204144968
+human:fma:33124,Colazione su saturno - Menion,8066,fma_artist:8066,,validation,human,human,0.00700966793990722
+human:fma:107613,Ugly - Vienna Ditto,18767,fma_artist:18767,,validation,human,human,0.0008391064770110236
+human:fma:107434,Bubbling Pots and Troubling Thoughts - UncleBibby,18761,fma_artist:18761,,validation,human,ai,0.8031548195055453
+human:fma:72215,Tomb Raider (Club Mix) - Music For Your Plants,9576,fma_artist:9576,,validation,human,human,0.035154324756778696
+human:fma:93519,Scorpio - Moon Veil,17332,fma_artist:17332,,validation,human,ai,0.9999514053708629
+human:fma:148444,Haka - MegaHast3r,22981,fma_artist:22981,,validation,human,human,0.028872225952038613
+human:fma:69201,Bass Tribe (remix) - Online Funkstream,14213,fma_artist:14213,,validation,human,human,0.026193274305405734
+human:fma:85290,Her Cold Touch - Koalips,13743,fma_artist:13743,,validation,human,ai,0.7019359382008961
+human:fma:98203,A Message From Space - Ezylohm_tek,17907,fma_artist:17907,,validation,human,human,4.691906901523325e-05
+human:fma:53863,Endorphin - The Easton Ellises,11579,fma_artist:11579,,validation,human,human,0.05853888923135984
+human:fma:116235,Walpurgis Night - A.J.,19777,fma_artist:19777,,validation,human,ai,0.7960368788418177
+human:fma:114291,In Deep Soul - Track Jackit,19480,fma_artist:19480,,validation,human,human,0.0045410520548738
+human:fma:11206,Elles - Music Komite,2888,fma_artist:2888,,validation,human,human,4.4865684540214676e-08
+human:fma:28553,Lullaby - _ghost,7173,fma_artist:7173,,validation,human,ai,0.9867850247391564
+human:fma:51784,Call me at Heaven - Lesvicon Soul feat. Noty Klein,11580,fma_artist:11580,,validation,human,human,0.05676079781056932
+human:fma:26859,"ruby cactus - I, Cactus",6809,fma_artist:6809,,validation,human,human,0.002927852028581257
+human:fma:142550,Locate - Rony Friedman,22682,fma_artist:22682,,validation,human,human,0.0015930406923078053
+human:fma:75314,Babylon Got No Riches - Geese,15256,fma_artist:15256,,validation,human,human,6.966560139552322e-06
+human:fma:3537,We'll Never Dream Again - Cryptacize,610,fma_artist:610,,validation,human,human,0.007252558641609016
+human:fma:86634,We Are Canucks - David Blair,16630,fma_artist:16630,,validation,human,human,0.00012425951084038946
+human:fma:22477,Monkeystage - Ergo Phizmiz,129,fma_artist:129,,validation,human,human,0.0006135143497166281
+human:fma:125377,Hopper's Encore - Attic Ted,6337,fma_artist:6337,,validation,human,human,0.061882491300284774
+human:fma:27550,Sepasang Kekasih Yang Pertama Bercinta Di Luar Angkasa - Frau,6957,fma_artist:6957,,validation,human,ai,0.8889037699226823
+human:fma:56273,And She Knows - Orca Team,12255,fma_artist:12255,,validation,human,human,3.2305731735003654e-05
+human:fma:120179,Intro Monstro Crescendo - Messer Chups,2005,fma_artist:2005,,validation,human,human,8.245319184728786e-06
+human:fma:127281,Magic Tool - Myndra,21078,fma_artist:21078,,validation,human,human,5.6055083446947e-08
+human:fma:113935,Kindsein (Reprise) - Chris Herb,19448,fma_artist:19448,,validation,human,human,0.01452295925422932
+human:fma:32759,And The Pond Life Flourished - Heifervescent,8023,fma_artist:8023,,validation,human,human,6.232179786343609e-06
+human:fma:1661,Only Fools and Horses Theme - So Cow,269,fma_artist:269,,validation,human,human,1.4184518904699785e-09
+human:fma:65756,"Darkling, I Listen - The Black Atlantic",13732,fma_artist:13732,,validation,human,human,0.0015408403860886638
+human:fma:107049,It is screamy - Elvin Brandhi,18725,fma_artist:18725,,validation,human,human,2.831836853358978e-09
+human:fma:58161,DREAMS REALLY DO COME TRUE - Elvis Herod,11383,fma_artist:11383,,validation,human,ai,0.9017838361881028
+human:fma:141180,Stay (Raspatory Remix) - Simple CUT,22538,fma_artist:22538,,validation,human,human,5.458462680642737e-05
+human:fma:96946,27 (Radio Edit Version) - The Cosmic Setter,17757,fma_artist:17757,,validation,human,human,0.0005543137847631649
+human:fma:67362,Compy - Design A Wave,13994,fma_artist:13994,,validation,human,human,1.6202162987159995e-05
+human:fma:22097,Over Me - The Gasoline Brothers,5847,fma_artist:5847,,validation,human,human,0.1517351904202427
+human:fma:127623,Space Kreuzfahrt - Music for Rabbits,9061,fma_artist:9061,,validation,human,human,2.5954547720876794e-08
+human:fma:213,Boute - Au,66,fma_artist:66,,validation,human,human,0.0001867277672185484
+human:fma:12527,Solid Ground - Poxfil,3375,fma_artist:3375,,validation,human,human,0.0029868688031824435
+human:fma:96945,Some Day / New Year Song (Bonus Track Home Edit) - The Cosmic Setter ft. Make Like A Tree,17758,fma_artist:17758,,validation,human,human,0.3183422422597035
+human:fma:128482,Wild Waste - Solar Estates,21153,fma_artist:21153,,validation,human,human,2.5744146020692995e-07
+human:fma:42048,Fractals - Pinkle,6045,fma_artist:6045,,validation,human,human,2.7588650085879487e-07
+human:fma:86263,Stay Hungry - Angstbreaker,16586,fma_artist:16586,,validation,human,human,3.4331845635375746e-06
+human:fma:126295,Living on the Wind - Andy G. Cohen,20985,fma_artist:20985,,validation,human,human,5.432080462403561e-05
+human:fma:35537,Indian Summer - Lorenzo's Music,5911,fma_artist:5911,,validation,human,human,8.628164016663689e-08
+human:fma:145606,SELF EXPLORER - North Cape Lights,23197,fma_artist:23197,,validation,human,human,2.517127010317077e-07
+human:fma:147409,Game Boy Horror - The Zombie Dandies,19740,fma_artist:19740,,validation,human,human,0.00037463993762010473
+human:fma:126667,Halloween Parade - Sleep Out,21027,fma_artist:21027,,validation,human,human,2.311934529822377e-07
+human:fma:4786,"1,000,000 Kisses - Half Japanese",823,fma_artist:823,,validation,human,human,1.4044884716056873e-08
+human:fma:54621,Crusade to Terra - Starseed,12023,fma_artist:12023,,validation,human,human,0.0004023920314779836
+human:fma:16994,First Christmas Song - Tusk Lord,4656,fma_artist:4656,,validation,human,ai,0.9857836988128568
+human:fma:131554,Emily Rose (a duet with Jennifer Carpenter) - Your Marginally Talented Photographer Girlfriend,21464,fma_artist:21464,,validation,human,human,0.04097212078623464
+human:fma:71617,06 Metal-La-La-La - NanowaR,3231,fma_artist:3231,,validation,human,human,2.593884306564665e-07
+human:fma:130689,Flaying with Fire - Cryosyncopy,21524,fma_artist:21524,,validation,human,human,0.09700348051527875
+human:fma:139461,Volny Dlina - Dlina Volny,22355,fma_artist:22355,,validation,human,human,0.0003601220726084045
+human:fma:1930,So Thereby...and furthermore...thus henceforth...Mono - Upsilon Acrux,315,fma_artist:315,,validation,human,ai,0.8408446766753676
+human:fma:8208,Rocket USA - Alan Vega & Oneida,2252,fma_artist:2252,,validation,human,human,6.10682838702889e-07
+human:fma:86761,Be Sweet - Marco Trovatello,15106,fma_artist:15106,,validation,human,human,5.212714349215022e-08
+human:fma:1270,Cocksuckerbastardmotherfucker - Necropolis,221,fma_artist:221,,validation,human,human,0.003029999448925372
+human:fma:147956,Universal Libraries - Portrayal,21705,fma_artist:21705,,validation,human,human,5.538936106720674e-07
+human:fma:3722,Swans - Indian Jewelry,876,fma_artist:876,,validation,human,human,0.0825593698915608
+human:fma:1706,In the Pineys - Strapping Fieldhands,279,fma_artist:279,,validation,human,human,0.13605379560872374
+human:fma:75221,The Ambassador Of Death - Holy Pain,15248,fma_artist:15248,,validation,human,ai,0.9568765071758695
+human:fma:44918,Teenager - Apache Dropout,10382,fma_artist:10382,,validation,human,human,3.021537235319069e-06
+human:fma:32437,Healing - Big Bang Boom,7974,fma_artist:7974,,holdout,human,human,0.10459019686847934
+human:fma:132138,OST 13 More Aliens! - sawsquarenoise,19696,fma_artist:19696,,holdout,human,human,0.0008019294587144177
+human:fma:87157,Back (In Time) To (Save) The Future - Dr. Wylie,15536,fma_artist:15536,,holdout,human,ai,0.9109997245237879
+human:fma:31044,In The Belly Of Gorgul - Christian Bjoerklund,7688,fma_artist:7688,,holdout,human,human,5.782941747410365e-07
+human:fma:71514,Shut Up - Rhinostrich,15495,fma_artist:15495,,holdout,human,human,3.856546940144695e-05
+human:fma:127159,Rooter (Happy'n Deep Mix) - Argon,21063,fma_artist:21063,,holdout,human,human,0.013990825182702926
+human:fma:48463,Happiness - Sycamore Drive,9573,fma_artist:9573,,holdout,human,ai,0.9763570054474465
+human:fma:138578,the endless corner - harmonic defiance,21157,fma_artist:21157,,holdout,human,human,6.107603673292088e-06
+human:fma:114390,Poison - Quaro,19496,fma_artist:19496,,holdout,human,human,0.08979691903514707
+human:fma:107908,Spirtus... - Project 5am (Feat. DJ Whodini),18808,fma_artist:18808,,holdout,human,human,0.2476086169617013
+human:fma:93364,This Girl - Jupiter Makes Me Scream,17293,fma_artist:17293,,holdout,human,ai,0.8962605761006749
+human:fma:107910,Yves - Project 5am,17927,fma_artist:17927,,holdout,human,ai,0.9797103216718097
+human:fma:116243,South Shore Strut - The Crayon Industry,7507,fma_artist:7507,,holdout,human,human,0.00029456633273065337
+human:fma:92283,Antarctic Dawn (Bonus Track) - DJ Spooky,16873,fma_artist:16873,,holdout,human,human,1.8443452116856618e-06
+human:fma:99261,Weeklybeats 2014 #7 - Freaking Viking - RoccoW,10484,fma_artist:10484,,holdout,human,ai,0.8283875670177737
+human:fma:145917,Paradigmatic (Reprise) - H-LR,23219,fma_artist:23219,,holdout,human,human,8.443062717666824e-09
+human:fma:64618,Deuce - Indian Wells,13492,fma_artist:13492,,holdout,human,human,0.00017197261164232945
+human:fma:81195,Shake Service - Tactus,15885,fma_artist:15885,,holdout,human,human,0.00038394544901016055
+human:fma:104277,Adventures In Godzilladelph - SKGB,18289,fma_artist:18289,,holdout,human,human,1.312765553300017e-06
+human:fma:69207,By The Water (Aerologic remix) - Space Invaders v Psychadelik Pedestrian,14214,fma_artist:14214,,holdout,human,human,0.012713897903971915
+human:fma:29673,I.C. - Listen With Sarah,6848,fma_artist:6848,,holdout,human,human,2.1245451684114595e-08
+human:fma:141616,Born - Barbarix,13437,fma_artist:13437,,holdout,human,human,0.11781406214161777
+human:fma:116241,Space Cop - Smoked Meat Fax Machine,4221,fma_artist:4221,,holdout,human,human,0.001032909017856203
+human:fma:92548,Memories - Psychadelik Pedestrian,13826,fma_artist:13826,,holdout,human,human,0.005776142597132521
+human:fma:109925,Blacklisted - JTPE,19034,fma_artist:19034,,holdout,human,human,0.002822598412873982
+human:fma:33123,Piano  5-1 - Elisa Luu,8064,fma_artist:8064,,holdout,human,human,0.00019001541700136346
+human:fma:46159,All Tremors Cease (lokey's imminent revision) - Erin Dingle,10592,fma_artist:10592,,holdout,human,human,3.5307123764718295e-08
+human:fma:121595,'85s - Phatte Harry,20327,fma_artist:20327,,holdout,human,ai,0.9982358210105331
+human:fma:87068,One More Reason (unofficial SFI remix) - Vigilante,16672,fma_artist:16672,,holdout,human,human,6.9776585213545e-05
+human:fma:135990,Daydreamin' feat. Knwlan Ryn - Marquice Turner,22001,fma_artist:22001,,holdout,human,human,0.02024640000814298
+human:fma:145549,Yellow Taxi under a Blue Sky - MindsEye,22184,fma_artist:22184,,holdout,human,human,0.00033840415263357635
+human:fma:28546,Our Slanted Voices (ft. Colin Mutchler) - DoKashiteru,7169,fma_artist:7169,,holdout,human,human,0.17588245807929473
+human:fma:92554,Black Magic - JMD,17237,fma_artist:17237,,holdout,human,human,0.0037035272920735735
+human:fma:65037,A Lifetime of Summers Past - Candlegravity,13534,fma_artist:13534,,holdout,human,ai,0.9987629704464956
+human:fma:139954,Fin - E T I L E,22405,fma_artist:22405,,holdout,human,human,0.014285003939855543
+human:fma:56523,Sports Day - Kevin Bryce,12273,fma_artist:12273,,holdout,human,human,0.00019745582097722858
+human:fma:1482,Reindeer Dance - Rainbro,249,fma_artist:249,,holdout,human,human,0.0049291087958340755
+human:fma:115392,Z - 505,19626,fma_artist:19626,,holdout,human,human,0.002767932254174127
+human:fma:128699,Could it be so Hard - The Degs,21046,fma_artist:21046,,holdout,human,human,1.2520988283891674e-06
+human:fma:146482,Saint Clare - Cheatin' - Norwegian Blue Records,23325,fma_artist:23325,,holdout,human,human,7.727918749059177e-07
+human:fma:256,Toggle - Black Elk,81,fma_artist:81,,holdout,human,human,1.0032189144016423e-05
+human:fma:75786,Write it Down - Square People,15310,fma_artist:15310,,holdout,human,human,1.130108529226569e-11
+human:fma:42844,Men Don't Cry - Waylon Thornton and the Heavy Hands,10023,fma_artist:10023,,holdout,human,human,1.1583499287144173e-08
+human:fma:133479,Edemov Sad - Fanny Kaplan,21806,fma_artist:21806,,holdout,human,human,5.457074816953181e-07
+human:fma:125003,Thanks A Million - Let Me Crazy,12676,fma_artist:12676,,holdout,human,human,0.00044825164265848024
+human:fma:71938,Eaters of the Flesh - Dark Asylum Music,14646,fma_artist:14646,,holdout,human,human,1.4859878767316521e-05
+human:fma:3765,Waves of Second Guessing - Kinski,921,fma_artist:921,,holdout,human,human,0.029872165308158463
+human:fma:108155,Wounded knee 1890 - Interlude,18831,fma_artist:18831,,holdout,human,human,0.0018552054945434474
+human:fma:56559,Wax 666 - Krebs,12277,fma_artist:12277,,holdout,human,human,5.635061450043378e-07
+human:fma:123835,Ocean - Mesmerists,20691,fma_artist:20691,,holdout,human,human,2.6041188112198706e-06
+human:fma:104063,Shoegazing Ants - Etcetera Music,18387,fma_artist:18387,,holdout,human,human,0.0001250576187756701
+human:fma:119715,Side 2 - Kraus,4925,fma_artist:4925,,holdout,human,human,0.01944364370238291
+human:fma:6519,Somebody To Love - Sakura Madams,1844,fma_artist:1844,,holdout,human,ai,0.9981985346756033
+human:fma:45055,Pesnya Marka - I Drug Moy Gruzovik...,10393,fma_artist:10393,,holdout,human,human,0.19934329879087367
+human:fma:86417,The Destroyer (Parts 1 and 2) - One Master,16597,fma_artist:16597,,holdout,human,human,0.0007030512413571005
+human:fma:4108,New Wave Hippies - Psychedelic Horseshit,1152,fma_artist:1152,,holdout,human,human,8.941557362200324e-06
+human:fma:61493,Redlight - Room For A Ghost,13115,fma_artist:13115,,holdout,human,human,0.0006378154077265502
+human:fma:119574,Rock on the Hole - Side 4 - Iron Metal,1824,fma_artist:1824,,holdout,human,human,5.352573786192363e-07
+human:fma:69727,Sxy folys - ROGER ROBERT,7678,fma_artist:7678,,holdout,human,human,0.022535646826390282
+human:fma:47921,Eclectic Prawn - Dumbo Gets Mad,8706,fma_artist:8706,,holdout,human,human,3.327742940026445e-07
+human:fma:105145,Sleepwalkers (remixed by Waste Disposal Machine) - Mikroben Krieg,16670,fma_artist:16670,,holdout,human,human,1.3080535476771002e-05
+human:fma:149417,Nerve Damage - Punk Rock Opera,22128,fma_artist:22128,,holdout,human,human,1.0247540081391156e-06
+human:fma:127339,Nine Stones - Andrew Howes,7410,fma_artist:7410,,holdout,human,human,0.005584121801686623
+human:fma:107101,Will I See You Again - Mess.,18730,fma_artist:18730,,holdout,human,human,0.0005413249643876762
+human:fma:107659,80s Action Movie - Tony Gage,307,fma_artist:307,,holdout,human,human,0.0007262405555251548
+human:fma:16821,The Pharaos' Theme - Pharaos,4632,fma_artist:4632,,holdout,human,human,4.295499388580575e-09
+human:fma:993,Or So I've Been Told - Jad Fair and Jason Willett,175,fma_artist:175,,holdout,human,human,0.007756681673520238
+human:fma:124393,Impulsion pt.2 - Radius System,20763,fma_artist:20763,,holdout,human,human,1.469076200766369e-06
+human:fma:107506,Operation Cast Lead - The United Sons of Toil,18772,fma_artist:18772,,holdout,human,human,0.0011004527042761958
+human:fma:16354,Rose of Los Angeles - Michael Gira,4495,fma_artist:4495,,holdout,human,human,0.007774439377897804
+human:fma:40986,Doubt - The Corin Tucker Band,9623,fma_artist:9623,,holdout,human,human,5.367323264635581e-06
+human:fma:122472,Merry-Go-Round Heart - Eric & Magill,16692,fma_artist:16692,,holdout,human,human,0.016537313020700002
+human:fma:3950,Click Click Bang Bang - Miss Derringer,1037,fma_artist:1037,,holdout,human,human,3.586092413886081e-09
+human:fma:4799,I've Got a Love - Harvey Milk,834,fma_artist:834,,holdout,human,human,0.05920326798684539
+human:fma:574,Caliente Queen - Clockcleaner,106,fma_artist:106,,holdout,human,human,4.1788614357870395e-08
+ai:Echoes/TTA/diffrhythm/Troubles_Ive_seen_Malaventura_diffrhythm_TTA_001.mp3,Troubles I've seen - Malaventura,5673,fma_artist:5673,diffrhythm,train,ai,ai,0.9984523700756607
+ai:Echoes/TTA/acestep/Lights_Up_Pipe_Choir_acestep_TTA_001.mp3,Lights Up - Pipe Choir,19164,fma_artist:19164,acestep,train,ai,ai,0.9999990159438956
+ai:Echoes/TTA/audioldm/Promo_Mix_Vocal_Edit_Luv_Dub_Mix_Pierlo_audioldm_TTA_001.mp3,Promo Mix Vocal Edit (Luv Dub Mix) - Pierlo,6104,fma_artist:6104,audioldm,train,ai,ai,0.9940832397539688
+ai:Echoes/TTA/udio/Roundtrip_Oh_Yeah_the_Future_udio_TTA_002.mp3,"Roundtrip - Oh Yeah, the Future",21081,fma_artist:21081,udio,train,ai,ai,0.9974054411100551
+ai:Echoes/TTA/suno/Digital_Lightning_Cloudkicker_suno_TTA_001.mp3,Digital Lightning - Cloudkicker,11018,fma_artist:11018,suno,train,ai,ai,0.9999801810405706
+ai:Echoes/TTA/brev/Straw_Fields_Rolemusic_brev_TTA_002.mp3,Straw Fields - Rolemusic,10397,fma_artist:10397,brev,train,ai,ai,0.9999998976915299
+ai:Echoes/TTA/elevenlabs/The_Dream_and_the_Dreamer_Caleb_Lemond_elevenlabs_TTA_001.mp3,The Dream and the Dreamer - Caleb Lemond,21957,fma_artist:21957,elevenlabs,train,ai,ai,0.9776483845739193
+ai:Echoes/TTA/mubert/I_Nocturnal_Mayhem_mubert_TTA_001.mp3,I - Nocturnal Mayhem,22584,fma_artist:22584,mubert,train,ai,ai,0.9985340624899393
+ai:Echoes/TTA/producer/OOOTHERSIDE_-_Liquid_Paper_Mike_B._Fort_producer_TTA_001.mp3,OOOTHERSIDE - Liquid Paper - Mike B. Fort,21394,fma_artist:21394,producer,train,ai,ai,0.9999927577130845
+ai:Echoes/TTA/stableaudio/Roller_Star_Monroeville_Music_Center_stableaudio_TTA_001.mp3,Roller Star - Monroeville Music Center,13391,fma_artist:13391,stableaudio,train,ai,ai,0.999976891942495
+ai:Echoes/TTA/songgen/The_Boss_Multifaros_songgen_TTA_001.mp3,The Boss - Multifaros,4365,fma_artist:4365,songgen,train,ai,ai,0.9999963745539073
+ai:Echoes/TTA/musicgen/The_Dawn_The_One_They_Fear_musicgen_TTA_001.wav,The Dawn - The One They Fear,23198,fma_artist:23198,musicgen,train,ai,ai,0.9999313450470284
+ai:Echoes/TTA/diffrhythm/Vanishing_Horizon_Jason_Shaw_diffrhythm_TTA_001.mp3,Vanishing Horizon - Jason Shaw,11679,fma_artist:11679,diffrhythm,train,ai,ai,0.9999220135780538
+ai:Echoes/TTA/acestep/Bergwald_Bergwald_Every_Now_and_Every_Then_acestep_TTA_001.mp3,Bergwald Bergwald - Every Now and Every Then,22222,fma_artist:22222,acestep,train,ai,ai,0.9999999787895419
+ai:Echoes/TTA/suno/Troubles_Ive_seen_Malaventura_suno_TTA_002.mp3,Troubles I've seen - Malaventura,5673,fma_artist:5673,suno,train,ai,ai,0.9999923971677307
+ai:Echoes/TTA/elevenlabs/Lost_Paradise_Autumn_Interlude_elevenlabs_TTA_002.mp3,Lost Paradise - Autumn Interlude,23674,fma_artist:23674,elevenlabs,train,ai,ai,0.9999471731543602
+ai:Echoes/TTA/brev/Only_Instrumental_Broke_For_Free_brev_TTA_001.mp3,Only Instrumental - Broke For Free,9067,fma_artist:9067,brev,train,ai,ai,0.9947392728095462
+ai:Echoes/TTA/musicgen/Lovedreams_Oh_Yeah_the_Future_musicgen_TTA_001.wav,"Lovedreams - Oh Yeah, the Future",21081,fma_artist:21081,musicgen,train,ai,ai,0.9995285307551871
+ai:Echoes/TTA/mubert/Ohtli_Seclorance_mubert_TTA_001.mp3,Ohtli - Seclorance,22467,fma_artist:22467,mubert,train,ai,ai,0.9999874650746838
+ai:Echoes/TTA/audioldm/Colossal_Stillness_Scott_Holmes_audioldm_TTA_001.mp3,Colossal Stillness - Scott Holmes,19498,fma_artist:19498,audioldm,train,ai,ai,0.9895796200572673
+ai:Echoes/TTA/udio/The_Reality_Machine_Monroeville_Music_Center_udio_TTA_002.mp3,The Reality Machine - Monroeville Music Center,13391,fma_artist:13391,udio,train,ai,ai,0.9982247278496297
+ai:Echoes/TTA/stableaudio/Ugh_Humans_Can_Join_Mystery_Mammal_stableaudio_TTA_001.mp3,Ugh! Humans Can Join - Mystery Mammal,22774,fma_artist:22774,stableaudio,train,ai,ai,0.9999591174581111
+ai:Echoes/TTA/songgen/Happy_Lamprey_songgen_TTA_001.mp3,Happy - Lamprey,21958,fma_artist:21958,songgen,train,ai,ai,0.9999999918139258
+ai:Echoes/TTA/producer/I_Think_From_Now_On_Caleb_Lemond_producer_TTA_001.mp3,I Think From Now On - Caleb Lemond,21957,fma_artist:21957,producer,train,ai,ai,0.9997484051384018
+ai:Echoes/TTA/suno/Acoustic_Unleashed_Remain_suno_TTA_001.mp3,Acoustic Unleashed - Remain,22429,fma_artist:22429,suno,train,ai,ai,0.9996569476382691
+ai:Echoes/TTA/stableaudio/Infinite_Light_Pipe_Choir_stableaudio_TTA_001.mp3,Infinite Light - Pipe Choir,19164,fma_artist:19164,stableaudio,train,ai,ai,0.9999969278054432
+ai:Echoes/TTA/acestep/Lackadaisical_Oh_Yeah_the_Future_acestep_TTA_001.mp3,"Lackadaisical - Oh Yeah, the Future",21081,fma_artist:21081,acestep,train,ai,ai,0.9999969595338437
+ai:Echoes/TTA/diffrhythm/Ad_Astra_P_C_III_diffrhythm_TTA_001.mp3,Ad Astra - P C III,19189,fma_artist:19189,diffrhythm,train,ai,ai,0.9999986101422528
+ai:Echoes/TTA/songgen/Breathe_New_Life_Scott_Holmes_songgen_TTA_001.mp3,Breathe New Life - Scott Holmes,19498,fma_artist:19498,songgen,train,ai,ai,0.9999995801154349
+ai:Echoes/TTA/udio/Spanish_BEEEYYAAACHHH_Malaventura_udio_TTA_001.mp3,Spanish BEEEYYAAACHHH - Malaventura,5673,fma_artist:5673,udio,train,ai,ai,0.9989235300838236
+ai:Echoes/TTA/elevenlabs/Tapes_Gumbel_elevenlabs_TTA_002.mp3,Tapes - Gumbel,17198,fma_artist:17198,elevenlabs,train,ai,ai,0.9844840192703345
+ai:Echoes/TTA/audioldm/I_Nocturnal_Mayhem_audioldm_TTA_001.mp3,I - Nocturnal Mayhem,22584,fma_artist:22584,audioldm,train,ai,ai,0.9999998793971278
+ai:Echoes/TTA/mubert/The_Race_Forever_Monroeville_Music_Center_mubert_TTA_001.mp3,The Race Forever - Monroeville Music Center,13391,fma_artist:13391,mubert,train,ai,ai,0.9995400238423223
+ai:Echoes/TTA/brev/All_of_Us_Eric_Skiff_brev_TTA_001.mp3,All of Us - Eric Skiff,10779,fma_artist:10779,brev,train,ai,ai,0.9999999881736211
+ai:Echoes/TTA/musicgen/Lost_Paradise_Autumn_Interlude_musicgen_TTA_001.wav,Lost Paradise - Autumn Interlude,23674,fma_artist:23674,musicgen,train,ai,ai,0.9999799692700271
+ai:Echoes/TTA/producer/The_Dream_and_the_Dreamer_Caleb_Lemond_producer_TTA_001.mp3,The Dream and the Dreamer - Caleb Lemond,21957,fma_artist:21957,producer,train,ai,ai,0.9999915548637079
+ai:Echoes/TTA/diffrhythm/Unexpected_Little_Happenings_UltraCat_diffrhythm_TTA_001.mp3,Unexpected Little Happenings - UltraCat,9403,fma_artist:9403,diffrhythm,train,ai,ai,0.9998043226140354
+ai:Echoes/TTA/audioldm/The_Dawn_The_One_They_Fear_audioldm_TTA_001.mp3,The Dawn - The One They Fear,23198,fma_artist:23198,audioldm,train,ai,ai,0.9931820679722962
+ai:Echoes/TTA/mubert/Autopsy_Oh_Yeah_the_Future_mubert_TTA_001.mp3,"Autopsy - Oh Yeah, the Future",21081,fma_artist:21081,mubert,train,ai,ai,0.9999399329418696
+ai:Echoes/TTA/acestep/Time_Up_ENDRUDARK_acestep_TTA_001.mp3,Time Up - ENDRUDARK,16893,fma_artist:16893,acestep,train,ai,ai,0.9999999743710855
+ai:Echoes/TTA/stableaudio/Digital_Lightning_Cloudkicker_stableaudio_TTA_001.mp3,Digital Lightning - Cloudkicker,11018,fma_artist:11018,stableaudio,train,ai,ai,0.9795768934179314
+ai:Echoes/TTA/suno/The_Cave_of_Time_Monroeville_Music_Center_suno_TTA_002.mp3,The Cave of Time - Monroeville Music Center,13391,fma_artist:13391,suno,train,ai,ai,0.9991549683849347
+ai:Echoes/TTA/musicgen/Artificial_anxiety_Michett_musicgen_TTA_001.wav,Artificial anxiety - Michett,21456,fma_artist:21456,musicgen,train,ai,ai,0.999820039403974
+ai:Echoes/TTA/songgen/Bergwald_Bergwald_Every_Now_and_Every_Then_songgen_TTA_001.mp3,Bergwald Bergwald - Every Now and Every Then,22222,fma_artist:22222,songgen,train,ai,ai,0.999504713634138
+ai:Echoes/TTA/brev/Solearesbeats_Malaventura_brev_TTA_001.mp3,Soleares&beats - Malaventura,5673,fma_artist:5673,brev,train,ai,ai,0.9993402627107576
+ai:Echoes/TTA/udio/Robot_Heart_Mystery_Mammal_udio_TTA_002.mp3,Robot Heart - Mystery Mammal,22774,fma_artist:22774,udio,train,ai,ai,0.9892088801691102
+ai:Echoes/TTA/elevenlabs/Mettle_Pipe_Choir_elevenlabs_TTA_002.mp3,Mettle - Pipe Choir,19164,fma_artist:19164,elevenlabs,train,ai,ai,0.9978504908644572
+ai:Echoes/TTA/producer/The_Coldest_Winter_Caleb_Lemond_producer_TTA_001.mp3,The Coldest Winter - Caleb Lemond,21957,fma_artist:21957,producer,train,ai,ai,0.9999999983088919
+ai:Echoes/TTA/acestep/Westside_Chillers_Little_Glass_Men_acestep_TTA_001.mp3,Westside Chillers - Little Glass Men,19453,fma_artist:19453,acestep,train,ai,ai,0.9999800676821612
+ai:Echoes/TTA/audioldm/Happy_Lamprey_audioldm_TTA_001.mp3,Happy - Lamprey,21958,fma_artist:21958,audioldm,train,ai,ai,0.9999998107184097
+ai:Echoes/TTA/diffrhythm/Autopsy_Oh_Yeah_the_Future_diffrhythm_TTA_001.mp3,"Autopsy - Oh Yeah, the Future",21081,fma_artist:21081,diffrhythm,train,ai,ai,0.9989915612918603
+ai:Echoes/TTA/musicgen/shmoove_epsilon_not_musicgen_TTA_001.wav,shmoove - epsilon not,6550,fma_artist:6550,musicgen,train,ai,ai,0.9998028666908271
+ai:Echoes/TTA/songgen/The_Dawn_The_One_They_Fear_songgen_TTA_001.mp3,The Dawn - The One They Fear,23198,fma_artist:23198,songgen,train,ai,ai,0.9998951836683623
+ai:Echoes/TTA/suno/Breeze_Funk_Malaventura_suno_TTA_001.mp3,Breeze Funk - Malaventura,5673,fma_artist:5673,suno,train,ai,ai,0.9999013728432793
+ai:Echoes/TTA/stableaudio/Only_Instrumental_Broke_For_Free_stableaudio_TTA_001.mp3,Only Instrumental - Broke For Free,9067,fma_artist:9067,stableaudio,train,ai,ai,0.999693151903748
+ai:Echoes/TTA/brev/I_Nocturnal_Mayhem_brev_TTA_001.mp3,I - Nocturnal Mayhem,22584,fma_artist:22584,brev,train,ai,ai,0.982289524902931
+ai:Echoes/TTA/udio/Motocross_Mania_Monroeville_Music_Center_udio_TTA_002.mp3,Motocross Mania - Monroeville Music Center,13391,fma_artist:13391,udio,train,ai,ai,0.9926677726838107
+ai:Echoes/TTA/mubert/Straw_Fields_Rolemusic_mubert_TTA_001.mp3,Straw Fields - Rolemusic,10397,fma_artist:10397,mubert,train,ai,ai,0.9997663319469262
+ai:Echoes/TTA/elevenlabs/Colossal_Stillness_Scott_Holmes_elevenlabs_TTA_002.mp3,Colossal Stillness - Scott Holmes,19498,fma_artist:19498,elevenlabs,train,ai,ai,0.9983451284830446
+ai:Echoes/TTA/producer/Evil_Cannot_Create_Caleb_Lemond_producer_TTA_001.mp3,Evil Cannot Create - Caleb Lemond,21957,fma_artist:21957,producer,train,ai,ai,0.9999662701823337
+ai:Echoes/TTA/suno/All_of_Us_Eric_Skiff_suno_TTA_001.mp3,All of Us - Eric Skiff,10779,fma_artist:10779,suno,train,ai,ai,0.9992436945966279
+ai:Echoes/TTA/diffrhythm/Digital_Lightning_Cloudkicker_diffrhythm_TTA_001.mp3,Digital Lightning - Cloudkicker,11018,fma_artist:11018,diffrhythm,train,ai,ai,0.9999594284336797
+ai:Echoes/TTA/acestep/Autopsy_Oh_Yeah_the_Future_acestep_TTA_001.mp3,"Autopsy - Oh Yeah, the Future",21081,fma_artist:21081,acestep,train,ai,ai,0.9999999893817458
+ai:Echoes/TTA/songgen/OOOTHERSIDE_-_This_Time_Mike_B._Fort_songgen_TTA_001.mp3,OOOTHERSIDE - This Time - Mike B. Fort,21394,fma_artist:21394,songgen,train,ai,ai,0.9999999987966459
+ai:Echoes/TTA/udio/Lost_Paradise_Autumn_Interlude_udio_TTA_002.mp3,Lost Paradise - Autumn Interlude,23674,fma_artist:23674,udio,train,ai,ai,0.9999450255480441
+ai:Echoes/TTA/musicgen/Breeze_Funk_Malaventura_musicgen_TTA_001.wav,Breeze Funk - Malaventura,5673,fma_artist:5673,musicgen,train,ai,ai,0.9999970277421236
+ai:Echoes/TTA/mubert/Ad_Astra_P_C_III_mubert_TTA_001.mp3,Ad Astra - P C III,19189,fma_artist:19189,mubert,train,ai,ai,0.999934401991607
+ai:Echoes/TTA/stableaudio/Bergwald_Bergwald_Every_Now_and_Every_Then_stableaudio_TTA_001.mp3,Bergwald Bergwald - Every Now and Every Then,22222,fma_artist:22222,stableaudio,train,ai,ai,0.9999920827761952
+ai:Echoes/TTA/audioldm/Roller_Star_Monroeville_Music_Center_audioldm_TTA_001.mp3,Roller Star - Monroeville Music Center,13391,fma_artist:13391,audioldm,train,ai,ai,0.988328732484704
+ai:Echoes/TTA/producer/The_Big_House_Jason_Shaw_producer_TTA_001.mp3,The Big House - Jason Shaw,11679,fma_artist:11679,producer,train,ai,ai,0.9999897236761519
+ai:Echoes/TTA/elevenlabs/Infinite_Light_Pipe_Choir_elevenlabs_TTA_002.mp3,Infinite Light - Pipe Choir,19164,fma_artist:19164,elevenlabs,train,ai,ai,0.994641865404238
+ai:Echoes/TTA/brev/Kissing_Scars_Caleb_Lemond_brev_TTA_002.mp3,Kissing Scars - Caleb Lemond,21957,fma_artist:21957,brev,train,ai,ai,0.9999995713671294
+ai:Echoes/TTA/suno/Ohtli_Seclorance_suno_TTA_001.mp3,Ohtli - Seclorance,22467,fma_artist:22467,suno,train,ai,ai,0.9980269715633826
+ai:Echoes/TTA/acestep/Happy_Lamprey_acestep_TTA_001.mp3,Happy - Lamprey,21958,fma_artist:21958,acestep,train,ai,ai,0.9998978441915947
+ai:Echoes/TTA/brev/Roundtrip_Oh_Yeah_the_Future_brev_TTA_001.mp3,"Roundtrip - Oh Yeah, the Future",21081,fma_artist:21081,brev,train,ai,ai,0.9998255435813156
+ai:Echoes/TTA/udio/Tapes_Gumbel_udio_TTA_002.mp3,Tapes - Gumbel,17198,fma_artist:17198,udio,train,ai,ai,0.9808657741491927
+ai:Echoes/TTA/mubert/Lost_Paradise_Autumn_Interlude_mubert_TTA_001.mp3,Lost Paradise - Autumn Interlude,23674,fma_artist:23674,mubert,train,ai,ai,0.9997051980882207
+ai:Echoes/TTA/audioldm/Nostalgia_Malaventura_audioldm_TTA_001.mp3,Nostalgia - Malaventura,5673,fma_artist:5673,audioldm,train,ai,ai,0.9999999993817581
+ai:Echoes/TTA/stableaudio/Acoustic_Unleashed_Remain_stableaudio_TTA_001.mp3,Acoustic Unleashed - Remain,22429,fma_artist:22429,stableaudio,train,ai,ai,0.9973962400004451
+ai:Echoes/TTA/musicgen/Bergwald_Bergwald_Every_Now_and_Every_Then_musicgen_TTA_001.wav,Bergwald Bergwald - Every Now and Every Then,22222,fma_artist:22222,musicgen,train,ai,ai,0.9997849365973976
+ai:Echoes/TTA/songgen/Evil_Cannot_Create_Caleb_Lemond_songgen_TTA_001.mp3,Evil Cannot Create - Caleb Lemond,21957,fma_artist:21957,songgen,train,ai,ai,0.9999212875391883
+ai:Echoes/TTA/diffrhythm/The_Boss_Multifaros_diffrhythm_TTA_001.mp3,The Boss - Multifaros,4365,fma_artist:4365,diffrhythm,train,ai,ai,0.9999039864381439
+ai:Echoes/TTA/elevenlabs/Colossal_Stillness_Scott_Holmes_elevenlabs_TTA_001.mp3,Colossal Stillness - Scott Holmes,19498,fma_artist:19498,elevenlabs,train,ai,ai,0.9993675238765933
+ai:Echoes/TTA/producer/The_Cave_of_Time_Monroeville_Music_Center_producer_TTA_001.mp3,The Cave of Time - Monroeville Music Center,13391,fma_artist:13391,producer,train,ai,ai,0.999539692162676
+ai:Echoes/TTA/audioldm/Dreams_ENDRUDARK_audioldm_TTA_001.mp3,Dreams - ENDRUDARK,16893,fma_artist:16893,audioldm,train,ai,ai,0.9972297041652175
+ai:Echoes/TTA/acestep/I_Nocturnal_Mayhem_acestep_TTA_001.mp3,I - Nocturnal Mayhem,22584,fma_artist:22584,acestep,train,ai,ai,0.9997789049760074
+ai:Echoes/TTA/suno/The_Cave_of_Time_Monroeville_Music_Center_suno_TTA_001.mp3,The Cave of Time - Monroeville Music Center,13391,fma_artist:13391,suno,train,ai,ai,0.9999985052655922
+ai:Echoes/TTA/songgen/Unexpected_Little_Happenings_UltraCat_songgen_TTA_001.mp3,Unexpected Little Happenings - UltraCat,9403,fma_artist:9403,songgen,train,ai,ai,0.9996584165107285
+ai:Echoes/TTA/udio/Digital_Lightning_Cloudkicker_udio_TTA_002.mp3,Digital Lightning - Cloudkicker,11018,fma_artist:11018,udio,train,ai,ai,0.9995390109346889
+ai:Echoes/TTA/musicgen/The_Coldest_Winter_Caleb_Lemond_musicgen_TTA_001.wav,The Coldest Winter - Caleb Lemond,21957,fma_artist:21957,musicgen,train,ai,ai,0.9998993943249196
+ai:Echoes/TTA/diffrhythm/Promo_Mix_Vocal_Edit_Luv_Dub_Mix_Pierlo_diffrhythm_TTA_001.mp3,Promo Mix Vocal Edit (Luv Dub Mix) - Pierlo,6104,fma_artist:6104,diffrhythm,train,ai,ai,0.9996312569712086
+ai:Echoes/TTA/stableaudio/The_Dawn_The_One_They_Fear_stableaudio_TTA_001.mp3,The Dawn - The One They Fear,23198,fma_artist:23198,stableaudio,train,ai,ai,0.9999802393490279
+ai:Echoes/TTA/mubert/Troubles_Ive_seen_Malaventura_mubert_TTA_001.mp3,Troubles I've seen - Malaventura,5673,fma_artist:5673,mubert,train,ai,ai,0.9947851769330177
+ai:Echoes/TTA/brev/OOOTHERSIDE_-_Liquid_Paper_Mike_B._Fort_brev_TTA_001.mp3,OOOTHERSIDE - Liquid Paper - Mike B. Fort,21394,fma_artist:21394,brev,train,ai,ai,0.999999729197005
+ai:Echoes/TTA/producer/Infinite_Light_Pipe_Choir_producer_TTA_001.mp3,Infinite Light - Pipe Choir,19164,fma_artist:19164,producer,train,ai,ai,0.9999799865835753
+ai:Echoes/TTA/elevenlabs/Autopsy_Oh_Yeah_the_Future_elevenlabs_TTA_001.mp3,"Autopsy - Oh Yeah, the Future",21081,fma_artist:21081,elevenlabs,train,ai,ai,0.9638477131965709
+ai:Echoes/TTA/songgen/shmoove_epsilon_not_songgen_TTA_001.mp3,shmoove - epsilon not,6550,fma_artist:6550,songgen,train,ai,ai,0.9999479903337964
+ai:Echoes/TTA/diffrhythm/Happy_Lamprey_diffrhythm_TTA_001.mp3,Happy - Lamprey,21958,fma_artist:21958,diffrhythm,train,ai,ai,0.9999996056808887
+ai:Echoes/TTA/suno/Evil_Cannot_Create_Caleb_Lemond_suno_TTA_002.mp3,Evil Cannot Create - Caleb Lemond,21957,fma_artist:21957,suno,train,ai,ai,0.9995836484679607
+ai:Echoes/TTA/musicgen/Yurtology_Michett_musicgen_TTA_001.wav,Yurtology - Michett,21456,fma_artist:21456,musicgen,train,ai,ai,0.9999779909580607
+ai:Echoes/TTA/brev/Lost_Paradise_Autumn_Interlude_brev_TTA_002.mp3,Lost Paradise - Autumn Interlude,23674,fma_artist:23674,brev,train,ai,ai,0.9999999994592721
+ai:Echoes/TTA/elevenlabs/Solearesbeats_Malaventura_elevenlabs_TTA_002.mp3,Soleares&beats - Malaventura,5673,fma_artist:5673,elevenlabs,train,ai,ai,0.9978547321610072
+ai:Echoes/TTA/audioldm/Westside_Chillers_Little_Glass_Men_audioldm_TTA_001.mp3,Westside Chillers - Little Glass Men,19453,fma_artist:19453,audioldm,train,ai,ai,0.9946941772035723
+ai:Echoes/TTA/stableaudio/Colossal_Stillness_Scott_Holmes_stableaudio_TTA_002.mp3,Colossal Stillness - Scott Holmes,19498,fma_artist:19498,stableaudio,train,ai,ai,0.9999960012221889
+ai:Echoes/TTA/producer/Roller_Star_Monroeville_Music_Center_producer_TTA_001.mp3,Roller Star - Monroeville Music Center,13391,fma_artist:13391,producer,train,ai,ai,0.9999326189293338
+ai:Echoes/TTA/udio/Ohtli_Seclorance_udio_TTA_002.mp3,Ohtli - Seclorance,22467,fma_artist:22467,udio,train,ai,ai,0.9912032164431136
+ai:Echoes/TTA/mubert/Digital_Lightning_Cloudkicker_mubert_TTA_001.mp3,Digital Lightning - Cloudkicker,11018,fma_artist:11018,mubert,train,ai,ai,0.9964582798519768
+ai:Echoes/TTA/acestep/Hungry_Oh_Yeah_the_Future_acestep_TTA_001.mp3,"Hungry - Oh Yeah, the Future",21081,fma_artist:21081,acestep,train,ai,ai,0.9999987481469712
+ai:Echoes/TTA/stableaudio/Straw_Fields_Rolemusic_stableaudio_TTA_001.mp3,Straw Fields - Rolemusic,10397,fma_artist:10397,stableaudio,train,ai,ai,0.999999961915227
+ai:Echoes/TTA/brev/I_Nocturnal_Mayhem_brev_TTA_002.mp3,I - Nocturnal Mayhem,22584,fma_artist:22584,brev,train,ai,ai,0.9988370935085517
+ai:Echoes/TTA/songgen/Lovedreams_Oh_Yeah_the_Future_songgen_TTA_001.mp3,"Lovedreams - Oh Yeah, the Future",21081,fma_artist:21081,songgen,train,ai,ai,0.9999898098394661
+ai:Echoes/TTA/audioldm/Timen_Passing_By_Jason_Shaw_audioldm_TTA_001.mp3,Timen Passing By - Jason Shaw,11679,fma_artist:11679,audioldm,train,ai,ai,0.9989629351318905
+ai:Echoes/TTA/diffrhythm/Bergwald_Bergwald_Every_Now_and_Every_Then_diffrhythm_TTA_001.mp3,Bergwald Bergwald - Every Now and Every Then,22222,fma_artist:22222,diffrhythm,train,ai,ai,0.9997272470242748
+ai:Echoes/TTA/musicgen/Spanish_BEEEYYAAACHHH_Malaventura_musicgen_TTA_001.wav,Spanish BEEEYYAAACHHH - Malaventura,5673,fma_artist:5673,musicgen,train,ai,ai,0.9999590298491406
+ai:Echoes/TTA/suno/All_of_Us_Eric_Skiff_suno_TTA_002.mp3,All of Us - Eric Skiff,10779,fma_artist:10779,suno,train,ai,ai,0.9995932475317231
+ai:Echoes/TTA/acestep/The_Dawn_The_One_They_Fear_acestep_TTA_001.mp3,The Dawn - The One They Fear,23198,fma_artist:23198,acestep,train,ai,ai,0.9999542237529414
+ai:Echoes/TTA/udio/The_Reality_Machine_Monroeville_Music_Center_udio_TTA_001.mp3,The Reality Machine - Monroeville Music Center,13391,fma_artist:13391,udio,train,ai,ai,0.9953574117660882
+ai:Echoes/TTA/producer/Acoustic_Unleashed_Remain_producer_TTA_001.mp3,Acoustic Unleashed - Remain,22429,fma_artist:22429,producer,train,ai,ai,0.9999998242946866
+ai:Echoes/TTA/mubert/Mettle_Pipe_Choir_mubert_TTA_001.mp3,Mettle - Pipe Choir,19164,fma_artist:19164,mubert,train,ai,ai,0.9997121877707155
+ai:Echoes/TTA/elevenlabs/Kissing_Scars_Caleb_Lemond_elevenlabs_TTA_001.mp3,Kissing Scars - Caleb Lemond,21957,fma_artist:21957,elevenlabs,train,ai,ai,0.9917471512643048
+ai:Echoes/TTA/musicgen/Killing_Bosses_Gumbel_musicgen_TTA_001.wav,Killing Bosses - Gumbel,17198,fma_artist:17198,musicgen,train,ai,ai,0.9999460835247874
+ai:Echoes/TTA/suno/Lost_Paradise_Autumn_Interlude_suno_TTA_002.mp3,Lost Paradise - Autumn Interlude,23674,fma_artist:23674,suno,train,ai,ai,0.9999995829426086
+ai:Echoes/TTA/udio/Solearesbeats_Malaventura_udio_TTA_001.mp3,Soleares&beats - Malaventura,5673,fma_artist:5673,udio,train,ai,ai,0.9810339070234716
+ai:Echoes/TTA/elevenlabs/Ad_Astra_P_C_III_elevenlabs_TTA_001.mp3,Ad Astra - P C III,19189,fma_artist:19189,elevenlabs,train,ai,ai,0.9999801971022495
+ai:Echoes/TTA/brev/Digital_Lightning_Cloudkicker_brev_TTA_002.mp3,Digital Lightning - Cloudkicker,11018,fma_artist:11018,brev,train,ai,ai,0.9999179371605708
+ai:Echoes/TTA/audioldm/Invaders_From_Within_Monroeville_Music_Center_audioldm_TTA_001.mp3,Invaders From Within - Monroeville Music Center,13391,fma_artist:13391,audioldm,train,ai,ai,0.9952660990227266
+ai:Echoes/TTA/stableaudio/Night_Owl_Broke_For_Free_stableaudio_TTA_001.mp3,Night Owl - Broke For Free,9067,fma_artist:9067,stableaudio,train,ai,ai,0.9999431857010429
+ai:Echoes/TTA/diffrhythm/Colossal_Stillness_Scott_Holmes_diffrhythm_TTA_001.mp3,Colossal Stillness - Scott Holmes,19498,fma_artist:19498,diffrhythm,train,ai,ai,0.9999817509475792
+ai:Echoes/TTA/acestep/Slow_and_Steady_Caleb_Lemond_acestep_TTA_001.mp3,Slow and Steady - Caleb Lemond,21957,fma_artist:21957,acestep,train,ai,ai,0.9999998014644883
+ai:Echoes/TTA/songgen/Yurtology_Michett_songgen_TTA_001.mp3,Yurtology - Michett,21456,fma_artist:21456,songgen,train,ai,ai,0.999999366281317
+ai:Echoes/TTA/producer/I_Nocturnal_Mayhem_producer_TTA_001.mp3,I - Nocturnal Mayhem,22584,fma_artist:22584,producer,train,ai,ai,0.99976905031489
+ai:Echoes/TTA/mubert/Hungry_Oh_Yeah_the_Future_mubert_TTA_001.mp3,"Hungry - Oh Yeah, the Future",21081,fma_artist:21081,mubert,train,ai,ai,0.9997848857998757
+ai:Echoes/TTA/udio/Ugh_Humans_Can_Join_Mystery_Mammal_udio_TTA_002.mp3,Ugh! Humans Can Join - Mystery Mammal,22774,fma_artist:22774,udio,train,ai,ai,0.9977056272829137
+ai:Echoes/TTA/musicgen/Happy_Lamprey_musicgen_TTA_001.wav,Happy - Lamprey,21958,fma_artist:21958,musicgen,train,ai,ai,0.995374033527365
+ai:Echoes/TTA/suno/The_Coldest_Winter_Caleb_Lemond_suno_TTA_001.mp3,The Coldest Winter - Caleb Lemond,21957,fma_artist:21957,suno,train,ai,ai,0.9999906414598712
+ai:Echoes/TTA/audioldm/The_Factory_Multifaros_audioldm_TTA_001.mp3,The Factory - Multifaros,4365,fma_artist:4365,audioldm,train,ai,ai,0.9999940184683589
+ai:Echoes/TTA/diffrhythm/The_Dawn_The_One_They_Fear_diffrhythm_TTA_001.mp3,The Dawn - The One They Fear,23198,fma_artist:23198,diffrhythm,train,ai,ai,0.9999928400466159
+ai:Echoes/TTA/producer/The_plot_Malaventura_producer_TTA_001.mp3,The plot - Malaventura,5673,fma_artist:5673,producer,train,ai,ai,0.9999976778949029
+ai:Echoes/TTA/acestep/Unexpected_Little_Happenings_UltraCat_acestep_TTA_001.mp3,Unexpected Little Happenings - UltraCat,9403,fma_artist:9403,acestep,train,ai,ai,0.9998145576719095
+ai:Echoes/TTA/songgen/Mettle_Pipe_Choir_songgen_TTA_001.mp3,Mettle - Pipe Choir,19164,fma_artist:19164,songgen,train,ai,ai,0.999926767804361
+ai:Echoes/TTA/brev/Lovedreams_Oh_Yeah_the_Future_brev_TTA_001.mp3,"Lovedreams - Oh Yeah, the Future",21081,fma_artist:21081,brev,train,ai,ai,0.9999972584056654
+ai:Echoes/TTA/mubert/The_Big_House_Jason_Shaw_mubert_TTA_001.mp3,The Big House - Jason Shaw,11679,fma_artist:11679,mubert,train,ai,ai,0.9651227808543216
+ai:Echoes/TTA/elevenlabs/Digital_Lightning_Cloudkicker_elevenlabs_TTA_001.mp3,Digital Lightning - Cloudkicker,11018,fma_artist:11018,elevenlabs,train,ai,ai,0.9989944696088552
+ai:Echoes/TTA/stableaudio/The_Race_Forever_Monroeville_Music_Center_stableaudio_TTA_001.mp3,The Race Forever - Monroeville Music Center,13391,fma_artist:13391,stableaudio,train,ai,ai,0.989956622843681
+ai:Echoes/TTA/audioldm/Time_Up_ENDRUDARK_audioldm_TTA_001.mp3,Time Up - ENDRUDARK,16893,fma_artist:16893,audioldm,train,ai,ai,0.9852580738313809
+ai:Echoes/TTA/suno/Colossal_Stillness_Scott_Holmes_suno_TTA_001.mp3,Colossal Stillness - Scott Holmes,19498,fma_artist:19498,suno,train,ai,ai,0.9999999016074376
+ai:Echoes/TTA/musicgen/Hungry_Oh_Yeah_the_Future_musicgen_TTA_001.wav,"Hungry - Oh Yeah, the Future",21081,fma_artist:21081,musicgen,train,ai,ai,0.9999600707492423
+ai:Echoes/TTA/acestep/Promo_Mix_Vocal_Edit_Luv_Dub_Mix_Pierlo_acestep_TTA_001.mp3,Promo Mix Vocal Edit (Luv Dub Mix) - Pierlo,6104,fma_artist:6104,acestep,train,ai,ai,0.9999996945176711
+ai:Echoes/TTA/diffrhythm/Lost_Paradise_Autumn_Interlude_diffrhythm_TTA_001.mp3,Lost Paradise - Autumn Interlude,23674,fma_artist:23674,diffrhythm,train,ai,ai,0.9999777428394678
+ai:Echoes/TTA/udio/Troubles_Ive_seen_Malaventura_udio_TTA_001.mp3,Troubles I've seen - Malaventura,5673,fma_artist:5673,udio,train,ai,ai,0.998286613576911
+ai:Echoes/TTA/songgen/Westside_Chillers_Little_Glass_Men_songgen_TTA_001.mp3,Westside Chillers - Little Glass Men,19453,fma_artist:19453,songgen,train,ai,ai,0.9999961840349096
+ai:Echoes/TTA/stableaudio/I_Nocturnal_Mayhem_stableaudio_TTA_001.mp3,I - Nocturnal Mayhem,22584,fma_artist:22584,stableaudio,train,ai,ai,0.9988399063017428
+ai:Echoes/TTA/producer/You_Are_A_Monster_Monroeville_Music_Center_producer_TTA_001.mp3,You Are A Monster - Monroeville Music Center,13391,fma_artist:13391,producer,train,ai,ai,0.9999934921842699
+ai:Echoes/TTA/brev/OOOTHERSIDE_-_Liquid_Paper_Mike_B._Fort_brev_TTA_002.mp3,OOOTHERSIDE - Liquid Paper - Mike B. Fort,21394,fma_artist:21394,brev,train,ai,ai,0.9999999743928916
+ai:Echoes/TTA/mubert/Infinite_Light_Pipe_Choir_mubert_TTA_001.mp3,Infinite Light - Pipe Choir,19164,fma_artist:19164,mubert,train,ai,ai,0.9934124558691004
+ai:Echoes/TTA/elevenlabs/I_Think_From_Now_On_Caleb_Lemond_elevenlabs_TTA_002.mp3,I Think From Now On - Caleb Lemond,21957,fma_artist:21957,elevenlabs,train,ai,ai,0.9993990311553067
+ai:Echoes/TTA/audioldm/shmoove_epsilon_not_audioldm_TTA_001.mp3,shmoove - epsilon not,6550,fma_artist:6550,audioldm,train,ai,ai,0.996095850364056
+ai:Echoes/TTA/suno/Colossal_Stillness_Scott_Holmes_suno_TTA_002.mp3,Colossal Stillness - Scott Holmes,19498,fma_artist:19498,suno,train,ai,ai,0.9999985568330223
+ai:Echoes/TTA/udio/Invaders_From_Within_Monroeville_Music_Center_udio_TTA_002.mp3,Invaders From Within - Monroeville Music Center,13391,fma_artist:13391,udio,train,ai,ai,0.9640080084397685
+ai:Echoes/TTA/musicgen/All_of_Us_Eric_Skiff_musicgen_TTA_001.wav,All of Us - Eric Skiff,10779,fma_artist:10779,musicgen,train,ai,ai,0.9995276201937537
+ai:Echoes/TTA/songgen/Digital_Lightning_Cloudkicker_songgen_TTA_001.mp3,Digital Lightning - Cloudkicker,11018,fma_artist:11018,songgen,train,ai,ai,0.9999994568306957
+ai:Echoes/TTA/diffrhythm/Polinesia_Malaventura_diffrhythm_TTA_001.mp3,Polinesia - Malaventura,5673,fma_artist:5673,diffrhythm,train,ai,ai,0.9992769278954585
+ai:Echoes/TTA/stableaudio/Ad_Astra_P_C_III_stableaudio_TTA_001.mp3,Ad Astra - P C III,19189,fma_artist:19189,stableaudio,train,ai,ai,0.9999994575433955
+ai:Echoes/TTA/elevenlabs/Lost_Paradise_Autumn_Interlude_elevenlabs_TTA_001.mp3,Lost Paradise - Autumn Interlude,23674,fma_artist:23674,elevenlabs,train,ai,ai,0.999829872299193
+ai:Echoes/TTA/brev/I_Think_From_Now_On_Caleb_Lemond_brev_TTA_002.mp3,I Think From Now On - Caleb Lemond,21957,fma_artist:21957,brev,train,ai,ai,0.9999996608135258
+ai:Echoes/TTA/producer/Straw_Fields_Rolemusic_producer_TTA_001.mp3,Straw Fields - Rolemusic,10397,fma_artist:10397,producer,train,ai,ai,0.9999814929572753
+ai:Echoes/TTA/acestep/Sonzis_FM_Pipe_Choir_acestep_TTA_001.mp3,Sonzis FM - Pipe Choir,19164,fma_artist:19164,acestep,train,ai,ai,0.9999740863924721
+ai:Echoes/TTA/mubert/Lackadaisical_Oh_Yeah_the_Future_mubert_TTA_001.mp3,"Lackadaisical - Oh Yeah, the Future",21081,fma_artist:21081,mubert,train,ai,ai,0.9999701103324268
+ai:Echoes/TTA/audioldm/Acoustic_Unleashed_Remain_audioldm_TTA_001.mp3,Acoustic Unleashed - Remain,22429,fma_artist:22429,audioldm,train,ai,ai,0.9999999987432335
+ai:Echoes/TTA/suno/I_Nocturnal_Mayhem_suno_TTA_002.mp3,I - Nocturnal Mayhem,22584,fma_artist:22584,suno,train,ai,ai,0.9997721524175236
+ai:Echoes/TTA/musicgen/Invaders_From_Within_Monroeville_Music_Center_musicgen_TTA_001.wav,Invaders From Within - Monroeville Music Center,13391,fma_artist:13391,musicgen,train,ai,ai,0.9826044731857592
+ai:Echoes/TTA/udio/Tapes_Gumbel_udio_TTA_001.mp3,Tapes - Gumbel,17198,fma_artist:17198,udio,train,ai,ai,0.9826110744710524
+ai:Echoes/TTA/brev/Colossal_Stillness_Scott_Holmes_brev_TTA_001.mp3,Colossal Stillness - Scott Holmes,19498,fma_artist:19498,brev,train,ai,ai,0.9999999884153897
+ai:Echoes/TTA/acestep/The_Queen_Malaventura_acestep_TTA_001.mp3,The Queen - Malaventura,5673,fma_artist:5673,acestep,train,ai,ai,0.9999966986123724
+ai:Echoes/TTA/elevenlabs/Ugh_Humans_Can_Join_Mystery_Mammal_elevenlabs_TTA_002.mp3,Ugh! Humans Can Join - Mystery Mammal,22774,fma_artist:22774,elevenlabs,train,ai,ai,0.9650641736422818
+ai:Echoes/TTA/producer/Lost_Paradise_Autumn_Interlude_producer_TTA_001.mp3,Lost Paradise - Autumn Interlude,23674,fma_artist:23674,producer,train,ai,ai,0.9999675168130382
+ai:Echoes/TTA/stableaudio/Kissing_Scars_Caleb_Lemond_stableaudio_TTA_001.mp3,Kissing Scars - Caleb Lemond,21957,fma_artist:21957,stableaudio,train,ai,ai,0.9999288409202547
+ai:Echoes/TTA/diffrhythm/The_Factory_Multifaros_diffrhythm_TTA_001.mp3,The Factory - Multifaros,4365,fma_artist:4365,diffrhythm,train,ai,ai,0.9995673025201914
+ai:Echoes/TTA/songgen/I_Nocturnal_Mayhem_songgen_TTA_001.mp3,I - Nocturnal Mayhem,22584,fma_artist:22584,songgen,train,ai,ai,0.9999001099429521
+ai:Echoes/TTA/mubert/Roundtrip_Oh_Yeah_the_Future_mubert_TTA_001.mp3,"Roundtrip - Oh Yeah, the Future",21081,fma_artist:21081,mubert,train,ai,ai,0.9999434530029511
+ai:Echoes/TTA/brev/Ohtli_Seclorance_brev_TTA_002.mp3,Ohtli - Seclorance,22467,fma_artist:22467,brev,train,ai,ai,0.9999745897987767
+ai:Echoes/TTA/audioldm/Bergwald_Bergwald_Every_Now_and_Every_Then_audioldm_TTA_001.mp3,Bergwald Bergwald - Every Now and Every Then,22222,fma_artist:22222,audioldm,train,ai,ai,0.9999771525604987
+ai:Echoes/TTA/udio/The_Coldest_Winter_Caleb_Lemond_udio_TTA_001.mp3,The Coldest Winter - Caleb Lemond,21957,fma_artist:21957,udio,train,ai,ai,0.9999044735211228
+ai:Echoes/TTA/elevenlabs/Night_Owl_Broke_For_Free_elevenlabs_TTA_002.mp3,Night Owl - Broke For Free,9067,fma_artist:9067,elevenlabs,train,ai,ai,0.9999867973546686
+ai:Echoes/TTA/musicgen/Digital_Lightning_Cloudkicker_musicgen_TTA_001.wav,Digital Lightning - Cloudkicker,11018,fma_artist:11018,musicgen,train,ai,ai,0.9992820330528628
+ai:Echoes/TTA/suno/Convicted_Jazz_Drones_Malaventura_suno_TTA_002.mp3,Convicted Jazz Drones - Malaventura,5673,fma_artist:5673,suno,train,ai,ai,0.9915163871091028
+ai:Echoes/TTA/diffrhythm/Time_Up_ENDRUDARK_diffrhythm_TTA_001.mp3,Time Up - ENDRUDARK,16893,fma_artist:16893,diffrhythm,train,ai,ai,0.9999984036538591
+ai:Echoes/TTA/stableaudio/Sonzis_FM_Pipe_Choir_stableaudio_TTA_001.mp3,Sonzis FM - Pipe Choir,19164,fma_artist:19164,stableaudio,train,ai,ai,0.9999968305566395
+ai:Echoes/TTA/acestep/Roller_Star_Monroeville_Music_Center_acestep_TTA_001.mp3,Roller Star - Monroeville Music Center,13391,fma_artist:13391,acestep,train,ai,ai,0.9999577072849448
+ai:Echoes/TTA/songgen/Promo_Mix_Vocal_Edit_Luv_Dub_Mix_Pierlo_songgen_TTA_001.mp3,Promo Mix Vocal Edit (Luv Dub Mix) - Pierlo,6104,fma_artist:6104,songgen,train,ai,ai,0.9999994806072323
+ai:Echoes/TTA/mubert/Colossal_Stillness_Scott_Holmes_mubert_TTA_001.mp3,Colossal Stillness - Scott Holmes,19498,fma_artist:19498,mubert,train,ai,ai,0.9945726685031767
+ai:Echoes/TTA/producer/Roundtrip_Oh_Yeah_the_Future_producer_TTA_001.mp3,"Roundtrip - Oh Yeah, the Future",21081,fma_artist:21081,producer,train,ai,ai,0.9999999826942517
+ai:Echoes/TTA/acestep/Artificial_anxiety_Michett_acestep_TTA_001.mp3,Artificial anxiety - Michett,21456,fma_artist:21456,acestep,train,ai,ai,0.9999998888467104
+ai:Echoes/TTA/udio/Digital_Lightning_Cloudkicker_udio_TTA_001.mp3,Digital Lightning - Cloudkicker,11018,fma_artist:11018,udio,train,ai,ai,0.9718716461567516
+ai:Echoes/TTA/audioldm/Lets_the_kids_play_Malaventura_audioldm_TTA_001.mp3,Let's the kids play - Malaventura,5673,fma_artist:5673,audioldm,train,ai,ai,0.9710679150217438
+ai:Echoes/TTA/musicgen/Unexpected_Little_Happenings_UltraCat_musicgen_TTA_001.wav,Unexpected Little Happenings - UltraCat,9403,fma_artist:9403,musicgen,train,ai,ai,0.9960093144311418
+ai:Echoes/TTA/suno/Lost_Paradise_Autumn_Interlude_suno_TTA_001.mp3,Lost Paradise - Autumn Interlude,23674,fma_artist:23674,suno,train,ai,ai,0.9999999197901348
+ai:Echoes/TTA/brev/Roller_Star_Monroeville_Music_Center_brev_TTA_002.mp3,Roller Star - Monroeville Music Center,13391,fma_artist:13391,brev,train,ai,ai,0.9999999979109497
+ai:Echoes/TTA/diffrhythm/shmoove_epsilon_not_diffrhythm_TTA_001.mp3,shmoove - epsilon not,6550,fma_artist:6550,diffrhythm,train,ai,ai,0.9999230116999133
+ai:Echoes/TTA/elevenlabs/I_Nocturnal_Mayhem_elevenlabs_TTA_001.mp3,I - Nocturnal Mayhem,22584,fma_artist:22584,elevenlabs,train,ai,ai,0.9869308034815428
+ai:Echoes/TTA/stableaudio/Evil_Cannot_Create_Caleb_Lemond_stableaudio_TTA_001.mp3,Evil Cannot Create - Caleb Lemond,21957,fma_artist:21957,stableaudio,train,ai,ai,0.999972084072328
+ai:Echoes/TTA/songgen/Timen_Passing_By_Jason_Shaw_songgen_TTA_001.mp3,Timen Passing By - Jason Shaw,11679,fma_artist:11679,songgen,train,ai,ai,0.999999683528606
+ai:Echoes/TTA/producer/Mettle_Pipe_Choir_producer_TTA_001.mp3,Mettle - Pipe Choir,19164,fma_artist:19164,producer,train,ai,ai,0.9999999528977497
+ai:Echoes/TTA/mubert/Lovedreams_Oh_Yeah_the_Future_mubert_TTA_001.mp3,"Lovedreams - Oh Yeah, the Future",21081,fma_artist:21081,mubert,train,ai,ai,0.9999939553151856
+ai:Echoes/TTA/diffrhythm/Westside_Chillers_Little_Glass_Men_diffrhythm_TTA_001.mp3,Westside Chillers - Little Glass Men,19453,fma_artist:19453,diffrhythm,train,ai,ai,0.9999578324598367
+ai:Echoes/TTA/audioldm/Breathe_New_Life_Scott_Holmes_audioldm_TTA_001.mp3,Breathe New Life - Scott Holmes,19498,fma_artist:19498,audioldm,train,ai,ai,0.9999373343740854
+ai:Echoes/TTA/udio/I_Think_From_Now_On_Caleb_Lemond_udio_TTA_001.mp3,I Think From Now On - Caleb Lemond,21957,fma_artist:21957,udio,train,ai,ai,0.9834871328953523
+ai:Echoes/TTA/suno/Straw_Fields_Rolemusic_suno_TTA_001.mp3,Straw Fields - Rolemusic,10397,fma_artist:10397,suno,train,ai,ai,0.9999484546764023
+ai:Echoes/TTA/acestep/Lost_Paradise_Autumn_Interlude_acestep_TTA_001.mp3,Lost Paradise - Autumn Interlude,23674,fma_artist:23674,acestep,train,ai,ai,0.9999999955329144
+ai:Echoes/TTA/songgen/Polinesia_Malaventura_songgen_TTA_001.mp3,Polinesia - Malaventura,5673,fma_artist:5673,songgen,train,ai,ai,0.996776846573186
+ai:Echoes/TTA/stableaudio/OOOTHERSIDE_-_Liquid_Paper_Mike_B._Fort_stableaudio_TTA_001.mp3,OOOTHERSIDE - Liquid Paper - Mike B. Fort,21394,fma_artist:21394,stableaudio,train,ai,ai,0.9962392754453148
+ai:Echoes/TTA/brev/Digital_Lightning_Cloudkicker_brev_TTA_001.mp3,Digital Lightning - Cloudkicker,11018,fma_artist:11018,brev,train,ai,ai,0.9999902393925787
+ai:Echoes/TTA/musicgen/With_the_Summer_Oh_Yeah_the_Future_musicgen_TTA_001.wav,"With the Summer - Oh Yeah, the Future",21081,fma_artist:21081,musicgen,train,ai,ai,0.9989821558563472
+ai:Echoes/TTA/producer/Ad_Astra_P_C_III_producer_TTA_001.mp3,Ad Astra - P C III,19189,fma_artist:19189,producer,train,ai,ai,0.9949493578997544
+ai:Echoes/TTA/elevenlabs/I_Nocturnal_Mayhem_elevenlabs_TTA_002.mp3,I - Nocturnal Mayhem,22584,fma_artist:22584,elevenlabs,train,ai,ai,0.9957273435962585
+ai:Echoes/TTA/mubert/The_Reality_Machine_Monroeville_Music_Center_mubert_TTA_001.mp3,The Reality Machine - Monroeville Music Center,13391,fma_artist:13391,mubert,train,ai,ai,0.9664981712968853
+ai:Echoes/TTA/udio/Acoustic_Unleashed_Remain_udio_TTA_002.mp3,Acoustic Unleashed - Remain,22429,fma_artist:22429,udio,train,ai,ai,0.9873066315324699
+ai:Echoes/TTA/stableaudio/Lights_Up_Pipe_Choir_stableaudio_TTA_001.mp3,Lights Up - Pipe Choir,19164,fma_artist:19164,stableaudio,train,ai,ai,0.999994242932709
+ai:Echoes/TTA/audioldm/Autopsy_Oh_Yeah_the_Future_audioldm_TTA_001.mp3,"Autopsy - Oh Yeah, the Future",21081,fma_artist:21081,audioldm,train,ai,ai,0.9986845255270709
+ai:Echoes/TTA/brev/Tapes_Gumbel_brev_TTA_001.mp3,Tapes - Gumbel,17198,fma_artist:17198,brev,train,ai,ai,0.9999987211635232
+ai:Echoes/TTA/songgen/Colossal_Stillness_Scott_Holmes_songgen_TTA_001.mp3,Colossal Stillness - Scott Holmes,19498,fma_artist:19498,songgen,train,ai,ai,0.9933192500643744
+ai:Echoes/TTA/musicgen/Polinesia_Malaventura_musicgen_TTA_001.wav,Polinesia - Malaventura,5673,fma_artist:5673,musicgen,train,ai,ai,0.9980457233899694
+ai:Echoes/TTA/suno/Night_Owl_Broke_For_Free_suno_TTA_001.mp3,Night Owl - Broke For Free,9067,fma_artist:9067,suno,train,ai,ai,0.990118973976452
+ai:Echoes/TTA/acestep/Digital_Lightning_Cloudkicker_acestep_TTA_001.mp3,Digital Lightning - Cloudkicker,11018,fma_artist:11018,acestep,train,ai,ai,0.9999763736706215
+ai:Echoes/TTA/mubert/Evil_Cannot_Create_Caleb_Lemond_mubert_TTA_001.mp3,Evil Cannot Create - Caleb Lemond,21957,fma_artist:21957,mubert,train,ai,ai,0.9982528705841485
+ai:Echoes/TTA/diffrhythm/Robot_Heart_Mystery_Mammal_diffrhythm_TTA_001.mp3,Robot Heart - Mystery Mammal,22774,fma_artist:22774,diffrhythm,train,ai,ai,0.9994941363020327
+ai:Echoes/TTA/elevenlabs/Mettle_Pipe_Choir_elevenlabs_TTA_001.mp3,Mettle - Pipe Choir,19164,fma_artist:19164,elevenlabs,train,ai,ai,0.99994216287875
+ai:Echoes/TTA/producer/The_Race_Forever_Monroeville_Music_Center_producer_TTA_001.mp3,The Race Forever - Monroeville Music Center,13391,fma_artist:13391,producer,train,ai,ai,0.9998804311872888
+ai:Echoes/TTA/musicgen/Ohtli_Seclorance_musicgen_TTA_001.wav,Ohtli - Seclorance,22467,fma_artist:22467,musicgen,train,ai,ai,0.9953474217081175
+ai:Echoes/TTA/suno/I_Nocturnal_Mayhem_suno_TTA_001.mp3,I - Nocturnal Mayhem,22584,fma_artist:22584,suno,train,ai,ai,0.9973941281462746
+ai:Echoes/TTA/mubert/Convicted_Jazz_Drones_Malaventura_mubert_TTA_001.mp3,Convicted Jazz Drones - Malaventura,5673,fma_artist:5673,mubert,train,ai,ai,0.987812801675386
+ai:Echoes/TTA/audioldm/All_of_Us_Eric_Skiff_audioldm_TTA_001.mp3,All of Us - Eric Skiff,10779,fma_artist:10779,audioldm,train,ai,ai,0.9927858538570348
+ai:Echoes/TTA/brev/Lost_Paradise_Autumn_Interlude_brev_TTA_001.mp3,Lost Paradise - Autumn Interlude,23674,fma_artist:23674,brev,train,ai,ai,0.9999999830689333
+ai:Echoes/TTA/udio/Kissing_Scars_Caleb_Lemond_udio_TTA_001.mp3,Kissing Scars - Caleb Lemond,21957,fma_artist:21957,udio,train,ai,ai,0.9985566781385243
+ai:Echoes/TTA/acestep/The_Boss_Multifaros_acestep_TTA_001.mp3,The Boss - Multifaros,4365,fma_artist:4365,acestep,train,ai,ai,0.999998913413413
+ai:Echoes/TTA/diffrhythm/Breathe_New_Life_Scott_Holmes_diffrhythm_TTA_001.mp3,Breathe New Life - Scott Holmes,19498,fma_artist:19498,diffrhythm,train,ai,ai,0.9999822162153726
+ai:Echoes/TTA/elevenlabs/Hungry_Oh_Yeah_the_Future_elevenlabs_TTA_002.mp3,"Hungry - Oh Yeah, the Future",21081,fma_artist:21081,elevenlabs,train,ai,ai,0.9999287712732912
+ai:Echoes/TTA/songgen/Dreams_ENDRUDARK_songgen_TTA_001.mp3,Dreams - ENDRUDARK,16893,fma_artist:16893,songgen,train,ai,ai,0.9999070592776913
+ai:Echoes/TTA/stableaudio/Lost_Paradise_Autumn_Interlude_stableaudio_TTA_001.mp3,Lost Paradise - Autumn Interlude,23674,fma_artist:23674,stableaudio,train,ai,ai,0.9999997327955886
+ai:Echoes/TTA/producer/Motocross_Mania_Monroeville_Music_Center_producer_TTA_001.mp3,Motocross Mania - Monroeville Music Center,13391,fma_artist:13391,producer,train,ai,ai,0.9999253500252867
+ai:Echoes/TTA/audioldm/Unexpected_Little_Happenings_UltraCat_audioldm_TTA_001.mp3,Unexpected Little Happenings - UltraCat,9403,fma_artist:9403,audioldm,train,ai,ai,0.9999879267737553
+ai:Echoes/TTA/suno/Digital_Lightning_Cloudkicker_suno_TTA_002.mp3,Digital Lightning - Cloudkicker,11018,fma_artist:11018,suno,train,ai,ai,0.9882035214248773
+ai:Echoes/TTA/stableaudio/Agora_Malaventura_stableaudio_TTA_001.mp3,Agora - Malaventura,5673,fma_artist:5673,stableaudio,train,ai,ai,0.9952828273744703
+ai:Echoes/TTA/acestep/Yurtology_Michett_acestep_TTA_001.mp3,Yurtology - Michett,21456,fma_artist:21456,acestep,train,ai,ai,0.999989961762198
+ai:Echoes/TTA/diffrhythm/I_Nocturnal_Mayhem_diffrhythm_TTA_001.mp3,I - Nocturnal Mayhem,22584,fma_artist:22584,diffrhythm,train,ai,ai,0.9999961439467584
+ai:Echoes/TTA/brev/First_Glance_Oh_Yeah_the_Future_brev_TTA_002.mp3,"First Glance - Oh Yeah, the Future",21081,fma_artist:21081,brev,train,ai,ai,0.9999914169000784
+ai:Echoes/TTA/musicgen/Promo_Mix_Vocal_Edit_Luv_Dub_Mix_Pierlo_musicgen_TTA_001.wav,Promo Mix Vocal Edit (Luv Dub Mix) - Pierlo,6104,fma_artist:6104,musicgen,train,ai,ai,0.9881117631978411
+ai:Echoes/TTA/udio/Mettle_Pipe_Choir_udio_TTA_002.mp3,Mettle - Pipe Choir,19164,fma_artist:19164,udio,train,ai,ai,0.9970286856090914
+ai:Echoes/TTA/songgen/Invaders_From_Within_Monroeville_Music_Center_songgen_TTA_001.mp3,Invaders From Within - Monroeville Music Center,13391,fma_artist:13391,songgen,train,ai,ai,0.9999944399779322
+ai:Echoes/TTA/producer/Vanishing_Horizon_Jason_Shaw_producer_TTA_001.mp3,Vanishing Horizon - Jason Shaw,11679,fma_artist:11679,producer,train,ai,ai,0.9999493891017608
+ai:Echoes/TTA/elevenlabs/Digital_Lightning_Cloudkicker_elevenlabs_TTA_002.mp3,Digital Lightning - Cloudkicker,11018,fma_artist:11018,elevenlabs,train,ai,ai,0.9986827881962711
+ai:Echoes/TTA/mubert/I_Think_From_Now_On_Caleb_Lemond_mubert_TTA_001.mp3,I Think From Now On - Caleb Lemond,21957,fma_artist:21957,mubert,train,ai,ai,0.9947557248097765
+ai:Echoes/TTA/musicgen/Westside_Chillers_Little_Glass_Men_musicgen_TTA_001.wav,Westside Chillers - Little Glass Men,19453,fma_artist:19453,musicgen,train,ai,ai,0.9999993877954685
+ai:Echoes/TTA/udio/Colossal_Stillness_Scott_Holmes_udio_TTA_001.mp3,Colossal Stillness - Scott Holmes,19498,fma_artist:19498,udio,train,ai,ai,0.9998521398767426
+ai:Echoes/TTA/acestep/Solearesbeats_Malaventura_acestep_TTA_001.mp3,Soleares&beats - Malaventura,5673,fma_artist:5673,acestep,train,ai,ai,0.9999999530164179
+ai:Echoes/TTA/diffrhythm/Scape_from_the_city_Rolemusic_diffrhythm_TTA_001.mp3,Scape from the city - Rolemusic,10397,fma_artist:10397,diffrhythm,train,ai,ai,0.9999937407117447
+ai:Echoes/TTA/songgen/Lost_Paradise_Autumn_Interlude_songgen_TTA_001.mp3,Lost Paradise - Autumn Interlude,23674,fma_artist:23674,songgen,train,ai,ai,0.9999999666389188
+ai:Echoes/TTA/stableaudio/Slow_and_Steady_Caleb_Lemond_stableaudio_TTA_001.mp3,Slow and Steady - Caleb Lemond,21957,fma_artist:21957,stableaudio,train,ai,ai,0.9999999941324731
+ai:Echoes/TTA/suno/Robot_Heart_Mystery_Mammal_suno_TTA_002.mp3,Robot Heart - Mystery Mammal,22774,fma_artist:22774,suno,train,ai,ai,0.9999741306558215
+ai:Echoes/TTA/brev/Mettle_Pipe_Choir_brev_TTA_001.mp3,Mettle - Pipe Choir,19164,fma_artist:19164,brev,train,ai,ai,0.9999709738516157
+ai:Echoes/TTA/audioldm/The_Reality_Machine_Monroeville_Music_Center_audioldm_TTA_001.mp3,The Reality Machine - Monroeville Music Center,13391,fma_artist:13391,audioldm,train,ai,ai,0.9853881015950199
+ai:Echoes/TTA/elevenlabs/Night_Owl_Broke_For_Free_elevenlabs_TTA_001.mp3,Night Owl - Broke For Free,9067,fma_artist:9067,elevenlabs,train,ai,ai,0.9999816329359992
+ai:Echoes/TTA/producer/Digital_Lightning_Cloudkicker_producer_TTA_001.mp3,Digital Lightning - Cloudkicker,11018,fma_artist:11018,producer,train,ai,ai,0.9973039704267028
+ai:Echoes/TTA/mubert/Motocross_Mania_Monroeville_Music_Center_mubert_TTA_001.mp3,Motocross Mania - Monroeville Music Center,13391,fma_artist:13391,mubert,train,ai,ai,0.9995455370894561
+ai:Echoes/TTA/acestep/shmoove_epsilon_not_acestep_TTA_001.mp3,shmoove - epsilon not,6550,fma_artist:6550,acestep,train,ai,ai,0.9999998749183706
+ai:Echoes/TTA/musicgen/I_Nocturnal_Mayhem_musicgen_TTA_001.wav,I - Nocturnal Mayhem,22584,fma_artist:22584,musicgen,train,ai,ai,0.9999991543030031
+ai:Echoes/TTA/diffrhythm/First_Glance_Oh_Yeah_the_Future_diffrhythm_TTA_001.mp3,"First Glance - Oh Yeah, the Future",21081,fma_artist:21081,diffrhythm,train,ai,ai,0.9999987416729779
+ai:Echoes/TTA/suno/Ad_Astra_P_C_III_suno_TTA_001.mp3,Ad Astra - P C III,19189,fma_artist:19189,suno,train,ai,ai,0.9998278087726161
+ai:Echoes/TTA/stableaudio/Colossal_Stillness_Scott_Holmes_stableaudio_TTA_001.mp3,Colossal Stillness - Scott Holmes,19498,fma_artist:19498,stableaudio,train,ai,ai,0.9999338202213597
+ai:Echoes/TTA/brev/Convicted_Jazz_Drones_Malaventura_brev_TTA_001.mp3,Convicted Jazz Drones - Malaventura,5673,fma_artist:5673,brev,train,ai,ai,0.9994171822611935
+ai:Echoes/TTA/udio/Ohtli_Seclorance_udio_TTA_001.mp3,Ohtli - Seclorance,22467,fma_artist:22467,udio,train,ai,ai,0.9987407940214368
+ai:Echoes/TTA/audioldm/Lost_Paradise_Autumn_Interlude_audioldm_TTA_001.mp3,Lost Paradise - Autumn Interlude,23674,fma_artist:23674,audioldm,train,ai,ai,0.9999938182641432
+ai:Echoes/TTA/elevenlabs/Autopsy_Oh_Yeah_the_Future_elevenlabs_TTA_002.mp3,"Autopsy - Oh Yeah, the Future",21081,fma_artist:21081,elevenlabs,train,ai,ai,0.9979842592381116
+ai:Echoes/TTA/songgen/OOOTHERSIDE_-_Liquid_Paper_Mike_B._Fort_songgen_TTA_001.mp3,OOOTHERSIDE - Liquid Paper - Mike B. Fort,21394,fma_artist:21394,songgen,train,ai,ai,0.9999519249726252
+ai:Echoes/TTA/producer/Colossal_Stillness_Scott_Holmes_producer_TTA_001.mp3,Colossal Stillness - Scott Holmes,19498,fma_artist:19498,producer,train,ai,ai,0.9999918438979642
+ai:Echoes/TTA/mubert/Kissing_Scars_Caleb_Lemond_mubert_TTA_001.mp3,Kissing Scars - Caleb Lemond,21957,fma_artist:21957,mubert,train,ai,ai,0.9706213943127352
+ai:Echoes/TTA/musicgen/Acoustic_Unleashed_Remain_musicgen_TTA_001.wav,Acoustic Unleashed - Remain,22429,fma_artist:22429,musicgen,train,ai,ai,0.9969744543210447
+ai:Echoes/TTA/udio/I_Nocturnal_Mayhem_udio_TTA_002.mp3,I - Nocturnal Mayhem,22584,fma_artist:22584,udio,train,ai,ai,0.9937074670573713
+ai:Echoes/TTA/elevenlabs/Troubles_Ive_seen_Malaventura_elevenlabs_TTA_002.mp3,Troubles I've seen - Malaventura,5673,fma_artist:5673,elevenlabs,train,ai,ai,0.9439924991539119
+ai:Echoes/TTA/audioldm/The_Boss_Multifaros_audioldm_TTA_001.mp3,The Boss - Multifaros,4365,fma_artist:4365,audioldm,train,ai,ai,0.9999485997128669
+ai:Echoes/TTA/diffrhythm/Lights_Up_Pipe_Choir_diffrhythm_TTA_001.mp3,Lights Up - Pipe Choir,19164,fma_artist:19164,diffrhythm,train,ai,ai,0.9999975582118941
+ai:Echoes/TTA/suno/You_Are_A_Monster_Monroeville_Music_Center_suno_TTA_001.mp3,You Are A Monster - Monroeville Music Center,13391,fma_artist:13391,suno,train,ai,ai,0.9856437761393573
+ai:Echoes/TTA/brev/Tapes_Gumbel_brev_TTA_002.mp3,Tapes - Gumbel,17198,fma_artist:17198,brev,train,ai,ai,0.9993840769165325
+ai:Echoes/TTA/stableaudio/Mettle_Pipe_Choir_stableaudio_TTA_001.mp3,Mettle - Pipe Choir,19164,fma_artist:19164,stableaudio,train,ai,ai,0.9999954751823703
+ai:Echoes/TTA/acestep/Outro_Caleb_Lemond_acestep_TTA_001.mp3,Outro - Caleb Lemond,21957,fma_artist:21957,acestep,train,ai,ai,0.9999993025315113
+ai:Echoes/TTA/mubert/All_of_Us_Eric_Skiff_mubert_TTA_001.mp3,All of Us - Eric Skiff,10779,fma_artist:10779,mubert,train,ai,ai,0.99557918935283
+ai:Echoes/TTA/songgen/Infinite_Light_Pipe_Choir_songgen_TTA_001.mp3,Infinite Light - Pipe Choir,19164,fma_artist:19164,songgen,train,ai,ai,0.9999999695390307
+ai:Echoes/TTA/producer/Hungry_Oh_Yeah_the_Future_producer_TTA_001.mp3,"Hungry - Oh Yeah, the Future",21081,fma_artist:21081,producer,train,ai,ai,0.9999758810313388
+ai:Echoes/TTA/musicgen/Dreams_ENDRUDARK_musicgen_TTA_001.wav,Dreams - ENDRUDARK,16893,fma_artist:16893,musicgen,train,ai,ai,0.9999972286288872
+ai:Echoes/TTA/audioldm/Digital_Lightning_Cloudkicker_audioldm_TTA_001.mp3,Digital Lightning - Cloudkicker,11018,fma_artist:11018,audioldm,train,ai,ai,0.9989810678640205
+ai:Echoes/TTA/diffrhythm/Breeze_Funk_Malaventura_diffrhythm_TTA_001.mp3,Breeze Funk - Malaventura,5673,fma_artist:5673,diffrhythm,train,ai,ai,0.9942210404721636
+ai:Echoes/TTA/songgen/Artificial_anxiety_Michett_songgen_TTA_001.mp3,Artificial anxiety - Michett,21456,fma_artist:21456,songgen,train,ai,ai,0.9850083950544557
+ai:Echoes/TTA/udio/I_Nocturnal_Mayhem_udio_TTA_001.mp3,I - Nocturnal Mayhem,22584,fma_artist:22584,udio,train,ai,ai,0.998780820483477
+ai:Echoes/TTA/suno/The_Dream_and_the_Dreamer_Caleb_Lemond_suno_TTA_002.mp3,The Dream and the Dreamer - Caleb Lemond,21957,fma_artist:21957,suno,train,ai,ai,0.9999762126329583
+ai:Echoes/TTA/acestep/OOOTHERSIDE_-_This_Time_Mike_B._Fort_acestep_TTA_001.mp3,OOOTHERSIDE - This Time - Mike B. Fort,21394,fma_artist:21394,acestep,train,ai,ai,0.9999999944451661
+ai:Echoes/TTA/brev/Colossal_Stillness_Scott_Holmes_brev_TTA_002.mp3,Colossal Stillness - Scott Holmes,19498,fma_artist:19498,brev,train,ai,ai,0.9999999985950738
+ai:Echoes/TTA/stableaudio/New_Brave_Face_Oh_Yeah_the_Future_stableaudio_TTA_001.mp3,"New Brave Face - Oh Yeah, the Future",21081,fma_artist:21081,stableaudio,train,ai,ai,0.9999822884146067
+ai:Echoes/TTA/elevenlabs/Vanishing_Horizon_Jason_Shaw_elevenlabs_TTA_001.mp3,Vanishing Horizon - Jason Shaw,11679,fma_artist:11679,elevenlabs,train,ai,ai,0.9963585636776259
+ai:Echoes/TTA/mubert/You_Are_A_Monster_Monroeville_Music_Center_mubert_TTA_001.mp3,You Are A Monster - Monroeville Music Center,13391,fma_artist:13391,mubert,train,ai,ai,0.9986444498012219
+ai:Echoes/TTA/udio/Lost_Paradise_Autumn_Interlude_udio_TTA_001.mp3,Lost Paradise - Autumn Interlude,23674,fma_artist:23674,udio,train,ai,ai,0.9903581351026655
+ai:Echoes/TTA/producer/Only_Instrumental_Broke_For_Free_producer_TTA_001.mp3,Only Instrumental - Broke For Free,9067,fma_artist:9067,producer,train,ai,ai,0.9999622431207608
+ai:Echoes/TTA/musicgen/Breathe_New_Life_Scott_Holmes_musicgen_TTA_001.wav,Breathe New Life - Scott Holmes,19498,fma_artist:19498,musicgen,train,ai,ai,0.9990908399850438
+ai:Echoes/TTA/stableaudio/The_Queen_Malaventura_stableaudio_TTA_001.mp3,The Queen - Malaventura,5673,fma_artist:5673,stableaudio,train,ai,ai,0.9874371381968651
+ai:Echoes/TTA/suno/Ugh_Humans_Can_Join_Mystery_Mammal_suno_TTA_002.mp3,Ugh! Humans Can Join - Mystery Mammal,22774,fma_artist:22774,suno,train,ai,ai,0.9956060147001802
+ai:Echoes/TTA/diffrhythm/Sonzis_FM_Pipe_Choir_diffrhythm_TTA_001.mp3,Sonzis FM - Pipe Choir,19164,fma_artist:19164,diffrhythm,train,ai,ai,0.9998847939879959
+ai:Echoes/TTA/brev/Autopsy_Oh_Yeah_the_Future_brev_TTA_001.mp3,"Autopsy - Oh Yeah, the Future",21081,fma_artist:21081,brev,train,ai,ai,0.9999411132626754
+ai:Echoes/TTA/songgen/Scape_from_the_city_Rolemusic_songgen_TTA_001.mp3,Scape from the city - Rolemusic,10397,fma_artist:10397,songgen,train,ai,ai,0.9991108986487147
+ai:Echoes/TTA/acestep/Colossal_Stillness_Scott_Holmes_acestep_TTA_001.mp3,Colossal Stillness - Scott Holmes,19498,fma_artist:19498,acestep,train,ai,ai,0.9998490803538429
+ai:Echoes/TTA/elevenlabs/I_Think_From_Now_On_Caleb_Lemond_elevenlabs_TTA_001.mp3,I Think From Now On - Caleb Lemond,21957,fma_artist:21957,elevenlabs,train,ai,ai,0.9986299604610083
+ai:Echoes/TTA/audioldm/Ohtli_Seclorance_audioldm_TTA_001.mp3,Ohtli - Seclorance,22467,fma_artist:22467,audioldm,train,ai,ai,0.9986831974931111
+ai:Echoes/TTA/producer/The_Reality_Machine_Monroeville_Music_Center_producer_TTA_001.mp3,The Reality Machine - Monroeville Music Center,13391,fma_artist:13391,producer,train,ai,ai,0.9999975998290632
+ai:Echoes/TTA/udio/Infinite_Light_Pipe_Choir_udio_TTA_001.mp3,Infinite Light - Pipe Choir,19164,fma_artist:19164,udio,train,ai,ai,0.9999052475434094
+ai:Echoes/TTA/mubert/Acoustic_Unleashed_Remain_mubert_TTA_001.mp3,Acoustic Unleashed - Remain,22429,fma_artist:22429,mubert,train,ai,ai,0.9999993105966517
+ai:Echoes/TTA/acestep/Breathe_New_Life_Scott_Holmes_acestep_TTA_001.mp3,Breathe New Life - Scott Holmes,19498,fma_artist:19498,acestep,train,ai,ai,0.999998778609522
+ai:Echoes/TTA/musicgen/Solearesbeats_Malaventura_musicgen_TTA_001.wav,Soleares&beats - Malaventura,5673,fma_artist:5673,musicgen,train,ai,ai,0.9999185587137678
+ai:Echoes/TTA/audioldm/Ad_Astra_P_C_III_audioldm_TTA_001.mp3,Ad Astra - P C III,19189,fma_artist:19189,audioldm,train,ai,ai,0.9670854739983215
+ai:Echoes/TTA/suno/Infinite_Light_Pipe_Choir_suno_TTA_001.mp3,Infinite Light - Pipe Choir,19164,fma_artist:19164,suno,train,ai,ai,0.999996727723494
+ai:Echoes/TTA/diffrhythm/With_the_Summer_Oh_Yeah_the_Future_diffrhythm_TTA_001.mp3,"With the Summer - Oh Yeah, the Future",21081,fma_artist:21081,diffrhythm,train,ai,ai,0.9999677508858884
+ai:Echoes/TTA/elevenlabs/All_of_Us_Eric_Skiff_elevenlabs_TTA_002.mp3,All of Us - Eric Skiff,10779,fma_artist:10779,elevenlabs,train,ai,ai,0.9985373996055875
+ai:Echoes/TTA/brev/Infinite_Light_Pipe_Choir_brev_TTA_001.mp3,Infinite Light - Pipe Choir,19164,fma_artist:19164,brev,train,ai,ai,0.9999990490902789
+ai:Echoes/TTA/stableaudio/Outro_Caleb_Lemond_stableaudio_TTA_001.mp3,Outro - Caleb Lemond,21957,fma_artist:21957,stableaudio,train,ai,ai,0.9999998719643026
+ai:Echoes/TTA/songgen/Killing_Bosses_Gumbel_songgen_TTA_001.mp3,Killing Bosses - Gumbel,17198,fma_artist:17198,songgen,train,ai,ai,0.9999994528498927
+ai:Echoes/TTA/mubert/Roller_Star_Monroeville_Music_Center_mubert_TTA_001.mp3,Roller Star - Monroeville Music Center,13391,fma_artist:13391,mubert,train,ai,ai,0.9847452017210192
+ai:Echoes/TTA/musicgen/Colossal_Stillness_Scott_Holmes_musicgen_TTA_001.wav,Colossal Stillness - Scott Holmes,19498,fma_artist:19498,musicgen,train,ai,ai,0.9996902702156105
+ai:Echoes/TTA/producer/Robot_Heart_Mystery_Mammal_producer_TTA_001.mp3,Robot Heart - Mystery Mammal,22774,fma_artist:22774,producer,train,ai,ai,0.9999893818139799
+ai:Echoes/TTA/udio/Colossal_Stillness_Scott_Holmes_udio_TTA_002.mp3,Colossal Stillness - Scott Holmes,19498,fma_artist:19498,udio,train,ai,ai,0.9869000115586746
+ai:Echoes/TTA/songgen/Agora_Malaventura_songgen_TTA_001.mp3,Agora - Malaventura,5673,fma_artist:5673,songgen,train,ai,ai,0.9992138653006117
+ai:Echoes/TTA/diffrhythm/Artificial_anxiety_Michett_diffrhythm_TTA_001.mp3,Artificial anxiety - Michett,21456,fma_artist:21456,diffrhythm,train,ai,ai,0.9999812665224448
+ai:Echoes/TTA/suno/Infinite_Light_Pipe_Choir_suno_TTA_002.mp3,Infinite Light - Pipe Choir,19164,fma_artist:19164,suno,train,ai,ai,0.99999789432613
+ai:Echoes/TTA/brev/You_Are_A_Monster_Monroeville_Music_Center_brev_TTA_001.mp3,You Are A Monster - Monroeville Music Center,13391,fma_artist:13391,brev,train,ai,ai,0.9999365130539325
+ai:Echoes/TTA/acestep/Dreams_ENDRUDARK_acestep_TTA_001.mp3,Dreams - ENDRUDARK,16893,fma_artist:16893,acestep,train,ai,ai,0.9999831079289627
+ai:Echoes/TTA/audioldm/Lights_Up_Pipe_Choir_audioldm_TTA_001.mp3,Lights Up - Pipe Choir,19164,fma_artist:19164,audioldm,train,ai,ai,0.9999999736898963
+ai:Echoes/TTA/stableaudio/New_Brave_Face_Oh_Yeah_the_Future_stableaudio_TTA_003.mp3,"New Brave Face - Oh Yeah, the Future",21081,fma_artist:21081,stableaudio,train,ai,ai,0.9984557282880187
+ai:Echoes/TTA/mubert/OOOTHERSIDE_-_This_Time_Mike_B._Fort_mubert_TTA_001.mp3,OOOTHERSIDE - This Time - Mike B. Fort,21394,fma_artist:21394,mubert,train,ai,ai,0.9715384657598974
+ai:Echoes/TTA/elevenlabs/Infinite_Light_Pipe_Choir_elevenlabs_TTA_001.mp3,Infinite Light - Pipe Choir,19164,fma_artist:19164,elevenlabs,train,ai,ai,0.9785575606621604
+ai:Echoes/TTA/producer/Kissing_Scars_Caleb_Lemond_producer_TTA_001.mp3,Kissing Scars - Caleb Lemond,21957,fma_artist:21957,producer,train,ai,ai,0.9999994309954279
+ai:Echoes/TTA/musicgen/The_Boss_Multifaros_musicgen_TTA_001.wav,The Boss - Multifaros,4365,fma_artist:4365,musicgen,train,ai,ai,0.9998504807189628
+ai:Echoes/TTA/udio/Mettle_Pipe_Choir_udio_TTA_001.mp3,Mettle - Pipe Choir,19164,fma_artist:19164,udio,train,ai,ai,0.9862190790978022
+ai:Echoes/TTA/producer/Breeze_Funk_Malaventura_producer_TTA_001.mp3,Breeze Funk - Malaventura,5673,fma_artist:5673,producer,train,ai,ai,0.9999999913519285
+ai:Echoes/TTA/diffrhythm/The_Big_House_Jason_Shaw_diffrhythm_TTA_001.mp3,The Big House - Jason Shaw,11679,fma_artist:11679,diffrhythm,train,ai,ai,0.9999903558616039
+ai:Echoes/TTA/acestep/Infinite_Light_Pipe_Choir_acestep_TTA_001.mp3,Infinite Light - Pipe Choir,19164,fma_artist:19164,acestep,train,ai,ai,0.9999739769332585
+ai:Echoes/TTA/brev/You_Are_A_Monster_Monroeville_Music_Center_brev_TTA_002.mp3,You Are A Monster - Monroeville Music Center,13391,fma_artist:13391,brev,train,ai,ai,0.9999657809599428
+ai:Echoes/TTA/audioldm/Only_Instrumental_Broke_For_Free_audioldm_TTA_001.mp3,Only Instrumental - Broke For Free,9067,fma_artist:9067,audioldm,train,ai,ai,0.9992219971613543
+ai:Echoes/TTA/songgen/Sonzis_FM_Pipe_Choir_songgen_TTA_001.mp3,Sonzis FM - Pipe Choir,19164,fma_artist:19164,songgen,train,ai,ai,0.999999845452424
+ai:Echoes/TTA/suno/Lovedreams_Oh_Yeah_the_Future_suno_TTA_001.mp3,"Lovedreams - Oh Yeah, the Future",21081,fma_artist:21081,suno,train,ai,ai,0.9999996149583054
+ai:Echoes/TTA/stableaudio/Ohtli_Seclorance_stableaudio_TTA_001.mp3,Ohtli - Seclorance,22467,fma_artist:22467,stableaudio,train,ai,ai,0.9984127152055947
+ai:Echoes/TTA/elevenlabs/Kissing_Scars_Caleb_Lemond_elevenlabs_TTA_002.mp3,Kissing Scars - Caleb Lemond,21957,fma_artist:21957,elevenlabs,train,ai,ai,0.9994783363545117
+ai:Echoes/TTA/musicgen/Infinite_Light_Pipe_Choir_musicgen_TTA_001.wav,Infinite Light - Pipe Choir,19164,fma_artist:19164,musicgen,train,ai,ai,0.9997839805510869
+ai:Echoes/TTA/mubert/Tapes_Gumbel_mubert_TTA_001.mp3,Tapes - Gumbel,17198,fma_artist:17198,mubert,train,ai,ai,0.9813910109642294
+ai:Echoes/TTA/elevenlabs/Spanish_BEEEYYAAACHHH_Malaventura_elevenlabs_TTA_002.mp3,Spanish BEEEYYAAACHHH - Malaventura,5673,fma_artist:5673,elevenlabs,train,ai,ai,0.9998867714739078
+ai:Echoes/TTA/suno/Celia_Ergo_Phizmiz_suno_TTA_002.mp3,Celia - Ergo Phizmiz,129,fma_artist:129,suno,validation,ai,ai,0.9614728873069465
+ai:Echoes/TTA/audioldm/Sheffield_Hall_Andy_G._Cohen_audioldm_TTA_001.mp3,Sheffield Hall - Andy G. Cohen,20985,fma_artist:20985,audioldm,validation,ai,ai,0.8817560085775035
+ai:Echoes/TTA/musicgen/Ugly_Vienna_Ditto_musicgen_TTA_001.wav,Ugly - Vienna Ditto,18767,fma_artist:18767,musicgen,validation,ai,ai,0.8445116765734523
+ai:Echoes/TTA/mubert/Jangus_inspired_by_ToeJam_and_Earl_UncleBibby_mubert_TTA_001.mp3,Jangus (inspired by ToeJam and Earl) - UncleBibby,18761,fma_artist:18761,mubert,validation,ai,ai,0.999743585814692
+ai:Echoes/TTA/songgen/We_Are_Canucks_David_Blair_songgen_TTA_001.mp3,We Are Canucks - David Blair,16630,fma_artist:16630,songgen,validation,ai,ai,0.9999999208274188
+ai:Echoes/TTA/brev/Scramby_Eggs_Andy_G._Cohen_brev_TTA_002.mp3,Scramby Eggs - Andy G. Cohen,20985,fma_artist:20985,brev,validation,ai,ai,0.9997272531275755
+ai:Echoes/TTA/elevenlabs/Night_Drive_Decktonic_elevenlabs_TTA_001.mp3,Night Drive - Decktonic,14670,fma_artist:14670,elevenlabs,validation,ai,ai,0.9683110200064049
+ai:Echoes/TTA/stableaudio/Mandrill_Ergo_Phizmiz_stableaudio_TTA_001.mp3,Mandrill - Ergo Phizmiz,129,fma_artist:129,stableaudio,validation,ai,ai,0.9996464854114475
+ai:Echoes/TTA/udio/Scramby_Eggs_Andy_G._Cohen_udio_TTA_002.mp3,Scramby Eggs - Andy G. Cohen,20985,fma_artist:20985,udio,validation,ai,human,2.224518745758381e-05
+ai:Echoes/TTA/diffrhythm/Authenticity_Nihilore_diffrhythm_TTA_001.mp3,Authenticity - Nihilore,21691,fma_artist:21691,diffrhythm,validation,ai,ai,0.9999179498614208
+ai:Echoes/TTA/producer/We_Are_Canucks_David_Blair_producer_TTA_001.mp3,We Are Canucks - David Blair,16630,fma_artist:16630,producer,validation,ai,ai,0.9991400478057341
+ai:Echoes/TTA/acestep/Sheffield_Hall_Andy_G._Cohen_acestep_TTA_001.mp3,Sheffield Hall - Andy G. Cohen,20985,fma_artist:20985,acestep,validation,ai,ai,0.9999940073987454
+ai:Echoes/TTA/elevenlabs/Jangus_inspired_by_ToeJam_and_Earl_UncleBibby_elevenlabs_TTA_001.mp3,Jangus (inspired by ToeJam and Earl) - UncleBibby,18761,fma_artist:18761,elevenlabs,validation,ai,ai,0.9919754034178104
+ai:Echoes/TTA/brev/Something_Dirty_Ergo_Phizmiz_brev_TTA_001.mp3,Something Dirty - Ergo Phizmiz,129,fma_artist:129,brev,validation,ai,ai,0.9998367203111239
+ai:Echoes/TTA/musicgen/Scramby_Eggs_Andy_G_Cohen_musicgen_TTA_001.wav,Scramby Eggs - Andy G. Cohen,20985,fma_artist:20985,musicgen,validation,ai,ai,0.9998532991649677
+ai:Echoes/TTA/audioldm/La_Nina_Blanca_Vienna_Ditto_audioldm_TTA_001.mp3,La Nina Blanca - Vienna Ditto,18767,fma_artist:18767,audioldm,validation,ai,ai,0.7982675168123726
+ai:Echoes/TTA/mubert/We_Are_Canucks_David_Blair_mubert_TTA_001.mp3,We Are Canucks - David Blair,16630,fma_artist:16630,mubert,validation,ai,ai,0.9986803780753137
+ai:Echoes/TTA/songgen/Sheffield_Hall_Andy_G._Cohen_songgen_TTA_001.mp3,Sheffield Hall - Andy G. Cohen,20985,fma_artist:20985,songgen,validation,ai,ai,0.9999998177323609
+ai:Echoes/TTA/acestep/Z-Saber_feat_Jake_Allison_Decktonic_acestep_TTA_001.mp3,Z-Saber (feat Jake Allison) - Decktonic,14670,fma_artist:14670,acestep,validation,ai,ai,0.9669459401921112
+ai:Echoes/TTA/suno/John_the_Baby_Ergo_Phizmiz_suno_TTA_002.mp3,John the Baby - Ergo Phizmiz,129,fma_artist:129,suno,validation,ai,ai,0.8612118128211407
+ai:Echoes/TTA/diffrhythm/Scramby_Eggs_Andy_G._Cohen_diffrhythm_TTA_001.mp3,Scramby Eggs - Andy G. Cohen,20985,fma_artist:20985,diffrhythm,validation,ai,ai,0.9995904852587929
+ai:Echoes/TTA/udio/CopperNickle_UncleBibby_udio_TTA_002.mp3,CopperNickle - UncleBibby,18761,fma_artist:18761,udio,validation,ai,ai,0.9761341892501871
+ai:Echoes/TTA/stableaudio/We_Are_Canucks_David_Blair_stableaudio_TTA_001.mp3,We Are Canucks - David Blair,16630,fma_artist:16630,stableaudio,validation,ai,ai,0.9538054464517889
+ai:Echoes/TTA/producer/Scramby_Eggs_Andy_G._Cohen_producer_TTA_001.mp3,Scramby Eggs - Andy G. Cohen,20985,fma_artist:20985,producer,validation,ai,ai,0.9999813177976853
+ai:Echoes/TTA/songgen/Set_Fire_to_Creation_Nihilore_songgen_TTA_001.mp3,Set Fire to Creation - Nihilore,21691,fma_artist:21691,songgen,validation,ai,ai,0.9999937908998597
+ai:Echoes/TTA/mubert/Busby_Berkeley_Ergo_Phizmiz_mubert_TTA_001.mp3,Busby Berkeley - Ergo Phizmiz,129,fma_artist:129,mubert,validation,ai,ai,0.9999962071660984
+ai:Echoes/TTA/brev/Scramby_Eggs_Andy_G._Cohen_brev_TTA_001.mp3,Scramby Eggs - Andy G. Cohen,20985,fma_artist:20985,brev,validation,ai,ai,0.9999999381877327
+ai:Echoes/TTA/musicgen/ZSaber_feat_Jake_Allison_Decktonic_musicgen_TTA_001.wav,Z-Saber (feat Jake Allison) - Decktonic,14670,fma_artist:14670,musicgen,validation,ai,ai,0.9996595484166839
+ai:Echoes/TTA/elevenlabs/We_Are_Canucks_David_Blair_elevenlabs_TTA_002.mp3,We Are Canucks - David Blair,16630,fma_artist:16630,elevenlabs,validation,ai,human,0.02741975262324539
+ai:Echoes/TTA/audioldm/Scramby_Eggs_Andy_G._Cohen_audioldm_TTA_001.mp3,Scramby Eggs - Andy G. Cohen,20985,fma_artist:20985,audioldm,validation,ai,ai,0.9926862840066102
+ai:Echoes/TTA/acestep/La_Nina_Blanca_Vienna_Ditto_acestep_TTA_001.mp3,La Nina Blanca - Vienna Ditto,18767,fma_artist:18767,acestep,validation,ai,ai,0.9999524728868369
+ai:Echoes/TTA/suno/Celia_Ergo_Phizmiz_suno_TTA_001.mp3,Celia - Ergo Phizmiz,129,fma_artist:129,suno,validation,ai,ai,0.9666505776100841
+ai:Echoes/TTA/stableaudio/Sheffield_Hall_Andy_G._Cohen_stableaudio_TTA_001.mp3,Sheffield Hall - Andy G. Cohen,20985,fma_artist:20985,stableaudio,validation,ai,ai,0.9187427313907186
+ai:Echoes/TTA/diffrhythm/Morning_Bell_Nihilore_diffrhythm_TTA_001.mp3,Morning Bell - Nihilore,21691,fma_artist:21691,diffrhythm,validation,ai,ai,0.9999718006905642
+ai:Echoes/TTA/udio/We_Are_Canucks_David_Blair_udio_TTA_002.mp3,We Are Canucks - David Blair,16630,fma_artist:16630,udio,validation,ai,ai,0.9999627128690038
+ai:Echoes/TTA/suno/Scramby_Eggs_Andy_G._Cohen_suno_TTA_001.mp3,Scramby Eggs - Andy G. Cohen,20985,fma_artist:20985,suno,validation,ai,ai,0.9995972743462279
+ai:Echoes/TTA/producer/CopperNickle_UncleBibby_producer_TTA_001.mp3,CopperNickle - UncleBibby,18761,fma_artist:18761,producer,validation,ai,ai,0.9969383654385598
+ai:Echoes/TTA/songgen/Busby_Berkeley_Ergo_Phizmiz_songgen_TTA_001.mp3,Busby Berkeley - Ergo Phizmiz,129,fma_artist:129,songgen,validation,ai,ai,0.9999929650306084
+ai:Echoes/TTA/mubert/Scramby_Eggs_Andy_G._Cohen_mubert_TTA_001.mp3,Scramby Eggs - Andy G. Cohen,20985,fma_artist:20985,mubert,validation,ai,ai,0.9959657800403229
+ai:Echoes/TTA/musicgen/Night_Drive_Decktonic_musicgen_TTA_001.wav,Night Drive - Decktonic,14670,fma_artist:14670,musicgen,validation,ai,human,0.4921548831863825
+ai:Echoes/TTA/diffrhythm/We_Are_Canucks_David_Blair_diffrhythm_TTA_001.mp3,We Are Canucks - David Blair,16630,fma_artist:16630,diffrhythm,validation,ai,ai,0.9990730263615393
+ai:Echoes/TTA/elevenlabs/Scramby_Eggs_Andy_G._Cohen_elevenlabs_TTA_002.mp3,Scramby Eggs - Andy G. Cohen,20985,fma_artist:20985,elevenlabs,validation,ai,ai,0.9983182952883801
+ai:Echoes/TTA/audioldm/Set_Fire_to_Creation_Nihilore_audioldm_TTA_001.mp3,Set Fire to Creation - Nihilore,21691,fma_artist:21691,audioldm,validation,ai,ai,0.8604241476993112
+ai:Echoes/TTA/brev/On_My_Mind_Ergo_Phizmiz_brev_TTA_002.mp3,On My Mind - Ergo Phizmiz,129,fma_artist:129,brev,validation,ai,ai,0.9999951218660379
+ai:Echoes/TTA/acestep/Scramby_Eggs_Andy_G._Cohen_acestep_TTA_001.mp3,Scramby Eggs - Andy G. Cohen,20985,fma_artist:20985,acestep,validation,ai,ai,0.9999998555116891
+ai:Echoes/TTA/udio/CopperNickle_UncleBibby_udio_TTA_001.mp3,CopperNickle - UncleBibby,18761,fma_artist:18761,udio,validation,ai,ai,0.9998269721630382
+ai:Echoes/TTA/producer/Busby_Berkeley_Ergo_Phizmiz_producer_TTA_001.mp3,Busby Berkeley - Ergo Phizmiz,129,fma_artist:129,producer,validation,ai,ai,0.9997268013652595
+ai:Echoes/TTA/stableaudio/Scramby_Eggs_Andy_G._Cohen_stableaudio_TTA_001.mp3,Scramby Eggs - Andy G. Cohen,20985,fma_artist:20985,stableaudio,validation,ai,ai,0.9996511623199609
+ai:Echoes/TTA/songgen/La_Nina_Blanca_Vienna_Ditto_songgen_TTA_001.mp3,La Nina Blanca - Vienna Ditto,18767,fma_artist:18767,songgen,validation,ai,ai,0.9999999414052597
+ai:Echoes/TTA/musicgen/We_Are_Canucks_David_Blair_musicgen_TTA_001.wav,We Are Canucks - David Blair,16630,fma_artist:16630,musicgen,validation,ai,ai,0.9994550355234305
+ai:Echoes/TTA/suno/Scramby_Eggs_Andy_G._Cohen_suno_TTA_002.mp3,Scramby Eggs - Andy G. Cohen,20985,fma_artist:20985,suno,validation,ai,ai,0.9937124044646823
+ai:Echoes/TTA/audioldm/Night_Drive_Decktonic_audioldm_TTA_001.mp3,Night Drive - Decktonic,14670,fma_artist:14670,audioldm,validation,ai,human,0.2747629680770234
+ai:Echoes/TTA/acestep/We_Are_Canucks_David_Blair_acestep_TTA_001.mp3,We Are Canucks - David Blair,16630,fma_artist:16630,acestep,validation,ai,ai,0.9999999158744557
+ai:Echoes/TTA/diffrhythm/Sheffield_Hall_Andy_G._Cohen_diffrhythm_TTA_001.mp3,Sheffield Hall - Andy G. Cohen,20985,fma_artist:20985,diffrhythm,validation,ai,ai,0.9999399022375688
+ai:Echoes/TTA/elevenlabs/Jangus_inspired_by_ToeJam_and_Earl_UncleBibby_elevenlabs_TTA_002.mp3,Jangus (inspired by ToeJam and Earl) - UncleBibby,18761,fma_artist:18761,elevenlabs,validation,ai,ai,0.9999739674342509
+ai:Echoes/TTA/udio/Mandrill_Ergo_Phizmiz_udio_TTA_002.mp3,Mandrill - Ergo Phizmiz,129,fma_artist:129,udio,validation,ai,human,0.020205702514949814
+ai:Echoes/TTA/songgen/Scramby_Eggs_Andy_G._Cohen_songgen_TTA_001.mp3,Scramby Eggs - Andy G. Cohen,20985,fma_artist:20985,songgen,validation,ai,ai,0.9999648593661252
+ai:Echoes/TTA/brev/Night_Drive_Decktonic_brev_TTA_002.mp3,Night Drive - Decktonic,14670,fma_artist:14670,brev,validation,ai,ai,0.9999983031626132
+ai:Echoes/TTA/mubert/Mandrill_Ergo_Phizmiz_mubert_TTA_001.mp3,Mandrill - Ergo Phizmiz,129,fma_artist:129,mubert,validation,ai,human,0.34518627970713456
+ai:Echoes/TTA/musicgen/Sheffield_Hall_Andy_G_Cohen_musicgen_TTA_001.wav,Sheffield Hall - Andy G. Cohen,20985,fma_artist:20985,musicgen,validation,ai,ai,0.9925237444925045
+ai:Echoes/TTA/stableaudio/Jangus_inspired_by_ToeJam_and_Earl_UncleBibby_stableaudio_TTA_001.mp3,Jangus (inspired by ToeJam and Earl) - UncleBibby,18761,fma_artist:18761,stableaudio,validation,ai,ai,0.9684416302612503
+ai:Echoes/TTA/producer/Celia_Ergo_Phizmiz_producer_TTA_001.mp3,Celia - Ergo Phizmiz,129,fma_artist:129,producer,validation,ai,ai,0.9968789675379026
+ai:Echoes/TTA/elevenlabs/Scramby_Eggs_Andy_G._Cohen_elevenlabs_TTA_001.mp3,Scramby Eggs - Andy G. Cohen,20985,fma_artist:20985,elevenlabs,validation,ai,ai,0.9797254136620828
+ai:Echoes/TTA/audioldm/Morning_Bell_Nihilore_audioldm_TTA_001.mp3,Morning Bell - Nihilore,21691,fma_artist:21691,audioldm,validation,ai,ai,0.9961511793143906
+ai:Echoes/TTA/suno/We_Are_Canucks_David_Blair_suno_TTA_002.mp3,We Are Canucks - David Blair,16630,fma_artist:16630,suno,validation,ai,ai,0.9999631982719377
+ai:Echoes/TTA/udio/Scramby_Eggs_Andy_G._Cohen_udio_TTA_001.mp3,Scramby Eggs - Andy G. Cohen,20985,fma_artist:20985,udio,validation,ai,ai,0.6236530982867894
+ai:Echoes/TTA/diffrhythm/La_Nina_Blanca_Vienna_Ditto_diffrhythm_TTA_001.mp3,La Nina Blanca - Vienna Ditto,18767,fma_artist:18767,diffrhythm,validation,ai,ai,0.931298103235244
+ai:Echoes/TTA/brev/We_Are_Canucks_David_Blair_brev_TTA_001.mp3,We Are Canucks - David Blair,16630,fma_artist:16630,brev,validation,ai,ai,0.9994625277080286
+ai:Echoes/TTA/acestep/Set_Fire_to_Creation_Nihilore_acestep_TTA_001.mp3,Set Fire to Creation - Nihilore,21691,fma_artist:21691,acestep,validation,ai,ai,0.999999795033061
+ai:Echoes/TTA/mubert/Something_Dirty_Ergo_Phizmiz_mubert_TTA_001.mp3,Something Dirty - Ergo Phizmiz,129,fma_artist:129,mubert,validation,ai,ai,0.9911089137136523
+ai:Echoes/TTA/stableaudio/Night_Drive_Decktonic_stableaudio_TTA_001.mp3,Night Drive - Decktonic,14670,fma_artist:14670,stableaudio,validation,ai,ai,0.9980672446993742
+ai:Echoes/TTA/producer/Food_and_War_Ergo_Phizmiz_producer_TTA_001.mp3,Food and War - Ergo Phizmiz,129,fma_artist:129,producer,validation,ai,ai,0.9999716601303262
+ai:Echoes/TTA/songgen/Ugly_Vienna_Ditto_songgen_TTA_001.mp3,Ugly - Vienna Ditto,18767,fma_artist:18767,songgen,validation,ai,ai,0.9999999908199927
+ai:Echoes/TTA/udio/We_Are_Canucks_David_Blair_udio_TTA_001.mp3,We Are Canucks - David Blair,16630,fma_artist:16630,udio,validation,ai,ai,0.9917955999790236
+ai:Echoes/TTA/musicgen/Set_Fire_to_Creation_Nihilore_musicgen_TTA_001.wav,Set Fire to Creation - Nihilore,21691,fma_artist:21691,musicgen,validation,ai,ai,0.9968775403546483
+ai:Echoes/TTA/elevenlabs/Millitary_Industrial_Complex_Punk_Rock_Opera_elevenlabs_TTA_002.mp3,Millitary Industrial Complex - Punk Rock Opera,22128,fma_artist:22128,elevenlabs,holdout,ai,ai,0.7317012007551615
+ai:Echoes/TTA/brev/Noam_Chomskys_Corporate_Carbohydrate_Surprise_Quelle_Fromage_brev_TTA_001.mp3,Noam Chomsky's Corporate Carbohydrate Surprise - Quelle Fromage,15496,fma_artist:15496,brev,holdout,ai,ai,0.9999688071381436
+ai:Echoes/TTA/suno/OST_04_Ship_under_attack_sawsquarenoise_suno_TTA_001.mp3,OST 04 Ship under attack - sawsquarenoise,19696,fma_artist:19696,suno,holdout,ai,human,0.04739245396877963
+ai:Echoes/TTA/producer/Roland_Garros_2048_Zoliborz_producer_TTA_001.mp3,Roland Garros 2048 - Zoliborz,19691,fma_artist:19691,producer,holdout,ai,ai,0.9999870550375616
+ai:Echoes/TTA/mubert/SD_Ill_Mix_H-LR_mubert_TTA_001.mp3,SD (Ill Mix) - H-LR,23219,fma_artist:23219,mubert,holdout,ai,ai,0.9942942930607148
+ai:Echoes/TTA/acestep/Burn_Room_For_A_Ghost_acestep_TTA_001.mp3,Burn - Room For A Ghost,13115,fma_artist:13115,acestep,holdout,ai,ai,0.9999902834636105
+ai:Echoes/TTA/musicgen/Cloudy_Subway_Sonicbeat_musicgen_TTA_001.wav,Cloudy - Subway Sonicbeat,15501,fma_artist:15501,musicgen,holdout,ai,ai,0.6108853349927835
+ai:Echoes/TTA/songgen/Niche_Dreams_Square_People_songgen_TTA_001.mp3,Niche Dreams - Square People,15310,fma_artist:15310,songgen,holdout,ai,ai,0.9800558222718214
+ai:Echoes/TTA/audioldm/The_Secret_Garden_Barbarix_audioldm_TTA_001.mp3,The Secret Garden - Barbarix,13437,fma_artist:13437,audioldm,holdout,ai,ai,0.9961929943003119
+ai:Echoes/TTA/diffrhythm/Millitary_Industrial_Complex_Punk_Rock_Opera_diffrhythm_TTA_001.mp3,Millitary Industrial Complex - Punk Rock Opera,22128,fma_artist:22128,diffrhythm,holdout,ai,ai,0.9999006680009991
+ai:Echoes/TTA/stableaudio/OST_04_Ship_under_attack_sawsquarenoise_stableaudio_TTA_001.mp3,OST 04 Ship under attack - sawsquarenoise,19696,fma_artist:19696,stableaudio,holdout,ai,human,0.4904838633266832
+ai:Echoes/TTA/udio/Roland_Garros_2048_Zoliborz_udio_TTA_002.mp3,Roland Garros 2048 - Zoliborz,19691,fma_artist:19691,udio,holdout,ai,human,0.05471423086185256
+ai:Echoes/TTA/suno/Noam_Chomskys_Corporate_Carbohydrate_Surprise_Quelle_Fromage_suno_TTA_001.mp3,Noam Chomsky's Corporate Carbohydrate Surprise - Quelle Fromage,15496,fma_artist:15496,suno,holdout,ai,ai,0.9963593491196591
+ai:Echoes/TTA/musicgen/Redlight_Room_For_A_Ghost_musicgen_TTA_001.wav,Redlight - Room For A Ghost,13115,fma_artist:13115,musicgen,holdout,ai,ai,0.9999785583786315
+ai:Echoes/TTA/acestep/SD_Ill_Mix_H-LR_acestep_TTA_001.mp3,SD (Ill Mix) - H-LR,23219,fma_artist:23219,acestep,holdout,ai,ai,0.9997228581169131
+ai:Echoes/TTA/audioldm/Niche_Dreams_Square_People_audioldm_TTA_001.mp3,Niche Dreams - Square People,15310,fma_artist:15310,audioldm,holdout,ai,human,0.31456321618754957
+ai:Echoes/TTA/songgen/The_Secret_Garden_Barbarix_songgen_TTA_001.mp3,The Secret Garden - Barbarix,13437,fma_artist:13437,songgen,holdout,ai,ai,0.999997193865378
+ai:Echoes/TTA/brev/Millitary_Industrial_Complex_Punk_Rock_Opera_brev_TTA_001.mp3,Millitary Industrial Complex - Punk Rock Opera,22128,fma_artist:22128,brev,holdout,ai,ai,0.9999052896837487
+ai:Echoes/TTA/diffrhythm/Cloudy_Subway_Sonicbeat_diffrhythm_TTA_001.mp3,Cloudy - Subway Sonicbeat,15501,fma_artist:15501,diffrhythm,holdout,ai,ai,0.9999945211031442
+ai:Echoes/TTA/stableaudio/Roland_Garros_2048_Zoliborz_stableaudio_TTA_001.mp3,Roland Garros 2048 - Zoliborz,19691,fma_artist:19691,stableaudio,holdout,ai,ai,0.9967270474685284
+ai:Echoes/TTA/elevenlabs/Noam_Chomskys_Corporate_Carbohydrate_Surprise_Quelle_Fromage_elevenlabs_TTA_001.mp3,Noam Chomsky's Corporate Carbohydrate Surprise - Quelle Fromage,15496,fma_artist:15496,elevenlabs,holdout,ai,ai,0.9884358679114026
+ai:Echoes/TTA/producer/Millitary_Industrial_Complex_Punk_Rock_Opera_producer_TTA_001.mp3,Millitary Industrial Complex - Punk Rock Opera,22128,fma_artist:22128,producer,holdout,ai,ai,0.9997413141203957
+ai:Echoes/TTA/udio/SD_Ill_Mix_H-LR_udio_TTA_001.mp3,SD (Ill Mix) - H-LR,23219,fma_artist:23219,udio,holdout,ai,human,0.009080478262067633
+ai:Echoes/TTA/mubert/Roland_Garros_2048_Zoliborz_mubert_TTA_001.mp3,Roland Garros 2048 - Zoliborz,19691,fma_artist:19691,mubert,holdout,ai,ai,0.883600124446945
+ai:Echoes/TTA/suno/OST_04_Ship_under_attack_sawsquarenoise_suno_TTA_002.mp3,OST 04 Ship under attack - sawsquarenoise,19696,fma_artist:19696,suno,holdout,ai,human,0.04003450672365912
+ai:Echoes/TTA/songgen/Burn_Room_For_A_Ghost_songgen_TTA_001.mp3,Burn - Room For A Ghost,13115,fma_artist:13115,songgen,holdout,ai,ai,0.9999995357640731
+ai:Echoes/TTA/acestep/The_Secret_Garden_Barbarix_acestep_TTA_001.mp3,The Secret Garden - Barbarix,13437,fma_artist:13437,acestep,holdout,ai,ai,0.9999997697925839
+ai:Echoes/TTA/diffrhythm/Niche_Dreams_Square_People_diffrhythm_TTA_001.mp3,Niche Dreams - Square People,15310,fma_artist:15310,diffrhythm,holdout,ai,ai,0.9923080398218889
+ai:Echoes/TTA/audioldm/Cloudy_Subway_Sonicbeat_audioldm_TTA_001.mp3,Cloudy - Subway Sonicbeat,15501,fma_artist:15501,audioldm,holdout,ai,ai,0.999970848266802
+ai:Echoes/TTA/stableaudio/Burn_Room_For_A_Ghost_stableaudio_TTA_001.mp3,Burn - Room For A Ghost,13115,fma_artist:13115,stableaudio,holdout,ai,ai,0.9999915570710163
+ai:Echoes/TTA/producer/SD_Ill_Mix_H-LR_producer_TTA_001.mp3,SD (Ill Mix) - H-LR,23219,fma_artist:23219,producer,holdout,ai,ai,0.9998419922024001
+ai:Echoes/TTA/musicgen/Niche_Dreams_Square_People_musicgen_TTA_001.wav,Niche Dreams - Square People,15310,fma_artist:15310,musicgen,holdout,ai,ai,0.9985063084771175
+ai:Echoes/TTA/elevenlabs/Noam_Chomskys_Corporate_Carbohydrate_Surprise_Quelle_Fromage_elevenlabs_TTA_002.mp3,Noam Chomsky's Corporate Carbohydrate Surprise - Quelle Fromage,15496,fma_artist:15496,elevenlabs,holdout,ai,human,0.49438142767260035
+ai:Echoes/TTA/brev/Roland_Garros_2048_Zoliborz_brev_TTA_002.mp3,Roland Garros 2048 - Zoliborz,19691,fma_artist:19691,brev,holdout,ai,ai,0.9999998326270332
+ai:Echoes/TTA/udio/OST_04_Ship_under_attack_sawsquarenoise_udio_TTA_001.mp3,OST 04 Ship under attack - sawsquarenoise,19696,fma_artist:19696,udio,holdout,ai,ai,0.9929031181769464
+ai:Echoes/TTA/mubert/Millitary_Industrial_Complex_Punk_Rock_Opera_mubert_TTA_001.mp3,Millitary Industrial Complex - Punk Rock Opera,22128,fma_artist:22128,mubert,holdout,ai,ai,0.9976440829340673
+ai:Echoes/TTA/musicgen/The_Secret_Garden_Barbarix_musicgen_TTA_001.wav,The Secret Garden - Barbarix,13437,fma_artist:13437,musicgen,holdout,ai,ai,0.9981566043966678
+ai:Echoes/TTA/diffrhythm/Redlight_Room_For_A_Ghost_diffrhythm_TTA_001.mp3,Redlight - Room For A Ghost,13115,fma_artist:13115,diffrhythm,holdout,ai,ai,0.9997236967324178
+ai:Echoes/TTA/songgen/Cloudy_Subway_Sonicbeat_songgen_TTA_001.mp3,Cloudy - Subway Sonicbeat,15501,fma_artist:15501,songgen,holdout,ai,ai,0.9999998281998301
+ai:Echoes/TTA/acestep/Niche_Dreams_Square_People_acestep_TTA_001.mp3,Niche Dreams - Square People,15310,fma_artist:15310,acestep,holdout,ai,ai,0.99998632460796
+ai:Echoes/TTA/elevenlabs/SD_Ill_Mix_H-LR_elevenlabs_TTA_002.mp3,SD (Ill Mix) - H-LR,23219,fma_artist:23219,elevenlabs,holdout,ai,ai,0.9802236190658988
+ai:Echoes/TTA/audioldm/Redlight_Room_For_A_Ghost_audioldm_TTA_001.mp3,Redlight - Room For A Ghost,13115,fma_artist:13115,audioldm,holdout,ai,ai,0.9999075241800357
+ai:Echoes/TTA/producer/OST_04_Ship_under_attack_sawsquarenoise_producer_TTA_001.mp3,OST 04 Ship under attack - sawsquarenoise,19696,fma_artist:19696,producer,holdout,ai,ai,0.9999512764084555
+ai:Echoes/TTA/stableaudio/Millitary_Industrial_Complex_Punk_Rock_Opera_stableaudio_TTA_001.mp3,Millitary Industrial Complex - Punk Rock Opera,22128,fma_artist:22128,stableaudio,holdout,ai,ai,0.9999386464966278
+ai:Echoes/TTA/brev/Noam_Chomskys_Corporate_Carbohydrate_Surprise_Quelle_Fromage_brev_TTA_002.mp3,Noam Chomsky's Corporate Carbohydrate Surprise - Quelle Fromage,15496,fma_artist:15496,brev,holdout,ai,ai,0.9999689719477534
+ai:Echoes/TTA/suno/Roland_Garros_2048_Zoliborz_suno_TTA_001.mp3,Roland Garros 2048 - Zoliborz,19691,fma_artist:19691,suno,holdout,ai,ai,0.999999523881488
+ai:Echoes/TTA/udio/Noam_Chomskys_Corporate_Carbohydrate_Surprise_Quelle_Fromage_udio_TTA_002.mp3,Noam Chomsky's Corporate Carbohydrate Surprise - Quelle Fromage,15496,fma_artist:15496,udio,holdout,ai,ai,0.9986740644519344
+ai:Echoes/TTA/songgen/Roland_Garros_2048_Zoliborz_songgen_TTA_001.mp3,Roland Garros 2048 - Zoliborz,19691,fma_artist:19691,songgen,holdout,ai,ai,0.999998397632759
+ai:Echoes/TTA/mubert/OST_04_Ship_under_attack_sawsquarenoise_mubert_TTA_001.mp3,OST 04 Ship under attack - sawsquarenoise,19696,fma_artist:19696,mubert,holdout,ai,human,0.20892654635811797
+ai:Echoes/TTA/elevenlabs/Millitary_Industrial_Complex_Punk_Rock_Opera_elevenlabs_TTA_001.mp3,Millitary Industrial Complex - Punk Rock Opera,22128,fma_artist:22128,elevenlabs,holdout,ai,ai,0.7485536181405897
+ai:Echoes/TTA/diffrhythm/The_Secret_Garden_Barbarix_diffrhythm_TTA_001.mp3,The Secret Garden - Barbarix,13437,fma_artist:13437,diffrhythm,holdout,ai,ai,0.9999868447414801
+ai:Echoes/TTA/audioldm/Burn_Room_For_A_Ghost_audioldm_TTA_001.mp3,Burn - Room For A Ghost,13115,fma_artist:13115,audioldm,holdout,ai,human,0.4046338093081349
+ai:Echoes/TTA/acestep/Cloudy_Subway_Sonicbeat_acestep_TTA_001.mp3,Cloudy - Subway Sonicbeat,15501,fma_artist:15501,acestep,holdout,ai,ai,0.9999658385596454
+ai:Echoes/TTA/musicgen/Millitary_Industrial_Complex_Punk_Rock_Opera_musicgen_TTA_001.wav,Millitary Industrial Complex - Punk Rock Opera,22128,fma_artist:22128,musicgen,holdout,ai,ai,0.9989887759924814
+ai:Echoes/TTA/suno/SD_Ill_Mix_H-LR_suno_TTA_001.mp3,SD (Ill Mix) - H-LR,23219,fma_artist:23219,suno,holdout,ai,ai,0.9988736703166583
+ai:Echoes/TTA/brev/Roland_Garros_2048_Zoliborz_brev_TTA_001.mp3,Roland Garros 2048 - Zoliborz,19691,fma_artist:19691,brev,holdout,ai,ai,0.9999999728283576
+ai:Echoes/TTA/producer/Noam_Chomskys_Corporate_Carbohydrate_Surprise_Quelle_Fromage_producer_TTA_001.mp3,Noam Chomsky's Corporate Carbohydrate Surprise - Quelle Fromage,15496,fma_artist:15496,producer,holdout,ai,ai,0.9641886117743538
+ai:Echoes/TTA/stableaudio/Redlight_Room_For_A_Ghost_stableaudio_TTA_001.mp3,Redlight - Room For A Ghost,13115,fma_artist:13115,stableaudio,holdout,ai,ai,0.9999952690385803
+ai:Echoes/TTA/udio/SD_Ill_Mix_H-LR_udio_TTA_002.mp3,SD (Ill Mix) - H-LR,23219,fma_artist:23219,udio,holdout,ai,ai,0.9994541787030496
+ai:Echoes/TTA/diffrhythm/Roland_Garros_2048_Zoliborz_diffrhythm_TTA_001.mp3,Roland Garros 2048 - Zoliborz,19691,fma_artist:19691,diffrhythm,holdout,ai,ai,0.9998761426016591
+ai:Echoes/TTA/mubert/Noam_Chomskys_Corporate_Carbohydrate_Surprise_Quelle_Fromage_mubert_TTA_001.mp3,Noam Chomsky's Corporate Carbohydrate Surprise - Quelle Fromage,15496,fma_artist:15496,mubert,holdout,ai,human,0.056723511949607106
+ai:Echoes/TTA/songgen/Redlight_Room_For_A_Ghost_songgen_TTA_001.mp3,Redlight - Room For A Ghost,13115,fma_artist:13115,songgen,holdout,ai,ai,0.999999039425917
+ai:Echoes/TTA/brev/OST_04_Ship_under_attack_sawsquarenoise_brev_TTA_001.mp3,OST 04 Ship under attack - sawsquarenoise,19696,fma_artist:19696,brev,holdout,ai,ai,0.9995149668237028
+ai:Echoes/TTA/suno/Millitary_Industrial_Complex_Punk_Rock_Opera_suno_TTA_002.mp3,Millitary Industrial Complex - Punk Rock Opera,22128,fma_artist:22128,suno,holdout,ai,ai,0.9970312475600757
+ai:Echoes/TTA/musicgen/OST_04_Ship_under_attack_sawsquarenoise_musicgen_TTA_001.wav,OST 04 Ship under attack - sawsquarenoise,19696,fma_artist:19696,musicgen,holdout,ai,ai,0.9901313732596452
+ai:Echoes/TTA/elevenlabs/Roland_Garros_2048_Zoliborz_elevenlabs_TTA_002.mp3,Roland Garros 2048 - Zoliborz,19691,fma_artist:19691,elevenlabs,holdout,ai,ai,0.8480944106839354
+ai:Echoes/TTA/audioldm/SD_Ill_Mix_H-LR_audioldm_TTA_001.mp3,SD (Ill Mix) - H-LR,23219,fma_artist:23219,audioldm,holdout,ai,human,0.1208048403180398
+ai:Echoes/TTA/udio/Millitary_Industrial_Complex_Punk_Rock_Opera_udio_TTA_001.mp3,Millitary Industrial Complex - Punk Rock Opera,22128,fma_artist:22128,udio,holdout,ai,ai,0.9366633007607803
+ai:Echoes/TTA/stableaudio/Noam_Chomskys_Corporate_Carbohydrate_Surprise_Quelle_Fromage_stableaudio_TTA_001.mp3,Noam Chomsky's Corporate Carbohydrate Surprise - Quelle Fromage,15496,fma_artist:15496,stableaudio,holdout,ai,ai,0.7739899078135333
+ai:Echoes/TTA/acestep/Redlight_Room_For_A_Ghost_acestep_TTA_001.mp3,Redlight - Room For A Ghost,13115,fma_artist:13115,acestep,holdout,ai,ai,0.9999999770986762
+ai:Echoes/TTA/diffrhythm/SD_Ill_Mix_H-LR_diffrhythm_TTA_001.mp3,SD (Ill Mix) - H-LR,23219,fma_artist:23219,diffrhythm,holdout,ai,ai,0.9999901061028409
+ai:Echoes/TTA/audioldm/Roland_Garros_2048_Zoliborz_audioldm_TTA_001.mp3,Roland Garros 2048 - Zoliborz,19691,fma_artist:19691,audioldm,holdout,ai,ai,0.5992033175230107
+ai:Echoes/TTA/elevenlabs/OST_04_Ship_under_attack_sawsquarenoise_elevenlabs_TTA_001.mp3,OST 04 Ship under attack - sawsquarenoise,19696,fma_artist:19696,elevenlabs,holdout,ai,human,0.13717894946065348
+ai:Echoes/TTA/acestep/Millitary_Industrial_Complex_Punk_Rock_Opera_acestep_TTA_001.mp3,Millitary Industrial Complex - Punk Rock Opera,22128,fma_artist:22128,acestep,holdout,ai,ai,0.9999995371846916
+ai:Echoes/TTA/musicgen/Noam_Chomskys_Corporate_Carbohydrate_Surprise_Quelle_Fromage_musicgen_TTA_001.wav,Noam Chomsky's Corporate Carbohydrate Surprise - Quelle Fromage,15496,fma_artist:15496,musicgen,holdout,ai,ai,0.9957943756610399

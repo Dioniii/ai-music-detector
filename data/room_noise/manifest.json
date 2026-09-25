@@ -1,0 +1,115 @@
+{
+  "repository": "https://github.com/karolpiczak/ESC-50",
+  "revision": "33c8ce9eb2cf0b1c2f8bcf322eb349b6be34dbb6",
+  "license": "See LICENSE.txt; noncommercial portfolio experiment",
+  "clips": [
+    {
+      "filename": "1-17367-A-10.wav",
+      "fold": "1",
+      "target": "10",
+      "category": "rain",
+      "esc10": "True",
+      "src_file": "17367",
+      "take": "A",
+      "split": "train",
+      "sha256": "d732acd2e0c7c40405968010f49f250740c86998fc416eff2ed5330fc8c89dea",
+      "url": "https://raw.githubusercontent.com/karolpiczak/ESC-50/33c8ce9eb2cf0b1c2f8bcf322eb349b6be34dbb6/audio/1-17367-A-10.wav"
+    },
+    {
+      "filename": "1-21896-A-35.wav",
+      "fold": "1",
+      "target": "35",
+      "category": "washing_machine",
+      "esc10": "False",
+      "src_file": "21896",
+      "take": "A",
+      "split": "train",
+      "sha256": "1b4210c50a01cabab07065a112463fad4f82de60385ef9aaf6316afe7d4b976c",
+      "url": "https://raw.githubusercontent.com/karolpiczak/ESC-50/33c8ce9eb2cf0b1c2f8bcf322eb349b6be34dbb6/audio/1-21896-A-35.wav"
+    },
+    {
+      "filename": "1-18631-A-23.wav",
+      "fold": "1",
+      "target": "23",
+      "category": "breathing",
+      "esc10": "False",
+      "src_file": "18631",
+      "take": "A",
+      "split": "train",
+      "sha256": "cdbd39617f2955d86ec18a4032ecd9090369c23f3d8c6d650f62e9e1ee19ea6a",
+      "url": "https://raw.githubusercontent.com/karolpiczak/ESC-50/33c8ce9eb2cf0b1c2f8bcf322eb349b6be34dbb6/audio/1-18631-A-23.wav"
+    },
+    {
+      "filename": "4-160999-A-10.wav",
+      "fold": "4",
+      "target": "10",
+      "category": "rain",
+      "esc10": "True",
+      "src_file": "160999",
+      "take": "A",
+      "split": "validation",
+      "sha256": "c85ef3d5cbd86ba80a7f089277d66f165e36b8dcf8070643ddc7ec73eb4f5dcb",
+      "url": "https://raw.githubusercontent.com/karolpiczak/ESC-50/33c8ce9eb2cf0b1c2f8bcf322eb349b6be34dbb6/audio/4-160999-A-10.wav"
+    },
+    {
+      "filename": "4-218199-A-35.wav",
+      "fold": "4",
+      "target": "35",
+      "category": "washing_machine",
+      "esc10": "False",
+      "src_file": "218199",
+      "take": "A",
+      "split": "validation",
+      "sha256": "02b6d846aff2d55f6372e5cebd1056db799b8a2487953d774d537bfa3bde7ddd",
+      "url": "https://raw.githubusercontent.com/karolpiczak/ESC-50/33c8ce9eb2cf0b1c2f8bcf322eb349b6be34dbb6/audio/4-218199-A-35.wav"
+    },
+    {
+      "filename": "4-171706-A-23.wav",
+      "fold": "4",
+      "target": "23",
+      "category": "breathing",
+      "esc10": "False",
+      "src_file": "171706",
+      "take": "A",
+      "split": "validation",
+      "sha256": "ee25fd0604d283d805076c3a5a0bbe807a8db5754bf19d0ed48e5d036d9ef646",
+      "url": "https://raw.githubusercontent.com/karolpiczak/ESC-50/33c8ce9eb2cf0b1c2f8bcf322eb349b6be34dbb6/audio/4-171706-A-23.wav"
+    },
+    {
+      "filename": "5-181766-A-10.wav",
+      "fold": "5",
+      "target": "10",
+      "category": "rain",
+      "esc10": "True",
+      "src_file": "181766",
+      "take": "A",
+      "split": "holdout",
+      "sha256": "608fcc0bef32512e2a984c7d3d2cac8ea161f6337ec0056850a6d34f07f8db35",
+      "url": "https://raw.githubusercontent.com/karolpiczak/ESC-50/33c8ce9eb2cf0b1c2f8bcf322eb349b6be34dbb6/audio/5-181766-A-10.wav"
+    },
+    {
+      "filename": "5-141683-A-35.wav",
+      "fold": "5",
+      "target": "35",
+      "category": "washing_machine",
+      "esc10": "False",
+      "src_file": "141683",
+      "take": "A",
+      "split": "holdout",
+      "sha256": "c8ac3bafa369ff4bcfef515f00060c963f4c19d9275ada75edbc8cdb9c1ad591",
+      "url": "https://raw.githubusercontent.com/karolpiczak/ESC-50/33c8ce9eb2cf0b1c2f8bcf322eb349b6be34dbb6/audio/5-141683-A-35.wav"
+    },
+    {
+      "filename": "5-213293-A-23.wav",
+      "fold": "5",
+      "target": "23",
+      "category": "breathing",
+      "esc10": "False",
+      "src_file": "213293",
+      "take": "A",
+      "split": "holdout",
+      "sha256": "177356c127eb7793473cbcbc6ac86cb47c8aabafa6fce2a1ad222b4a040111ef",
+      "url": "https://raw.githubusercontent.com/karolpiczak/ESC-50/33c8ce9eb2cf0b1c2f8bcf322eb349b6be34dbb6/audio/5-213293-A-23.wav"
+    }
+  ]
+}

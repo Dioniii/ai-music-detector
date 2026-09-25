@@ -23,3 +23,15 @@ data/local_recordings/
 
 # Personal project notes and learning documents stay local.
 /docs/
+
+# Downloaded background audio stays local; attribution remains tracked.
+data/room_noise/*.wav
+
+# Local training progress log.
+data/room_training.log
+
+# Detailed training outputs stay local; deployable model and results remain tracked.
+/data/baseline_room/features.npz
+/data/baseline_room/augmented_features.npz
+/data/baseline_room/augmentation.json
+/data/baseline_room/sections.json

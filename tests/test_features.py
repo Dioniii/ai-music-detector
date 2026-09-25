@@ -86,3 +86,22 @@ def test_constant_offset_contributes_energy_without_zero_crossings():
 def test_invalid_clip_is_rejected(bad):
     with pytest.raises(ValueError):
         extract_features(bad)
+
+
+
+def test_room_simulation_is_repeatable_finite_and_does_not_modify_source():
+    from baseline import simulate_room
+    from audio_inspection import Audio
+    source = tone()[:, None]
+    before = source.copy()
+    noise = np.random.default_rng(8).normal(size=160000).astype(np.float32)
+    audio = Audio(source, 24000)
+    first, parameters = simulate_room(audio, 42, noise)
+    repeat, same_parameters = simulate_room(audio, 42, noise)
+    different, _ = simulate_room(audio, 43, noise)
+    assert first.sample_rate == 32000 and first.samples.shape == (320000, 1)
+    assert np.isfinite(first.samples).all() and np.max(np.abs(first.samples)) <= .981
+    np.testing.assert_array_equal(first.samples, repeat.samples)
+    np.testing.assert_array_equal(source, before)
+    assert parameters == same_parameters
+    assert not np.array_equal(first.samples, different.samples)

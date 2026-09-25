@@ -1,0 +1,64 @@
+{
+  "metrics": {
+    "train": {
+      "tracks": 700,
+      "groups": 350,
+      "human_tracks": 350,
+      "ai_tracks": 350,
+      "confusion_matrix_true_rows_predicted_columns_human_ai": [
+        [
+          350,
+          0
+        ],
+        [
+          0,
+          350
+        ]
+      ],
+      "ai_precision": 1.0,
+      "ai_recall": 1.0,
+      "human_false_positive_rate": 0.0,
+      "accuracy": 1.0
+    },
+    "validation": {
+      "tracks": 150,
+      "groups": 75,
+      "human_tracks": 75,
+      "ai_tracks": 75,
+      "confusion_matrix_true_rows_predicted_columns_human_ai": [
+        [
+          61,
+          14
+        ],
+        [
+          6,
+          69
+        ]
+      ],
+      "ai_precision": 0.8313253012048193,
+      "ai_recall": 0.92,
+      "human_false_positive_rate": 0.18666666666666668,
+      "accuracy": 0.8666666666666667
+    },
+    "holdout": {
+      "tracks": 150,
+      "groups": 78,
+      "human_tracks": 75,
+      "ai_tracks": 75,
+      "confusion_matrix_true_rows_predicted_columns_human_ai": [
+        [
+          67,
+          8
+        ],
+        [
+          12,
+          63
+        ]
+      ],
+      "ai_precision": 0.8873239436619719,
+      "ai_recall": 0.84,
+      "human_false_positive_rate": 0.10666666666666667,
+      "accuracy": 0.8666666666666667
+    }
+  }
+}

@@ -1,6 +1,6 @@
 # EfficientAT encoder experiment - 2026-09-23
 
-The encoder classifier is now the default Streamlit and CLI model. The frozen
+This is the preserved original encoder experiment. The final default is documented in [the room-augmentation report](../baseline_room/REPORT.md). The frozen
 EfficientAT mn10_as encoder supplies 960 learned features; our own logistic
 regression was trained on 700 labeled recordings. No encoder fine-tuning,
 threshold search or additional dataset collection was performed.
