@@ -136,3 +136,17 @@ audio::-webkit-media-controls-panel {background:#0d0d0d;}
     .values-table th,.values-table td {padding:10px 12px;}
     hr {margin:16px 0;}
 }
+
+
+/* Recording reset stays at the top-right, with a phone-friendly hit target. */
+.st-key-recording_control {position:relative;}
+.st-key-recording_control [data-testid="stWidgetLabel"] {padding-right:52px;min-height:44px;}
+.st-key-recording_control .st-key-delete_recording {
+    position:absolute;top:0;right:0;width:44px!important;z-index:2;
+}
+.st-key-delete_recording button {
+    width:44px;height:44px;min-height:44px;padding:0;
+    color:#e36b6b!important;background:#0d0d0d!important;border:1px solid #2a2a28;
+}
+.st-key-delete_recording button p {font-size:26px!important;line-height:1!important;}
+.st-key-delete_recording button:hover {border-color:#e36b6b!important;}

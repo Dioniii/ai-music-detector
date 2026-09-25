@@ -174,11 +174,12 @@ def render_analysis():
                           horizontal=True, key='audio_source_mic_first', on_change=clear_result)
         upload = microphone = example = None
         if source == 'Use microphone':
-            microphone = st.audio_input('Record nearby music', sample_rate=32000,
-                                        key=f'microphone_{st.session_state.get("microphone_generation", 0)}', on_change=upload_changed)
-            if microphone is not None:
-                st.button('Delete recording and record again', on_click=delete_recording,
-                          width='stretch', key='delete_recording')
+            with st.container(key='recording_control'):
+                microphone = st.audio_input('Record nearby music', sample_rate=32000,
+                                            key=f'microphone_{st.session_state.get("microphone_generation", 0)}', on_change=upload_changed)
+                if microphone is not None:
+                    st.button('\u00d7', on_click=delete_recording,
+                              help='Delete recording and record again', key='delete_recording')
             with st.expander('Microphone not working?'):
                 st.write('Allow microphone access in your browser settings. On a phone, open the app using an HTTPS link. A plain HTTP address from your laptop will not enable recording. You can also record with your phone and upload the saved file.')
         else:
