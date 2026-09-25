@@ -11,7 +11,7 @@ from matplotlib.colors import ListedColormap, BoundaryNorm
 import numpy as np
 import soundfile as sf
 
-from audio_inspection import Audio, load_audio, spectrogram
+from audio_inspection import Audio, load_audio, spectrogram, recording_quality_issue
 from baseline import ROOT, DEFAULT_OUTPUT, read_csv, score_features, load_model
 from features import recording_features, encoder_features
 from preprocessing import prepare_recording, TARGET_SAMPLE_RATE
@@ -98,8 +98,13 @@ def analyze(path, display_name=None):
             raise ValueError('For this demo, please choose a recording no longer than 5 minutes.')
         if info.frames*info.channels>60_000_000:
             raise ValueError('This recording is too large to decode in the demo. Please upload a shorter excerpt.')
-        model=load_model(MODEL_PATH)
         audio=load_audio(path)
+        quality_issue=recording_quality_issue(audio)
+        if quality_issue:
+            return (f'<div class="result-card"><h2>Please try another recording</h2>'
+                    f'<p>{html.escape(quality_issue)}</p><p class="small-note">No AI or human prediction was made.</p></div>',
+                    '',None,None,None,[])
+        model=load_model(MODEL_PATH)
         encoded=model['variant']=='efficientat'
         vector,sections=(encoder_features(audio) if encoded else recording_features(audio))
         standardized=(vector-np.asarray(model['scaler_mean']))/np.asarray(model['scaler_scale'])

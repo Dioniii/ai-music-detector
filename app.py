@@ -45,6 +45,9 @@ The result is a **score from 0 to 1**: lower leans human, higher leans AI. At **
 ### 4. Treat the result as a clue
 The model always chooses one of those two labels, even when the score is close to the middle. **A score of 0.9 does not mean there is a 90% chance the song is AI-generated.** The result is a prediction, not proof of who made the music.
 
+### What if the recording is too quiet or distorted?
+The app checks for very weak sound and signs that the recording is too loud. If it finds either, it asks you to record again instead of giving an AI or human label. This basic check cannot tell whether background noise is drowning out the music.
+
 ### What did it learn from?
 We collected **1,000 recordings: 500 labeled human and 500 labeled AI**. The human music came from FMA, a music collection. The AI music came from Echoes TTA and includes music from 12 AI tools.
 

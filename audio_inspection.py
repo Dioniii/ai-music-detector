@@ -50,6 +50,36 @@ def load_audio(path: str | Path) -> Audio:
     return Audio(samples=samples, sample_rate=rate)
 
 
+def recording_quality_issue(audio: Audio) -> str | None:
+    """Conservative UI guard, not a noise estimator or authorship feature.
+
+    Require at least five seconds in one-second blocks at >=-50 dBFS AC RMS.
+    Reject if any channel has >=10% of samples at >=0.999 full scale. These are
+    initial heuristic limits, not thresholds validated on phone recordings.
+    Scan in blocks to avoid copying a whole decoded recording. Do not modify it.
+    """
+    audible_seconds = 0.0
+    clipped = np.zeros(audio.channels, dtype=np.int64)
+    for start in range(0, len(audio.samples), audio.sample_rate):
+        block = audio.samples[start:start + audio.sample_rate]
+        clipped += np.count_nonzero(np.abs(block) >= 0.999, axis=0)
+        mono = block.mean(axis=1, dtype=np.float64)
+        # A constant electrical offset is not audible music.
+        mono -= mono.mean()
+        rms = float(np.sqrt(np.mean(mono * mono)))
+        if rms >= 10 ** (-50 / 20):
+            audible_seconds += len(block) / audio.sample_rate
+    if np.any(clipped / len(audio.samples) >= 0.10):
+        return ('The recording may be too loud or distorted. Move the microphone '
+                'farther from the speaker or turn the music down, then record again. '
+                'For an uploaded file, try a different recording.')
+    if audible_seconds < 5.0:
+        return ('The recording is too quiet or has too little clear sound to analyze reliably. Move closer to the '
+                'music and record again. Check that the microphone is not covered. '
+                'For an uploaded file, try a clearer recording.')
+    return None
+
+
 def spectrogram(
     audio: Audio,
 ) -> tuple[NDArray[np.float64], NDArray[np.float64], NDArray[np.float64]]:
