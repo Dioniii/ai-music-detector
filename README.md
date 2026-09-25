@@ -33,7 +33,7 @@ uv sync --locked
 uv run --locked streamlit run app.py
 ```
 
-Open **http://localhost:8501** in your browser. The trained model is included;
+Open **https://ai-musicdetector.streamlit.app/** in your browser. The trained model is included;
 there is no need to download the training dataset or obtain an API key.
 
 Choose **Use microphone** or **Upload a file**, then press **Analyze recording**.
